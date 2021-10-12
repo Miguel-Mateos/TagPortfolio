@@ -1,23 +1,34 @@
+import { useEffect, useMemo } from "react";
 import logo from './logo.svg';
-import './App.css';
+import arrow from './flecha-hacia-abajo.png'
+import "./App.css";
+
+function Test({child}) {
+  child('yee')
+  return <div>hola</div>
+}
+
 
 function App() {
+  useEffect(() => {
+    document.title = "Eneko"
+  }, [])
+
+  useMemo(() => <Test />, [])
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <p className="welcome-header">
+          Welcome
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={arrow} className="arrow-logo" alt="arrow" />
       </header>
+      <section className="first-section">
+        <img className="head-logo" src={logo} alt="logo" />
+        <h2 className="first-section-title">This is my portfolio, im working on it, stay tuned ;)</h2>
+      </section>
     </div>
   );
 }
