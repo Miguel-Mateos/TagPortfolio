@@ -5,7 +5,7 @@ import "./App.css";
 
 function Test({child}) {
   child('yee')
-  return <div>hola</div>
+  return <div>hola yee</div>
 }
 
 
