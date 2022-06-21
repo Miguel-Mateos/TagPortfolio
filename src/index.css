@@ -1,0 +1,18 @@
+:root {
+  --bg01: #1b1f24;
+  --accent01: #d46c65;
+}
+
+body {
+  background-color: var(--bg01);
+  color: white;
+  margin: 0;
+  font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
