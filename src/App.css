@@ -1,18 +1,19 @@
 .App {
   text-align: center;
   height: 500vh;
+  color: white;
 }
 
 .header {
   height: 46vh;
-  width: 85vw;
   display: flex;
-  padding: 10rem 10rem;
+  padding: 10rem 2rem;
   justify-content: space-around;
+  align-items: center;
 }
 
 .header-content {
-  text-align: left;
+  text-align: right;
   font-size: 3rem;
   font-weight: bold;
   color: #fff;
@@ -21,17 +22,20 @@
 }
 
 .header-content>h1>span {
-  color: var(--accent01);
-}
-
-.header>picture {
-  align-self: end;
+  color: var(--primary);
 }
 
 .header-image {
   height: 22rem;
   width: 100%;
   object-fit: cover;
+}
+
+.icon-image {
+  height: 3rem;
+  width: 3rem;
+  object-fit: cover;
+  animation: move-icon infinite 3s linear;
 }
 
 .App-logo {
@@ -56,6 +60,20 @@
   color: white;
 }
 
+.subtitle-container {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--secondary);
+  border-radius: 7px;
+}
+
+.subtitle-container>h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -67,6 +85,20 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes move-icon {
+  0% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10px);
   }
 }
 

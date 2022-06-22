@@ -1,6 +1,10 @@
 :root {
   --bg01: #1b1f24;
-  --accent01: #d46c65;
+  --primary: #FFC15E;
+  --secondary: #F7B05B;
+  --tertiary: #F7934C;
+  --quaternary: #CC5803;
+  --accent01: #5E1D60;
 }
 
 body {
