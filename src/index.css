@@ -8,6 +8,7 @@
 }
 
 body {
+  overflow-x: hidden;
   background-color: var(--bg01);
   color: white;
   margin: 0;
