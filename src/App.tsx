@@ -6,13 +6,16 @@ interface IRepo {
   clone_url: string,
   created_at: string,
   description: string,
-  updated_at: string
+  updated_at: string,
+  homepage: string,
 }
 
 function App() {
   const [repos, setRepos] = useState<IRepo[]| null>(null)
   const [moreRepos, setMoreRepos] = useState<boolean>(false)
+  const [clipboard, setClipboard] = useState<number|null>(null)
   const rtf = new Intl.RelativeTimeFormat('default', { style: 'short' })
+  let timer: any
   const images = ['/css.png', '/js.png', '/react.png',
   '/typescript.png', '/node.png', '/mongo.png',
   'flutter.png', '/deno.png', '/rust.png',
@@ -36,6 +39,15 @@ function App() {
     getRepos()
     return () => setRepos(null)
   }, [])
+
+  const copyToClipboard = (text: string, idx: number) => {
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+    setClipboard(idx)
+    clearTimeout(timer)
+    timer = setTimeout(() => setClipboard(null), 2000)
+    }
+  }
 
   console.log(repos && new Date(repos[0].updated_at))
   return (
@@ -74,7 +86,11 @@ function App() {
               <p>Description: {repo.description || 'No Description Provided'}</p>
               <p>Created: {Intl.DateTimeFormat('default', { year: '2-digit', month: '2-digit', day: '2-digit'}).format(new Date(repo.created_at))}</p>
               <p>Last Updated: {rtf.format(-1, 'day')}</p>
-              <a href={repo.clone_url}>Clone</a>
+              <a href={repo.homepage}>Deployment</a>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right'}}>
+                <button className='button'><a href={repo.clone_url} target='_blank'>Go to Repo</a></button>
+                <button className={`button ${clipboard === index && 'copied'}`} onClick={() => copyToClipboard(`git clone ${repo.clone_url}`, index)}>Clone</button>
+              </div>
             </div>
           </div>
         ))}

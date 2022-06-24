@@ -193,6 +193,62 @@ button {
   transition: opacity 0.1s ease-in-out;
 }
 
+.button:hover {
+  opacity: 0.8;
+}
+
 .button:active {
-  opacity: .7;
+  opacity: .6;
+}
+
+.button>a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.copied {
+  position: relative;
+}
+
+.copied::after {
+  content: "Copied";
+  position: absolute;
+  width: 40px;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg01);
+  color: white;
+  padding: .5rem;
+  font-size: .7rem;
+  border-radius: 7px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  animation: slide .2s ease-in;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translate(-50%, 25%);
+    opacity: .2;
+  }
+
+  100% {
+    transform: translate(-50%, 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(+60deg);
+  }
 }
