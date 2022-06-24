@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Markdown } from './Markdown'
 
 interface IRepo {
   name: string,
@@ -14,6 +15,7 @@ function App() {
   const [repos, setRepos] = useState<IRepo[]| null>(null)
   const [moreRepos, setMoreRepos] = useState<boolean>(false)
   const [clipboard, setClipboard] = useState<number|null>(null)
+  const [mark, setMark] = useState<string|null>(null)
   const rtf = new Intl.RelativeTimeFormat('default', { style: 'short' })
   let timer: any
   const images = ['/css.png', '/js.png', '/react.png',
@@ -48,7 +50,7 @@ function App() {
     }
   }
 
-  IntersectionObserver
+  console.log(mark)
 
   return (
     <div className="App">
@@ -84,23 +86,35 @@ function App() {
       <section style={{ marginTop: '10rem'}}>
         <h2>Repos</h2>
         <div style={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center'}}>
-        {repos && (moreRepos ? repos : repos.slice(0, 4)).map((repo, index) => (
-          <div key={index} className='card fade-in' style={{ flex: '1 1 20rem', justifyContent: 'center'}}>
-              <h3>{repo.name}</h3>
-            <div style={{ textAlign: 'left', marginTop: '2rem', padding: '0 1rem'}}>
-              <p>Description: {repo.description || 'No Description Provided'}</p>
-              <p>Created: {Intl.DateTimeFormat('default', { year: '2-digit', month: '2-digit', day: '2-digit'}).format(new Date(repo.created_at))}</p>
-              <p>Last Updated: {rtf.format(-1, 'day')}</p>
-              <a href={'https://' + repo.homepage} target='_blank'>{repo.homepage?.replace('https://', '')}</a>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right'}}>
-                <button className='button'><a href={repo.clone_url} target='_blank'>Go to Repo</a></button>
-                <button className={`button ${clipboard === index ? 'copied' : ''}`} onClick={() => copyToClipboard(`git clone ${repo.clone_url}`, index)}>Clone</button>
+          {repos && (moreRepos ? repos : repos.slice(0, 4)).map((repo, index) => (
+            <div key={index} className='card fade-in' style={{ flex: '1 1 20rem', justifyContent: 'center'}}>
+                <h3>{repo.name}</h3>
+              <div style={{ textAlign: 'left', marginTop: '2rem', padding: '0 1rem'}}>
+                <p>Description: {repo.description || 'No Description Provided'}</p>
+                <p>Created: {Intl.DateTimeFormat('default', { year: '2-digit', month: '2-digit', day: '2-digit'}).format(new Date(repo.created_at))}</p>
+                <p>Last Updated: {rtf.format(-1, 'day')}</p>
+                <a href={'https://' + repo.homepage} target='_blank'>{repo.homepage?.replace('https://', '')}</a>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right'}}>
+                  <button className='button'><a href={repo.clone_url} target='_blank'>Go to Repo</a></button>
+                  <button className={`button ${clipboard === index ? 'copied' : ''}`} onClick={() => copyToClipboard(`git clone ${repo.clone_url}`, index)}>Clone</button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
         <button className='button minimal' onClick={() => setMoreRepos(!moreRepos)}>{moreRepos ? 'See Less...' : 'See More...'}</button>
+      </section>
+      <section>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ maxHeight: '500px', overflow: 'auto'}}>
+            {repos && repos.map((repo) => (
+              <div style={{ userSelect: 'none'}} onClick={() => repo.name && setMark(repo.name)} className='card'>
+                <h3>{repo.name}</h3>
+              </div>
+            ))}
+          </div>
+          {mark && <div style={{ maxHeight: '500px', overflowY: 'scroll', overflowX: 'hidden'}} className='card'><Markdown repo={mark}/></div>}
+        </div>
       </section>
     </div>
   )
