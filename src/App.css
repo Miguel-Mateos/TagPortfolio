@@ -7,12 +7,14 @@
 .header {
   height: 46vh;
   display: flex;
-  padding: 10rem 2rem;
+  padding: 7rem 2rem;
   justify-content: space-around;
   align-items: center;
 }
 
 .header-content {
+  transition: opacity 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
   text-align: right;
   font-size: 3rem;
   font-weight: bold;
@@ -36,6 +38,10 @@
   width: 3rem;
   object-fit: cover;
   animation: move-icon infinite 3s linear;
+}
+
+.inverse {
+  animation: move-icon-inverse infinite 3s linear;
 }
 
 .App-logo {
@@ -90,18 +96,53 @@
 
 @keyframes move-icon {
   0% {
-    transform: translateY(10px);
+    transform: translateY(-5px);
   }
 
   50% {
-    transform: translateY(0px);
+    transform: translateY(5px);
   }
 
   100% {
-    transform: translateY(10px);
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes move-icon-inverse {
+  0% {
+    transform: translateY(5px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+.card {
+  color: black;
+  background-color: white;
+  border-radius: 7px;
+  max-width: 400px;
+  margin: 1rem;
+  padding: 1rem;
 }

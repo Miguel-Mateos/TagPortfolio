@@ -1,6 +1,17 @@
 import './App.css'
 
 function App() {
+  const images = ['/css.png', '/js.png', '/react.png',
+  '/typescript.png', '/node.png', '/mongo.png',
+  'flutter.png', '/deno.png', '/rust.png',
+  '/heroku.png', '/sass.png', '/html.png',
+  '/github.png', '/docker.png']
+
+  const Icons = () => 
+    images.map((image, index) => {
+      const odd = index % 2 === 0
+      return <span key={index}><img src={image} className={`icon-image ${odd ? 'inverse' : ''}`} /></span>
+    })
 
   return (
     <div className="App">
@@ -17,20 +28,16 @@ function App() {
           <h2>Put Random Learning Quote Here</h2>
         </div>
       </section>
-      <section style={{ marginTop: '2rem', display: 'flex', gap: '2rem', justifyContent: 'center' }}>
-        <span id='react'>
-          <img className='icon-image' src='/react.png' />
-        </span>
-        <span id='react'>
-          <img className='icon-image' src='/react.png' />
-        </span>
-        <span id='react'>
-          <img className='icon-image' src='/react.png' />
-        </span>
-        <span id='react'>
-          <img className='icon-image' src='/react.png' />
-        </span>
-
+      <section style={{ marginTop: '5rem', display: 'flex', gap: '2rem', justifyContent: 'center' }}>
+        <Icons />
+      </section>
+      <section style={{ marginTop: '15rem', display: 'flex', justifyContent: 'space-around'}}>
+        <div className='card'>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+        </div>
+        <div className='card'>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+        </div>
       </section>
     </div>
   )
