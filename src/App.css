@@ -251,9 +251,15 @@ button {
   }
 
   .header-content {
-    font-size: 2rem;
     margin-left: auto;
     margin-right: 3rem;
+    height: 22rem;
+    display: flex;
+  }
+
+  .header-content>h1 {
+    font-size: 3rem;
+    margin-top: auto;
   }
 
   .subtitle-container {
@@ -279,7 +285,7 @@ button {
     align-items: center;
     gap: 3rem;
     justify-content: center;
-    margin: 5rem;
-    max-width: 400px;
+    margin-top: 5rem;
+    max-width: 300px;
   }
 }
