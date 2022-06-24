@@ -86,7 +86,7 @@ function App() {
               <p>Description: {repo.description || 'No Description Provided'}</p>
               <p>Created: {Intl.DateTimeFormat('default', { year: '2-digit', month: '2-digit', day: '2-digit'}).format(new Date(repo.created_at))}</p>
               <p>Last Updated: {rtf.format(-1, 'day')}</p>
-              <a href={repo.homepage}>Deployment</a>
+              <a href={'https:/' + repo.homepage} target='_blank'>{repo.homepage}</a>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right'}}>
                 <button className='button'><a href={repo.clone_url} target='_blank'>Go to Repo</a></button>
                 <button className={`button ${clipboard === index && 'copied'}`} onClick={() => copyToClipboard(`git clone ${repo.clone_url}`, index)}>Clone</button>
