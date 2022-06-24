@@ -31,7 +31,6 @@ function App() {
   const getRepos = async () => {
     const repos = await fetch('https://api.github.com/users/eneko96/repos');
     const data = await repos.json();
-    console.log('data', data)
     setRepos(data)
   }
 
@@ -49,7 +48,8 @@ function App() {
     }
   }
 
-  console.log(repos && new Date(repos[0].updated_at))
+  IntersectionObserver
+
   return (
     <div className="App">
       <header className='header'>
@@ -62,34 +62,39 @@ function App() {
       </header>
       <section>
         <div className='subtitle-container'>
-          <h2>Learning to Create for You!</h2>
+          <h2>"Simplicity is the soul of efficiency" - Austin Freeman</h2>
         </div>
       </section>
-      <section style={{ marginTop: '5rem', display: 'flex', gap: '2rem', justifyContent: 'center' }}>
+      <section style={{ marginTop: '5rem', display: 'flex', gap: '2rem', justifyContent: 'center', position: 'sticky' }}>
         <Icons />
       </section>
       <section style={{ marginTop: '15rem', display: 'flex', justifyContent: 'space-around'}}>
         <div className='card'>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
         </div>
         <div className='card'>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
+
         </div>
       </section>
       <section style={{ marginTop: '10rem'}}>
         <h2>Repos</h2>
         <div style={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'left', flexDirection: 'row', alignItems: 'center'}}>
         {repos && (moreRepos ? repos : repos.slice(0, 4)).map((repo, index) => (
-          <div key={index} className='card' style={{ flex: '1 1 20rem', justifyContent: 'center'}}>
+          <div key={index} className='card fade-in' style={{ flex: '1 1 20rem', justifyContent: 'center'}}>
               <h3>{repo.name}</h3>
             <div style={{ textAlign: 'left', marginTop: '2rem', padding: '0 1rem'}}>
               <p>Description: {repo.description || 'No Description Provided'}</p>
               <p>Created: {Intl.DateTimeFormat('default', { year: '2-digit', month: '2-digit', day: '2-digit'}).format(new Date(repo.created_at))}</p>
               <p>Last Updated: {rtf.format(-1, 'day')}</p>
-              <a href={'https:/' + repo.homepage} target='_blank'>{repo.homepage}</a>
+              <a href={'https://' + repo.homepage} target='_blank'>{repo.homepage?.replace('https://', '')}</a>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'right'}}>
                 <button className='button'><a href={repo.clone_url} target='_blank'>Go to Repo</a></button>
-                <button className={`button ${clipboard === index && 'copied'}`} onClick={() => copyToClipboard(`git clone ${repo.clone_url}`, index)}>Clone</button>
+                <button className={`button ${clipboard === index ? 'copied' : ''}`} onClick={() => copyToClipboard(`git clone ${repo.clone_url}`, index)}>Clone</button>
               </div>
             </div>
           </div>

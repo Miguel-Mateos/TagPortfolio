@@ -146,6 +146,10 @@ button {
   padding: 1rem;
 }
 
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
 @media screen and (max-width: 600px) {
   .card {
     max-width: 100%;
@@ -212,7 +216,7 @@ button {
 }
 
 .copied::after {
-  content: "Copied";
+  content: "Copied!";
   position: absolute;
   width: 40px;
   top: -35px;
