@@ -19,7 +19,7 @@ function App() {
   '/heroku.png', '/sass.png', '/html.png',
   '/github.png', '/docker.png']
 
-  const Icons = () => 
+  const Icons = (): any => 
     images.map((image, index) => {
       const odd = index % 2 === 0
       return <span key={index}><img src={image} className={`icon-image ${odd ? 'inverse' : ''}`} /></span>
