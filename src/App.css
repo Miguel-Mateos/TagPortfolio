@@ -218,6 +218,43 @@ button {
   animation: slide .2s ease-in;
 }
 
+.interactive:hover {
+  opacity: .8;
+}
+
+.interactive:active {
+  opacity: .6;
+}
+
+.markdown {
+  max-width: 90%;
+}
+
+
+.repos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.repos-container-repos {
+  overflow: auto;
+  max-height: 50px;
+  max-width: 90vw;
+}
+
+.repos-container-mark {
+  max-height: 500px;
+  min-width: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.repos-container-mark-placeholder {
+  max-height: 500px;
+  width: 300px;
+}
+
 @keyframes slide {
   0% {
     transform: translate(-50%, 100%);
@@ -307,5 +344,29 @@ button {
   .card {
     max-width: 300px;
     margin: 1rem;
+  }
+
+  .repos-container {
+    flex-direction: column;
+  }
+
+  .repos-container-repos {
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    max-height: 50px;
+  }
+
+  .card.interactive>h3 {
+    font-size: 1rem;
+    line-height: .5;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card.interactive {
+    width: 100&;
   }
 }

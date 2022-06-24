@@ -105,15 +105,17 @@ function App() {
         <button className='button minimal' onClick={() => setMoreRepos(!moreRepos)}>{moreRepos ? 'See Less...' : 'See More...'}</button>
       </section>
       <section>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div style={{ maxHeight: '500px', overflow: 'auto'}}>
+        <div className='repos-container'>
+          <div className='repos-container-repos'>
             {repos && repos.map((repo) => (
-              <div style={{ userSelect: 'none'}} onClick={() => repo.name && setMark(repo.name)} className='card'>
+              <div style={{ userSelect: 'none'}} onClick={() => repo.name && setMark(repo.name)} className='card interactive'>
                 <h3>{repo.name}</h3>
               </div>
             ))}
           </div>
-          {mark && <div style={{ maxHeight: '500px', overflowY: 'scroll', overflowX: 'hidden'}} className='card'><Markdown repo={mark}/></div>}
+          {mark ? <div className='card repos-container-mark'><Markdown repo={mark}/></div>
+          :  <div className='card repos-container-mark-placeholder'>Select a Repo to see the details</div>
+        }
         </div>
       </section>
     </div>
