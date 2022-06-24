@@ -68,7 +68,7 @@ function App() {
       <section className='icons-section' style={{ marginTop: '5rem', display: 'flex', gap: '2rem', justifyContent: 'center', position: 'sticky' }}>
         <Icons />
       </section>
-      <section className='cards-section' style={{ marginTop: '15rem', display: 'flex', justifyContent: 'space-around'}}>
+      <section className='cards-section'>
         <div className='card'>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
