@@ -65,10 +65,10 @@ function App() {
           <h2>"Simplicity is the soul of efficiency" - Austin Freeman</h2>
         </div>
       </section>
-      <section style={{ marginTop: '5rem', display: 'flex', gap: '2rem', justifyContent: 'center', position: 'sticky' }}>
+      <section className='icons-section' style={{ marginTop: '5rem', display: 'flex', gap: '2rem', justifyContent: 'center', position: 'sticky' }}>
         <Icons />
       </section>
-      <section style={{ marginTop: '15rem', display: 'flex', justifyContent: 'space-around'}}>
+      <section className='cards-section' style={{ marginTop: '15rem', display: 'flex', justifyContent: 'space-around'}}>
         <div className='card'>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo architecto sint reprehenderit ab, dicta aut. Optio sint, at libero alias modi itaque quisquam atque a aperiam excepturi error dolore.
@@ -83,7 +83,7 @@ function App() {
       </section>
       <section style={{ marginTop: '10rem'}}>
         <h2>Repos</h2>
-        <div style={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'left', flexDirection: 'row', alignItems: 'center'}}>
+        <div style={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center'}}>
         {repos && (moreRepos ? repos : repos.slice(0, 4)).map((repo, index) => (
           <div key={index} className='card fade-in' style={{ flex: '1 1 20rem', justifyContent: 'center'}}>
               <h3>{repo.name}</h3>
