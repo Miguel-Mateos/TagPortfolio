@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useContext, useEffect, useState } from 'react'
 import { Card } from './Components/Card'
-import { Repos } from './Modules/Repos'
+import { images } from './contants'
+import { Head } from './Modules/Head/Head'
+import { Repos } from './Modules/Repos/Repos'
+import { useAppContext } from './Context/ContextApi'
+import './App.css'
 
 export interface IRepo {
   name: string
@@ -14,22 +17,7 @@ export interface IRepo {
 
 function App() {
   const [repos, setRepos] = useState<IRepo[] | null>(null)
-  const images = [
-    '/css.png',
-    '/js.png',
-    '/react.png',
-    '/typescript.png',
-    '/node.png',
-    '/mongo.png',
-    'flutter.png',
-    '/deno.png',
-    '/rust.png',
-    '/heroku.png',
-    '/sass.png',
-    '/html.png',
-    '/github.png',
-    '/docker.png'
-  ]
+  const { description, works } = useAppContext() as any
 
   const Icons = (): any =>
     images.map((image, index) => {
@@ -52,19 +40,15 @@ function App() {
     return () => setRepos(null)
   }, [])
 
+  const refineDescription = (str: string) => {
+    const json = JSON.parse(str) as Object
+
+    return Object.values(json).map((val) => <p>{val}</p>)
+  }
+
   return (
     <div className="App">
-      <header className="header">
-        <div className="header-content">
-          <h1>
-            Welcome To My <span>Portfolio</span>
-          </h1>
-          <div>patata</div>
-        </div>
-        <picture className="image-container">
-          <img className="header-image" src="/first_image.jpeg" />
-        </picture>
-      </header>
+      <Head />
       <section>
         <div className="subtitle-container">
           <h2>
@@ -84,31 +68,32 @@ function App() {
       >
         <Icons />
       </section>
-      <section className="cards-section">
-        <div>
-          <Card>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo
-            architecto sint reprehenderit ab, dicta aut. Optio sint, at libero
-            alias modi itaque quisquam atque a aperiam excepturi error dolore.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo
-            architecto sint reprehenderit ab, dicta aut. Optio sint, at libero
-            alias modi itaque quisquam atque a aperiam excepturi error dolore.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo
-            architecto sint reprehenderit ab, dicta aut. Optio sint, at libero
-            alias modi itaque quisquam atque a aperiam excepturi error dolore.
-          </Card>
+      <section className="default-section">
+        <div className="description">
+          <h3>{description}</h3>
+          <div className="work">
+            {works.length > 0 && (
+              <>
+                <p className="work-title" style={{ width: '100%' }}>
+                  {works[0].Name} &nbsp;
+                  <span className="work-position">as {works[0].Position}</span>
+                </p>
+                <p>
+                  {Intl.DateTimeFormat('default', {
+                    month: 'long',
+                    day: '2-digit'
+                  }).format(new Date(works[0].Start))}
+                  &nbsp;To&nbsp;
+                  {Intl.DateTimeFormat('default', {
+                    month: 'long',
+                    day: '2-digit'
+                  }).format(new Date(works[0].Finish))}
+                </p>
+                {refineDescription(works[0].description)}
+              </>
+            )}
+          </div>
         </div>
-        <Card>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo
-          architecto sint reprehenderit ab, dicta aut. Optio sint, at libero
-          alias modi itaque quisquam atque a aperiam excepturi error dolore.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo
-          architecto sint reprehenderit ab, dicta aut. Optio sint, at libero
-          alias modi itaque quisquam atque a aperiam excepturi error dolore.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nemo
-          architecto sint reprehenderit ab, dicta aut. Optio sint, at libero
-          alias modi itaque quisquam atque a aperiam excepturi error dolore.
-        </Card>
       </section>
       <section style={{ marginTop: '10rem' }}>
         <Repos repos={repos as IRepo[]} />

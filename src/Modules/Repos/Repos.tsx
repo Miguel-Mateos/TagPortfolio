@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react'
-import { IRepo } from '../App'
-import { Markdown } from '../Markdown'
+import { IRepo } from '../../App'
+import { Markdown } from '../../Markdown'
 
 interface IRepos {
   repos: IRepo[]

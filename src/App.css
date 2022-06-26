@@ -49,9 +49,28 @@
   animation: move-icon-inverse infinite 3s linear;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.work {
+  border: 2px solid var(--primary);
+  border-radius: 7px;
+  padding: 1rem;
+  max-width: 300px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+.work-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--quaternary);
+  justify-self: center;
+} 
+
+.work-position {
+  color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -285,6 +304,28 @@ button {
   animation: fade 0.2s ease-in;
 }
 
+.default-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.description {
+  border: 2px solid var(--accent01);
+  border-radius: 7px;
+  width: 90vw;
+  padding: 1rem;
+}
+
+.card-header>h3 {
+  margin: .7rem;
+}
+
+.card-body {
+  text-align: left;
+}
+
 footer {
   margin-top: 5rem;
 }
@@ -403,5 +444,11 @@ footer {
     font-size: 1rem;
     font-weight: bold;
     margin: 0;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
