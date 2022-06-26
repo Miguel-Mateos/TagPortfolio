@@ -1,11 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from 'react'
 
 export const useElementOnScreen = (options) => {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   const cbFunction = (entries) => {
-    const [ entry ] = entries
+    const [entry] = entries
     setIsVisible(entry.isIntersecting)
   }
 

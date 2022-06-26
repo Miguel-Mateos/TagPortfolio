@@ -228,6 +228,7 @@ button {
 
 .markdown {
   height: 500px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
 }
 
 
@@ -252,8 +253,12 @@ button {
 }
 
 .repos-container-mark-placeholder {
-  max-height: 500px;
+  height: 500px;
   width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .minimal {
@@ -261,6 +266,25 @@ button {
   color: black;
   border-radius: 7px;
   border: 3px solid var(--accent01);
+}
+
+.first-time {
+  position: relative;
+}
+
+.first-time::before {
+  font-size: .7rem;
+  content: "First time here?. Click on the Repo tab to see the Readme of the repo";
+  position: absolute;
+  width: 200px;
+  left: 50%;
+  top: 0;
+  background-color: var(--quaternary);
+  padding: .5rem;
+  border-radius: 7px;
+  transform: translate(-50%, -100%);
+  transition: opacity .2s ease-in;
+  animation: fade .2s ease-in;
 }
 
 footer {
@@ -291,9 +315,6 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-  .card {
-    max-width: 400px;
-  }
 
   .header {
     display: flex;
@@ -358,6 +379,15 @@ footer {
     margin: 1rem;
   }
 
+  .card.repo {
+    margin: 0;
+    padding: 0 .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+  }
+
   .repos-container {
     flex-direction: column;
   }
@@ -365,20 +395,16 @@ footer {
   .repos-container-repos {
     display: flex;
     flex-direction: row;
+    gap: 1rem;
     overflow-y: hidden;
     overflow-x: scroll;
-    height: 5px;
+    height: 100%;
+    width: 350px
   }
 
-  .card.interactive>h3 {
+  .card.repo>h3 {
     font-size: 1rem;
-    line-height: .5;
-    text-overflow: ellipsis;
     font-weight: bold;
     margin: 0;
-  }
-
-  .card.interactive {
-    width: 100%;
   }
 }
