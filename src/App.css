@@ -22,7 +22,7 @@
   max-width: 30%;
 }
 
-.header-content>h1>span {
+.header-content > h1 > span {
   color: var(--primary);
 }
 
@@ -78,7 +78,7 @@
   border-radius: 7px;
 }
 
-.subtitle-container>h2 {
+.subtitle-container > h2 {
   font-size: 3rem;
   font-weight: bold;
   color: #fff;
@@ -171,7 +171,7 @@ button {
   background-color: var(--tertiary);
   border-radius: 7px;
   color: white;
-  padding: .5rem;
+  padding: 0.5rem;
   margin: 1rem;
   font-size: 1rem;
   font-weight: bold;
@@ -186,10 +186,10 @@ button {
 }
 
 .button:active {
-  opacity: .6;
+  opacity: 0.6;
 }
 
-.button>a {
+.button > a {
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -200,7 +200,7 @@ button {
 }
 
 .copied::after {
-  content: "Copied!";
+  content: 'Copied!';
   position: absolute;
   width: 40px;
   top: -35px;
@@ -208,29 +208,28 @@ button {
   transform: translateX(-50%);
   background-color: var(--bg01);
   color: white;
-  padding: .5rem;
-  font-size: .7rem;
+  padding: 0.5rem;
+  font-size: 0.7rem;
   border-radius: 7px;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
   display: inline-block;
-  animation: slide .2s ease-in;
+  animation: slide 0.2s ease-in;
 }
 
 .interactive:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .interactive:active {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .markdown {
   height: 500px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
 }
-
 
 .repos-container {
   display: flex;
@@ -258,7 +257,6 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .minimal {
@@ -273,18 +271,18 @@ button {
 }
 
 .first-time::before {
-  font-size: .7rem;
-  content: "First time here?. Click on the Repo tab to see the Readme of the repo";
+  font-size: 0.7rem;
+  content: 'First time here?. Click on the Repo tab to see the Readme of the repo';
   position: absolute;
   width: 200px;
   left: 50%;
   top: 0;
   background-color: var(--quaternary);
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 7px;
   transform: translate(-50%, -100%);
-  transition: opacity .2s ease-in;
-  animation: fade .2s ease-in;
+  transition: opacity 0.2s ease-in;
+  animation: fade 0.2s ease-in;
 }
 
 footer {
@@ -299,7 +297,7 @@ footer {
 
   75% {
     transform: translate(-50%, 25%);
-    opacity: .2;
+    opacity: 0.2;
   }
 
   100% {
@@ -315,7 +313,6 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-
   .header {
     display: flex;
     flex-direction: column;
@@ -343,7 +340,7 @@ footer {
     display: flex;
   }
 
-  .header-content>h1 {
+  .header-content > h1 {
     font-size: 3rem;
     margin-top: auto;
   }
@@ -353,7 +350,7 @@ footer {
     width: 70%;
   }
 
-  .subtitle-container>h2 {
+  .subtitle-container > h2 {
     font-size: 1rem;
   }
 
@@ -381,7 +378,7 @@ footer {
 
   .card.repo {
     margin: 0;
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -399,10 +396,10 @@ footer {
     overflow-y: hidden;
     overflow-x: scroll;
     height: 100%;
-    width: 350px
+    width: 350px;
   }
 
-  .card.repo>h3 {
+  .card.repo > h3 {
     font-size: 1rem;
     font-weight: bold;
     margin: 0;

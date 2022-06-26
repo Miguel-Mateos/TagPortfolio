@@ -5,9 +5,7 @@ import { render } from '@testing-library/react'
 const CardTest = () => {
   return (
     <div>
-      <Card>
-        Patata
-      </Card>
+      <Card>Patata</Card>
     </div>
   )
 }

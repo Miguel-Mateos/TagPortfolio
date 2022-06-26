@@ -1,10 +1,10 @@
 :root {
   --bg01: #262b32;
-  --primary: #FFC15E;
-  --secondary: #F7B05B;
-  --tertiary: #F7934C;
-  --quaternary: #CC5803;
-  --accent01: #5E1D60;
+  --primary: #ffc15e;
+  --secondary: #f7b05b;
+  --tertiary: #f7934c;
+  --quaternary: #cc5803;
+  --accent01: #5e1d60;
 }
 
 body {
@@ -12,7 +12,8 @@ body {
   background-color: var(--bg01);
   color: white;
   margin: 0;
-  font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

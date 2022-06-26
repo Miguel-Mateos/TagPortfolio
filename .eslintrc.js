@@ -5,7 +5,9 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'standard'
+    'standard',
+    'prettier',
+    'prettier/react'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -15,12 +17,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react',
-    '@typescript-eslint'
-  ],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'no-console': 1,
     'react/react-in-jsx-scope': 'off',
-    'react/no-children-prop': 'off'
+    'react/no-children-prop': 'off',
+    'prettier/prettier': 'warn'
   }
-}
+};
