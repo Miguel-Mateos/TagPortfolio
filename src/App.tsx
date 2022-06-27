@@ -78,15 +78,14 @@ function App() {
                   {works[0].Name} &nbsp;
                   <span className="work-position">as {works[0].Position}</span>
                 </p>
-                <p>
+                <p className="work-subtitle">
+                  From {''}
                   {Intl.DateTimeFormat('default', {
-                    month: 'long',
-                    day: '2-digit'
+                    month: 'long'
                   }).format(new Date(works[0].Start))}
                   &nbsp;To&nbsp;
                   {Intl.DateTimeFormat('default', {
-                    month: 'long',
-                    day: '2-digit'
+                    month: 'long'
                   }).format(new Date(works[0].Finish))}
                 </p>
                 {refineDescription(works[0].description)}

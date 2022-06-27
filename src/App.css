@@ -67,10 +67,16 @@
   font-weight: bold;
   color: var(--quaternary);
   justify-self: center;
+  margin-bottom: 0;
 } 
 
 .work-position {
   color: white;
+}
+
+.work-subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
