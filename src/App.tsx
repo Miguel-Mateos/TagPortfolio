@@ -71,26 +71,27 @@ function App() {
       <section className="default-section">
         <div className="description">
           <h3>{description}</h3>
-          <div className="work">
-            {works.length > 0 && (
-              <>
-                <p className="work-title" style={{ width: '100%' }}>
-                  {works[0].Name} &nbsp;
-                  <span className="work-position">as {works[0].Position}</span>
-                </p>
-                <p className="work-subtitle">
-                  From {''}
-                  {Intl.DateTimeFormat('default', {
-                    month: 'long'
-                  }).format(new Date(works[0].Start))}
-                  &nbsp;To&nbsp;
-                  {Intl.DateTimeFormat('default', {
-                    month: 'long'
-                  }).format(new Date(works[0].Finish))}
-                </p>
-                {refineDescription(works[0].description)}
-              </>
-            )}
+          <div className="works-container">
+            {works.length > 0 &&
+              works.map((work: any) => (
+                <div className="work">
+                  <p className="work-title" style={{ width: '100%' }}>
+                    {work.Name} &nbsp;
+                    <span className="work-position">as {work.Position}</span>
+                  </p>
+                  <p className="work-subtitle">
+                    From {''}
+                    {Intl.DateTimeFormat('default', {
+                      month: 'long'
+                    }).format(new Date(work.Start))}
+                    &nbsp;To&nbsp;
+                    {Intl.DateTimeFormat('default', {
+                      month: 'long'
+                    }).format(new Date(work.Finish))}
+                  </p>
+                  {refineDescription(work.description)}
+                </div>
+              ))}
           </div>
         </div>
       </section>

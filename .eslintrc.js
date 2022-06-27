@@ -24,4 +24,4 @@ module.exports = {
     'react/no-children-prop': 'off',
     'prettier/prettier': 'warn'
   }
-};
+}

@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import { IRepo } from '../../App'
+import { Modal } from '../../Components/Modal/Modal'
 import { Markdown } from '../../Markdown'
 
 interface IRepos {
@@ -13,6 +14,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
   const [clipboard, setClipboard] = useState<number | null>(null)
   const [mark, setMark] = useState<string | null>(null)
   const [option, setOption] = useState<number>(0)
+  const [openModal, setOpenModal] = useState<string>('')
   const [isFirstTime, setIsFirstTime] = useState(
     localStorage.getItem('first-time') === null
   )
@@ -38,8 +40,15 @@ export const Repos: FC<IRepos> = ({ repos }) => {
 
   const toggleOption = () => (option === 0 ? setOption(1) : setOption(0))
 
+  const handleCloseModal = () => setOpenModal('')
+
   return (
     <>
+      {openModal && (
+        <Modal onClose={handleCloseModal}>
+          <Markdown repo={openModal} />
+        </Modal>
+      )}
       <h2 ref={ref} className={`${isFirstTime ? 'first-time' : ''}`}>
         Repos
       </h2>
@@ -65,6 +74,12 @@ export const Repos: FC<IRepos> = ({ repos }) => {
                   style={{ flex: '1 1 20rem', justifyContent: 'center' }}
                 >
                   <h3>{repo.name}</h3>
+                  <button
+                    onClick={() => setOpenModal(repo.name)}
+                    className="button_small minimal readme"
+                  >
+                    Readme
+                  </button>
                   <div
                     style={{
                       textAlign: 'left',
@@ -149,7 +164,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
           </div>
           {mark ? (
             <div className="card repos-container-mark">
-              <Markdown repo={mark} />
+              <Markdown repo={mark} className="markdown" />
             </div>
           ) : (
             <div className="card repos-container-mark-placeholder">

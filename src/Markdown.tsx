@@ -5,7 +5,13 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 // @ts-ignore
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
-export const Markdown = ({ repo }: { repo: string }) => {
+export const Markdown = ({
+  repo,
+  className
+}: {
+  repo: string
+  className?: string
+}) => {
   const [markdown, setMarkdown] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -56,7 +62,7 @@ export const Markdown = ({ repo }: { repo: string }) => {
     return (
       <div className="markdown">
         <ReactMarkdown
-          className="markdown"
+          className={markdown || ''}
           components={CodeBlock}
           children={'# Loading...'}
         />
@@ -67,7 +73,7 @@ export const Markdown = ({ repo }: { repo: string }) => {
   return (
     <div className="markdown">
       <ReactMarkdown
-        className="markdown"
+        className={markdown || ''}
         components={CodeBlock}
         children={markdown}
       />

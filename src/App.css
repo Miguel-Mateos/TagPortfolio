@@ -56,10 +56,10 @@
   max-width: 300px;
   display: flex;
   justify-content: left;
-  align-items: center;
   text-align: left;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin-top: 5rem;
+  flex: 1 1 200px;
 }
 
 .work-title {
@@ -175,6 +175,7 @@ button {
   max-width: 400px;
   margin: 1rem;
   padding: 1rem;
+  position: relative;
 }
 
 .fade-in {
@@ -218,6 +219,28 @@ button {
   color: white;
   text-decoration: none;
   cursor: pointer;
+}
+
+.button_small {
+  background-color: var(--secondary);
+  color: white;
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition: opacity 0.1s ease-in-out;
+}
+
+
+.button_small:hover {
+  opacity: 0.8;
+}
+
+.button_small:active {
+  opacity: 0.6;
 }
 
 .copied {
@@ -324,6 +347,18 @@ button {
   padding: 1rem;
 }
 
+.readme {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.works-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
 .card-header>h3 {
   margin: .7rem;
 }
@@ -334,6 +369,46 @@ button {
 
 footer {
   margin-top: 5rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+  transition: all .2s linear;
+}
+
+.icon-close {
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  transition: color .2s linear;
+}
+
+.icon-close:hover {
+  color: gray;
+}
+
+.modal-content {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  position:fixed;
+  width: 40%;
+  height: 50%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  overflow-y: scroll;
+}
+
+.modal-content>.markdown {
+  height: auto;
 }
 
 @keyframes slide {
@@ -452,9 +527,13 @@ footer {
     margin: 0;
   }
 
-  .description {
+  .works-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .modal-content {
+    width: 80vw;
   }
 }
