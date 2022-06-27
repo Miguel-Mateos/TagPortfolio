@@ -7,7 +7,12 @@ export const Head = () => {
         </h1>
       </div>
       <picture className="image-container">
-        <img className="header-image" src="/first_image.jpeg" />
+        <img
+          alt="head image"
+          className="header-image"
+          src="/first_image.jpeg"
+          loading="eager"
+        />
       </picture>
     </header>
   )
