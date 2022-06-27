@@ -89,6 +89,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
                       href={'//' + repo.homepage}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label="Open homepage"
                     >
                       {repo.homepage?.replace('https://', '')}
                     </a>
@@ -104,6 +105,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
                           href={repo.clone_url}
                           target="_blank"
                           rel="noreferrer"
+                          aria-label="Open clone url"
                         >
                           Go to Repo
                         </a>
