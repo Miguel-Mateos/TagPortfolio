@@ -1,18 +1,30 @@
-import { useAppContext } from '../../Context/ContextApi'
+import { IProject, useAppContext } from '../../Context/ContextApi'
 
 export const Projects = ({}) => {
   const { projects } = useAppContext() as any
-  const Project: React.FC<{ data: Object }> = ({ data }) => (
+  const Project: React.FC<{ data: IProject }> = ({ data }) => (
     <div className="work">
-      <p className="work-title">project Title</p>
-      <p>More info about the project</p>
+      <h1 className="work-title">{data.name}</h1>
+      <h4>Associate with: {data.associate}</h4>
+      <p>{data.description}</p>
     </div>
   )
   return (
-    <div className="works-container">
-      {projects.map((project: any, idx: number) => (
-        <Project key={idx} data={project} />
-      ))}
-    </div>
+    <>
+      <h1
+        style={{
+          textAlign: 'left',
+          fontSize: '50px',
+          color: 'var(--secondary)'
+        }}
+      >
+        Work Experience
+      </h1>
+      <div className="works-container" style={{ marginTop: '2rem' }}>
+        {projects.map((project: IProject, idx: number) => (
+          <Project key={idx} data={project} />
+        ))}
+      </div>
+    </>
   )
 }

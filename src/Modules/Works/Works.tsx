@@ -31,7 +31,9 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
   const refineDescription = (str: string) => {
     const json = JSON.parse(str) as Object
 
-    return Object.values(json).map((val) => <p>{val}</p>)
+    return Object.values(json).map((val, idk) => (
+      <p key={`${idx} ${idk}-val`}>{val}</p>
+    ))
   }
 
   if (window.innerWidth > 600) {
@@ -95,8 +97,7 @@ export const Works = () => {
   const { description, works } = useAppContext() as any
 
   return (
-    <div className="description">
-      {/* <h3>{description}</h3> */}
+    <>
       <h1
         style={{
           textAlign: 'left',
@@ -118,6 +119,6 @@ export const Works = () => {
             />
           ))}
       </div>
-    </div>
+    </>
   )
 }

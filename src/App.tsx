@@ -4,6 +4,7 @@ import { Head } from './Modules/Head/Head'
 import { Repos } from './Modules/Repos/Repos'
 import './App.css'
 import { Works } from './Modules/Works/Works'
+import { Projects } from './Modules/Projects/Projects'
 
 export interface IRepo {
   name: string
@@ -65,7 +66,10 @@ function App() {
         <Icons />
       </section>
       <section className="default-section">
-        <Works />
+        <div className="description">
+          <Works />
+          <Projects />
+        </div>
       </section>
       <section style={{ marginTop: '10rem' }}>
         <Repos repos={repos as IRepo[]} />
