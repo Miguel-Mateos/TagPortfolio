@@ -37,11 +37,11 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
   if (window.innerWidth > 600) {
     return (
       <div className="work">
-        <p className="work-title" style={{ width: '100%' }}>
+        <p className="work-title title" style={{ width: '100%' }}>
           {work.Name} &nbsp;
-          <span className="work-position">as {work.Position}</span>
+          <span className="work-position title">as {work.Position}</span>
         </p>
-        <p className="work-subtitle">
+        <p className="work-subtitle title">
           From {''}
           {Intl.DateTimeFormat('default', {
             month: 'long'
@@ -59,19 +59,19 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
   return (
     <div className="work">
       <p
-        className="work-title"
+        className="work-title title"
         style={{ width: '100%' }}
         onClick={() => (more !== idx ? setMore(idx) : setMore(null))}
       >
         {work.Name} &nbsp;
-        <span className="work-position">as {work.Position}</span>
+        <span className="work-position title">as {work.Position}</span>
         <span>
           <MoreIcon more={more === idx ?? false} />
         </span>
       </p>
       {more === idx ? (
         <div className="work-rest-container">
-          <p className="work-subtitle">
+          <p className="work-subtitle title">
             From {''}
             {Intl.DateTimeFormat('default', {
               month: 'long'

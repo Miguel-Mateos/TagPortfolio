@@ -7,15 +7,25 @@
   --accent01: #8f2592;
 }
 
+h1,h2,h3,h4,.title {
+  font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+
 body {
   overflow-x: hidden;
   background-color: var(--bg01);
   color: white;
   margin: 0;
-  font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial,
+  font-family: system-ui, cursive, Helvetica Neue, Helvetica, Arial,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.title {
+  font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial,
+    sans-serif !important;
 }
 
 code {
