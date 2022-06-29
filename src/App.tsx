@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from 'react'
-import { Card } from './Components/Card'
 import { images } from './contants'
 import { Head } from './Modules/Head/Head'
 import { Repos } from './Modules/Repos/Repos'
-import { useAppContext } from './Context/ContextApi'
 import './App.css'
+import { Works } from './Modules/Works/Works'
 
 export interface IRepo {
   name: string
@@ -17,7 +16,6 @@ export interface IRepo {
 
 function App() {
   const [repos, setRepos] = useState<IRepo[] | null>(null)
-  const { description, works } = useAppContext() as any
 
   const Icons = (): any =>
     images.map((image, index) => {
@@ -39,12 +37,6 @@ function App() {
     getRepos()
     return () => setRepos(null)
   }, [])
-
-  const refineDescription = (str: string) => {
-    const json = JSON.parse(str) as Object
-
-    return Object.values(json).map((val) => <p>{val}</p>)
-  }
 
   return (
     <div className="App">
@@ -69,31 +61,7 @@ function App() {
         <Icons />
       </section>
       <section className="default-section">
-        <div className="description">
-          <h3>{description}</h3>
-          <div className="works-container">
-            {works.length > 0 &&
-              works.map((work: any) => (
-                <div className="work">
-                  <p className="work-title" style={{ width: '100%' }}>
-                    {work.Name} &nbsp;
-                    <span className="work-position">as {work.Position}</span>
-                  </p>
-                  <p className="work-subtitle">
-                    From {''}
-                    {Intl.DateTimeFormat('default', {
-                      month: 'long'
-                    }).format(new Date(work.Start))}
-                    &nbsp;To&nbsp;
-                    {Intl.DateTimeFormat('default', {
-                      month: 'long'
-                    }).format(new Date(work.Finish))}
-                  </p>
-                  {refineDescription(work.description)}
-                </div>
-              ))}
-          </div>
-        </div>
+        <Works />
       </section>
       <section style={{ marginTop: '10rem' }}>
         <Repos repos={repos as IRepo[]} />

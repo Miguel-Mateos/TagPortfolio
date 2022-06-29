@@ -32,11 +32,15 @@ export const Modal: FC<IModal> = ({ children, onClose }) => {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  const handleClose = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.currentTarget === event.target) onClose()
+  }
+
   const handleKeyDown = (event: KeyboardEventInit) =>
     event.key === 'Escape' && onClose()
 
   const content = (
-    <div className="modal">
+    <div className="modal" onClick={handleClose}>
       <div className="modal-content">
         <IconClose onClose={onClose} />
         {children}
