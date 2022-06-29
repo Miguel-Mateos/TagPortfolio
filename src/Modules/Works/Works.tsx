@@ -22,8 +22,8 @@ interface IWork {
     Finish: Date
     description: string
   }
-  more: number
-  setMore: (more: number) => void
+  more: number | null
+  setMore: (more: number | null) => void
   idx: number
 }
 
@@ -58,14 +58,18 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
 
   return (
     <div className="work">
-      <p className="work-title" style={{ width: '100%' }}>
+      <p
+        className="work-title"
+        style={{ width: '100%' }}
+        onClick={() => (more !== idx ? setMore(idx) : setMore(null))}
+      >
         {work.Name} &nbsp;
         <span className="work-position">as {work.Position}</span>
-        <span onClick={() => setMore(idx)}>
-          <MoreIcon more={more === idx} />
+        <span>
+          <MoreIcon more={more === idx ?? false} />
         </span>
       </p>
-      {more === idx && (
+      {more === idx ? (
         <div className="work-rest-container">
           <p className="work-subtitle">
             From {''}
@@ -79,14 +83,15 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
           </p>
           {refineDescription(work.description)}
         </div>
-      )}
+      ) : null}
     </div>
   )
 }
 
 export const Works = () => {
-  const [more, setMore] = useState<number>(0)
+  const [more, setMore] = useState<number | null>(0)
   const { description, works } = useAppContext() as any
+
   return (
     <div className="description">
       {/* <h3>{description}</h3> */}
@@ -104,7 +109,7 @@ export const Works = () => {
           works.map((work: any, idx: number) => (
             <Work
               idx={idx}
-              more={more}
+              more={more === idx ? more : null}
               setMore={setMore}
               work={work}
               key={'work' + idx}
