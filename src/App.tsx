@@ -22,7 +22,11 @@ function App() {
       const odd = index % 2 === 0
       return (
         <span key={index}>
-          <img src={image} className={`icon-image ${odd ? 'inverse' : ''}`} />
+          <img
+            src={image}
+            className={`icon-image ${odd ? 'inverse' : ''}`}
+            alt="skill icon"
+          />
         </span>
       )
     })
