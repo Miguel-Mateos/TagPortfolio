@@ -51,7 +51,9 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
             month: 'long'
           }).format(new Date(work.Finish))}
         </p>
-        {refineDescription(work.description)}
+        <div className="work-rest-info">
+          {refineDescription(work.description)}
+        </div>
       </div>
     )
   }

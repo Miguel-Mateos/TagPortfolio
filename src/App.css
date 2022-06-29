@@ -22,6 +22,10 @@
   max-width: 30%;
 }
 
+.work-rest-info {
+  transition: all 0.3s;
+}
+
 .header-content > h1 > span {
   color: var(--primary);
 }
@@ -30,6 +34,10 @@
   height: 27rem;
   width: 60%;
   object-fit: cover;
+}
+
+.markdown a {
+  color: var(--primary);
 }
 
 .cards-section {
@@ -426,10 +434,10 @@ footer {
   height: 1rem;
   margin-left: auto;
   transform: rotate(-90deg);
-  transition: transform .2s linear;
+  transition: rotate .2s linear;
   position: absolute;
   right: 0;
-  top: 8px;
+  top: calc(50% - .5rem);
 }
 
 @keyframes slide {
@@ -568,4 +576,6 @@ footer {
   .work-title {
     margin-top: 0;
   }
+
+  .icon-image { animation: unset;}
 }
