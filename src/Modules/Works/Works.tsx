@@ -89,7 +89,16 @@ export const Works = () => {
   const { description, works } = useAppContext() as any
   return (
     <div className="description">
-      <h3>{description}</h3>
+      {/* <h3>{description}</h3> */}
+      <h1
+        style={{
+          textAlign: 'left',
+          fontSize: '50px',
+          color: 'var(--secondary)'
+        }}
+      >
+        Work Experience
+      </h1>
       <div className="works-container">
         {works.length > 0 &&
           works.map((work: any, idx: number) => (
