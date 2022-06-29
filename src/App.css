@@ -7,7 +7,8 @@
   height: 46vh;
   display: flex;
   padding: 7rem 2rem;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 13rem;
   align-items: center;
 }
 
@@ -20,6 +21,7 @@
   color: #fff;
   margin: 0;
   max-width: 30%;
+  width: min-content;
 }
 
 .work-rest-info {
@@ -32,8 +34,10 @@
 
 .header-image {
   height: 27rem;
-  width: 60%;
+  max-width: 650px;
   object-fit: cover;
+  animation: fade 0.2s ease-in;
+  transition: fade 0.5s ease-in-out;
 }
 
 .markdown a {

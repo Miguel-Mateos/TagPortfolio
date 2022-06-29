@@ -8,6 +8,12 @@ export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
-    environment: 'jsdom'
+    environment: 'jsdom',
+    // coverage: {
+    //   branches: 80,
+    //   functions: 80,
+    //   lines: 80,
+    //   statements: 80,
+    // }
   }
 })

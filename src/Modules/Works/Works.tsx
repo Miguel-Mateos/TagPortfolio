@@ -94,7 +94,7 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
 
 export const Works = () => {
   const [more, setMore] = useState<number | null>(0)
-  const { description, works } = useAppContext() as any
+  const { works } = useAppContext() as any
 
   return (
     <>
