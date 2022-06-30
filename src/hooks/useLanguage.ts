@@ -1,15 +1,16 @@
 import { useAppContext } from "../Context/ContextApi";
 import { useLayoutEffect, useState } from "react";
-
+// import all the languages
+import { es } from '../language/es';
+import { us } from '../language/us'
 export const useLanguage = () => {
   const { language } = useAppContext() as any
   const [languageData, setLanguageData] = useState<any>({});
 
   useLayoutEffect(() => {
+    const languages: {es: any, us: any} = { es: es, us: us };
     const parseLan = language.split("-")[1].toLowerCase();
-    const languageData = async () => await import(`../language/${parseLan}/index.ts`);
-    languageData().then(data => setLanguageData(data[language.split("-")[1].toLowerCase()]));
-    setLanguageData(languageData);
+    setLanguageData((languages as any)[parseLan.toLowerCase()]);
   }, [language]);
 
   const t = (str: string) => {

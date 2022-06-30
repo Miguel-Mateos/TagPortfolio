@@ -11,7 +11,7 @@ export const AppContext = createContext({})
 
 const AppProvider: FC<any> = ({ children }) => {
   const [description, setDescription] = useState<string>('')
-  const [language, setLanguage] = useState<string>(navigator.language)
+  const [language, setLanguage] = useState<string>('en-US')
   const [works, setWorks] = useState<string[]>([])
   const [projects, setProjects] = useState<IProject[]>([])
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
