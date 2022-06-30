@@ -24,7 +24,7 @@ body {
 }
 
 a {
-  color: var(--quaternary);
+  color: var(--secondary);
   cursor: pointer;
   transition: opacity .2s ease;
 }

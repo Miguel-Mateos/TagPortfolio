@@ -47,7 +47,9 @@ export const Repos: FC<IRepos> = ({ repos }) => {
       )}
       <h1
         style={{
-          fontSize: '3rem',
+          fontSize: '50px',
+          textAlign: 'left',
+          marginBottom: 0,
           color: 'var(--primary)'
         }}
       >

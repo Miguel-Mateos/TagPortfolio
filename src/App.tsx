@@ -71,8 +71,13 @@ function App() {
           <Projects />
         </div>
       </section>
-      <section style={{ marginTop: '10rem' }}>
-        <Repos repos={repos as IRepo[]} />
+      <section className="default-section">
+        <div
+          className="description"
+          style={{ borderColor: 'var(--quaternary)' }}
+        >
+          <Repos repos={repos as IRepo[]} />
+        </div>
       </section>
       <footer></footer>
     </div>
