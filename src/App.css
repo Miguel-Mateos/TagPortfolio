@@ -616,4 +616,8 @@ footer {
   }
 
   .icon-image { animation: unset;}
+
+  .language {
+    top: 1.5rem;
+  }
 }

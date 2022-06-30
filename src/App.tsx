@@ -20,7 +20,7 @@ export interface IRepo {
 function App() {
   const [repos, setRepos] = useState<IRepo[] | null>(null)
   const { changeLanguage } = useAppContext() as any
-  const { language } = useLanguage()
+  const { t } = useLanguage()
 
   const Icons = (): any =>
     images.map((image, index) => {
@@ -60,9 +60,7 @@ function App() {
       <Head />
       <section>
         <div className="subtitle-container">
-          <h2>
-            &quot;Simplicity is the soul of efficiency&quot; - Austin Freeman
-          </h2>
+          <h2>&quot;{t('quote')}&quot; - Austin Freeman</h2>
         </div>
       </section>
       <section
