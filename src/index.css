@@ -23,6 +23,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: var(--quaternary);
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+
+a:hover {
+  opacity: .9;
+}
+
 .title {
   font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial,
     sans-serif !important;
