@@ -10,7 +10,11 @@ export const Head = () => {
         </h1>
       </div>
       <picture className="image-container">
-        {!loaded && <div style={{ height: '27rem', width: '650px' }} />}
+        {!loaded && (
+          <div style={{ height: '27rem', width: '650px', display: 'flex' }}>
+            <div className="loader"></div>
+          </div>
+        )}
         <img
           alt="head image"
           className="header-image"
