@@ -5,6 +5,38 @@
   color: white;
 }
 
+.language {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  gap: .5rem;
+}
+
+.language-name {
+  cursor: default;
+  position: relative;
+}
+
+.language-name::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: hotpink;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.language-name:hover::after {
+  transform: scale(1);
+}
+
 .header {
   height: 46vh;
   display: flex;

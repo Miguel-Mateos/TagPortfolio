@@ -1,10 +1,12 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { images } from './contants'
 import { Head } from './Modules/Head/Head'
 import { Repos } from './Modules/Repos/Repos'
 import './App.css'
 import { Works } from './Modules/Works/Works'
 import { Projects } from './Modules/Projects/Projects'
+import { useAppContext } from './Context/ContextApi'
+import { useLanguage } from './hooks/useLanguage'
 
 export interface IRepo {
   name: string
@@ -17,6 +19,8 @@ export interface IRepo {
 
 function App() {
   const [repos, setRepos] = useState<IRepo[] | null>(null)
+  const { changeLanguage } = useAppContext() as any
+  const { language } = useLanguage()
 
   const Icons = (): any =>
     images.map((image, index) => {
@@ -33,7 +37,7 @@ function App() {
     })
 
   const getRepos = async () => {
-    const repos = await fetch('https://api.github.com/users/eneko96/repos')
+    const repos = await fetch(import.meta.env.VITE_GITHUB_URI)
     const data = await repos.json()
     setRepos(data)
   }
@@ -45,6 +49,14 @@ function App() {
 
   return (
     <div className="App">
+      <div className="language title">
+        <span className="language-name" onClick={() => changeLanguage('en-ES')}>
+          ES
+        </span>
+        <span className="language-name" onClick={() => changeLanguage('en-US')}>
+          EN
+        </span>
+      </div>
       <Head />
       <section>
         <div className="subtitle-container">

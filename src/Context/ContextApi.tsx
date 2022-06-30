@@ -11,6 +11,7 @@ export const AppContext = createContext({})
 
 const AppProvider: FC<any> = ({ children }) => {
   const [description, setDescription] = useState<string>('')
+  const [language, setLanguage] = useState<string>(navigator.language)
   const [works, setWorks] = useState<string[]>([])
   const [projects, setProjects] = useState<IProject[]>([])
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
@@ -20,11 +21,6 @@ const AppProvider: FC<any> = ({ children }) => {
   const getDescription = async () => {
     const { data } = await supabase.from('Experience').select()
     return data
-    // if (data) {
-    //   setDescription(
-    //     data[0]?.description ? data[0].description : 'No description Provided'
-    //   )
-    // }
   }
 
   const getWorks = async () => {
@@ -32,10 +28,11 @@ const AppProvider: FC<any> = ({ children }) => {
     return data
   }
 
+  const changeLanguage = (lan: string) => setLanguage(lan)
+
   const getProjects = async () => {
     const { data } = await supabase.from('Projects').select()
     return data
-    // if (data) setProjects(data)
   }
 
   const getData = async () => {
@@ -65,6 +62,8 @@ const AppProvider: FC<any> = ({ children }) => {
         auth: supabase.auth,
         projects,
         description,
+        language,
+        changeLanguage,
         works
       }}
     >
@@ -73,6 +72,6 @@ const AppProvider: FC<any> = ({ children }) => {
   )
 }
 
-const useAppContext = () => useContext(AppContext as any)
+const useAppContext = () => useContext(AppContext)
 
 export { AppContext as default, AppProvider, useAppContext }
