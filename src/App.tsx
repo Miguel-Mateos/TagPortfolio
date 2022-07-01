@@ -7,6 +7,7 @@ import { Works } from './Modules/Works/Works'
 import { Projects } from './Modules/Projects/Projects'
 import { useAppContext } from './Context/ContextApi'
 import { useLanguage } from './hooks/useLanguage'
+import { Footer } from './Modules/Footer/Footer'
 
 export interface IRepo {
   name: string
@@ -89,7 +90,7 @@ function App() {
           <Repos repos={repos as IRepo[]} />
         </div>
       </section>
-      <footer></footer>
+      <Footer />
     </div>
   )
 }
