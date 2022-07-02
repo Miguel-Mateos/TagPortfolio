@@ -2,24 +2,26 @@ import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 
 export const Footer = () => {
-  const form = useRef<HTMLFormElement | null>(null)
+  const form = useRef<HTMLFormElement>(null)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAIL_SERVICE_ID,
-        import.meta.env.VITE_EMAIL_TEMPLATE,
-        form.current,
-        import.meta.env.VITE_EMAIL_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text)
-        },
-        (error) => {
-          console.log(error.text)
-        }
-      )
+    if (form.current) {
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAIL_SERVICE_ID,
+          import.meta.env.VITE_EMAIL_TEMPLATE,
+          form.current,
+          import.meta.env.VITE_EMAIL_KEY
+        )
+        .then(
+          (result) => {
+            console.log(result.text)
+          },
+          (error) => {
+            console.log(error.text)
+          }
+        )
+    }
   }
 
   const sendMessage = () => {}
