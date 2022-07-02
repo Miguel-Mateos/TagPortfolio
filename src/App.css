@@ -417,6 +417,11 @@ footer>h1 {
   margin-top: 0;
 }
 
+.disabled {
+  background-color: #3c3d3d;
+  border-color: #282c34;
+}
+
 .modal {
   position: fixed;
   top: 0;

@@ -1,20 +1,32 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 
 export const Footer = () => {
-  const form = useRef<HTMLFormElement>(null)
+  const form = useRef<any>(null)
+  const [canSubmit, setCanSubmit] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState<string | null>('patata')
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const formValues = form.current?.elements
+    const name = formValues._name.value
+    const email = formValues.email.value
+    const message = formValues.message.value
     if (form.current) {
       emailjs
-        .sendForm(
+        .send(
           import.meta.env.VITE_EMAIL_SERVICE_ID,
           import.meta.env.VITE_EMAIL_TEMPLATE,
-          form.current,
+          {
+            _name: name,
+            email: email,
+            message: message
+          },
           import.meta.env.VITE_EMAIL_KEY
         )
         .then(
           (result) => {
+            setSuccess('Message successfully sent!')
             console.log(result.text)
           },
           (error) => {
@@ -24,12 +36,23 @@ export const Footer = () => {
     }
   }
 
-  const sendMessage = () => {}
+  const handleChange = () => {
+    if (form.current) {
+      const formValues = form.current?.elements
+      const name = formValues._name.value
+      const email = formValues.email.value
+      const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      const message = formValues.message.value
+      if (name && isEmail && message) setCanSubmit(true)
+      else setCanSubmit(false)
+    }
+  }
 
   return (
     <footer className="footer">
+      {success && <div className="email-success">{success}</div>}
       <h1 style={{ fontSize: '50px', textAlign: 'left' }}>Contact</h1>
-      <form ref={form} onSubmit={handleSubmit}>
+      <form onChange={handleChange} ref={form} onSubmit={handleSubmit}>
         <div className="input">
           <label htmlFor="_name" style={{ display: 'block' }}>
             Nombre
@@ -50,8 +73,9 @@ export const Footer = () => {
         </div>
         <input
           type="submit"
-          className="button minimal"
+          className={`button minimal ${canSubmit ? '' : 'disabled'}`}
           value="Contact"
+          disabled={!canSubmit}
           style={{ maxWidth: '20%' }}
         />
       </form>
