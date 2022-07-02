@@ -1,16 +1,33 @@
+import { useRef } from 'react'
+import emailjs from '@emailjs/browser'
+
 export const Footer = () => {
+  const form = useRef<HTMLFormElement | null>(null)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const form = e.currentTarget
-    const name = form['_name'].value
-    const email = form.email.value
-    const message = form.message.value
-    console.log(name, email, message)
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE,
+        form.current,
+        import.meta.env.VITE_EMAIL_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
   }
+
+  const sendMessage = () => {}
 
   return (
     <footer className="footer">
-      <form onSubmit={handleSubmit}>
+      <h1 style={{ fontSize: '50px', textAlign: 'left' }}>Contact</h1>
+      <form ref={form} onSubmit={handleSubmit}>
         <div className="input">
           <label htmlFor="_name" style={{ display: 'block' }}>
             Nombre

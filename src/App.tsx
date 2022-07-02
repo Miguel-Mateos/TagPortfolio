@@ -83,14 +83,15 @@ function App() {
         </div>
       </section>
       <section className="default-section">
-        <div
-          className="description"
-          style={{ borderColor: 'var(--quaternary)' }}
-        >
+        <div className="description">
           <Repos repos={repos as IRepo[]} />
         </div>
       </section>
-      <Footer />
+      <section className="default-section">
+        <div className="description">
+          <Footer />
+        </div>
+      </section>
     </div>
   )
 }
