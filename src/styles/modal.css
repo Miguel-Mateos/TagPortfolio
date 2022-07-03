@@ -1,0 +1,39 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+  transition: all .2s linear;
+}
+
+.icon-close {
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  transition: color .2s linear;
+}
+
+.icon-close:hover {
+  color: gray;
+}
+
+.modal-content {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  position:fixed;
+  width: 40%;
+  height: 50%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  overflow-y: scroll;
+}
+
+.modal-content>.markdown {
+  height: auto;
+}

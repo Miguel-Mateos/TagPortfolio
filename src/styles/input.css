@@ -1,0 +1,18 @@
+label {
+  font-family: 'Bebas Neue';
+}
+
+.footer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input {
+  width: 60%;
+  margin: auto;
+}
+
+.input label {
+  text-align: left;
+  margin-left: 1rem;
+}

@@ -1,0 +1,81 @@
+@keyframes move-icon {
+  0% {
+    transform: translateY(-5px);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes move-icon-inverse {
+  0% {
+    transform: translateY(5px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes slide {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translate(-50%, 25%);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translate(-50%, 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(+60deg);
+  }
+}
+
+.fade-in {
+  animation: fade 0.5s ease-in-out;
+}
+
+.inverse {
+  animation: move-icon-inverse infinite 3s linear;
+}

@@ -1,0 +1,95 @@
+button {
+  font-size: calc(10px + 2vmin);
+}
+
+.button {
+  border: 0;
+  background-color: var(--tertiary);
+  border-radius: 7px;
+  color: white;
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.button:active {
+  opacity: 0.6;
+}
+
+.button > a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button_small {
+  background-color: var(--secondary);
+  color: white;
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.button_small:hover {
+  opacity: 0.8;
+}
+
+.button_small:active {
+  opacity: 0.6;
+}
+
+.minimal {
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+  border: 3px solid var(--primary);
+}
+
+.readme {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.disabled {
+  background-color: #3c3d3d;
+  border-color: #282c34;
+}
+
+/* Pseudo button when repository is copied */
+.copied {
+  position: relative;
+}
+
+.copied::after {
+  content: 'Copied!';
+  position: absolute;
+  width: 40px;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg01);
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  border-radius: 7px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  animation: slide 0.2s ease-in;
+}
