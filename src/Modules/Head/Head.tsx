@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export const Head = () => {
   const [loaded, setLoaded] = useState(false)
+  // const { t } = useLanguage()
   return (
     <header className="header">
       <div className="header-content">

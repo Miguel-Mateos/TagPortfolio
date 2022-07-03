@@ -13,19 +13,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
   const rtf = new Intl.RelativeTimeFormat('default', { style: 'short' })
   const [clipboard, setClipboard] = useState<number | null>(null)
   const [openModal, setOpenModal] = useState<string>('')
-  const [isFirstTime, setIsFirstTime] = useState(
-    localStorage.getItem('first-time') === null
-  )
   let timer: any
-
-  useEffect(() => {
-    if (isFirstTime) {
-      setTimeout(() => {
-        localStorage.setItem('first-time', 'false')
-        setIsFirstTime(false)
-      }, 5000)
-    }
-  }, [])
 
   const copyToClipboard = (text: string, idx: number) => {
     if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
