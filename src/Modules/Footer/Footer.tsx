@@ -27,7 +27,7 @@ export const Footer = () => {
         )
         .then(
           (result) => {
-            openNotification('Message successfully sent!')
+            openNotification({ message: 'Message successfully sent!' })
             console.log(result.text)
           },
           (error) => {
@@ -51,13 +51,6 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
-      <button
-        onClick={() =>
-          openNotification({ message: 'Message successfully sent!' })
-        }
-      >
-        open notification
-      </button>
       <h1
         style={{
           fontSize: '50px',
