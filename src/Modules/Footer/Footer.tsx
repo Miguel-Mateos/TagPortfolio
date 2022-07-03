@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { Notification } from '../../Components/Notification/Notification'
+import { useAppContext } from '../../Context/ContextApi'
 
 export const Footer = () => {
   const form = useRef<any>(null)
   const [canSubmit, setCanSubmit] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState<string | null>(null)
+  const { openNotification } = useAppContext() as any
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formValues = form.current?.elements
@@ -27,7 +27,7 @@ export const Footer = () => {
         )
         .then(
           (result) => {
-            setSuccess('Message successfully sent!')
+            openNotification('Message successfully sent!')
             console.log(result.text)
           },
           (error) => {
@@ -50,40 +50,50 @@ export const Footer = () => {
   }
 
   return (
-    <>
-      {success && (
-        <Notification message={success} onClose={() => setSuccess(null)} />
-      )}
-      <footer className="footer">
-        <h1 style={{ fontSize: '50px', textAlign: 'left' }}>Contact</h1>
-        <form onChange={handleChange} ref={form} onSubmit={handleSubmit}>
-          <div className="input">
-            <label htmlFor="_name" style={{ display: 'block' }}>
-              Nombre
-            </label>
-            <input id="_name" type="text" placeholder="Nombre" />
-          </div>
-          <div className="input" style={{ marginTop: '2rem' }}>
-            <label htmlFor="email" style={{ display: 'block' }}>
-              Email
-            </label>
-            <input id="email" type="email" placeholder="Email" />
-          </div>
-          <div className="input" style={{ marginTop: '2rem' }}>
-            <label htmlFor="message" style={{ display: 'block' }}>
-              Mensaje
-            </label>
-            <textarea id="message" placeholder="Mensaje" />
-          </div>
-          <input
-            type="submit"
-            className={`button minimal ${canSubmit ? '' : 'disabled'}`}
-            value="Contact"
-            disabled={!canSubmit}
-            style={{ maxWidth: '20%' }}
-          />
-        </form>
-      </footer>
-    </>
+    <footer className="footer">
+      <button
+        onClick={() =>
+          openNotification({ message: 'Message successfully sent!' })
+        }
+      >
+        open notification
+      </button>
+      <h1
+        style={{
+          fontSize: '50px',
+          textAlign: 'left',
+          color: 'var(--primary)'
+        }}
+      >
+        Contact
+      </h1>
+      <form onChange={handleChange} ref={form} onSubmit={handleSubmit}>
+        <div className="input">
+          <label htmlFor="_name" style={{ display: 'block' }}>
+            Nombre
+          </label>
+          <input id="_name" type="text" placeholder="Nombre" />
+        </div>
+        <div className="input" style={{ marginTop: '2rem' }}>
+          <label htmlFor="email" style={{ display: 'block' }}>
+            Email
+          </label>
+          <input id="email" type="email" placeholder="Email" />
+        </div>
+        <div className="input" style={{ marginTop: '2rem' }}>
+          <label htmlFor="message" style={{ display: 'block' }}>
+            Mensaje
+          </label>
+          <textarea id="message" placeholder="Mensaje" />
+        </div>
+        <input
+          type="submit"
+          className={`button minimal ${canSubmit ? '' : 'disabled'}`}
+          value="Contact"
+          disabled={!canSubmit}
+          style={{ maxWidth: '20%' }}
+        />
+      </form>
+    </footer>
   )
 }

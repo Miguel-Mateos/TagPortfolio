@@ -512,6 +512,7 @@ label {
 }
 
 .footer {
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -670,4 +671,10 @@ textarea {
   .language {
     top: 1.5rem;
   }
+
+  .input {
+    width: 80%;
+    margin: auto;
+  }
+  
 }

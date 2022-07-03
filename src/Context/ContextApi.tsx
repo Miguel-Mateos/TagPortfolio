@@ -11,16 +11,26 @@ export const AppContext = createContext({})
 
 const AppProvider: FC<any> = ({ children }) => {
   const [description, setDescription] = useState<string>('')
+  const [notification, setNotification] = useState<string>('')
   const [language, setLanguage] = useState<string>('en-US')
   const [works, setWorks] = useState<string[]>([])
   const [projects, setProjects] = useState<IProject[]>([])
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
   const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
   const supabase = createClient(supabaseUrl, supabaseKey)
+  let timer: any
 
   const getDescription = async () => {
     const { data } = await supabase.from('Experience').select()
     return data
+  }
+
+  const openNotification = ({ message }: { message: string }) => {
+    setNotification(message)
+    timer = setTimeout(() => {
+      clearTimeout(timer)
+      setNotification('')
+    }, 3000)
   }
 
   const getWorks = async () => {
@@ -64,6 +74,8 @@ const AppProvider: FC<any> = ({ children }) => {
         description,
         language,
         changeLanguage,
+        openNotification,
+        notification,
         works
       }}
     >

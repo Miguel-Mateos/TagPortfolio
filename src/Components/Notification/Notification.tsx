@@ -1,22 +1,22 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
+import { useAppContext } from '../../Context/ContextApi'
 
-interface INotification {
-  message: string
-  onClose: () => void
-}
+export const Notification: FC = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  const { notification } = useAppContext() as any
 
-export const Notification: FC<INotification> = ({ message, onClose }) => {
   useEffect(() => {
-    const close = () => {
-      onClose()
+    if (ref.current) {
+      if (notification) ref.current.style.display = 'block'
+      else ref.current.style.display = 'none'
     }
-    setTimeout(close, 3000)
-  })
+  }, [notification])
+
   const content = (
-    <div className="notification">
+    <div ref={ref} className="notification">
       <div>
-        <p className="notification-message">{message}</p>
+        <p className="notification-msg">{notification}</p>
       </div>
     </div>
   )
