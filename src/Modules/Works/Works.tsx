@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAppContext } from '../../Context/ContextApi'
+import { useLanguage } from '../../hooks/useLanguage'
 
 const MoreIcon = ({ more }: { more: boolean }) => (
   <svg
@@ -95,6 +96,7 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
 export const Works = () => {
   const [more, setMore] = useState<number | null>(0)
   const { works } = useAppContext() as any
+  const { t } = useLanguage()
 
   return (
     <>
@@ -105,7 +107,7 @@ export const Works = () => {
           color: 'var(--secondary)'
         }}
       >
-        Work Experience
+        {t('experience')}
       </h1>
       <div className="works-container">
         {works.length > 0 &&

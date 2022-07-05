@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import { IRepo } from '../../App'
 import { Modal } from '../../Components/Modal/Modal'
+import { useLanguage } from '../../hooks/useLanguage'
 import { Markdown } from '../../Markdown'
 
 interface IRepos {
@@ -8,11 +9,11 @@ interface IRepos {
 }
 
 export const Repos: FC<IRepos> = ({ repos }) => {
-  const ref = useRef(null)
   const [moreRepos, setMoreRepos] = useState<boolean>(false)
   const rtf = new Intl.RelativeTimeFormat('default', { style: 'short' })
   const [clipboard, setClipboard] = useState<number | null>(null)
   const [openModal, setOpenModal] = useState<string>('')
+  const { t } = useLanguage()
   let timer: any
 
   const copyToClipboard = (text: string, idx: number) => {
@@ -41,7 +42,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
           color: 'var(--primary)'
         }}
       >
-        Repositories
+        {t('repos')}
       </h1>
       <div
         style={{
@@ -74,17 +75,20 @@ export const Repos: FC<IRepos> = ({ repos }) => {
                 }}
               >
                 <p>
-                  Description: {repo.description || 'No Description Provided'}
+                  {t('description')}:{' '}
+                  {repo.description || 'No Description Provided'}
                 </p>
                 <p>
-                  Created:{' '}
+                  {t('created')}:{' '}
                   {Intl.DateTimeFormat('default', {
                     year: '2-digit',
                     month: '2-digit',
                     day: '2-digit'
                   }).format(new Date(repo.created_at))}
                 </p>
-                <p>Last Updated: {rtf.format(-1, 'day')}</p>
+                <p>
+                  {t('last_updated')}: {rtf.format(-1, 'day')}
+                </p>
                 <a
                   href={'//' + repo.homepage}
                   target="_blank"

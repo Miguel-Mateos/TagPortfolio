@@ -3,12 +3,12 @@ import { useLanguage } from '../../hooks/useLanguage'
 
 export const Head = () => {
   const [loaded, setLoaded] = useState(false)
-  // const { t } = useLanguage()
+  const { t } = useLanguage()
   return (
     <header className="header">
       <div className="header-content">
         <h1>
-          Welcome To My <span>Portfolio</span>
+          {t('welcome_1')} <span>{t('welcome_2')}</span>
         </h1>
       </div>
       <picture className="image-container">

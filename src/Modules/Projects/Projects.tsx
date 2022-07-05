@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IProject, useAppContext } from '../../Context/ContextApi'
+import { useLanguage } from '../../hooks/useLanguage'
 
 interface IProjectInner {
   data: IProject
@@ -24,11 +25,14 @@ const MoreIcon = ({ more }: { more: boolean }) => (
 export const Projects = ({}) => {
   const { projects } = useAppContext() as any
   const [more, setMore] = useState<number | null>(0)
+  const { t } = useLanguage()
   const Project: React.FC<IProjectInner> = ({ data, more, setMore, idx }) =>
     window.innerWidth > 600 ? (
       <div className="work">
         <h1 className="work-title">{data.name}</h1>
-        <h4>Associate with: {data.associate}</h4>
+        <h4>
+          {t('associate')}: {data.associate}
+        </h4>
         {data.description && <p>{data.description}</p>}
       </div>
     ) : (
@@ -44,7 +48,11 @@ export const Projects = ({}) => {
         </h1>
         {more === idx ? (
           <>
-            {data.associate && <h4>Associate with: {data.associate}</h4>}
+            {data.associate && (
+              <h4>
+                {t('associate')}: {data.associate}
+              </h4>
+            )}
             {data.description && <p>{data.description}</p>}
           </>
         ) : null}
@@ -59,7 +67,7 @@ export const Projects = ({}) => {
           color: 'var(--secondary)'
         }}
       >
-        Done Projects
+        {t('projects')}
       </h1>
       <div className="works-container" style={{ marginTop: '2rem' }}>
         {projects.map((project: IProject, idx: number) => (

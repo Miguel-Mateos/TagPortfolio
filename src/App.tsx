@@ -30,6 +30,8 @@ function App() {
         <span key={index}>
           <img
             src={image}
+            width="3rem"
+            height="3rem"
             className={`icon-image ${odd ? 'inverse' : ''}`}
             alt="skill icon"
           />
