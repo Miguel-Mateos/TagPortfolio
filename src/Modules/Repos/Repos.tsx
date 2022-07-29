@@ -34,16 +34,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
           <Markdown repo={openModal} />
         </Modal>
       )}
-      <h1
-        style={{
-          fontSize: '50px',
-          textAlign: 'left',
-          marginBottom: 0,
-          color: 'var(--primary)'
-        }}
-      >
-        {t('repos')}
-      </h1>
+      <h1 className="title-box">{t('repos')}</h1>
       <div
         style={{
           flexWrap: 'wrap',

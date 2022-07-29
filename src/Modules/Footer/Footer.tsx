@@ -51,15 +51,7 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
-      <h1
-        style={{
-          fontSize: '50px',
-          textAlign: 'left',
-          color: 'var(--primary)'
-        }}
-      >
-        Contact
-      </h1>
+      <h1 className="title-box">Contact</h1>
       <form onChange={handleChange} ref={form} onSubmit={handleSubmit}>
         <div className="input">
           <label htmlFor="_name" style={{ display: 'block' }}>

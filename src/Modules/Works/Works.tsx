@@ -100,15 +100,7 @@ export const Works = () => {
 
   return (
     <>
-      <h1
-        style={{
-          textAlign: 'left',
-          fontSize: '50px',
-          color: 'var(--secondary)'
-        }}
-      >
-        {t('experience')}
-      </h1>
+      <h1 className="title-box">{t('experience')}</h1>
       <div className="works-container">
         {works.length > 0 &&
           works.map((work: any, idx: number) => (

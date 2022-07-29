@@ -93,3 +93,13 @@ button {
   display: inline-block;
   animation: slide 0.2s ease-in;
 }
+
+.button.linkedin {
+  color: black;
+  background-color: #0077b5;
+}
+
+.button.github {
+  color: white;
+  background-color: rgb(4, 13, 33);;
+}

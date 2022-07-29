@@ -73,3 +73,16 @@ textarea {
   transition: border-color 0.2s linear;
   resize: unset;
 }
+
+.title-box {
+  text-align: left;
+  font-size: 50px;
+  color: var(--secondary);
+}
+
+@media screen and (max-width: 600px) {
+  .title-box {
+    text-align: center;
+  }
+}
+

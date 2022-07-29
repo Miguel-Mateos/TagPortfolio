@@ -90,9 +90,19 @@ function App() {
         </div>
       </section>
       <section className="default-section">
-        <div className="description">
-          <Footer />
-        </div>
+        <button className="button minimal linkedin">
+          <a
+            href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"
+            target="_blank"
+          >
+            Linkedin
+          </a>
+        </button>
+        <button className="button minimal github">
+          <a href="https://github.com/Eneko96" target="_blank">
+            Github
+          </a>
+        </button>
       </section>
     </div>
   )

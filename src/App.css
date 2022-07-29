@@ -25,11 +25,10 @@
   transition: opacity 0.5s ease-in-out;
   animation: fadeIn 0.5s ease-in-out;
   text-align: right;
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: bold;
   color: #fff;
   margin: 0;
-  max-width: 30%;
   width: min-content;
 }
 
@@ -137,7 +136,7 @@ footer>h1 {
 
   .header-content {
     margin-left: auto;
-    margin-right: 3rem;
+    margin-right: .5rem;
     height: 22rem;
     display: flex;
   }

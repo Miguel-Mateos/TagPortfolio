@@ -60,15 +60,7 @@ export const Projects = ({}) => {
     )
   return (
     <>
-      <h1
-        style={{
-          textAlign: 'left',
-          fontSize: '50px',
-          color: 'var(--secondary)'
-        }}
-      >
-        {t('projects')}
-      </h1>
+      <h1 className="title-box">{t('projects')}</h1>
       <div className="works-container" style={{ marginTop: '2rem' }}>
         {projects.map((project: IProject, idx: number) => (
           <Project
