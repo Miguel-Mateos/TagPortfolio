@@ -99,6 +99,8 @@ button {
   background-color: #0077b5;
   border-color: transparent;
   padding: .2rem;
+  margin: .6rem;
+  margin-left: 1rem;
 }
 
 .button.linkedin > a {
@@ -111,7 +113,8 @@ button {
   color: white;
   background-color: rgb(4, 13, 33);
   border-color: transparent;
-  padding: .2rem
+  padding: .2rem;
+  margin: .6rem;
 }
 
 .button.github > a {

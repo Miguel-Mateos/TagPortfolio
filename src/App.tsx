@@ -92,6 +92,7 @@ function App() {
         </div>
       </section>
       <section className="default-section_right">
+        <p style={{ fontWeight: 500 }}>More of me at:</p>
         <button className="button minimal linkedin">
           <a
             href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"

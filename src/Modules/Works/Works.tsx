@@ -82,9 +82,11 @@ const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
               month: 'long'
             }).format(new Date(work.Start))}
             &nbsp;To&nbsp;
-            {Intl.DateTimeFormat('default', {
-              month: 'long'
-            }).format(new Date(work.Finish))}
+            {work.Finish !== null
+              ? Intl.DateTimeFormat('default', {
+                  month: 'long'
+                }).format(new Date(work.Finish))
+              : 'Currently'}
           </p>
           {refineDescription(work.description)}
         </div>
