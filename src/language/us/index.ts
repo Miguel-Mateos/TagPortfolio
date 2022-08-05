@@ -8,5 +8,6 @@ export const us: any = {
   description: 'Description',
   created: 'Created',
   last_updated: 'Last Updated',
-  associate: 'Associate with'
+  associate: 'Associate with',
+  as: 'as'
 }

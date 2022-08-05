@@ -5,11 +5,10 @@ import { Repos } from './Modules/Repos/Repos'
 import './App.css'
 import { Works } from './Modules/Works/Works'
 import { Projects } from './Modules/Projects/Projects'
-import { useAppContext } from './Context/ContextApi'
 import { useLanguage } from './hooks/useLanguage'
-import { Footer } from './Modules/Footer/Footer'
 import { Github } from './Icons/Github'
 import { Linkedin } from './Icons/Linkedin'
+import { LangSelector } from './Components/LangSelector/LangSelector'
 
 export interface IRepo {
   name: string
@@ -22,7 +21,6 @@ export interface IRepo {
 
 function App() {
   const [repos, setRepos] = useState<IRepo[] | null>(null)
-  const { changeLanguage } = useAppContext() as any
   const { t } = useLanguage()
 
   const Icons = (): any =>
@@ -54,20 +52,15 @@ function App() {
 
   return (
     <div className="App">
-      <div className="language title">
-        <span className="language-name" onClick={() => changeLanguage('en-ES')}>
-          ES
-        </span>
-        <span className="language-name" onClick={() => changeLanguage('en-US')}>
-          EN
-        </span>
-      </div>
+      <LangSelector />
       <Head />
+
       <section>
         <div className="subtitle-container">
           <h2>&quot;{t('quote')}&quot; - Austin Freeman</h2>
         </div>
       </section>
+
       <section
         className="icons-section"
         style={{
@@ -80,17 +73,20 @@ function App() {
       >
         <Icons />
       </section>
+
       <section className="default-section">
         <div className="description">
           <Works />
           <Projects />
         </div>
       </section>
+
       <section className="default-section">
         <div className="description">
           <Repos repos={repos as IRepo[]} />
         </div>
       </section>
+
       <section className="default-section_right">
         <p style={{ fontWeight: 500 }}>More of me at:</p>
         <button className="button minimal linkedin">

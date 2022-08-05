@@ -8,5 +8,6 @@ export const es: any = {
   description: 'Descripción',
   created: 'Creado',
   last_updated: 'Actualizado',
-  associate: 'Asociado con'
+  associate: 'Asociado con',
+  as: 'como'
 }

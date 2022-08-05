@@ -10,7 +10,7 @@ export const useLanguage = () => {
   useLayoutEffect(() => {
     const languages: {es: any, us: any} = { es: es, us: us };
     const parseLan = language && language.split("-")[1].toLowerCase();
-    setLanguageData((languages as any)[parseLan?.toLowerCase() || 'us']);
+    setLanguageData((languages as any)[parseLan?.toLowerCase() || 'en']);
   }, [language]);
 
   const t = (str: string) => {
