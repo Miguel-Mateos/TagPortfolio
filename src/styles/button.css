@@ -97,9 +97,25 @@ button {
 .button.linkedin {
   color: black;
   background-color: #0077b5;
+  border-color: transparent;
+  padding: .2rem;
+}
+
+.button.linkedin > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button.github {
   color: white;
-  background-color: rgb(4, 13, 33);;
+  background-color: rgb(4, 13, 33);
+  border-color: transparent;
+  padding: .2rem
+}
+
+.button.github > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

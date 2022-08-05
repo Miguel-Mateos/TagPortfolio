@@ -8,6 +8,8 @@ import { Projects } from './Modules/Projects/Projects'
 import { useAppContext } from './Context/ContextApi'
 import { useLanguage } from './hooks/useLanguage'
 import { Footer } from './Modules/Footer/Footer'
+import { Github } from './Icons/Github'
+import { Linkedin } from './Icons/Linkedin'
 
 export interface IRepo {
   name: string
@@ -89,18 +91,18 @@ function App() {
           <Repos repos={repos as IRepo[]} />
         </div>
       </section>
-      <section className="default-section">
+      <section className="default-section_right">
         <button className="button minimal linkedin">
           <a
             href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"
             target="_blank"
           >
-            Linkedin
+            <Linkedin />
           </a>
         </button>
         <button className="button minimal github">
           <a href="https://github.com/Eneko96" target="_blank">
-            Github
+            <Github />
           </a>
         </button>
       </section>
