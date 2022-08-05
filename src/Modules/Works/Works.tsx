@@ -103,15 +103,20 @@ export const Works = () => {
       <h1 className="title-box">{t('experience')}</h1>
       <div className="works-container">
         {works.length > 0 &&
-          works.map((work: any, idx: number) => (
-            <Work
-              idx={idx}
-              more={more === idx ? more : null}
-              setMore={setMore}
-              work={work}
-              key={'work' + idx}
-            />
-          ))}
+          works
+            .sort(
+              (elA: any, elB: any) =>
+                Number(new Date(elB.Start)) - Number(new Date(elA.Start))
+            )
+            .map((work: any, idx: number) => (
+              <Work
+                idx={idx}
+                more={more === idx ? more : null}
+                setMore={setMore}
+                work={work}
+                key={'work' + idx}
+              />
+            ))}
       </div>
     </>
   )
