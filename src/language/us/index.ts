@@ -3,7 +3,7 @@ export const us: any = {
   welcome_1: "Welcome To My",
   welcome_2: "Portfolio",
   experience: 'Work Experience',
-  projects: 'Done Projects',
+  projects: 'Completed Projects',
   repos: 'Github Repositories',
   description: 'Description',
   created: 'Created',

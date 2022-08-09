@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef, useState } from 'react'
-import { IRepo } from '../../App'
+import { IRepo } from '../../types'
 import { Modal } from '../../Components/Modal/Modal'
 import { useLanguage } from '../../hooks/useLanguage'
 import { Markdown } from '../../Markdown'

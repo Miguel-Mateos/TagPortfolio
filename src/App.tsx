@@ -1,23 +1,16 @@
+import { IRepo } from './types'
 import { useEffect, useState } from 'react'
 import { images } from './contants'
 import { Head } from './Modules/Head/Head'
 import { Repos } from './Modules/Repos/Repos'
-import './App.css'
 import { Works } from './Modules/Works/Works'
 import { Projects } from './Modules/Projects/Projects'
 import { useLanguage } from './hooks/useLanguage'
-import { Github } from './Icons/Github'
-import { Linkedin } from './Icons/Linkedin'
+import { About } from './Modules/About/About'
 import { LangSelector } from './Components/LangSelector/LangSelector'
-
-export interface IRepo {
-  name: string
-  clone_url: string
-  created_at: string
-  description: string
-  updated_at: string
-  homepage: string
-}
+import { Social } from './Components/Social/Social'
+import { Quote } from './Components/Quote/Quote'
+import './App.css'
 
 function App() {
   const [repos, setRepos] = useState<IRepo[] | null>(null)
@@ -53,13 +46,12 @@ function App() {
   return (
     <div className="App">
       <LangSelector />
+
       <Head />
 
-      <section>
-        <div className="subtitle-container">
-          <h2>&quot;{t('quote')}&quot; - Austin Freeman</h2>
-        </div>
-      </section>
+      <Quote quote={`"${t('quote')}" - Austin Freeman`} />
+
+      <About />
 
       <section
         className="icons-section"
@@ -87,22 +79,7 @@ function App() {
         </div>
       </section>
 
-      <section className="default-section_right">
-        <p style={{ fontWeight: 500 }}>More of me at:</p>
-        <button className="button minimal linkedin">
-          <a
-            href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"
-            target="_blank"
-          >
-            <Linkedin />
-          </a>
-        </button>
-        <button className="button minimal github">
-          <a href="https://github.com/Eneko96" target="_blank">
-            <Github />
-          </a>
-        </button>
-      </section>
+      <Social />
     </div>
   )
 }
