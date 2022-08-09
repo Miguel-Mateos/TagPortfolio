@@ -23,9 +23,10 @@ const MoreIcon = ({ more }: { more: boolean }) => (
 )
 
 export const Projects = ({}) => {
-  const { projects } = useAppContext() as any
+  const { projects, projectDescriptions } = useAppContext()
   const [more, setMore] = useState<number | null>(0)
   const { t } = useLanguage()
+
   const Project: React.FC<IProjectInner> = ({ data, more, setMore, idx }) =>
     window.innerWidth > 600 ? (
       <div className="work">
@@ -33,7 +34,12 @@ export const Projects = ({}) => {
         <h4>
           {t('associate')}: {data.associate}
         </h4>
-        {data.description && <p>{data.description}</p>}
+        {projectDescriptions.length > 0 && (
+          <p>
+            {projectDescriptions.find((pd) => pd.project_id === data.id)
+              ?.content || ''}
+          </p>
+        )}
       </div>
     ) : (
       <div className="work">
@@ -58,11 +64,12 @@ export const Projects = ({}) => {
         ) : null}
       </div>
     )
+
   return (
     <>
       <h1 className="title-box">{t('projects')}</h1>
       <div className="works-container" style={{ marginTop: '2rem' }}>
-        {projects.map((project: IProject, idx: number) => (
+        {projects.map((project, idx: number) => (
           <Project
             key={idx}
             data={project}

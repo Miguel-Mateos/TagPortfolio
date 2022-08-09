@@ -8,6 +8,7 @@ import React, {
 } from 'react'
 
 export interface IProject {
+  id: number
   name: string
   associate: string
   description: string
@@ -21,6 +22,14 @@ export interface IDescriptions {
   content: string
 }
 
+export interface IProjectDescription {
+  id: number
+  created_at: string
+  project_id: number
+  language: 'es' | 'en'
+  content: string
+}
+
 export const AppContext = createContext<IAppContext | null>(null)
 
 const AppProvider: FC<any> = ({ children }) => {
@@ -28,6 +37,9 @@ const AppProvider: FC<any> = ({ children }) => {
   const [notification, setNotification] = useState<string>('')
   const [language, setLanguage] = useState<string>('en-US')
   const [descriptions, setDescriptions] = useState<IDescriptions[]>([])
+  const [projectDescriptions, setProjectDescriptions] = useState<
+    IProjectDescription[]
+  >([])
   const [works, setWorks] = useState<string[]>([])
   const [projects, setProjects] = useState<IProject[]>([])
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
@@ -84,12 +96,21 @@ const AppProvider: FC<any> = ({ children }) => {
     setDescriptions(data || [])
   }
 
+  const getProjectDescriptions = async () => {
+    const { data } = await supabase
+      .from('Projects_Language')
+      .select()
+      .eq('language', language.slice(0, 2))
+    setProjectDescriptions(data || [])
+  }
+
   useEffect(() => {
     getData()
   }, [])
 
   useEffect(() => {
     getDescriptions()
+    getProjectDescriptions()
   }, [language])
 
   return (
@@ -104,7 +125,8 @@ const AppProvider: FC<any> = ({ children }) => {
         changeLanguage,
         openNotification,
         notification,
-        works
+        works,
+        projectDescriptions
       }}
     >
       {children}
@@ -124,6 +146,7 @@ interface IAppContext {
   notification: string
   works: string[]
   achievements?: string[]
+  projectDescriptions: IProjectDescription[]
 }
 
 // extend the context of the app context for ts compatibility
