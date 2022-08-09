@@ -1,0 +1,30 @@
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-subtitle {
+  color: var(--quaternary);
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.employee-container  h3 {
+  animation: fade 0.5s ease-in;
+  font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+  .employee-container  h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-container {
+    display: block;
+  }
+
+  .about-subtitle {
+    margin-left: 0;
+  }
+}
