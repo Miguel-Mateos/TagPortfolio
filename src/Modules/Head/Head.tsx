@@ -17,13 +17,17 @@ export const Head = () => {
             <div className="loader"></div>
           </div>
         )}
-        <img
-          alt="head image"
-          className="header-image"
-          src="/first_image.jpeg"
-          loading="eager"
-          onLoad={() => setLoaded(true)}
-        />
+        <picture>
+          <source type="image/webp" srcSet="/first_image.webp" />
+          <source type="image/jpeg" srcSet="/first_image.jpg" />
+          <img
+            src="/first_image.jpg"
+            loading="eager"
+            onLoad={() => setLoaded(true)}
+            alt="head image"
+            className="header-image"
+          />
+        </picture>
       </picture>
     </header>
   )
