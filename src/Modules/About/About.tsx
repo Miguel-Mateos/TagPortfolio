@@ -11,8 +11,7 @@ const asEmployeeArray = [
 ]
 
 const asPersonArray = [
-  'I am a self-taught developer with a passion for web development.',
-  'I love Weronika Prawda'
+  'I am a self-taught developer with a passion for web development.'
 ]
 
 export const About = () => {
