@@ -27,7 +27,12 @@ export const Projects = ({}) => {
   const [more, setMore] = useState<number | null>(0)
   const { t } = useLanguage()
 
-  const Project: React.FC<IProjectInner> = ({ data, more, setMore, idx }) =>
+  const renderProject: React.FC<IProjectInner> = ({
+    data,
+    more,
+    setMore,
+    idx
+  }) =>
     window.innerWidth > 600 ? (
       <div className="work">
         <h1 className="work-title">{data.name}</h1>
@@ -52,16 +57,14 @@ export const Projects = ({}) => {
             <MoreIcon more={more === idx ?? false} />
           </span>
         </h1>
-        {more === idx ? (
-          <>
-            {data.associate && (
-              <h4>
-                {t('associate')}: {data.associate}
-              </h4>
-            )}
-            {data.description && <p>{data.description}</p>}
-          </>
-        ) : null}
+        <div className={`work-rest-container${more === idx ? '_active' : ''}`}>
+          {data.associate && (
+            <h4>
+              {t('associate')}: {data.associate}
+            </h4>
+          )}
+          {data.description && <p>{data.description}</p>}
+        </div>
       </div>
     )
 
@@ -69,15 +72,14 @@ export const Projects = ({}) => {
     <>
       <h1 className="title-box">{t('projects')}</h1>
       <div className="works-container" style={{ marginTop: '2rem' }}>
-        {projects.map((project, idx: number) => (
-          <Project
-            key={idx}
-            data={project}
-            more={more === idx ? more : null}
-            idx={idx}
-            setMore={setMore}
-          />
-        ))}
+        {projects.map((project, idx: number) =>
+          renderProject({
+            data: project,
+            idx,
+            more,
+            setMore
+          })
+        )}
       </div>
     </>
   )

@@ -72,25 +72,23 @@ export const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
           <MoreIcon more={more === idx ?? false} />
         </span>
       </p>
-      {more === idx ? (
-        <div className="work-rest-container">
-          <p className="work-subtitle title">
-            From {''}
-            {Intl.DateTimeFormat('default', {
-              month: 'long'
-            }).format(new Date(work.Start))}
-            &nbsp;To&nbsp;
-            {work.Finish !== null
-              ? Intl.DateTimeFormat('default', {
-                  month: 'long'
-                }).format(new Date(work.Finish))
-              : 'Currently'}
-          </p>
-          {refineDescription(
-            descriptions.find((_d) => _d.work_id === work.id)?.content || ''
-          )}
-        </div>
-      ) : null}
+      <div className={`work-rest-container${more === idx ? '_active' : ''}`}>
+        <p className="work-subtitle title">
+          From {''}
+          {Intl.DateTimeFormat('default', {
+            month: 'long'
+          }).format(new Date(work.Start))}
+          &nbsp;To&nbsp;
+          {work.Finish !== null
+            ? Intl.DateTimeFormat('default', {
+                month: 'long'
+              }).format(new Date(work.Finish))
+            : 'Currently'}
+        </p>
+        {refineDescription(
+          descriptions.find((_d) => _d.work_id === work.id)?.content || ''
+        )}
+      </div>
     </div>
   )
 }

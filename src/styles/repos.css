@@ -8,6 +8,7 @@
   text-align: left;
   flex-direction: column;
   flex: 1 1 200px;
+  transition: max-height .5s ease-in-out;
 }
 
 .work-title {
@@ -94,6 +95,26 @@
   justify-content: space-around;
 }
 
-.work-rest-info {
-  transition: all 0.3s;
+
+.work-rest-container {
+  max-height: 0;
+  transition: max-height .5s ease-in-out;
+  overflow: hidden;
 }
+
+.work-rest-container_active {
+  transition: max-height .5s ease-in-out;
+  animation: fadeDown .5s;
+  max-height: 500px;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+

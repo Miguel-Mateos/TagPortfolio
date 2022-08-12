@@ -232,7 +232,6 @@ footer>h1 {
     flex: unset;
     width: 80vw;
     margin-top: 0;
-    transition: width .2s linear;
   }
 
   .work-title {
