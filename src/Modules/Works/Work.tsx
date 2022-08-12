@@ -68,7 +68,7 @@ export const Work: React.FC<IWork> = ({ work, setMore, more, idx }) => {
         <span className="work-position title">
           {t('as')} {work.Position}
         </span>
-        <span>
+        <span className="work-more-container">
           <MoreIcon more={more === idx ?? false} />
         </span>
       </p>

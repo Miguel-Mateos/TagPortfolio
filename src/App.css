@@ -98,10 +98,15 @@ footer>h1 {
   margin-top: 0;
 }
 
+.work-more-container {
+  transition: rotate .2s linear;
+}
+
 .icon-more {
   width: 1rem;
   height: 1rem;
   margin-left: auto;
+  transform: rotate(-180deg);
   transition: transform .2s linear;
   position: absolute;
   right: 0;
@@ -112,8 +117,8 @@ footer>h1 {
   width: 1rem;
   height: 1rem;
   margin-left: auto;
-  transform: rotate(-90deg);
-  transition: rotate .2s linear;
+  transform: rotate(0deg);
+  transition: transform .2s linear;
   position: absolute;
   right: 0;
   top: calc(50% - .5rem);
@@ -227,6 +232,7 @@ footer>h1 {
     flex: unset;
     width: 80vw;
     margin-top: 0;
+    transition: width .2s linear;
   }
 
   .work-title {

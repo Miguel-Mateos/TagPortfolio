@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import { TextCarousel } from '../../Components/TextCarousel/TextCarousel'
 import './about.css'
 
@@ -11,7 +10,12 @@ const asEmployeeArray = [
 ]
 
 const asPersonArray = [
-  'I am a self-taught developer with a passion for web development.'
+  'I love to keep learning and challenge myself on any new technology and tech areas',
+  'I am a fast learner and a problem solver',
+  'I am a good communicator and a self starter',
+  "I'm fuelled by the desire to learn and the desire to solve problems",
+  'High energy and boundless enthusiasm',
+  "I'm never satisfied to just come up with a solution"
 ]
 
 export const About = () => {
