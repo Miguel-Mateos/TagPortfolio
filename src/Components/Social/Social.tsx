@@ -4,7 +4,7 @@ import { Github } from '../../Icons/Github'
 export const Social = () => {
   return (
     <section className="default-section_right">
-      <p style={{ fontWeight: 500 }}>More of me at:</p>
+      <p style={{ fontWeight: 500 }}>More about me at:</p>
       <button className="button minimal linkedin">
         <a
           href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"
