@@ -25,6 +25,9 @@ export const Repos: FC<IRepos> = ({ repos }) => {
     }
   }
 
+  const cleanLink = (link: string) =>
+    link && link.startsWith('http') ? link : `https://${link}`
+
   const handleCloseModal = () => setOpenModal('')
 
   return (
@@ -81,7 +84,7 @@ export const Repos: FC<IRepos> = ({ repos }) => {
                   {t('last_updated')}: {rtf.format(-1, 'day')}
                 </p>
                 <a
-                  href={'//' + repo.homepage}
+                  href={cleanLink(repo.homepage)}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Open homepage"
