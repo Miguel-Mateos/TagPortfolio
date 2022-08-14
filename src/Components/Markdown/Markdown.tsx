@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { FC, useState } from 'react'
+import { classNames } from '../../utils'
 import ReactMarkdown from 'react-markdown'
 // @ts-ignore
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -6,39 +7,26 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 import './styles.css'
+import { useFetch } from '../../utils/useFetch'
+const formatRepoUrl = (repo: string) =>
+  'https://raw.githubusercontent.com/eneko96/' +
+  repo.toLowerCase() +
+  '/main/README.md'
 
-export const Markdown = ({
-  repo,
-  className
-}: {
+interface IMarkdownProps {
   repo: string
   className?: string
-}) => {
+}
+
+export const Markdown: FC<IMarkdownProps> = ({ repo, className }) => {
   const [markdown, setMarkdown] = useState<string | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-
-  const getMarkdown = async () => {
-    setLoading(true)
-    const response = await fetch(
-      'https://raw.githubusercontent.com/eneko96/' +
-        repo.toLowerCase() +
-        '/main/README.md'
-    )
-    const status = await response.status
-    if (status === 404) {
-      setMarkdown('# No Readme Found')
-      setLoading(false)
-      return
-    }
-    const text = await response.text()
-    setLoading(false)
-    setMarkdown(text)
-  }
-
-  useEffect(() => {
-    getMarkdown()
-    return () => setMarkdown(null)
-  }, [repo])
+  const cleanRepo = formatRepoUrl(repo)
+  const { loading } = useFetch<any>({
+    url: cleanRepo,
+    onError: () => setMarkdown('# No Readme Found'),
+    onSuccess: (data) => setMarkdown(data),
+    responseType: 'text'
+  })
 
   const CodeBlock = {
     code({ node, inline, className, children, ...props }: any) {
@@ -75,7 +63,7 @@ export const Markdown = ({
   return (
     <div className="markdown">
       <ReactMarkdown
-        className={markdown || ''}
+        className={`${classNames(className)} ${markdown || ''}`}
         components={CodeBlock}
         children={markdown}
       />
