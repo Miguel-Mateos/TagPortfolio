@@ -98,12 +98,12 @@
 
 .work-rest-container {
   max-height: 0;
-  transition: max-height .2s ease-in-out;
+  transition: max-height .3s ease-in-out;
   overflow: hidden;
 }
 
 .work-rest-container_active {
-  transition: max-height .2s ease-in-out;
+  transition: max-height .3s ease-in-out;
   animation: fadeDown .5s;
   max-height: 500px;
 }
