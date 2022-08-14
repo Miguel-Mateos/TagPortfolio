@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAppContext } from '../../Context/ContextApi'
 import { useLanguage } from '../../hooks/useLanguage'
 import { Work } from './Work'
+import './styles.css'
 
 export const Works = () => {
   const [more, setMore] = useState<number | null>(0)

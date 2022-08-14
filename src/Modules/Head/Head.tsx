@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '../../hooks/useLanguage'
+import './styles.css'
 
 export const Head = () => {
   const [loaded, setLoaded] = useState(false)

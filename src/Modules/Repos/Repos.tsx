@@ -2,7 +2,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { IRepo } from '../../types'
 import { Modal } from '../../Components/Modal/Modal'
 import { useLanguage } from '../../hooks/useLanguage'
-import { Markdown } from '../../Markdown'
+import { Markdown } from '../../Components/Markdown/Markdown'
 
 interface IRepos {
   repos: IRepo[]

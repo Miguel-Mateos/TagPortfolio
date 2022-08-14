@@ -1,3 +1,5 @@
+import './styles.css'
+
 export const MoreIcon = ({ more }: { more: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
