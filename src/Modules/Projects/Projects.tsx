@@ -22,7 +22,7 @@ export const Projects = ({}) => {
     idx
   }) =>
     window.innerWidth > 600 ? (
-      <div className="work">
+      <div className="work" key={'work' + idx}>
         <h1 className="work-title">{data.name}</h1>
         <h4>
           {t('associate')}: {data.associate}
@@ -35,7 +35,7 @@ export const Projects = ({}) => {
         )}
       </div>
     ) : (
-      <div className="work">
+      <div className="work" key={'work' + idx}>
         <h1
           className="work-title"
           onClick={() => (more !== idx ? setMore(idx) : setMore(null))}
