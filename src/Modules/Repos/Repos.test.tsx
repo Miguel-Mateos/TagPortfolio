@@ -13,7 +13,7 @@ const reposContent = [
     homepage: ''
   },
   {
-    name: 'potato',
+    name: 'potate',
     clone_url: '',
     created_at: new Date().toString(),
     description: '',
