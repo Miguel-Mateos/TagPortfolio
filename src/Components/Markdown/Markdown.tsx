@@ -23,7 +23,7 @@ export const Markdown: FC<IMarkdownProps> = ({ repo, className }) => {
   const cleanRepo = formatRepoUrl(repo)
   const { loading } = useFetch<any>({
     url: cleanRepo,
-    onError: () => setMarkdown('# No Readme Found'),
+    onError: (error) => setMarkdown('# No Readme Found'),
     onSuccess: (data) => setMarkdown(data),
     responseType: 'text'
   })

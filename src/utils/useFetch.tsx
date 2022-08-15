@@ -5,6 +5,7 @@ import { responseHandler } from '../utils/index'
 // what options to set in useFetch
 interface UseFetchOptions {
   url: string
+  signal?: boolean
   cache?: boolean
   cacheKey?: string
   cacheDuration?: number
@@ -26,7 +27,9 @@ export function useFetch<T>(args: UseFetchOptions): UseFetchResult<T> {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
   let cache: string | T = ''
+  let signal: AbortController | null = null
   useEffect(() => {
+    if (args.signal) signal = new AbortController()
     setLoading(true)
     if (args.cache && args.cacheKey) {
       cache = localStorage.getItem(args.cacheKey) as string
@@ -38,7 +41,7 @@ export function useFetch<T>(args: UseFetchOptions): UseFetchResult<T> {
     // handle when is not cache and have to fetch
 
     if (!cache) {
-      fetch(args.url)
+      fetch(args.url, { signal: signal?.signal })
         .then((response) =>
           responseHandler(response, args.responseType || 'json')
         )
@@ -51,10 +54,16 @@ export function useFetch<T>(args: UseFetchOptions): UseFetchResult<T> {
           setLoading(false)
         })
         .catch((error) => {
+          if (error.name === 'AbortError' && args.signal)
+            console.warn('Request has been Aborted')
           if (args.onError) args.onError(error)
           setError(error)
           setLoading(false)
         })
+    }
+
+    return () => {
+      if (signal) signal.abort()
     }
   }, [])
 
