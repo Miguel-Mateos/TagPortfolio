@@ -37,3 +37,10 @@ export interface IProjectDescription {
   language: 'es' | 'en'
   content: string
 }
+
+export interface IAboutDescriptions {
+  id: number
+  language: 'es' | 'en'
+  content: string
+  as: string
+}

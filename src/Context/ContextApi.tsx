@@ -6,11 +6,19 @@ import React, {
   useEffect,
   useContext
 } from 'react'
-import { IDescriptions, IProject, IProjectDescription } from '../types'
+import {
+  IAboutDescriptions,
+  IDescriptions,
+  IProject,
+  IProjectDescription
+} from '../types'
 
 export const AppContext = createContext<IAppContext | null>(null)
 
 const AppProvider: FC<any> = ({ children }) => {
+  const [aboutDescriptions, setAboutDescriptions] = useState<
+    IAboutDescriptions[]
+  >([])
   const [description, setDescription] = useState<string>('')
   const [language, setLanguage] = useState<string>('en-US')
   const [descriptions, setDescriptions] = useState<IDescriptions[]>([])
@@ -41,6 +49,16 @@ const AppProvider: FC<any> = ({ children }) => {
     return data
   }
 
+  const getAbouts = async () => {
+    console.log(language.slice(0, 2))
+    const { data } = await supabase
+      .from('About')
+      .select('*')
+      .eq('language', language.slice(0, 2))
+    setAboutDescriptions(data as IAboutDescriptions[])
+  }
+
+  // create generic one
   const getData = async () => {
     Promise.all([getDescription(), getWorks(), getProjects()]).then(
       (values) => {
@@ -80,6 +98,7 @@ const AppProvider: FC<any> = ({ children }) => {
   useEffect(() => {
     getDescriptions()
     getProjectDescriptions()
+    getAbouts()
   }, [language])
 
   return (
@@ -93,7 +112,8 @@ const AppProvider: FC<any> = ({ children }) => {
         language,
         changeLanguage,
         works,
-        projectDescriptions
+        projectDescriptions,
+        aboutDescriptions
       }}
     >
       {children}
@@ -112,6 +132,7 @@ interface IAppContext {
   works: string[]
   achievements?: string[]
   projectDescriptions: IProjectDescription[]
+  aboutDescriptions: IAboutDescriptions[]
 }
 
 // extend the context of the app context for ts compatibility
