@@ -4,11 +4,11 @@ import { useAppContext } from '../../Context/ContextApi'
 const LANGUAGES = [
   {
     id: 'EN',
-    long: 'es-ES'
+    long: 'en-US'
   },
   {
     id: 'ES',
-    long: 'en-US'
+    long: 'es-ES'
   }
 ]
 
