@@ -6,6 +6,10 @@
   --quaternary: #cc5803;
   --accent01: #8f2592;
 }
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(/public/BebasNeue-Regular.ttf);
+}
 
 h1,h2,h3,h4,.title {
   font-family: 'Bebas Neue', cursive, Helvetica Neue, Helvetica, Arial,
