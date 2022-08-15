@@ -9,5 +9,7 @@ export const es: any = {
   created: 'Creado',
   last_updated: 'Actualizado',
   associate: 'Asociado con',
-  as: 'como'
+  as: 'como',
+  aboutPerson: 'Como Persona',
+  aboutEmployee: 'Como Empleado'
 }

@@ -1,5 +1,6 @@
 import { TextCarousel } from '../../Components/TextCarousel/TextCarousel'
 import { useAppContext } from '../../Context/ContextApi'
+import { useLanguage } from '../../hooks/useLanguage'
 import './about.css'
 
 enum AboutType {
@@ -9,6 +10,8 @@ enum AboutType {
 
 export const About = () => {
   const { aboutDescriptions: descriptions } = useAppContext()
+  const { t } = useLanguage()
+
   let person: string[] = [],
     employee: string[] = []
 
@@ -22,8 +25,8 @@ export const About = () => {
     <section className="default-section">
       <div className="description">
         <h1 className="title-box">About Me</h1>
-        <TextCarousel title="As a Person" arr={person} />
-        <TextCarousel title="As an Employee" arr={employee} />
+        <TextCarousel title={t('aboutPerson')} arr={person} />
+        <TextCarousel title={t('aboutEmployee')} arr={employee} />
       </div>
     </section>
   )

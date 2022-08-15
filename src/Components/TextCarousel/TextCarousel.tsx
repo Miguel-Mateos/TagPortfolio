@@ -12,12 +12,15 @@ export const TextCarousel: FC<ICarouselProps> = ({ title, arr }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => {
-        return (prev + 1) % arr.length
+        if (arr.length > 0) {
+          return (prev + 1) % arr.length
+        }
+        return 0
       })
     }, 4500)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [arr])
 
   return (
     <div className="text-carousel-container">
