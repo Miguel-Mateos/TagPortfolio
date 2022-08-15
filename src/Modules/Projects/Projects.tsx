@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { IProject, useAppContext } from '../../Context/ContextApi'
+import { useAppContext } from '../../Context/ContextApi'
+import { IProject } from '../../types'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MoreIcon } from '../../Icons/More'
 

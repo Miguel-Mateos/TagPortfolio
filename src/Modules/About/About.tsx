@@ -23,6 +23,7 @@ export const About = () => {
     <section className="default-section">
       <div className="description">
         <h1 className="title-box">About Me</h1>
+        {/* About us to translation */}
         <TextCarousel title="As a Person" arr={asPersonArray} />
         <TextCarousel title="As an Employee" arr={asEmployeeArray} />
       </div>
