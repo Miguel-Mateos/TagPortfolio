@@ -48,8 +48,9 @@ function App() {
       <LangSelector />
 
       <Head />
-
-      <Quote quote={`"${t('quote')}" - Austin Freeman`} />
+      <section>
+        <Quote quote={`"${t('quote')}" - Austin Freeman`} />
+      </section>
 
       <About />
 
