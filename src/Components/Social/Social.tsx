@@ -3,7 +3,7 @@ import { Github } from '../../Icons/Github'
 
 export const Social = () => {
   return (
-    <section className="default-section_right">
+    <>
       <p style={{ fontWeight: 500 }}>More about me at:</p>
       <button className="button minimal linkedin">
         <a
@@ -18,6 +18,6 @@ export const Social = () => {
           <Github />
         </a>
       </button>
-    </section>
+    </>
   )
 }

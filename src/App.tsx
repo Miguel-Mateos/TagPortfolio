@@ -80,7 +80,9 @@ function App() {
         </div>
       </section>
 
-      <Social />
+      <section className="default-section_right">
+        <Social />
+      </section>
     </div>
   )
 }
