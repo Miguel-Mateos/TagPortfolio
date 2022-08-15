@@ -34,7 +34,6 @@ export const AppContext = createContext<IAppContext | null>(null)
 
 const AppProvider: FC<any> = ({ children }) => {
   const [description, setDescription] = useState<string>('')
-  const [notification, setNotification] = useState<string>('')
   const [language, setLanguage] = useState<string>('en-US')
   const [descriptions, setDescriptions] = useState<IDescriptions[]>([])
   const [projectDescriptions, setProjectDescriptions] = useState<
@@ -50,14 +49,6 @@ const AppProvider: FC<any> = ({ children }) => {
   const getDescription = async () => {
     const { data } = await supabase.from('Experience').select()
     return data
-  }
-
-  const openNotification = ({ message }: { message: string }) => {
-    setNotification(message)
-    timer = setTimeout(() => {
-      clearTimeout(timer)
-      setNotification('')
-    }, 3000)
   }
 
   const getWorks = async () => {
@@ -123,8 +114,6 @@ const AppProvider: FC<any> = ({ children }) => {
         descriptions,
         language,
         changeLanguage,
-        openNotification,
-        notification,
         works,
         projectDescriptions
       }}
@@ -142,8 +131,6 @@ interface IAppContext {
   descriptions: IDescriptions[]
   language: string
   changeLanguage: (lan: string) => void
-  openNotification: ({ message }: { message: string }) => void
-  notification: string
   works: string[]
   achievements?: string[]
   projectDescriptions: IProjectDescription[]
