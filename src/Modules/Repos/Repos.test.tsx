@@ -1,6 +1,7 @@
 import { Repos } from './Repos'
 import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
+import { AppProvider } from '../../Context/ContextApi'
 
 const reposContent = [
   {
@@ -27,7 +28,31 @@ const ReposTest = () => {
 
 describe('repos renders correctly', () => {
   it('renders', () => {
-    const result = render(<ReposTest />)
+    const result = render(
+      <AppProvider>
+        <ReposTest />
+      </AppProvider>
+    )
     expect(result.getByText(/patata/i)).toBeDefined()
+  })
+
+  it('card with see more', () => {
+    const result = render(
+      <AppProvider>
+        <ReposTest />
+      </AppProvider>
+    )
+    expect(result.getByText(/see more/i)).toBeDefined()
+  })
+
+  it('card with see less', () => {
+    const result = render(
+      <AppProvider>
+        <ReposTest />
+      </AppProvider>
+    )
+
+    fireEvent.click(result.getByText(/see more/i))
+    expect(result.getByText(/see less/i)).toBeDefined()
   })
 })

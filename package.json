@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "dev:isolated": "VITE_ENV=isolated vite",
     "test": "vitest test",
     "test:husky": "vitest run",
     "coverage": "vitest run --coverage",
