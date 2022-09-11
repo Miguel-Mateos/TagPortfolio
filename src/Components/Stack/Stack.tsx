@@ -1,3 +1,5 @@
+import { images } from '../../contants'
+
 export const Stack = () => {
   return (
     <div style={{ marginTop: '72px' }} id="teckstack">
@@ -12,12 +14,19 @@ export const Stack = () => {
       >
         {Array(13)
           .fill(1)
-          .map(() => {
+          .map((_, idx) => {
             return (
               <div
-                style={{ height: '75px', width: '94px', background: 'red' }}
+                style={{
+                  height: '75px',
+                  width: '75px',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
                 key={Math.random()}
-              />
+              >
+                <img src={images[idx]} height="50" width="50" />
+              </div>
             )
           })}
       </div>
