@@ -32,7 +32,7 @@ const Space = ({ height }: { height: string }) => <div style={{ height }} />
 
 export const Studies = () => {
   return (
-    <div style={{ marginTop: '72px' }}>
+    <div style={{ marginTop: '72px' }} id="studies">
       <h2 style={{ marginBottom: '40px' }}>Studies</h2>
       <CardModulated />
       <Space height="16px" />

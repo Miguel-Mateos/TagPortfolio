@@ -1,4 +1,4 @@
-.sidebar {
-  position: static !important;
-  height: auto !important;
+.sidebar_collapsed, .sidebar {
+  max-width: 194px  !important;
+  transition: all 0.2s ease-in-out !important;
 }

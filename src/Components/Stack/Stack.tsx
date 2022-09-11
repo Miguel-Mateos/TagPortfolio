@@ -1,6 +1,6 @@
 export const Stack = () => {
   return (
-    <div style={{ marginTop: '72px' }}>
+    <div style={{ marginTop: '72px' }} id="teckstack">
       <h2>Tech Stack</h2>
       <div
         style={{
@@ -16,6 +16,7 @@ export const Stack = () => {
             return (
               <div
                 style={{ height: '75px', width: '94px', background: 'red' }}
+                key={Math.random()}
               />
             )
           })}

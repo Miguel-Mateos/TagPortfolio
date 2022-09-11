@@ -2,24 +2,24 @@ import { SeeMore } from './SeeMore/SeeMore'
 
 export const Section = () => {
   return (
-    <div style={{ marginTop: '72px' }}>
+    <div style={{ marginTop: '72px' }} id="work">
       <h2>Work</h2>
       <div style={{ display: 'flex', gap: '72px' }}>
         <div className="section-info" style={{ minWidth: '228px' }}>
-          <p>
+          <div style={{ margin: '16px' }}>
             <small style={{ textTransform: 'uppercase' }}>Client</small>
             <div className="base">The Adecco Group</div>
-          </p>
-          <p>
+          </div>
+          <div style={{ margin: '16px' }}>
             <small style={{ textTransform: 'uppercase' }}>Date</small>
             <div className="base">15 May 2022</div>
-          </p>
-          <p>
+          </div>
+          <div style={{ margin: '16px' }}>
             <small style={{ textTransform: 'uppercase' }}>
               Type of Project
             </small>
             <div className="base">IT Consultant</div>
-          </p>
+          </div>
         </div>
         <div className="section-description">
           <p>

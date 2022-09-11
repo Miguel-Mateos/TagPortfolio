@@ -15,13 +15,17 @@ const CustomChip: React.FC<any> = ({ children }) => (
 
 export const CaseStudies = () => {
   return (
-    <div className="case-studies-container" style={{ marginBottom: '72px' }}>
+    <div
+      className="case-studies-container"
+      style={{ marginBottom: '72px' }}
+      id="casestudies"
+    >
       <h2 style={{ marginBottom: '40px' }}>Case Studies</h2>
       <div className="case-studies" style={{ display: 'flex', gap: '32px' }}>
         {Array(3)
           .fill(1)
           .map(() => (
-            <Card>
+            <Card key={Math.random()}>
               <div
                 style={{
                   height: '200px',

@@ -1,4 +1,3 @@
-import {} from 'tag-ds'
 import 'tag-ds/assets/main.scss'
 import { Stack } from '../../Components/Stack/Stack'
 import { CaseStudies } from '../../Components/v2/CaseStudies/CaseStudies'
@@ -10,6 +9,7 @@ export const Home = () => {
   return (
     <div>
       <p
+        id="about"
         style={{
           fontSize: '20px',
           lineHeight: '32px',

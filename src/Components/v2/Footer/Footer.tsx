@@ -2,6 +2,7 @@ export const Footer = () => {
   return (
     <div
       style={{
+        position: 'relative',
         padding: '80px 144px',
         display: 'flex',
         justifyContent: 'space-between',
