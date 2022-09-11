@@ -1,0 +1,109 @@
+@import './variables.scss';
+@import './global.scss';
+@import './fonts.scss';
+@import './grid.scss';
+@import './forms.scss';
+@import './buttons.scss';
+@import './breadcrumb.scss';
+@import './dropdown.scss';
+@import './toggle.scss';
+@import './avatar.scss';
+@import './chip.scss';
+@import './tooltip.scss';
+@import './statusTag.scss';
+@import './lists.scss';
+@import './calendar.scss';
+@import './tabs.scss';
+@import './accordion.scss';
+@import './sidebar.scss';
+@import './cards.scss';
+@import './badge.scss';
+@import './fileUploader.scss';
+@import './modal.scss';
+@import './loader.scss';
+@import './slider.scss';
+@import './carousel.scss';
+@import './notification.scss';
+@import './contentSwitcher.scss';
+@import './links.scss';
+@import './overflowMenu.scss';
+@import './paginator.scss';
+@import './stepper.scss';
+@import './separator.scss';
+@import './upperMenu.scss';
+@import './treeView.scss';
+@import './table.scss';
+@import './progressBar.scss';
+@import './scrollbar.scss';
+@import './numberInput.scss';
+@import './drawer.scss';
+@import './splashScreen.scss';
+@import './quote.scss';
+
+// @import '../theme/adecco.scss';
+// @import '../theme/lhh.scss';
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--fontFamily);
+  letter-spacing: normal;
+  color: var(--neutral800);
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tag-ds,
+.tag-ds *:not(.material-icons) {
+  font-family: var(--fontFamily);
+  letter-spacing: normal;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.material-icons {
+  font-family: 'Material Icons Round';
+}
+
+.tag-ds {
+  color: var(--neutral800);
+  .bg04,
+  &.bg04 {
+    color: var(--neutral0);
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

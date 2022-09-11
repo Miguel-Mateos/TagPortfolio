@@ -1,0 +1,107 @@
+.tag-ds {
+  .accordion,
+  .accordion_filled,
+  &.accordion,
+  &.accordion_filled {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .accordion_filled,
+  &.accordion_filled {
+    @extend .shadow-elevation_1x;
+    border-radius: var(--unit);
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    position: relative;
+    width: 100%;
+    @include font(medium);
+    background: var(--neutral0);
+    padding: calc(2 * var(--unit)) calc(8 * var(--unit)) calc(2 * var(--unit)) calc(3 * var(--unit));
+    color: var(--neutral800);
+    cursor: pointer;
+    .accordion-helper-text {
+      float: right;
+      color: var(--neutral500);
+    }
+    .accordion-icon {
+      position: absolute;
+      padding: calc(var(--unit) / 2);
+      color: var(--neutral700);
+      font-size: calc(2 * var(--unit));
+      right: calc(3 * var(--unit));
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .accordion-content {
+    @include font(medium);
+    color: var(--neutral700);
+    width: 100%;
+    padding: calc(2 * var(--unit)) calc(3 * var(--unit));
+    border-top: calc(var(--unit) / 8) solid var(--neutral200);
+  }
+  .accordion .accordion-content,
+  &.accordion .accordion-content {
+    background: var(--neutral100);
+  }
+  .accordion_filled .accordion-content,
+  &.accordion_filled .accordion-content {
+    background: var(--neutral0);
+  }
+
+  .accordion-group,
+  &.accordion-group {
+    .accordion_filled,
+    .accordion {
+      box-shadow: none;
+      border-bottom: calc(var(--unit) / 8) solid var(--neutral200);
+      .accordion-content {
+        background: var(--neutral100);
+      }
+    }
+
+    .accordion_filled.show,
+    .accordion.show {
+      border-bottom: 0;
+    }
+  }
+}
+
+.bg02,
+.bg03 {
+  .tag-ds,
+  &.tag-ds {
+    .accordion .accordion-header,
+    &.accordion .accordion-header {
+      background: var(---neutral100);
+    }
+    .accordion_filled .accordion-header,
+    &.accordion_filled .accordion-header {
+      background: var(--neutral0);
+    }
+    .accordion_filled .accordion-content,
+    &.accordion_filled .accordion-content {
+      background: var(--neutral0);
+    }
+    .accordion .accordion-content,
+    &.accordion .accordion-content {
+      background: var(--neutral0);
+    }
+
+    .accordion-group,
+    &.accordion-group {
+      .accordion_filled .accordion-header,
+      .accordion .accordion-header {
+        background: var(---neutral100);
+      }
+      .accordion_filled .accordion-content,
+      .accordion .accordion-content {
+        background: var(--neutral0);
+      }
+    }
+  }
+}

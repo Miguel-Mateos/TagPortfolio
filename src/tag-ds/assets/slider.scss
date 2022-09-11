@@ -1,0 +1,110 @@
+%thumb {
+  background-color: var(--neutral0);
+  border: var(--unit) solid var(--secondary500);
+  border-radius: 50%;
+  cursor: pointer;
+  height: calc(3 * var(--unit));
+  width: calc(3 * var(--unit));
+  pointer-events: all;
+  position: relative;
+}
+
+.tag-ds {
+  .slider-wrapper,
+  &.slider-wrapper {
+    position: relative;
+    max-width: 100%;
+    min-height: calc(3 * var(--unit));
+  }
+
+  .slider-track,
+  .slider-range,
+  .slider-range_disabled {
+    position: absolute;
+  }
+
+  .slider-track,
+  .slider-range,
+  .slider-range_disabled {
+    height: var(--unit);
+    border-radius: var(--unit);
+  }
+
+  .slider-track {
+    background-color: var(--neutral200);
+    width: 100%;
+  }
+
+  .slider-range {
+    background-color: var(--secondary400);
+  }
+
+  .slider-range_disabled {
+    @extend .slider-range;
+    background-color: var(--primary100);
+  }
+
+  .thumb,
+  .thumb::-webkit-slider-thumb,
+  .thumb_disabled,
+  .thumb_disabled::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .thumb,
+  .thumb_disabled {
+    pointer-events: none;
+    position: absolute;
+    top: calc(var(--unit) / 4);
+    right: 0;
+    height: 0;
+    width: 100%;
+    outline: none;
+  }
+
+  /* For Chrome browsers */
+  .thumb::-webkit-slider-thumb {
+    @extend %thumb;
+  }
+
+  .thumb:active::-webkit-slider-thumb {
+    border: calc(var(--unit) / 2) solid var(--secondary500);
+  }
+
+  .thumb_disabled::-webkit-slider-thumb {
+    @extend %thumb;
+    border: var(--unit) solid var(--primary100);
+  }
+
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: calc(3 * var(--unit));
+  }
+
+  .slider > .slider-label,
+  .slider_disabled > .slider-label {
+    top: calc(2 * var(--unit));
+  }
+
+  .slider-input-container {
+    position: absolute;
+    width: 100%;
+  }
+
+  .tooltip.slider {
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, calc(-100% - 3 * var(--unit)));
+    width: max-content;
+  }
+
+  .bg03 {
+    .slider-track {
+      background-color: var(--neutral0);
+    }
+  }
+}
+

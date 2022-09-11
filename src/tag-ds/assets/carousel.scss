@@ -1,0 +1,145 @@
+%carousel-button-left {
+  @extend .button-secondary-icon;
+  @include font(small);
+  user-select: none;
+  border: 0;
+  position: absolute;
+  height: calc(5 * var(--unit));
+  width: calc(5 * var(--unit));
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: calc(3 * var(--unit));
+}
+
+%carousel-button-right {
+  @extend .button-secondary-icon;
+  @include font(small);
+  border: 0;
+  user-select: none;
+  position: absolute;
+  height: calc(5 * var(--unit));
+  width: calc(5 * var(--unit));
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: calc(3 * var(--unit));
+  margin-left: auto;
+  right: 0;
+}
+
+.tag-ds {
+  .carousel,
+  &.carousel {
+    position: relative;
+  }
+
+  .carousel-container {
+    position: relative;
+    display: inline-block;
+
+    & > .carousel-left_disabled {
+      color: var(--neutral500);
+    }
+
+    & > .carousel-right_disabled {
+      color: var(--neutral500);
+    }
+  }
+
+  button.carousel-left {
+    @extend %carousel-button-left;
+
+    &:hover {
+      border: 1px solid var(--secondary300);
+    }
+  }
+
+  button.carousel-right {
+    @extend %carousel-button-right;
+
+    &:hover {
+      border: 1px solid var(--secondary300);
+    }
+  }
+
+  button.carousel-left_disabled {
+    @extend %carousel-button-left;
+  }
+
+  button.carousel-right_disabled {
+    @extend %carousel-button-right;
+  }
+
+  .carousel-dots-container {
+    position: relative;
+    bottom: calc(4 * var(--unit));
+    display: flex;
+    justify-content: center;
+    gap: var(--unit);
+  }
+
+  button.carousel-dot {
+    border: 0;
+    padding: 0;
+    min-width: auto;
+    height: var(--unit);
+    width: var(--unit);
+    background-color: var(--neutral200);
+    border-radius: 50%;
+
+    &:hover {
+      background-color: var(--secondary600);
+    }
+
+    &:active {
+      background-color: var(--neutral200);
+    }
+
+    &:focus {
+      outline: 4px solid var(--secondary300);
+    }
+
+    &:disabled {
+      border: 1px solid var(--neutral200);
+      background-color: var(--neutral0);
+    }
+  }
+
+  button.carousel-dot_active {
+    @extend .carousel-dot;
+    background-color: var(--accent500);
+  }
+
+  .carousel-container_outlined {
+    @extend .carousel-container;
+
+    & > .carousel-dots-container {
+      bottom: calc(-3 * var(--unit));
+    }
+
+    & > .carousel-left {
+      margin-left: calc(-3 * var(--unit) - 5 * var(--unit));
+      background-color: var(--neutral100);
+
+      &_disabled {
+        margin-left: calc(-3 * var(--unit) - 5 * var(--unit));
+        color: var(--neutral500);
+      }
+    }
+
+    & > .carousel-right {
+      margin-right: calc(-3 * var(--unit) - 5 * var(--unit));
+      background-color: var(--neutral100);
+
+      &_disabled {
+        margin-right: calc(-3 * var(--unit) - 5 * var(--unit));
+        color: var(--neutral500);
+      }
+    }
+  }
+}

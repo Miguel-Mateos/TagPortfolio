@@ -1,0 +1,49 @@
+.tag-ds {
+  .status-tag,
+  &.status-tag {
+    @extend %tag-font;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    pointer-events: none;
+    padding: calc(var(--unit) / 2) calc(2 * var(--unit));
+    background-color: var(--secondary100);
+    border-radius: calc(2 * var(--unit));
+
+    span,
+    i,
+    svg,
+    .icon {
+      font-size: var(--fontSizeBase);
+      margin-right: var(--unit);
+    }
+  }
+
+  .status-tag_info,
+  &.status-tag_info {
+    @extend .status-tag;
+  }
+  .status-tag_alert,
+  &.status-tag_alert,
+  .status-tag.alert,
+  &.status-tag.alert {
+    @extend .status-tag;
+    background-color: var(--alert100);
+  }
+  .status-tag_success,
+  &.status-tag_success,
+  .status-tag.success,
+  &.status-tag.success {
+    @extend .status-tag;
+    background-color: var(--success100);
+  }
+  .status-tag_error,
+  &.status-tag_error,
+  .status-tag.error,
+  &.status-tag.error {
+    @extend .status-tag;
+    background-color: var(--error100);
+  }
+}

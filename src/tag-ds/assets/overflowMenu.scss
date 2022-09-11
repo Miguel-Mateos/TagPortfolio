@@ -1,0 +1,52 @@
+.tag-ds {
+  .overflow-menu,
+  &.overflow-menu {
+    @extend .shadow-elevation_2x;
+    overflow: hidden;
+    width: calc(44 * var(--unit));
+    background-color: var(--neutral0);
+    border-radius: var(--unit);
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    z-index: 1;
+    padding: calc(2 * var(--unit));
+    max-height: 50vh;
+  }
+  .overflow-menu-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: calc(3 * var(--unit));
+  }
+
+  .overflow-menu-title {
+    @extend .subtitle;
+    margin-right: calc(3 * var(--unit));
+  }
+
+  .overflow-menu-action {
+    @extend .link;
+    margin-left: auto;
+  }
+
+  button.overflow-menu-close {
+    @extend %button-icon_interactive;
+    padding: 0;
+    height: calc(2 * var(--unit));
+    width: calc(2 * var(--unit));
+    margin-left: calc(2 * var(--unit));
+    & > span.material-icons {
+      font-size: calc(2 * var(--unit));
+    }
+  }
+
+  .overflow-menu-body {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+
+  .overflow-menu-title + .overflow-menu-close {
+    margin-left: auto;
+  }
+}

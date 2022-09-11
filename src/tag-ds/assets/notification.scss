@@ -1,0 +1,202 @@
+%notification-side {
+  content: '';
+  width: var(--unit);
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+%notification-center-pill {
+  content: '';
+  height: var(--unit);
+  width: var(--unit);
+  position: absolute;
+  top: calc(2.5 * var(--unit));
+  transform: translateY(50%);
+  right: calc(2 * var(--unit));
+  border-radius: 50%;
+}
+
+.tag-ds {
+  .notification,
+  &.notification {
+    @extend .shadow-elevation_2x;
+    position: fixed;
+    top: calc(3 * var(--unit));
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 75vw;
+    background-color: var(--neutral0);
+    padding: calc(2 * var(--unit)) calc(2 * var(--unit)) calc(2 * var(--unit)) calc(3 * var(--unit));
+    border-radius: var(--unit);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+
+    &_success,
+    &_error,
+    &_info,
+    &_warning,
+    &_read {
+      @extend .notification;
+    }
+  }
+
+  .notification_info,
+  &.notification_info {
+    &::before {
+      @extend %notification-side;
+      background-color: var(--secondary300);
+    }
+  }
+
+  .notification_success,
+  &.notification_success {
+    &::before {
+      @extend %notification-side;
+      background-color: var(--success400);
+    }
+  }
+
+  .notification_warning,
+  &.notification_warning {
+    &::before {
+      @extend %notification-side;
+      background-color: var(--alert400);
+    }
+  }
+
+  .notification_error,
+  &.notification_error {
+    &::before {
+      @extend %notification-side;
+      background-color: var(--error400);
+    }
+  }
+
+  .notification_read,
+  &.notification_read {
+    &::before {
+      @extend %notification-side;
+      background-color: var(--neutral200);
+    }
+  }
+
+  button.notification-close-button {
+    @extend %button-icon_interactive;
+    width: calc(3 * var(--unit));
+    height: calc(3 * var(--unit));
+    position: absolute;
+    top: calc(2 * var(--unit));
+    right: calc(2 * var(--unit));
+    span.material-icons {
+      font-size: calc(2 * var(--unit));
+    }
+  }
+
+  .notification-icon {
+    position: absolute;
+    top: calc(2 * var(--unit));
+    left: calc(3 * var(--unit));
+    span.material-icons {
+      color: var(--neutral800);
+      font-size: calc(3 * var(--unit));
+    }
+  }
+
+  .notification-content {
+    padding-left: calc(5 * var(--unit));
+  }
+
+  .notification-header {
+    @include font(medium);
+    color: var(--neutral800);
+    font-weight: 500;
+    width: 100%;
+    flex: 0 1 auto;
+  }
+
+  .notification-body {
+    @include font(medium);
+    padding-right: var(--unit);
+    width: 100%;
+    flex: 1 1 auto;
+    color: var(--neutral700);
+  }
+
+  .notification-footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 0 1 auto;
+    gap: calc(2 * var(--unit));
+    & > * {
+      @include font(medium);
+    }
+  }
+
+  .notification-header + .notification-body,
+  .notification-header + .notification-footer {
+    margin-top: var(--unit);
+  }
+
+  .notification-body + .notification-footer {
+    margin-top: calc(2 * var(--unit));
+  }
+
+  .notification-close-button + .notification-header,
+  .notification-close-button + .notification-body,
+  .notification-close-button + .notification-footer,
+  .notification-close-button ~ .notification-content {
+    padding-right: calc(5 * var(--unit));
+  }
+
+  .notification-center-text {
+    @include font(small);
+    color: var(--neutral700);
+    position: absolute;
+    top: calc(2.5 * var(--unit));
+    right: calc(4 * var(--unit));
+  }
+
+  .notification-center,
+  &.notification-center {
+    .notification {
+      &::after,
+      &_read::after {
+        @extend %notification-center-pill;
+        background-color: var(--neutral200);
+      }
+      &_info::after {
+        @extend %notification-center-pill;
+        background-color: var(--secondary300);
+      }
+      &_warning::after {
+        @extend %notification-center-pill;
+        background-color: var(--alert400);
+      }
+      &_error::after {
+        @extend %notification-center-pill;
+        background-color: var(--error400);
+      }
+      &_success::after {
+        @extend %notification-center-pill;
+        background-color: var(--success400);
+      }
+    }
+    .notification {
+      position: relative;
+      &_read,
+      &_success,
+      &_info,
+      &_error,
+      &_warning {
+        position: relative;
+      }
+    }
+  }
+}

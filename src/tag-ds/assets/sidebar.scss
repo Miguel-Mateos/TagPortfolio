@@ -1,0 +1,191 @@
+.tag-ds {
+  .sidebar,
+  &.sidebar,
+  .sidebar_collapsed,
+  &.sidebar_collapsed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: block;
+    background: var(--neutral100);
+    padding: calc(2 * var(--unit));
+    height: 100vh;
+    min-width: calc(10 * var(--unit));
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+  }
+
+  .sidebar_collapsed,
+  &.sidebar_collapsed {
+    padding: calc(2 * var(--unit)) var(--unit);
+  }
+
+  .sidebar-logo {
+    border-radius: var(--unit);
+    width: calc(8 * var(--unit));
+    height: calc(4 * var(--unit));
+    margin-bottom: calc(2 * var(--unit));
+    img,
+    svg,
+    i {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  button.sidebar-collapsed-button {
+    @extend .button-secondary-icon;
+    width: calc(5 * var(--unit));
+    border: calc(var(--unit) / 8) solid transparent;
+    font-size: calc(3 * var(--unit));
+    background: transparent;
+    color: var(--neutral700);
+    margin: auto auto calc(4 * var(--unit)) 0;
+    &:hover {
+      border: calc(var(--unit) / 8) solid var(--secondary400) !important;
+    }
+    &:focus {
+      border: calc(var(--unit) / 8) solid var(--neutral100);
+    }
+    &:active {
+      background: var(--neutral200);
+    }
+  }
+
+  .sidebar_collapsed button.sidebar-collapsed-button,
+  &.sidebar_collapsed button.sidebar-collapsed-button {
+    margin: auto auto calc(6 * var(--unit)) auto;
+  }
+
+  .sidebar-button,
+  .sidebar-button_disabled,
+  .sidebar-button_selected,
+  .sidebar-button_selected_disabled {
+    @include font(medium);
+    position: relative;
+    outline: 0;
+    appearance: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    border-radius: var(--unit);
+    font-weight: 500;
+    border: calc(var(--unit) / 8) solid var(--neutral100);
+    background: var(--neutral100);
+    padding: var(--unit);
+    color: var(--neutral700);
+    text-transform: none;
+    margin-bottom: var(--unit);
+    max-height: calc(5 * var(--unit));
+
+    i,
+    svg,
+    span.material-icons {
+      margin-right: var(--unit);
+    }
+    span:not(span.material-icons) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover {
+      border: calc(var(--unit) / 8) solid var(--secondary400);
+      background-color: var(--neutral0);
+    }
+    &:active {
+      background: var(--neutral200);
+    }
+    &:focus-visible,
+    &:focus {
+      border: calc(var(--unit) / 8) solid var(--secondary100);
+      outline: calc(var(--unit) / 2) solid var(--secondary300);
+    }
+  }
+
+  .sidebar_button {
+    color: var(--neutral700);
+  }
+
+  .sidebar-button_selected {
+    color: var(--neutral800);
+    background: var(--neutral200);
+    &:focus-visible,
+    &:focus {
+      border: calc(var(--unit) / 8) solid var(--secondary400);
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: calc(-2 * var(--unit));
+      width: calc(var(--unit) / 2);
+      height: 100%;
+      background-color: var(--accentColor);
+      border-top-right-radius: var(--unit);
+      border-bottom-right-radius: var(--unit);
+      content: '';
+    }
+  }
+
+  .sidebar_collapsed .sidebar-button,
+  &.sidebar_collapsed .sidebar-button,
+  .sidebar_collapsed .sidebar-button_selected,
+  &.sidebar_collapsed .sidebar-button_selected,
+  .sidebar_collapsed .sidebar-button_disabled,
+  &.sidebar_collapsed .sidebar-button_disabled {
+    justify-content: center;
+    width: calc(5 * var(--unit));
+    margin: auto auto var(--unit) auto;
+    span,
+    i,
+    svg,
+    .material-icons {
+      margin: 0;
+    }
+  }
+
+  .sidebar-button_disabled {
+    pointer-events: none;
+    color: var(--neutral500);
+  }
+
+  .sidebar .sidebar-button:not(:last-of-type),
+  &.sidebar .sidebar-button:not(:last-of-type) {
+    margin-bottom: var(--unit);
+  }
+
+  .sidebar-divider {
+    display: block;
+    @extend %tag-font;
+    text-transform: uppercase;
+    margin-bottom: calc(2 * var(--unit));
+    color: var(--neutral700);
+    font-weight: 500;
+  }
+
+  .sidebar-divider:not(.sidebar-collapsed-buton + .sidebar-divider) {
+    margin-top: calc(4 * var(--unit));
+  }
+
+  .sidebar-button_dropdown {
+    width: 100%;
+    .dropdown-menu {
+      width: max-content;
+      left: calc(100% + 3 * var(--unit));
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+    .dropdown-menu.bottom {
+      bottom: 50%;
+    }
+    .dropdown-menu.top {
+      top: 50%;
+    }
+  }
+}
+

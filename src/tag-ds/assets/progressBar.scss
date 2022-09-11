@@ -1,0 +1,111 @@
+.tag-ds {
+  .progress-bar,
+  &.progress-bar {
+    width: fit-content;
+    color: var(--neutral700);
+    display: block;
+    background: inherit;
+  }
+
+  .progress-bar_round,
+  &.progress-bar_round {
+    display: flex;
+    align-items: center;
+
+    .circle-svg {
+      stroke: var(--accent500);
+    }
+  }
+
+  .progress-bar-progress {
+    width: calc(39.75 * var(--unit));
+    height: var(--unit);
+    background-color: var(--neutral200);
+    border-radius: var(--unit);
+    position: relative;
+  }
+
+  .progress-bar-title {
+    color: var(--neutral800);
+    @include font(medium);
+    font-weight: 500 !important;
+    margin-bottom: var(--unit);
+    text-align: left;
+  }
+
+  .progress-bar-progress-bar {
+    position: absolute;
+    border-radius: var(--unit);
+    height: var(--unit);
+    left: 0;
+    top: 0;
+    background-color: var(--accent500);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .progress-bar-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--unit);
+  }
+
+  .progress-bar-percentage {
+    @include font(medium);
+  }
+
+  .progress-bar-steps {
+    @include font(medium);
+  }
+
+  .svg-container_circular_big {
+    height: calc(10 * var(--unit));
+    width: calc(10 * var(--unit));
+    border-radius: 50%;
+    border: var(--unit) solid var(--neutral200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: attr(data-percentage);
+    }
+  }
+
+  .svg-content {
+    position: absolute;
+  }
+
+  .svg-container_circular_medium {
+    position: relative;
+    height: calc(6 * var(--unit));
+    width: calc(6 * var(--unit));
+    border-radius: 50%;
+    border: calc(var(--unit) / 2) solid var(--neutral200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: attr(data-percentage);
+      @include font(small);
+    }
+  }
+
+  .progress-bar-text-wrapper {
+    margin-left: var(--unit);
+    & p {
+      margin: 0;
+    }
+  }
+
+  .progress-bar-title {
+    @include font(medium);
+  }
+
+  .progress-bar-helper {
+    @include font(small);
+    color: var(--neutral700);
+  }
+}
+
