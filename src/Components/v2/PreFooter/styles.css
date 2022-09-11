@@ -1,0 +1,7 @@
+.prefooter {
+ padding: 100px 292px;
+}
+
+.prefooter-container {
+  background-color: var(--neutral100);
+}

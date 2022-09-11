@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "dev:isolated": "VITE_ENV=isolated vite",
+    "dev:v2": "VITE_ENV=v2 vite",
     "test": "vitest test",
     "test:husky": "vitest run",
     "coverage": "vitest run --coverage",
@@ -40,6 +40,7 @@
     "husky": "^8.0.0",
     "jsdom": "^20.0.0",
     "prettier": "2.7.1",
+    "sass": "^1.54.7",
     "typescript": "^4.6.3",
     "vite": "^2.9.9",
     "vitest": "^0.16.0"
