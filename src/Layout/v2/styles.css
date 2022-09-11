@@ -1,4 +1,3 @@
-.sidebar_collapsed, .sidebar {
-  max-width: 194px  !important;
-  transition: all 0.2s ease-in-out !important;
+.sb-fix {
+  z-index: 1 !important;
 }

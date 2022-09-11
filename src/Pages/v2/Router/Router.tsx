@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from '../../../Layout/v2/Layout'
+import { Book } from '../Book'
 import { Home } from '../Home'
 
 export const Router = () => {
@@ -11,6 +12,14 @@ export const Router = () => {
           element={
             <Layout>
               <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="Book"
+          element={
+            <Layout>
+              <Book />
             </Layout>
           }
         />

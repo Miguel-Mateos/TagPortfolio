@@ -6,9 +6,13 @@ import {
 import { Footer } from '../../Components/v2/Footer/Footer'
 import { PreFooter } from '../../Components/v2/PreFooter/PreFooter'
 import './styles.css'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export const Layout: React.FC<any> = ({ children }) => {
+  const navigate = useNavigate()
+  const location = useLocation()
   const handleScroll = (id: string) => {
+    if (location.pathname !== '/') navigate('/')
     const element = document.getElementById(id)
     console.log('hola')
     console.log(element)
@@ -34,7 +38,7 @@ export const Layout: React.FC<any> = ({ children }) => {
   return (
     <div className="tag-ds layout">
       <div style={{ display: 'flex' }}>
-        <Sidebar collapsed>
+        <Sidebar collapsed className="sb-fix">
           <SidebarDivider key={0}>sections</SidebarDivider>
           <SidebarButton
             key={1}
@@ -83,6 +87,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             icon={<span className="material-icons">videocam</span>}
             id="button8"
             label="Book a Call"
+            onPressed={() => navigate('/Book')}
           />
           <SidebarButton
             key={8}
@@ -94,7 +99,7 @@ export const Layout: React.FC<any> = ({ children }) => {
         </Sidebar>
         <div style={{ width: '100%', marginLeft: '80px' }}>{children}</div>
       </div>
-      <PreFooter />
+      {location.pathname !== '/Book' && <PreFooter />}
       <Footer />
     </div>
   )

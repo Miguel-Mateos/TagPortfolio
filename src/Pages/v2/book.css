@@ -1,0 +1,6 @@
+.book-radio-grouper {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+
