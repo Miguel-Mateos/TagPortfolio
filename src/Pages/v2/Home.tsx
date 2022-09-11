@@ -22,7 +22,7 @@ export const Home = () => {
       <div className="separator" />
       <div style={{ margin: '39px 120px 0px 102px' }} className="content">
         <div className="home-hero-container">
-          <div className="home-hero-brief">
+          <div className="home-hero-brief" style={{ marginRight: '16px' }}>
             <h1 style={{ marginBottom: '16px' }}>
               I am Iñigo Moreno, IT Consultant
             </h1>
