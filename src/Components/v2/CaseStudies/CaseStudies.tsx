@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { Card } from '../Card/Card'
 
 const CustomChip: React.FC<any> = ({ children }) => (
@@ -14,6 +15,7 @@ const CustomChip: React.FC<any> = ({ children }) => (
 )
 
 export const CaseStudies = () => {
+  const navigate = useNavigate()
   return (
     <div
       className="case-studies-container"
@@ -48,7 +50,10 @@ export const CaseStudies = () => {
                   suscipit in augue et iaculis. Sed non amet.
                 </div>
               </div>
-              <button style={{ marginTop: '32px', marginLeft: 'auto' }}>
+              <button
+                style={{ marginTop: '32px', marginLeft: 'auto' }}
+                onClick={() => navigate('Study/yes')}
+              >
                 See Details
               </button>
             </Card>

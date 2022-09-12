@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from '../../../Layout/v2/Layout'
 import { Book } from '../Book'
 import { Home } from '../Home'
+import { Study } from '../Study'
 
 export const Router = () => {
   return (
@@ -20,6 +21,14 @@ export const Router = () => {
           element={
             <Layout>
               <Book />
+            </Layout>
+          }
+        />
+        <Route
+          path="Study/:id"
+          element={
+            <Layout>
+              <Study />
             </Layout>
           }
         />
