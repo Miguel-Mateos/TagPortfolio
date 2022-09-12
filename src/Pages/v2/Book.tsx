@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Card } from '../../Components/v2/Card/Card'
+import { HeadLine } from '../../Components/v2/HeadLine/HeadLine'
 import './book.css'
 
 // Temporal solution
@@ -57,16 +58,7 @@ export const Book = () => {
   }
   return (
     <div>
-      <p
-        style={{
-          fontSize: '20px',
-          lineHeight: '32px',
-          fontWeight: 400,
-          margin: '24px'
-        }}
-      >
-        Nice to e-meet you!
-      </p>
+      <HeadLine title="Nice to e-meet you!" />
       <div
         className="book-title"
         style={{
@@ -138,6 +130,7 @@ export const Book = () => {
         <button className="large" style={{ width: 'fit-content' }}>
           Book
         </button>
+        {errors.length > 0 && <small>Required Values Must be Fulfilled</small>}
         <p style={{ marginBottom: '101px' }}>
           I am not saving any of this details. By clicking book you are just
           booking a call (:

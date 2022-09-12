@@ -7,6 +7,7 @@ import { Footer } from '../../Components/v2/Footer/Footer'
 import { PreFooter } from '../../Components/v2/PreFooter/PreFooter'
 import './styles.css'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { handleDownloadResumee } from '../../utils/downloadCV'
 
 export const Layout: React.FC<any> = ({ children }) => {
   const navigate = useNavigate()
@@ -21,20 +22,6 @@ export const Layout: React.FC<any> = ({ children }) => {
     }
   }
 
-  const handleDownload = () => {
-    console.log('download')
-    fetch('Resumee_2022.pdf').then((response) => {
-      response.blob().then((blob) => {
-        // Creating new object of PDF file
-        const fileURL = window.URL.createObjectURL(blob)
-        // Setting various property values
-        let alink = document.createElement('a')
-        alink.href = fileURL
-        alink.download = 'Inigo_Moreno_Resume.pdf'
-        alink.click()
-      })
-    })
-  }
   return (
     <div className="tag-ds layout">
       <div style={{ display: 'flex' }}>
@@ -94,7 +81,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             icon={<span className="material-icons">file_download</span>}
             id="button9"
             label="Resume"
-            onPressed={handleDownload}
+            onPressed={handleDownloadResumee}
           />
         </Sidebar>
         <div style={{ width: '100%', marginLeft: '80px' }}>{children}</div>
