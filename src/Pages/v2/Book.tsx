@@ -64,9 +64,7 @@ export const Book = () => {
   }
 
   const onChange = (e: React.ChangeEvent<HTMLFormElement>) => {
-    const target = e.target
-    const name = target.name
-    const value = target.value
+    const { name, value } = e.target
     if (requiredFields.includes(name)) {
       if (value && errors.includes(name) && value) {
         setErrors(errors.filter((item) => item !== name))
