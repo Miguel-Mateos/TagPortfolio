@@ -1,7 +1,31 @@
-import React, { useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import { Card } from '../../Components/v2/Card/Card'
 import { HeadLine } from '../../Components/v2/HeadLine/HeadLine'
+import { dateBookings } from '../../utils/dateBookings'
+import { Input, Radio, TextArea } from '../../Components/Inputs/Input'
 import './book.css'
+
+const eventConstant = {
+  summary: 'Hello World',
+  location: '',
+  start: {
+    dateTime: '2022-08-28T09:00:00-07:00',
+    timeZone: 'America/Los_Angeles'
+  },
+  end: {
+    dateTime: '2022-08-28T17:00:00-07:00',
+    timeZone: 'America/Los_Angeles'
+  },
+  recurrence: ['RRULE:FREQ=DAILY;COUNT=2'],
+  attendees: [],
+  reminders: {
+    useDefault: false,
+    overrides: [
+      { method: 'email', minutes: 24 * 60 },
+      { method: 'popup', minutes: 10 }
+    ]
+  }
+}
 
 // Temporal solution
 const requiredFields = [
@@ -13,27 +37,11 @@ const requiredFields = [
   'calendar'
 ]
 
-interface CommonInputProps {
-  label?: string
-  name: string
-  id?: string
-  defaultValue?: string
-  placeholder?: string
-  type?: string
-  required?: boolean
-  error?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
-
-type TCommonInputProps<T> = CommonInputProps & T
-
 export const Book = () => {
   const [errors, setErrors] = useState<string[]>([])
-  console.log(errors)
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const form = e.target as HTMLFormElement
-    console.log(form)
     const formData = new FormData(form)
     const entries = [...formData.entries()]
     let error = false
@@ -41,7 +49,6 @@ export const Book = () => {
     entries.forEach((entry) => {
       if (requiredFields.includes(entry[0])) {
         if (!entry[1]) {
-          console.log('entered', entry[0])
           error = true
           auxErrors = [...auxErrors, entry[0]]
         }
@@ -53,28 +60,34 @@ export const Book = () => {
     if (auxErrors.length > 0) setErrors(auxErrors)
     if (!error) {
       const data = Object.fromEntries(formData)
-      console.log(data)
     }
   }
+
+  const onChange = (e: React.ChangeEvent<HTMLFormElement>) => {
+    const target = e.target
+    const name = target.name
+    const value = target.value
+    if (requiredFields.includes(name)) {
+      if (value && errors.includes(name) && value) {
+        setErrors(errors.filter((item) => item !== name))
+      }
+    }
+  }
+
+  const handleExternalChange = (val: number, name: string) => {
+    if (requiredFields.includes(name)) {
+      if (val && errors.includes(name)) {
+        setErrors(errors.filter((item) => item !== name))
+      }
+    }
+  }
+
   return (
     <div>
       <HeadLine title="Nice to e-meet you!" />
-      <div
-        className="book-title"
-        style={{
-          backgroundColor: 'var(--neutral100)',
-          padding: '79px 0 20px 40px'
-        }}
-      >
-        <h2>Book a Call</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias
-          nihil commodi quam. Ad corporis facilis optio, unde rerum amet
-          provident. Voluptates impedit iusto fugiat assumenda ducimus magnam
-          vel commodi.
-        </p>
-      </div>
+      <HeadBook />
       <form
+        onChange={onChange}
         onSubmit={onSubmit}
         style={{
           width: '583px',
@@ -126,7 +139,7 @@ export const Book = () => {
             <Radio name="anual_revenue" label="More" />
           </div>
         </div>
-        <BookSelector />
+        <BookSelector onChange={handleExternalChange} />
         <button className="large" style={{ width: 'fit-content' }}>
           Book
         </button>
@@ -140,7 +153,7 @@ export const Book = () => {
   )
 }
 
-const BookCard: React.FC<any> = ({ onClick, id, active }) => {
+const BookCard: React.FC<any> = ({ onClick, id, active, day }) => {
   return (
     <Card
       style={{
@@ -160,7 +173,7 @@ const BookCard: React.FC<any> = ({ onClick, id, active }) => {
         }}
       >
         <span className="material-icons">calendar_month</span>
-        <span className="small">17 Monday, September</span>
+        <span className="small">{day}</span>
       </div>
       <div
         style={{
@@ -177,59 +190,21 @@ const BookCard: React.FC<any> = ({ onClick, id, active }) => {
   )
 }
 
-const Input: React.FC<
-  TCommonInputProps<React.InputHTMLAttributes<HTMLInputElement>>
-> = ({
-  label,
-  required,
-  name,
-  className,
-  placeholder,
-  type,
-  error,
-  ...rest
-}) => {
-  console.log(error)
-  return (
-    <div className="input-wrapper" style={{ width: '100%' }}>
-      <label className="caption">
-        {label}
-        {required && <small>*</small>}
-      </label>
-      <input
-        name={name}
-        placeholder={placeholder}
-        type={type || 'text'}
-        {...rest}
-      />
-      {error && <p className="input-helper-text">Error</p>}
-    </div>
+const BookSelector: React.FC<any> = ({ onChange }) => {
+  const [selected, setSelected] = useState<number | null>(null)
+  const days: Date[] = useMemo(
+    () =>
+      Array(5)
+        .fill(0)
+        .map(() => dateBookings()),
+    []
   )
-}
 
-const Radio: React.FC<
-  TCommonInputProps<React.InputHTMLAttributes<HTMLInputElement>>
-> = ({ label, name, id, ...rest }) => (
-  <div className="tag-ds radio-container">
-    <input id={id} type="radio" name={name} {...rest} />
-    <label htmlFor="radio">{label}</label>
-  </div>
-)
+  const changeHandler = (val: number) => {
+    setSelected(val)
+    onChange(val, 'calendar')
+  }
 
-const TextArea: React.FC<
-  TCommonInputProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>>
-> = ({ label, required, name, placeholder, ...rest }) => (
-  <div className="tag-ds input-wrapper ">
-    <label className="caption">
-      {label}
-      {required && <span className="required">*</span>}
-    </label>
-    <textarea placeholder={placeholder} {...rest} />
-  </div>
-)
-
-const BookSelector = () => {
-  const [selected, setSelected] = useState(null)
   return (
     <div>
       <div
@@ -247,7 +222,8 @@ const BookSelector = () => {
           .map((_, index) => (
             <BookCard
               key={index}
-              onClick={setSelected}
+              day={days[index]}
+              onClick={changeHandler}
               active={selected === index}
               id={index}
             />
@@ -257,3 +233,20 @@ const BookSelector = () => {
     </div>
   )
 }
+
+const HeadBook = () => (
+  <div
+    className="book-title"
+    style={{
+      backgroundColor: 'var(--neutral100)',
+      padding: '79px 0 20px 40px'
+    }}
+  >
+    <h2>Book a Call</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias nihil
+      commodi quam. Ad corporis facilis optio, unde rerum amet provident.
+      Voluptates impedit iusto fugiat assumenda ducimus magnam vel commodi.
+    </p>
+  </div>
+)

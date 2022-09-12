@@ -14,7 +14,8 @@ export const HeadLine: React.FC<HeadLineProps> = ({ title }) => {
         borderBottom: '1px solid var(--neutral200)',
         backgroundColor: 'var(--neutral0)',
         position: 'sticky',
-        top: 0
+        top: 0,
+        zIndex: 2
       }}
     >
       <p
