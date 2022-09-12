@@ -3,7 +3,6 @@ import { Stack } from '../../Components/Stack/Stack'
 import { CaseStudies } from '../../Components/v2/CaseStudies/CaseStudies'
 import { Section } from '../../Components/v2/Section'
 import { Studies } from '../../Components/v2/Studies/Studies'
-import Avatar, { AvatarImg } from '../../Components/v2/Avatar/avatar'
 import './styles.css'
 import { HeadLine } from '../../Components/v2/HeadLine/HeadLine'
 
@@ -11,7 +10,6 @@ export const Home = () => {
   return (
     <div>
       <HeadLine title="Hey welcome to my portfolio!" />
-      <div className="separator" />
       <div
         style={{
           margin: '39px auto 0px',

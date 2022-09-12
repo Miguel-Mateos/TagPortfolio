@@ -10,7 +10,11 @@ export const HeadLine: React.FC<HeadLineProps> = ({ title }) => {
       style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        borderBottom: '1px solid var(--neutral200)',
+        backgroundColor: 'var(--neutral0)',
+        position: 'sticky',
+        top: 0
       }}
     >
       <p
