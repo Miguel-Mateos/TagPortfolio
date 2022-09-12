@@ -12,7 +12,13 @@ export const Home = () => {
     <div>
       <HeadLine title="Hey welcome to my portfolio!" />
       <div className="separator" />
-      <div style={{ margin: '39px 120px 0px 102px' }} className="content">
+      <div
+        style={{
+          margin: '39px auto 0px',
+          maxWidth: '1024px'
+        }}
+        className="content"
+      >
         <div className="home-hero-container">
           <div className="home-hero-brief" style={{ marginRight: '16px' }}>
             <h1 style={{ marginBottom: '16px' }}>
