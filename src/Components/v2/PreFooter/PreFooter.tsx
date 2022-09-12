@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom'
 import './styles.css'
 
 export const PreFooter = () => {
+  const navigate = useNavigate()
   return (
     <div className="prefooter-container">
       <div className="prefooter">
@@ -11,7 +13,10 @@ export const PreFooter = () => {
           exercitationem ratione, veritatis autem delectus similique impedit
           eveniet. Perferendis atque consectetur minima nulla nemo.
         </p>
-        <button className="button-primary_large">
+        <button
+          className="button-primary_large"
+          onClick={() => navigate('Book')}
+        >
           Start <span className="material-icons">trending_flat </span>
         </button>
       </div>

@@ -3,22 +3,39 @@ import { Stack } from '../../Components/Stack/Stack'
 import { CaseStudies } from '../../Components/v2/CaseStudies/CaseStudies'
 import { Section } from '../../Components/v2/Section'
 import { Studies } from '../../Components/v2/Studies/Studies'
+import Avatar, { AvatarImg } from '../../Components/v2/Avatar/avatar'
 import './styles.css'
 
 export const Home = () => {
   return (
     <div>
-      <p
-        id="about"
+      <header
         style={{
-          fontSize: '20px',
-          lineHeight: '32px',
-          fontWeight: 400,
-          margin: '24px'
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
         }}
       >
-        Hey welcome to my portfolio!
-      </p>
+        <p
+          id="about"
+          style={{
+            fontSize: '20px',
+            lineHeight: '32px',
+            fontWeight: 400,
+            margin: '24px'
+          }}
+        >
+          Hey welcome to my portfolio!
+        </p>
+        <Avatar title="Iñigo Moreno" small style={{ marginRight: '32px' }}>
+          <AvatarImg>
+            <img
+              alt="img"
+              src="https://avatars.githubusercontent.com/eneko96"
+            />
+          </AvatarImg>
+        </Avatar>
+      </header>
       <div className="separator" />
       <div style={{ margin: '39px 120px 0px 102px' }} className="content">
         <div className="home-hero-container">
