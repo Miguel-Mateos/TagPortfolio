@@ -1,0 +1,48 @@
+.custom-chip {
+  border-radius: 16px;
+  background-color: var(--secondary100);
+  text-transform: uppercase;
+  padding: 4px 16px;
+}
+
+.case-studies-container { 
+  margin-bottom: 72px; 
+}
+
+.case-studies-title {
+  margin-bottom: 40px !important;
+}
+
+.card-img-container {
+  margin: 0 -24px;
+  margin-bottom: 20px;
+  height: 200px;
+}
+
+.card-img {
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  margin-top: 24px !important;
+  margin-bottom: 8px !important;
+}
+
+.card-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-description-inner {
+  color: var(--neutral700);
+}
+
+.card-button-details {
+  margin-top: 32px;
+  margin-left: auto;
+}

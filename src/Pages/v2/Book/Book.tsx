@@ -1,43 +1,13 @@
-import React, { useMemo, useRef, useState } from 'react'
-import { Card } from '../../Components/v2/Card/Card'
-import { HeadLine } from '../../Components/v2/HeadLine/HeadLine'
-import { dateBookings } from '../../utils/dateBookings'
-import { Input, Radio, TextArea } from '../../Components/Inputs/Input'
+import React, { useState } from 'react'
+import { HeadLine } from '../../../Components/v2/HeadLine/HeadLine'
+import { Input, Radio, TextArea } from '../../../Components/Inputs/Input'
+import { useAppContextV2 } from '../../../Context/ContextV2'
+import { BookSelector } from './BookCard'
+import { requiredFields } from './utils'
 import './book.css'
 
-const eventConstant = {
-  summary: 'Hello World',
-  location: '',
-  start: {
-    dateTime: '2022-08-28T09:00:00-07:00',
-    timeZone: 'America/Los_Angeles'
-  },
-  end: {
-    dateTime: '2022-08-28T17:00:00-07:00',
-    timeZone: 'America/Los_Angeles'
-  },
-  recurrence: ['RRULE:FREQ=DAILY;COUNT=2'],
-  attendees: [],
-  reminders: {
-    useDefault: false,
-    overrides: [
-      { method: 'email', minutes: 24 * 60 },
-      { method: 'popup', minutes: 10 }
-    ]
-  }
-}
-
-// Temporal solution
-const requiredFields = [
-  'name',
-  'surname',
-  'email',
-  'company_name',
-  'anual_revenue',
-  'calendar'
-]
-
 export const Book = () => {
+  const { createEvent } = useAppContextV2()
   const [errors, setErrors] = useState<string[]>([])
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -60,6 +30,13 @@ export const Book = () => {
     if (auxErrors.length > 0) setErrors(auxErrors)
     if (!error) {
       const data = Object.fromEntries(formData)
+      const { anual_revenue, calendar, position, ...rest } = data
+      createEvent({
+        salary: anual_revenue,
+        day: new Date(),
+        vacancy: position,
+        ...rest
+      })
     }
   }
 
@@ -84,6 +61,7 @@ export const Book = () => {
     <div>
       <HeadLine title="Nice to e-meet you!" />
       <HeadBook />
+
       <form
         onChange={onChange}
         onSubmit={onSubmit}
@@ -109,6 +87,7 @@ export const Book = () => {
             name="surname"
           />
         </div>
+
         <Input
           error={errors.includes('email')}
           label="Email"
@@ -122,12 +101,15 @@ export const Book = () => {
           required
           name="company_name"
         />
+
         <select placeholder="Select Option" name="position">
           <option value="Front End Developer">Front End Developer</option>
           <option value="UX/UI Developer">UX/UI Developer</option>
           <option value="Full Stack Developer">Full Stack Developer</option>
         </select>
+
         <TextArea label="Something else about" name="message" />
+
         <div>
           <label className="caption">Anual Salary Range</label>
           <div className="book-radio-grouper">
@@ -137,97 +119,19 @@ export const Book = () => {
             <Radio name="anual_revenue" label="More" />
           </div>
         </div>
+
         <BookSelector onChange={handleExternalChange} />
+
         <button className="large" style={{ width: 'fit-content' }}>
           Book
         </button>
+
         {errors.length > 0 && <small>Required Values Must be Fulfilled</small>}
         <p style={{ marginBottom: '101px' }}>
           I am not saving any of this details. By clicking book you are just
           booking a call (:
         </p>
       </form>
-    </div>
-  )
-}
-
-const BookCard: React.FC<any> = ({ onClick, id, active, day }) => {
-  return (
-    <Card
-      style={{
-        width: '275px',
-        padding: '24px',
-        outline: active ? '2px solid var(--primary400)' : 'none',
-        transition: 'outline 0.1s ease-in-out'
-      }}
-      onClick={() => onClick(id)}
-    >
-      <div
-        style={{
-          padding: '8px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px'
-        }}
-      >
-        <span className="material-icons">calendar_month</span>
-        <span className="small">{day}</span>
-      </div>
-      <div
-        style={{
-          padding: '8px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px'
-        }}
-      >
-        <span className="material-icons">timer</span>
-        <span className="small">17:30 PM</span>
-      </div>
-    </Card>
-  )
-}
-
-const BookSelector: React.FC<any> = ({ onChange }) => {
-  const [selected, setSelected] = useState<number | null>(null)
-  const days: Date[] = useMemo(
-    () =>
-      Array(5)
-        .fill(0)
-        .map(() => dateBookings()),
-    []
-  )
-
-  const changeHandler = (val: number) => {
-    setSelected(val)
-    onChange(val, 'calendar')
-  }
-
-  return (
-    <div>
-      <div
-        className="small"
-        style={{ textTransform: 'uppercase', marginBottom: '8px' }}
-      >
-        Choose Next Slot Available
-      </div>
-      <div
-        className="bookcard-list"
-        style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}
-      >
-        {Array(5)
-          .fill(0)
-          .map((_, index) => (
-            <BookCard
-              key={index}
-              day={days[index]}
-              onClick={changeHandler}
-              active={selected === index}
-              id={index}
-            />
-          ))}
-      </div>
-      <input type="hidden" name="calendar" value={selected ?? ''} />
     </div>
   )
 }

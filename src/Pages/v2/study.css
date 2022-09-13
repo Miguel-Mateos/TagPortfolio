@@ -21,3 +21,16 @@
   bottom: 32px;
   left: 24px;
 }
+
+.study-header {
+  background-color: var(--neutral100);
+  min-height: 220px;
+  padding-left: 102px;
+  padding-top: 16px;
+  padding-bottom: 28px;
+}
+
+.study-header-content {
+  margin-top: 40px !important;
+  max-width: 672px;
+}

@@ -1,27 +1,14 @@
 import { Card } from '../Card/Card'
 import { SeeMore } from '../SeeMore/SeeMore'
+import './studies.css'
 
 const CardModulated = () => {
   return (
     <Card>
-      <small
-        style={{
-          textTransform: 'uppercase',
-          display: 'block',
-          marginBottom: '32px',
-          marginRight: '24px',
-          paddingTop: '16px',
-          textAlign: 'right',
-          color: 'var(--neutral700)'
-        }}
-      >
-        25 enero 2022
-      </small>
+      <small className="case-study-date">25 enero 2022</small>
       <h4>Name Study</h4>
-      <div className="base" style={{ marginTop: '8px' }}>
-        Position on Study
-      </div>
-      <p style={{ color: 'var(--neutral700)', marginTop: '8px' }}>
+      <div className="base case-study-position">Position on Study</div>
+      <p className="case-study-description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nemo,
       </p>
     </Card>
@@ -32,14 +19,14 @@ const Space = ({ height }: { height: string }) => <div style={{ height }} />
 
 export const Studies = () => {
   return (
-    <div style={{ marginTop: '72px' }} id="studies">
-      <h2 style={{ marginBottom: '40px' }}>Studies</h2>
+    <div className="study-container" id="studies">
+      <h2 className="study-title">Certifications & References</h2>
       <CardModulated />
       <Space height="16px" />
       <CardModulated />
       <Space height="16px" />
       <CardModulated />
-      <SeeMore styles={{ marginTop: '72px' }} />
+      <SeeMore className="study-see-more" />
     </div>
   )
 }
