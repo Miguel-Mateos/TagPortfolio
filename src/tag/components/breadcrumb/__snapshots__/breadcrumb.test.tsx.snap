@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Breadcrumb and match snap 1`] = `
+<div
+  className="breadcrumb-container tag-ds breadcrumb-wrapper"
+  data-testid="breadcrumb-test"
+>
+  <div
+    className="breadcrumb-item false"
+    data-testid="breadcrumb-1"
+    id="Breadcrumb Test 1"
+    onClick={[Function]}
+  >
+    <a
+      className="breadcrumb-item"
+      data-testid="breadcrumb-1-link"
+      href="Breadcrumb_1"
+      id="breadcrumb-1"
+      target="_self"
+    >
+      Breadcrumb Test 1
+    </a>
+  </div>
+  <span
+    className="material-icons breadcrumb-separator"
+  >
+    chevron_right
+  </span>
+  <div
+    className="dropdown breadcrumb-menu-container"
+  >
+    <div
+      className="dropdown-button "
+      onClick={[Function]}
+    >
+      <span
+        className=""
+      />
+      <span
+        className="material-icons breadcrumb-dots"
+      >
+        more_horiz
+      </span>
+    </div>
+    <div
+      className="dropdown-menu  breadcrumb-menu-content "
+    >
+      <li>
+        <div
+          className="tag-ds dropdown-item tab-list-item false"
+          data-testid="breadcrumb-2"
+          id="Breadcrumb Test 2"
+          onClick={[Function]}
+        >
+          <a
+            className="breadcrumb-item"
+            data-testid="breadcrumb-2-link"
+            href="Breadcrumb_2"
+            id="breadcrumb-2"
+            target="_self"
+          >
+            Breadcrumb Test 2
+          </a>
+        </div>
+        <div
+          className="tag-ds dropdown-item tab-list-item false"
+          data-testid="breadcrumb-3"
+          id="Breadcrumb Test 3"
+          onClick={[Function]}
+        >
+          <a
+            className="breadcrumb-item"
+            data-testid="breadcrumb-3-link"
+            href="Breadcrumb_3"
+            id="breadcrumb-3"
+            target="_self"
+          >
+            Breadcrumb Test 3
+          </a>
+        </div>
+        <div
+          className="tag-ds dropdown-item tab-list-item false"
+          data-testid="breadcrumb-4"
+          id="Breadcrumb Test 4"
+          onClick={[Function]}
+        >
+          <a
+            className="breadcrumb-item"
+            data-testid="breadcrumb-4-link"
+            href="Breadcrumb_4"
+            id="breadcrumb-4"
+            target="_self"
+          >
+            Breadcrumb Test 4
+          </a>
+        </div>
+      </li>
+    </div>
+  </div>
+  <span
+    className="material-icons breadcrumb-separator"
+  >
+    chevron_right
+  </span>
+  <div
+    className="breadcrumb-item breadcrumb-current"
+    data-testid="breadcrumb-truncated"
+    id="Breadcrumb title with more than 30 characters"
+    onClick={[Function]}
+  >
+    <a
+      className="breadcrumb-item"
+      data-testid="breadcrumb-truncated-link"
+      href="Breadcrumb_5"
+      id="breadcrumb-5"
+      target="_self"
+    >
+      Breadcrumb title with more tha...
+    </a>
+  </div>
+</div>
+`;

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider should render 1`] = `
+<div
+  className="slider-wrapper tag-ds"
+>
+  <div
+    className="slider-input-container"
+  >
+    <div
+      className="slider-track"
+    />
+    <div
+      className="slider-range"
+    />
+    <input
+      className="thumb"
+      defaultValue={0}
+      max={100}
+      min={0}
+      onChange={[Function]}
+      type="range"
+    />
+    <div
+      className="slider-label"
+    >
+      <small />
+      <small />
+    </div>
+  </div>
+</div>
+`;

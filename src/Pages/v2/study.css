@@ -1,0 +1,36 @@
+.study-img-container {
+  
+  margin-top: 72px;
+  position: relative;
+}
+
+.study-img-title {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.study-img-container::after {
+  content: attr(data-title);
+  font-size: 20px;
+  line-height: 32px;
+  font-family: Roboto, sans-serif;
+  color: white;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: 32px;
+  left: 24px;
+}
+
+.study-header {
+  background-color: var(--neutral100);
+  min-height: 220px;
+  padding-left: 102px;
+  padding-top: 16px;
+  padding-bottom: 28px;
+}
+
+.study-header-content {
+  margin-top: 40px !important;
+  max-width: 672px;
+}

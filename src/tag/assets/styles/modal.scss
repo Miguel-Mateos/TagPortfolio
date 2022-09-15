@@ -1,0 +1,122 @@
+%modal {
+  @extend .shadow-elevation_2x;
+  position: relative;
+  background-color: var(--neutral0);
+  padding: calc(5 * var(--unit));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  max-width: 90vw;
+  height: auto;
+  max-height: 90vh;
+  overflow: hidden;
+  border-radius: var(--unit);
+}
+
+%modal_portal {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tag-ds {
+  .modal-wrapper,
+  &.modal-wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--neutral800);
+      opacity: 0.5;
+      display: block;
+    }
+    .modal {
+      @extend %modal_portal;
+    }
+  }
+
+  .modal,
+  &.modal {
+    @extend %modal;
+  }
+
+  .modal-header {
+    width: 100%;
+    flex: 0 1 auto;
+    border: 0;
+    padding: 0;
+  }
+
+  .modal-body {
+    width: 100%;
+    flex: 1 1 auto;
+    @include font(base);
+    color: var(--neutral700);
+    padding: 0;
+  }
+
+  .modal-footer {
+    width: 100%;
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(3 * var(--unit));
+    border: 0;
+    padding: 0;
+  }
+
+  .modal > .modal-header + .modal-body,
+  &.modal > .modal-header + .modal-body {
+    margin-top: calc(2 * var(--unit));
+  }
+
+  .modal > .modal-body + .modal-footer,
+  &.modal > .modal-body + .modal-footer,
+  .modal > .modal-header + .modal-footer,
+  &.modal > .modal-header + .modal-footer {
+    margin-top: calc(6 * var(--unit));
+  }
+
+  .modal button.modal-close-button,
+  &.modal button.modal-close-button {
+    @extend %button-icon_interactive;
+    width: calc(3 * var(--unit));
+    height: calc(3 * var(--unit));
+    padding: 0;
+    position: absolute;
+    top: calc(5 * var(--unit));
+    right: calc(5 * var(--unit));
+    span.material-icons {
+      font-size: calc(3 * var(--unit));
+    }
+  }
+
+  .modal-close-button + .modal-header,
+  .modal-close-button + .modal-body,
+  .modal-close-button + .modal-footer {
+    padding-right: calc(6 * var(--unit));
+  }
+
+  @media (max-width: $mobile) {
+    .modal-footer {
+      flex-direction: column;
+      gap: calc(3 * var(--unit));
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+}
+

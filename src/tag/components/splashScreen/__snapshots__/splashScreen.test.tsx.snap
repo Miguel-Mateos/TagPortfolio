@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`splash screen component should render 1`] = `
+<div
+  className="tag-ds splash-screen"
+  data-testid="splash-screen-container"
+>
+  <div
+    className="logo-wrapper"
+    data-testid="splash-screen-logo-wrapper"
+  >
+    <img
+      alt="logo"
+      className="logo-image"
+      data-testid="splash-screen-logo-image"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;

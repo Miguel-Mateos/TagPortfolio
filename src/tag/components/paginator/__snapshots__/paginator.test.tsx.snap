@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders and match snapshot 1`] = `
+<div
+  className="paginator "
+  data-testid="paginator"
+>
+  <button
+    className="paginator-icon disabled"
+    data-testid="paginator-button-previous"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      navigate_before
+    </span>
+  </button>
+  <button
+    className="paginator-page_active"
+    disabled={false}
+    onClick={[Function]}
+  >
+    1
+  </button>
+  <button
+    className="paginator-page"
+    disabled={false}
+    onClick={[Function]}
+  >
+    2
+  </button>
+  <button
+    className="paginator-page"
+    disabled={false}
+    onClick={[Function]}
+  >
+    3
+  </button>
+  <button
+    className="paginator-page"
+    disabled={false}
+    onClick={[Function]}
+  >
+    4
+  </button>
+  <button
+    className="paginator-page"
+    disabled={false}
+    onClick={[Function]}
+  >
+    5
+  </button>
+  <button
+    className="paginator-icon "
+    data-testid="paginator-button-next"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      navigate_next
+    </span>
+  </button>
+</div>
+`;

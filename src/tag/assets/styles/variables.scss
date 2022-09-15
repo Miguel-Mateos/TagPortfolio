@@ -1,0 +1,109 @@
+/** Desktop **/
+$maximum: 1920px;
+$extraLarge: 1584px;
+$largeLegacy: 1440px;
+$large: 1360px;
+/** Tablet **/
+$mediumLandscape: 1024px;
+$mediumPortrait: 768px;
+$tablet: 1024px;
+/** Mobile **/
+$smallLandscape: 672px;
+$smallPortrait: 414px;
+$small: 360px;
+$extraSmall: 320px;
+$mobile: 672px;
+
+.tag-ds {
+  --unit: 8px;
+  --outlineOffset: -4px;
+
+  --fontFamily: 'Roboto', sans-serif;
+
+  /** For Backgrounds, surfaces, contents and structures. **/
+  --neutral0: #ffffff;
+  --neutral100: #f8f8f9;
+  --neutral200: #ebebee;
+  --neutral300: #e0e0e4;
+  --neutral400: #ccccd3;
+  --neutral500: #adadb5;
+  --neutral600: #7c828a;
+  --neutral700: #5c6573;
+  --neutral800: #1c304b;
+
+  /** Brand colour, for impact and emphasis **/
+  --accent100: #eff8f7;
+  --accent200: #ceeae8;
+  --accent300: #aedcd9;
+  --accent400: #8dcdc9;
+  --accent500: #5cb8b2;
+  --accent600: #367c78;
+  --accent700: #275956;
+
+  /** Main interactive colour for CTA, Buttons, Interactive elements, etc. **/
+  --primary100: #ced7e4;
+  --primary200: #8894a5;
+  --primary300: #727f8f;
+  --primary400: #495667;
+  --primary500: #1c304b;
+  --primary600: #030c18;
+  --primary700: #000306;
+
+  /** Secondary interactive colour for links, icons, interactive elements. **/
+  --secondary100: #ccf2ff;
+  --secondary200: #99e6ff;
+  --secondary300: #33cdff;
+  --secondary400: #009acc;
+  --secondary500: #107b9e;
+  --secondary600: #0e6987;
+  --secondary700: #004d66;
+
+  /** Tertiary colors for infographics such as pie charts. **/
+  --tertiary100: #7e63e8;
+  --tertiary200: #81a4ff;
+  --tertiary300: #ffc133;
+  --tertiary400: #ff8e4f;
+  --tertiary500: #e87a71;
+  --tertiary600: #eb9fbb;
+
+  --alert100: #fff0cc;
+  --alert200: #ffd166;
+  --alert400: #ffc133;
+  --alert600: #b88000;
+
+  --error100: #f7d3d0;
+  --error200: #f0a6a1;
+  --error400: #e87a71;
+  --error600: #e04d42;
+
+  --success100: #dcf5d6;
+  --success200: #96e283;
+  --success400: #73d85a;
+  --success600: #33841f;
+
+  --primaryColor: var(--primary500);
+  .primary-color {
+    background: var(--primaryColor);
+  }
+  --secondaryColor: var(--secondary500);
+  .secondary-color {
+    background: var(--secondaryColor);
+  }
+  --accentColor: var(--accent500);
+  .accent-color {
+    background: var(--accentColor);
+  }
+  --errorColor: var(--error400);
+  .error-color {
+    background: var(--errorColor);
+  }
+  --successColor: var(--success400);
+  .success-color {
+    background: var(--successColor);
+  }
+  --alertColor: var(--alert400);
+  .alert-color {
+    background: var(--alertColor);
+  }
+}
+

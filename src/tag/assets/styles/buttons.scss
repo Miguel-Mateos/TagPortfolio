@@ -1,0 +1,1163 @@
+%button {
+  outline: 0;
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--unit);
+  min-width: calc(20 * var(--unit));
+}
+
+%button-primary {
+  @extend %button;
+  color: var(--neutral0);
+  background-color: var(--primaryColor);
+  border: 0;
+  &:hover {
+    background-color: var(--primary600);
+  }
+  &:active {
+    background-color: var(--primary400);
+  }
+  &:focus {
+    outline: calc(var(--unit) / 2) solid var(--secondary300);
+  }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: calc(var(--unit) / 2) solid var(--secondary300);
+  }
+  &:disabled {
+    background-color: var(--primary100);
+    pointer-events: none;
+  }
+}
+
+%button-secondary {
+  @extend %button;
+  color: var(--neutral800);
+  background-color: var(--neutral0);
+  border: calc(var(--unit) / 8) solid var(--primaryColor);
+  &:hover {
+    border: calc(var(--unit) / 8) solid var(--secondary400);
+    background-color: var(--neutral0);
+  }
+  &:active {
+    background-color: var(--secondary100);
+  }
+  &:hover:focus,
+  &:hover:focus-visible,
+  &:focus:hover,
+  &:focus-visible:hover {
+    border: calc(var(--unit) / 8) solid var(--secondary400);
+  }
+  &:focus {
+    outline: calc(var(--unit) / 2) solid var(--secondary300);
+  }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  &:focus-visible {
+    border: calc(var(--unit) / 8) solid var(--neutral0);
+    outline: calc(var(--unit) / 2) solid var(--secondary300);
+  }
+  &:disabled {
+    color: var(--primary100);
+    border: calc(var(--unit) / 8) solid var(--primary100);
+    background-color: var(--neutral0);
+    pointer-events: none;
+  }
+}
+
+%button-primary_success {
+  @extend %button-primary;
+  background-color: var(--success100);
+  color: var(--neutral800);
+  pointer-events: none;
+}
+
+%button-primary_selected {
+  @extend %button-primary;
+  background-color: var(--primary100);
+  color: var(--neutral800);
+  pointer-events: none;
+}
+
+%button-primary_loading {
+  @extend %button-primary;
+  pointer-events: none;
+  .spinner {
+    width: calc(2 * var(--unit));
+    height: calc(2 * var(--unit));
+  }
+}
+
+%button-secondary_success {
+  @extend %button-secondary;
+  border: calc(var(--unit) / 8) solid var(--success100);
+  pointer-events: none;
+}
+
+%button-secondary_selected {
+  @extend %button-secondary;
+  border: calc(var(--unit) / 8) solid var(--primary100);
+  pointer-events: none;
+}
+
+%button-secondary_loading {
+  @extend %button-secondary;
+  .spinner {
+    width: calc(2 * var(--unit));
+    height: calc(2 * var(--unit));
+  }
+}
+
+%button_large {
+  @extend %button-font_large;
+  padding: calc(2 * var(--unit)) calc(3 * var(--unit));
+  height: calc(7 * var(--unit));
+}
+
+%button_medium {
+  @extend %button-font_medium;
+  padding: var(--unit) calc(3 * var(--unit));
+  height: calc(5 * var(--unit));
+}
+
+%button_small {
+  @extend %button-font_small;
+  padding: var(--unit) calc(2 * var(--unit));
+  height: calc(4 * var(--unit));
+}
+
+%button-icon {
+  min-width: calc(5 * var(--unit));
+  height: calc(5 * var(--unit));
+  padding: var(--unit);
+}
+
+%button-icon_small {
+  min-width: calc(4 * var(--unit));
+  height: calc(4 * var(--unit));
+  padding: var(--unit);
+}
+
+%button-icon_large {
+  min-width: calc(7 * var(--unit));
+  height: calc(7 * var(--unit));
+  padding: calc(2 * var(--unit));
+}
+
+%button-icon_interactive {
+  @extend %button;
+  @extend %icon;
+  background-color: inherit;
+  color: var(--neutral800);
+  min-width: auto;
+  width: calc(4 * var(--unit));
+  height: calc(4 * var(--unit));
+  padding: calc(var(--unit) / 2);
+  border: 0;
+
+  &:hover {
+    background-color: var(--neutral100);
+  }
+  &:active {
+    background-color: var(--neutral200);
+  }
+
+  &:focus {
+    outline: calc(var(--unit) / 2) solid var(--secondary300);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: calc(var(--unit) / 2) solid var(--secondary300);
+  }
+  &:disabled {
+    color: var(--neutral500);
+    pointer-events: none;
+  }
+}
+%icon_success {
+  span,
+  i,
+  svg,
+  .material-icons {
+    color: var(--successColor);
+  }
+}
+%icon_selected {
+  span,
+  i,
+  svg,
+  .material-icons {
+    color: var(--neutral800);
+  }
+}
+%icon {
+  span,
+  i,
+  svg,
+  .material-icons {
+    font-size: calc(3 * var(--unit));
+  }
+}
+
+%icon_small {
+  min-width: calc(4 * var(--unit));
+  height: calc(4 * var(--unit));
+  span,
+  i,
+  svg,
+  .material-icons {
+    font-size: calc(2 * var(--unit));
+  }
+}
+
+%icon-margin-left {
+  span,
+  i,
+  svg,
+  .material-icons {
+    margin-left: var(--unit);
+  }
+}
+
+%icon-margin-right {
+  span,
+  i,
+  svg,
+  .material-icons {
+    margin-right: var(--unit);
+  }
+}
+
+.tag-ds {
+  .button,
+  &.button,
+  .button-primary,
+  &.button-primary {
+    @extend %button-primary;
+    &_small,
+    &_large {
+      @extend %button-primary;
+    }
+
+    &-icon,
+    &-text-icon_left,
+    &-text-icon_right {
+      @extend %button-primary;
+      &_small,
+      &_large {
+        @extend %button-primary;
+      }
+      &_success,
+      &.success {
+        @extend %button-primary_success;
+
+        &_small,
+        &_large {
+          @extend %button-primary_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-primary_selected;
+
+        &_small,
+        &_large {
+          @extend %button-primary_selected;
+        }
+      }
+    }
+
+    &_success,
+    &.success {
+      @extend %button-primary_success;
+
+      &_small,
+      &_large {
+        @extend %button-primary_success;
+      }
+    }
+
+    &_selected,
+    &.selected {
+      @extend %button-primary_selected;
+
+      &_small,
+      &_large {
+        @extend %button-primary_selected;
+      }
+    }
+
+    &_loading,
+    .loading {
+      @extend %button-primary_loading;
+      &_small,
+      &_large {
+        @extend %button-primary_loading;
+      }
+    }
+  }
+
+  .button-secondary,
+  &.button-secondary {
+    @extend %button-secondary;
+    &_small,
+    &_large {
+      @extend %button-secondary;
+    }
+
+    &-icon,
+    &-text-icon_left,
+    &-text-icon_right {
+      @extend %button-secondary;
+      &_small,
+      &_large {
+        @extend %button-secondary;
+      }
+
+      &_success,
+      &.success {
+        @extend %button-secondary_success;
+
+        &_small,
+        &_large {
+          @extend %button-secondary_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-secondary_selected;
+
+        &_small,
+        &_large {
+          @extend %button-secondary_selected;
+        }
+      }
+    }
+
+    &_success,
+    &.success {
+      @extend %button-secondary_success;
+
+      &_small,
+      &_large {
+        @extend %button-secondary_success;
+      }
+    }
+
+    &_selected,
+    &.selected {
+      @extend %button-secondary_selected;
+
+      &_small,
+      &_large {
+        @extend %button-secondary_selected;
+      }
+    }
+    &_loading,
+    &.loading {
+      @extend %button-secondary_loading;
+      &_small,
+      &_large {
+        @extend %button-secondary_loading;
+      }
+    }
+  }
+
+  .button,
+  &.button,
+  .button-primary,
+  &.button-primary,
+  .button-secondary,
+  &.button-secondary {
+    @extend %button_medium;
+
+    &.large,
+    &_large {
+      @extend %button_large;
+    }
+
+    &.small,
+    &_small {
+      @extend %button_small;
+    }
+
+    &_small {
+      @include font(small);
+    }
+
+    &-icon {
+      @extend %button-icon;
+      @extend %icon;
+      &.small,
+      &_small {
+        @extend %button-icon;
+        @extend %icon_small;
+      }
+      &.large,
+      &_large {
+        @extend %button-icon_large;
+        @extend %icon;
+      }
+
+      &_success,
+      &.success {
+        @extend %button-icon;
+        @extend %icon;
+        @extend %icon_success;
+
+        &.small,
+        &_small {
+          @extend %button-icon;
+          @extend %icon_small;
+          @extend %icon_success;
+        }
+        &.large,
+        &_large {
+          @extend %button-icon_large;
+          @extend %icon;
+          @extend %icon_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-icon;
+        @extend %icon;
+        @extend %icon_selected;
+
+        &.small,
+        &_small {
+          @extend %button-icon;
+          @extend %icon_small;
+          @extend %icon_selected;
+        }
+        &.large,
+        &_large {
+          @extend %button-icon_large;
+          @extend %icon;
+          @extend %icon_selected;
+        }
+      }
+    }
+
+    &-text-icon_left,
+    &-text-icon_right {
+      @extend %button_medium;
+      @extend %icon;
+
+      &.large,
+      &_large {
+        @extend %button_large;
+        @extend %icon;
+      }
+
+      &.small,
+      &_small {
+        @extend %button_small;
+        @extend %icon_small;
+      }
+
+      &_small {
+        @include font(small);
+      }
+
+      &_success,
+      &.success {
+        @extend %button_medium;
+        @extend %icon;
+        @extend %icon_success;
+        &.small,
+        &_small {
+          @extend %button_small;
+          @extend %icon_small;
+          @extend %icon_success;
+        }
+        &.large,
+        &_large {
+          @extend %button_large;
+          @extend %icon;
+          @extend %icon_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button_medium;
+        @extend %icon;
+        @extend %icon_selected;
+        &.small,
+        &_small {
+          @extend %button_small;
+          @extend %icon_small;
+          @extend %icon_selected;
+        }
+        &.large,
+        &_large {
+          @extend %button_large;
+          @extend %icon;
+          @extend %icon_selected;
+        }
+      }
+    }
+
+    &-text-icon_left {
+      @extend %icon-margin-right;
+      &_small,
+      &_large,
+      &_success,
+      &_success_large,
+      &_success_small,
+      &_selected,
+      &_selected_large,
+      &_selected_small {
+        @extend %icon-margin-right;
+      }
+    }
+    &-text-icon_right {
+      @extend %icon-margin-left;
+      &_small,
+      &_large,
+      &_success,
+      &_success_large,
+      &_success_small,
+      &_selected,
+      &_selected_large,
+      &_selected_small {
+        @extend %icon-margin-left;
+      }
+    }
+
+    &_success,
+    &.success {
+      @extend %button_medium;
+
+      &.small,
+      &_small {
+        @extend %button_small;
+      }
+      &.large,
+      &_large {
+        @extend %button_large;
+      }
+    }
+    &_selected,
+    &.selected {
+      @extend %button_medium;
+
+      &.small,
+      &_small {
+        @extend %button_small;
+      }
+      &.large,
+      &_large {
+        @extend %button_large;
+      }
+    }
+    &_loading,
+    &.loading {
+      @extend %button-icon;
+
+      &_large,
+      &.large {
+        @extend %button-icon_large;
+      }
+      &_small,
+      &.small {
+        @extend %button-icon_small;
+      }
+    }
+  }
+
+  input[type='button'],
+  input[type='submit'],
+  button {
+    @extend %button-primary;
+    &.success {
+      @extend %button-primary_success;
+    }
+    &.selected {
+      @extend %button-primary_selected;
+    }
+    &.loading {
+      @extend %button-primary_loading;
+    }
+    &.button,
+    &.button-primary {
+      @extend %button-primary;
+      &_small,
+      &_large {
+        @extend %button-primary;
+      }
+      &-icon,
+      &-text-icon_left,
+      &-text-icon_right {
+        @extend %button-primary;
+        &_small,
+        &_large {
+          @extend %button-primary;
+        }
+        &_success,
+        &.success {
+          @extend %button-primary_success;
+
+          &_small,
+          &_large {
+            @extend %button-primary_success;
+          }
+        }
+        &_selected,
+        &.selected {
+          @extend %button-primary_selected;
+
+          &_small,
+          &_large {
+            @extend %button-primary_selected;
+          }
+        }
+      }
+      &_success,
+      &.success {
+        @extend %button-primary_success;
+
+        &_small,
+        &_large {
+          @extend %button-primary_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-primary_selected;
+
+        &_small,
+        &_large {
+          @extend %button-primary_selected;
+        }
+      }
+
+      &_loading,
+      &.loading {
+        @extend %button-primary_loading;
+        &_small,
+        &_large {
+          @extend %button-primary_loading;
+        }
+      }
+    }
+
+    &.button-secondary {
+      @extend %button-secondary;
+
+      &_small,
+      &_large {
+        @extend %button-secondary;
+      }
+      &-icon,
+      &-text-icon_left,
+      &-text-icon_right {
+        @extend %button-secondary;
+        &_small,
+        &_large {
+          @extend %button-secondary;
+        }
+        &_success,
+        &.success {
+          @extend %button-secondary_success;
+
+          &_small,
+          &_large {
+            @extend %button-secondary_success;
+          }
+        }
+        &_selected,
+        &.selected {
+          @extend %button-secondary_selected;
+
+          &_small,
+          &_large {
+            @extend %button-secondary_selected;
+          }
+        }
+      }
+      &_success,
+      &.success {
+        @extend %button-secondary_success;
+
+        &_small,
+        &_large {
+          @extend %button-secondary_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-secondary_selected;
+
+        &_small,
+        &_large {
+          @extend %button-secondary_selected;
+        }
+      }
+      &_loading,
+      .loading {
+        @extend %button-secondary_loading;
+        &_small,
+        &_large {
+          @extend %button-secondary_loading;
+        }
+      }
+    }
+  }
+
+  input[type='button'],
+  input[type='submit'],
+  button {
+    @extend %button_medium;
+    &.large {
+      @extend %button_large;
+    }
+    &.small {
+      @extend %button_small;
+    }
+
+    &.loading {
+      @extend %button-icon;
+      &.small {
+        @extend %button-icon_small;
+      }
+      &.large {
+        @extend %button-icon_large;
+      }
+    }
+
+    &.button,
+    &.button-primary,
+    &.button-secondary {
+      @extend %button_medium;
+      &_small,
+      &.small {
+        @extend %button_small;
+      }
+      &_large,
+      &.large {
+        @extend %button_large;
+      }
+
+      &-icon {
+        @extend %button-icon;
+        &_small,
+        &.small {
+          @extend %button-icon;
+        }
+        &_large,
+        &.large {
+          @extend %button-icon_large;
+        }
+
+        &_success,
+        &.success {
+          @extend %button-icon;
+
+          &.small,
+          &_small {
+            @extend %button-icon;
+          }
+          &.large,
+          &_large {
+            @extend %button-icon_large;
+          }
+        }
+        &_selected,
+        &.selected {
+          @extend %button-icon;
+
+          &.small,
+          &_small {
+            @extend %button-icon;
+          }
+          &.large,
+          &_large {
+            @extend %button-icon_large;
+          }
+        }
+      }
+
+      &-text-icon_left,
+      &-text-icon_right {
+        @extend %button_medium;
+        &_small,
+        &.small {
+          @extend %button_small;
+        }
+        &_large,
+        &.large {
+          @extend %button_large;
+        }
+
+        &_success,
+        &.success {
+          @extend %button_medium;
+
+          &.small,
+          &_small {
+            @extend %button_small;
+          }
+          &.large,
+          &_large {
+            @extend %button_large;
+          }
+        }
+        &_selected,
+        &.selected {
+          @extend %button_medium;
+
+          &.small,
+          &_small {
+            @extend %button_small;
+          }
+          &.large,
+          &_large {
+            @extend %button_large;
+          }
+        }
+      }
+
+      &_success,
+      &.success {
+        @extend %button_medium;
+
+        &.small,
+        &_small {
+          @extend %button_small;
+        }
+        &.large,
+        &_large {
+          @extend %button_large;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button_medium;
+
+        &.small,
+        &_small {
+          @extend %button_small;
+        }
+        &.large,
+        &_large {
+          @extend %button_large;
+        }
+      }
+      &_loading,
+      &.loading {
+        @extend %button-icon;
+        &_small,
+        &.small {
+          @extend %button-icon_small;
+        }
+        &_large,
+        &.large {
+          @extend %button-icon_large;
+        }
+      }
+    }
+  }
+}
+
+input[type='button'].tag-ds,
+input[type='submit'].tag-ds,
+button.tag-ds {
+  @extend %button-primary;
+  &.success {
+    @extend %button-primary_success;
+  }
+  &.selected {
+    @extend %button-primary_selected;
+  }
+  &.loading {
+    @extend %button-primary_loading;
+  }
+  &.button,
+  &.button-primary {
+    @extend %button-primary;
+    &_small,
+    &_large {
+      @extend %button-primary;
+    }
+    &-icon,
+    &-text-icon_left,
+    &-text-icon_right {
+      @extend %button-primary;
+      &_small,
+      &_large {
+        @extend %button-primary;
+      }
+      &_success,
+      &.success {
+        @extend %button-primary_success;
+
+        &_small,
+        &_large {
+          @extend %button-primary_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-primary_selected;
+
+        &_small,
+        &_large {
+          @extend %button-primary_selected;
+        }
+      }
+    }
+    &_success,
+    &.success {
+      @extend %button-primary_success;
+
+      &_small,
+      &_large {
+        @extend %button-primary_success;
+      }
+    }
+    &_selected,
+    &.selected {
+      @extend %button-primary_selected;
+
+      &_small,
+      &_large {
+        @extend %button-primary_selected;
+      }
+    }
+    &_loading,
+    .loading {
+      @extend %button-primary_loading;
+      &_small,
+      &_large {
+        @extend %button-primary_loading;
+      }
+    }
+  }
+
+  &.button-secondary {
+    @extend %button-secondary;
+
+    &_small,
+    &_large {
+      @extend %button-secondary;
+    }
+    &-icon,
+    &-text-icon_left,
+    &-text-icon_right {
+      @extend %button-secondary;
+      &_small,
+      &_large {
+        @extend %button-secondary;
+      }
+      &_success,
+      &.success {
+        @extend %button-secondary_success;
+
+        &_small,
+        &_large {
+          @extend %button-secondary_success;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-secondary_selected;
+
+        &_small,
+        &_large {
+          @extend %button-secondary_selected;
+        }
+      }
+    }
+    &_success,
+    &.success {
+      @extend %button-secondary_success;
+
+      &_small,
+      &_large {
+        @extend %button-secondary_success;
+      }
+    }
+    &_selected,
+    &.selected {
+      @extend %button-secondary_selected;
+
+      &_small,
+      &_large {
+        @extend %button-secondary_selected;
+      }
+    }
+    &_loading,
+    .loading {
+      @extend %button-secondary_loading;
+      &_small,
+      &_large {
+        @extend %button-secondary_loading;
+      }
+    }
+  }
+}
+
+input[type='button'].tag-ds,
+input[type='submit'].tag-ds,
+button.tag-ds {
+  @extend %button_medium;
+  &.large {
+    @extend %button_large;
+  }
+  &.small {
+    @extend %button_small;
+  }
+
+  &.loading {
+    @extend %button-icon;
+    &.small {
+      @extend %button-icon_small;
+    }
+    &.large {
+      @extend %button-icon_large;
+    }
+  }
+
+  &.button,
+  &.button-primary,
+  &.button-secondary {
+    @extend %button_medium;
+    &_small,
+    &.small {
+      @extend %button_small;
+    }
+    &_large,
+    &.large {
+      @extend %button_large;
+    }
+
+    &-icon {
+      @extend %button-icon;
+      &_small,
+      &.small {
+        @extend %button-icon;
+      }
+      &_large,
+      &.large {
+        @extend %button-icon_large;
+      }
+
+      &_success,
+      &.success {
+        @extend %button-icon;
+
+        &.small,
+        &_small {
+          @extend %button-icon;
+        }
+        &.large,
+        &_large {
+          @extend %button-icon_large;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button-icon;
+
+        &.small,
+        &_small {
+          @extend %button-icon;
+        }
+        &.large,
+        &_large {
+          @extend %button-icon_large;
+        }
+      }
+    }
+
+    &-text-icon_left,
+    &-text-icon_right {
+      @extend %button_medium;
+      &_small,
+      &.small {
+        @extend %button_small;
+      }
+      &_large,
+      &.large {
+        @extend %button_large;
+      }
+
+      &_success,
+      &.success {
+        @extend %button_medium;
+
+        &.small,
+        &_small {
+          @extend %button_small;
+        }
+        &.large,
+        &_large {
+          @extend %button_large;
+        }
+      }
+      &_selected,
+      &.selected {
+        @extend %button_medium;
+
+        &.small,
+        &_small {
+          @extend %button_small;
+        }
+        &.large,
+        &_large {
+          @extend %button_large;
+        }
+      }
+    }
+
+    &_success,
+    &.success {
+      @extend %button_medium;
+
+      &.small,
+      &_small {
+        @extend %button_small;
+      }
+      &.large,
+      &_large {
+        @extend %button_large;
+      }
+    }
+    &_selected,
+    &.selected {
+      @extend %button_medium;
+
+      &.small,
+      &_small {
+        @extend %button_small;
+      }
+      &.large,
+      &_large {
+        @extend %button_large;
+      }
+    }
+    &_loading,
+    .loading {
+      @extend %button-icon;
+      &_small,
+      &.small {
+        @extend %button-icon_small;
+      }
+      &_large,
+      &.large {
+        @extend %button-icon_large;
+      }
+    }
+  }
+}
+

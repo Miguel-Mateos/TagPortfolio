@@ -1,0 +1,13 @@
+.adecco {
+  --accent100: #FFD3D3;
+  --accent200: #FDA8A8;
+  --accent300: #F38787;
+  --accent400: #ED4F4F;
+  --accent500: #DA291C;
+  --accent600: #BF0D3E;
+  --accent700: #782F40;
+  --accentColor: var(--accent500);
+  .accent-color{
+    background: var(--accentColor);
+  }
+}

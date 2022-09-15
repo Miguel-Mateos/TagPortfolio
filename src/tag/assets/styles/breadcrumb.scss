@@ -1,0 +1,112 @@
+%breadcrumb {
+  @include font(medium);
+  font-weight: 400;
+  color: var(--neutral700);
+  cursor: pointer;
+  &:hover,
+  &:active {
+    color: var(--secondary600);
+  }
+  &:focus-visible,
+  &:visited {
+    color: var(--secondary700);
+  }
+  &:focus:not(:focus-visible) {
+    background: transparent;
+  }
+}
+
+.tag-ds {
+  a .breadcrumb-item {
+    @extend %breadcrumb;
+    line-height: var(--lineHeightMedium);
+  }
+
+  .breadcrumb-container,
+  &.breadcrumb-container {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: calc(2 * var(--unit)) calc(1 * var(--unit));
+
+    .breadcrumb-item {
+      text-transform: none;
+      word-break: break-all;
+    }
+
+    .breadcrumb-current {
+      a {
+        @extend .breadcrumb-active;
+      }
+    }
+  }
+
+  .breadcrumb-menu-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .dropdown.breadcrumb-menu-container {
+    width: auto;
+
+    .dropdown-menu {
+      width: auto;
+    }
+  }
+
+  .breadcrumb-menu-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: max-content;
+    margin-top: calc(-0.5 * var(--unit));
+
+    .dropdown-item {
+      text-transform: none;
+      padding: calc(var(--unit) / 1.5) calc(2 * var(--unit));
+      line-height: var(--lineHeightMedium);
+    }
+  }
+
+  .breadcrumb-item {
+    @extend %breadcrumb;
+  }
+
+  .breadcrumb-inactive {
+    @extend %breadcrumb;
+    color: var(--neutral700);
+  }
+
+  .breadcrumb-active {
+    @extend %breadcrumb;
+    font-weight: 500;
+    color: var(--accent600);
+  }
+
+  .breadcrumb-dots {
+    @extend %breadcrumb;
+    font-size: var(--fontSizeSmall);
+    margin: 0;
+    &:hover,
+    &:active {
+      color: var(--secondary600);
+      font-weight: 400;
+    }
+    &:focus-visible,
+    &:visited {
+      color: var(--secondary700);
+    }
+  }
+
+  .breadcrumb-separator {
+    @extend %breadcrumb;
+    cursor: default;
+    font-size: var(--fontSizeBase);
+    margin: calc(var(--unit) / 8) calc(var(--unit) / 8) 0 calc(var(--unit) / 8);
+    pointer-events: none;
+  }
+}

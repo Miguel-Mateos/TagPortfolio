@@ -58,3 +58,11 @@ code {
     text-align: center;
   }
 }
+
+body:has(.tag-ds) {
+  background-color: white;
+}
+
+html {
+  overflow-y: overlay;
+}

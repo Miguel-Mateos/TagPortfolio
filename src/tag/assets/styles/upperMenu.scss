@@ -1,0 +1,100 @@
+.tag-ds {
+  .upper-menu,
+  &.upper-menu {
+    max-height: calc(10 * var(--unit));
+    display: flex;
+    align-items: center;
+    padding: calc(3 * var(--unit));
+    border-bottom: calc(var(--unit) / 8) solid var(--neutral200);
+  }
+
+  .upper-menu_left {
+    @include font(large);
+  }
+
+  .upper-menu_right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    .upper-menu-notifications {
+      position: relative;
+      margin-right: calc(3 * var(--unit));
+      .overflow-menu {
+        min-width: calc(53 * var(--unit));
+        top: 100%;
+        left: 100%;
+        transform: translateX(calc(-100% + 4 * var(--unit)));
+      }
+    }
+  }
+
+  button.upper-menu-info {
+    @extend %button-icon_interactive;
+    background-color: inherit;
+    color: var(--neutral700);
+    margin-left: var(--unit);
+    border: calc(var(--unit) / 4) solid transparent;
+    .material-icons {
+      @include font(base);
+    }
+    &:active {
+      background-color: var(--neutral200);
+    }
+    &:hover {
+      border: calc(var(--unit) / 4) solid var(--secondary400);
+      background-color: var(--neutral100);
+    }
+    &:disabled {
+      color: var(--neutral500);
+    }
+  }
+
+  button.upper-menu-icon {
+    @extend %button-icon_interactive;
+    @include font(small);
+    height: calc(4 * var(--unit));
+    width: calc(4 * var(--unit));
+    padding: 0;
+    border: calc(var(--unit) / 4) solid transparent;
+    background-color: inherit;
+    color: var(--neutral700);
+    position: relative;
+    &:hover {
+      border: calc(var(--unit) / 4) solid var(--secondary400);
+      background-color: var(--neutral100);
+    }
+    &:active {
+      background-color: var(--neutral200);
+    }
+    & > .badge_small {
+      position: absolute;
+      bottom: calc(1.5 * var(--unit));
+      left: calc(1.5 * var(--unit));
+    }
+    &:disabled {
+      color: var(--neutral500);
+    }
+  }
+
+  .upper-menu-overflow-notification,
+  &.upper-menu-overflow-notification {
+    width: 100%;
+    position: unset;
+    transform: translateX(0%);
+    box-shadow: unset;
+    border: calc(var(--unit) / 8) solid var(--neutral200);
+  }
+
+  .upper-menu-dropdown {
+    width: auto;
+    margin-left: var(--unit);
+  }
+
+  .upper-menu-dropdown .dropdown-menu {
+    width: auto;
+    top: calc(100% + 4.5 * var(--unit));
+    left: calc(1.5 * var(--unit));
+    transform: translateX(-100%);
+  }
+}
+

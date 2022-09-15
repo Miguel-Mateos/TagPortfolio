@@ -1,0 +1,150 @@
+.tag-ds {
+  .tabs,
+  &.tabs {
+    position: relative;
+  }
+
+  .tabs-vertical,
+  &.tabs-vertical {
+    position: relative;
+    display: flex;
+  }
+
+  .tab-list,
+  .tab-list-vertical {
+    width: 100%;
+    padding: 0;
+    ul,
+    ol {
+      padding: 0;
+    }
+  }
+
+  .tabs .tab-list,
+  &.tabs .tab-list {
+    display: inline-flex;
+    gap: calc(5 * var(--unit));
+    width: auto;
+    box-shadow: var(--neutral200) 0 calc(-1 * var(--unit) / 4) 0 0 inset;
+    margin-bottom: var(--unit);
+  }
+
+  .tabs-vertical .tab-list,
+  &.tabs-vertical .tab-list {
+    display: block;
+    box-shadow: var(--neutral200) calc(-1 * var(--unit) / 4) 0px 0 0 inset;
+    margin-right: var(--unit);
+    width: max-content;
+  }
+
+  %tab-list-button {
+    @include font(medium);
+    min-width: auto;
+    height: calc(5 * var(--unit));
+    color: var(--neutral700);
+    text-transform: none;
+    border-radius: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: var(--unit) 0;
+    &:hover {
+      color: var(--secondary600);
+      background: none;
+    }
+    &:disabled {
+      color: var(--neutral500);
+      background: none;
+    }
+    &:focus {
+      outline: calc(var(--unit) / 2) solid var(--secondary300);
+    }
+  }
+
+  button.tab-list-item {
+    @extend %tab-list-button;
+  }
+
+  .tabs-vertical .tab-list .tab-list-item,
+  &.tabs-vertical .tab-list .tab-list-item {
+    padding: var(--unit) calc(2 * var(--unit)) var(--unit) 0;
+    width: calc(12 * var(--unit));
+    justify-content: left;
+  }
+
+  .tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item),
+  &.tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item) {
+    margin-bottom: var(--unit);
+  }
+
+  .tab-list-item.active {
+    color: var(--neutral800);
+    @extend %small-title;
+  }
+
+  .tabs .tab-list .tab-list-item.active:not(.dropdown-item),
+  &.tabs .tab-list .tab-list-item.active:not(.dropdown-item) {
+    box-shadow: var(--accentColor) 0 calc(-1 * var(--unit) / 4) 0 0 inset;
+  }
+
+  .tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item),
+  &.tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item) {
+    box-shadow: var(--accentColor) calc(-1 * var(--unit) / 4) 0 0 0 inset;
+  }
+
+  .tabs .tab-list .dropdown,
+  &.tabs .tab-list .dropdown,
+  .tabs-vertical .tab-list .dropdown,
+  &.tabs-vertical .tab-list .dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  .tabs .tab-list .dropdown .dropdown-menu,
+  &.tabs .tab-list .dropdown .dropdown-menu {
+    min-width: calc(11.5 * var(--unit));
+    .tab-list-item {
+      padding: var(--unit) calc(2 * var(--unit));
+      width: calc(11.5 * var(--unit));
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+  .tabs-vertical .tab-list .dropdown .dropdown-menu,
+  &.tabs-vertical .tab-list .dropdown .dropdown-menu {
+    min-width: calc(14 * var(--unit));
+    .tab-list-item {
+      padding: var(--unit) calc(2 * var(--unit));
+      width: calc(14 * var(--unit));
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .tab-list .dropdown-button button,
+  .tab-list .dropdown-button button.active,
+  .tab-list .dropdown-button_disabled button {
+    @extend %button-icon_interactive;
+    width: calc(3 * var(--unit));
+    height: calc(3 * var(--unit));
+
+    span.material-icons {
+      font-size: calc(2 * var(--unit));
+      color: var(--neutral700);
+    }
+  }
+
+  .tab-list .dropdown-button_disabled button {
+    span.material-icons {
+      color: var(--neutral500);
+    }
+  }
+
+  .tab-list .dropdown-button button.active {
+    background-color: var(--neutral200);
+  }
+}
+

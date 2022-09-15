@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Loader and match snap 1`] = `
+<div
+  className="loader-wrapper tag-ds"
+  data-testid="loader-test"
+>
+  <div
+    className="svg-container "
+    data-percentage="0%"
+    data-testid="loader-test-svg-container"
+  >
+    <svg
+      className="svg-content"
+      fill="none"
+      height="32"
+      viewBox="0 0 56 32"
+      width="56"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="oval-svg"
+        d="M28 2H40C47.732 2 54 8.26801 54 16C54 23.732 47.732 30 40 30H28H16C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2H28Z"
+        stroke="rgb(0, 154, 204)"
+        strokeLinecap="round"
+        strokeWidth="4"
+      />
+    </svg>
+  </div>
+</div>
+`;

@@ -1,0 +1,8 @@
+
+.tag-ds {
+  .separator, &.separator {
+    width: 100%;
+    height: calc(var(--unit) / 8);
+    background-color: var(--neutral200);
+  }
+}

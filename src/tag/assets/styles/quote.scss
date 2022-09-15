@@ -1,0 +1,22 @@
+.tag-ds {
+  .quote-wrapper,
+  &.quote-wrapper {
+    width: calc(42 * var(--unit));
+  }
+  .quote {
+    @extend .h3;
+    padding-bottom: calc(3 * var(--unit));
+  }
+  .quote-icon {
+    display: block;
+    color: var(--accent500);
+    font-size: calc(6 * var(--unit));
+  }
+  .avatar-title {
+    @include font(base);
+  }
+  .avatar-subtitle {
+    @include font(small);
+  }
+}
+

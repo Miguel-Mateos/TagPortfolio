@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onChangeToggleMenu={[Function]}
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <div
+          className="input"
+        >
+          <span
+            className="placeholder"
+          >
+            Select a colour...
+          </span>
+        </div>
+        <span
+          className="material-icons input-icon-box"
+        >
+          expand_more
+        </span>
+      </div>
+    </div>
+    <div
+      className="dropdown-menu   "
+    >
+      <div
+        className="dropdown-item-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          error
+        </span>
+        Info: No results found
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select filter component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onChangeToggleMenu={[Function]}
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <input
+          className="input "
+          data-testid="select-input"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select a colour..."
+          type="text"
+        />
+        <span
+          className="material-icons input-icon-box"
+        >
+          search
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select filter multiple component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onChangeToggleMenu={[Function]}
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <input
+          className="input "
+          data-testid="select-input"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="1 Options selected"
+          type="text"
+        />
+        <span
+          className="material-icons input-icon-box"
+        >
+          search
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="select-bottom-container"
+  >
+    <button
+      className="chip-icon_right_active"
+      data-testid="select-remove-btn"
+      onClick={[Function]}
+    >
+      1 Options selected
+      <span
+        className="material-icons"
+      >
+        close
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Select multiple component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onChangeToggleMenu={[Function]}
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <div
+          className="input"
+        >
+          <span
+            className="placeholder"
+          >
+            1 Options selected
+          </span>
+        </div>
+        <span
+          className="material-icons input-icon-box"
+        >
+          expand_more
+        </span>
+      </div>
+    </div>
+    <div
+      className="dropdown-menu   "
+    >
+      <div
+        className="dropdown-item-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          error
+        </span>
+        Info: No results found
+      </div>
+    </div>
+  </div>
+  <div
+    className="select-bottom-container"
+  >
+    <button
+      className="chip-icon_right_active"
+      data-testid="select-remove-btn"
+      onClick={[Function]}
+    >
+      1 Options selected
+      <span
+        className="material-icons"
+      >
+        close
+      </span>
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render carousel and match snap 1`] = `
+<div
+  className="carousel-container "
+  data-testid="carousel"
+>
+  <div
+    className=""
+    id="1"
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "gray",
+        "display": "flex",
+        "height": "400px",
+        "justifyContent": "center",
+        "width": "400px",
+      }
+    }
+  >
+    Element 0
+  </div>
+  <button
+    className="carousel-left"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+      data-testid="carousel-left-arrow-test"
+    >
+      keyboard_arrow_left
+    </span>
+  </button>
+  <button
+    className="carousel-right"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+      data-testid="carousel-right-arrow-test"
+    >
+      keyboard_arrow_right
+    </span>
+  </button>
+  <div
+    className="carousel-dots-container"
+  >
+    <button
+      className="carousel-dot_active"
+      data-testid="carousel-dot-test-0"
+      onClick={[Function]}
+    />
+    <button
+      className="carousel-dot"
+      data-testid="carousel-dot-test-1"
+      onClick={[Function]}
+    />
+    <button
+      className="carousel-dot"
+      data-testid="carousel-dot-test-2"
+      onClick={[Function]}
+    />
+    <button
+      className="carousel-dot"
+      data-testid="carousel-dot-test-3"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
