@@ -1,6 +1,28 @@
+.book-form {
+  max-width: 583px;
+  display: grid;
+  gap: 32px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.book-form-name-surname {
+  display: flex;
+  gap: 32px;
+}
+
 .book-radio-grouper {
   display: grid;
   grid-template-columns: auto auto;
+}
+
+.book-recopilation-message {
+  margin-bottom: 101px;
+}
+
+.book-title {
+  background-color: var(--neutral100);
+  padding: 79px 0 20px 40px;
 }
 
 

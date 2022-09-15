@@ -1,15 +1,15 @@
-.img-container {
+.study-img-container {
   
   margin-top: 72px;
   position: relative;
 }
 
-.img-title {
+.study-img-title {
   border-radius: 8px;
   object-fit: cover;
 }
 
-.img-container::after {
+.study-img-container::after {
   content: attr(data-title);
   font-size: 20px;
   line-height: 32px;

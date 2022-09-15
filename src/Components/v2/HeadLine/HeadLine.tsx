@@ -1,4 +1,5 @@
 import Avatar, { AvatarImg } from '@TagDs/components/avatar/avatar'
+import './styles.css'
 
 interface HeadLineProps {
   title: string
@@ -6,30 +7,11 @@ interface HeadLineProps {
 
 export const HeadLine: React.FC<HeadLineProps> = ({ title }) => {
   return (
-    <header
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderBottom: '1px solid var(--neutral200)',
-        backgroundColor: 'var(--neutral0)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 2
-      }}
-    >
-      <p
-        id="about"
-        style={{
-          fontSize: '20px',
-          lineHeight: '32px',
-          fontWeight: 400,
-          margin: '24px'
-        }}
-      >
+    <header className="headline-header">
+      <p id="about" className="headline-about">
         {title}
       </p>
-      <Avatar title="Iñigo Moreno" small style={{ marginRight: '32px' }}>
+      <Avatar title="Iñigo Moreno" small className="headline-avatar">
         <AvatarImg>
           <img alt="img" src="https://avatars.githubusercontent.com/eneko96" />
         </AvatarImg>

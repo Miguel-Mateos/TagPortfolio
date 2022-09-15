@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Card } from '../Card/Card'
+import { contentMock } from './contentMock'
 import './styles.css'
 
 const CustomChip: React.FC<any> = ({ children }) => (
@@ -12,31 +13,33 @@ export const CaseStudies = () => {
     <div className="case-studies-container" id="casestudies">
       <h2 className="case-studies-title">Projects</h2>
       <div className="case-studies" style={{ display: 'flex', gap: '32px' }}>
-        {Array(3)
-          .fill(1)
-          .map(() => (
-            <Card key={Math.random()}>
+        {contentMock.map(
+          ({ id, title, chip, subtitle, description, image, ...rest }) => (
+            <Card key={id}>
               <div className="card-img-container">
-                <img className="card-img" src="https://picsum.photos/500" />
+                <img className="card-img" src={image} />
               </div>
-              <CustomChip>Non disclosure agreement</CustomChip>
-              <h4 className="card-title">Tag Ds</h4>
+              <CustomChip>{chip}</CustomChip>
+              <h4 className="card-title">{title}</h4>
               <div className="card-description-container">
-                <div className="subtitle">The Adecco Group Design System</div>
+                <div className="subtitle">{subtitle}</div>
                 <div className="medium card-description-inner">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam nec commodo mauris. Aliquam erat volutpat. Aliquam
-                  suscipit in augue et iaculis. Sed non amet.
+                  {description}
                 </div>
               </div>
               <button
                 className="card-button-details"
-                onClick={() => navigate('Study/yes')}
+                onClick={() =>
+                  navigate('Study/' + title, {
+                    state: { title: rest.contender }
+                  })
+                }
               >
                 See Details
               </button>
             </Card>
-          ))}
+          )
+        )}
       </div>
     </div>
   )

@@ -2,24 +2,30 @@ import Breadcrumb, {
   BreadcrumbItem
 } from '@TagDs/components/breadcrumb/breadcrumb'
 import { HeadLine } from '@/Components/v2/HeadLine/HeadLine'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './study.css'
+interface LocationState {
+  title: string
+}
 
 export const Study = () => {
+  const navigate = useNavigate()
+  const history = useLocation()
+  const state = history.state as LocationState
+  console.log(history)
   return (
     <div>
       <HeadLine title="Hello Welcome to my portfolio!" />
       <div className="study-header">
         <Breadcrumb>
-          <BreadcrumbItem id="1" title="Case Studies" href="href" />
           <BreadcrumbItem
-            id="2"
-            title="TAG Design System for The Adecco Group"
-            href="href"
+            id="1"
+            title="Case Studies"
+            onClick={() => navigate('/')}
           />
+          <BreadcrumbItem id="2" title={state.title} />
         </Breadcrumb>
-        <h1 className="study-header-content">
-          TAG Design System for The Adecco Group
-        </h1>
+        <h1 className="study-header-content">{state.title}</h1>
       </div>
       <div style={{ margin: '39px auto 0px 102px', display: 'flex' }}>
         <div style={{ paddingTop: '44px', paddingBottom: '100px' }}>

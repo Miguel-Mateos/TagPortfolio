@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Layout } from '../../../Layout/v2/Layout'
 import { Book } from '../Book/Book'
 import { Home } from '../Home'

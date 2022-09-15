@@ -62,18 +62,8 @@ export const Book = () => {
       <HeadLine title="Nice to e-meet you!" />
       <HeadBook />
 
-      <form
-        onChange={onChange}
-        onSubmit={onSubmit}
-        style={{
-          width: '583px',
-          display: 'grid',
-          gap: '32px',
-          marginTop: '20px',
-          marginLeft: '40px'
-        }}
-      >
-        <div style={{ display: 'flex', gap: '32px' }}>
+      <form onChange={onChange} onSubmit={onSubmit} className="book-form">
+        <div className="book-form-name-surname">
           <Input
             error={errors.includes('name')}
             label="Name"
@@ -127,7 +117,7 @@ export const Book = () => {
         </button>
 
         {errors.length > 0 && <small>Required Values Must be Fulfilled</small>}
-        <p style={{ marginBottom: '101px' }}>
+        <p className="book-recopilation-message">
           I am not saving any of this details. By clicking book you are just
           booking a call (:
         </p>
@@ -137,13 +127,7 @@ export const Book = () => {
 }
 
 const HeadBook = () => (
-  <div
-    className="book-title"
-    style={{
-      backgroundColor: 'var(--neutral100)',
-      padding: '79px 0 20px 40px'
-    }}
-  >
+  <div className="book-title">
     <h2>Book a Call</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias nihil
