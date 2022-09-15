@@ -1,4 +1,4 @@
-import Avatar, { AvatarImg } from '../Avatar/avatar'
+import Avatar, { AvatarImg } from '@TagDs/components/avatar/avatar'
 
 interface HeadLineProps {
   title: string

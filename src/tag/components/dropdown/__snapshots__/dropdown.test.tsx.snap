@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render 1`] = `
+<div
+  className="dropdown tag-ds"
+>
+  <div
+    className="dropdown-button button"
+    data-testid="dropdown-btn"
+    onClick={[Function]}
+  >
+    Menu dropdown
+  </div>
+  <div
+    className="dropdown-menu   "
+  >
+    <ul>
+      <li
+        className="dropdown-item"
+      >
+        <a
+          href="#dropdown"
+        >
+          Item 1
+        </a>
+      </li>
+      <li
+        className="dropdown-item"
+      >
+        <a
+          href="#dropdown"
+        >
+          Item 2
+        </a>
+      </li>
+      <li
+        className="dropdown-item"
+      >
+        <a
+          href="#dropdown"
+        >
+          Item 3
+        </a>
+      </li>
+      <li
+        className="dropdown-item"
+      >
+        <a
+          href="#dropdown"
+        >
+          Item 4
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

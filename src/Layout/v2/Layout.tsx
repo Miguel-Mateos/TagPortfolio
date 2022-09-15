@@ -2,7 +2,7 @@ import {
   Sidebar,
   SidebarButton,
   SidebarDivider
-} from '../../Components/v2/sidebar/sidebar'
+} from '@TagDs/components/sidebar/sidebar'
 import { Footer } from '../../Components/v2/Footer/Footer'
 import { PreFooter } from '../../Components/v2/PreFooter/PreFooter'
 import './styles.css'

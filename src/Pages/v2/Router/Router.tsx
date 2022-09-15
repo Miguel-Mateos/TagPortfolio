@@ -3,6 +3,7 @@ import { Layout } from '../../../Layout/v2/Layout'
 import { Book } from '../Book/Book'
 import { Home } from '../Home'
 import { Study } from '../Study'
+import '@TagDs/assets/styles/main.scss'
 
 export const Router = () => {
   return (

@@ -1,0 +1,28 @@
+.lhh {
+  --accent100: #F5EAF9;
+  --accent200: #A57DB3;
+  --accent300: #752386;
+  --accent400: #611E6F;
+  --accent500: #4F185A;
+  --accent600: #391141;
+  --accent700: #290C2F;
+
+  --secondary100: #F2D0E1;
+  --secondary200: #E5A1C4;
+  --secondary300: #DB74A7;
+  --secondary400: #D24A8B;
+  --secondary500: #DC0A6F;
+  --secondary600: #B90B5F;
+  --secondary700: #870242;
+
+  --secondaryColor: var(--secondary500);
+  .secondary-color{
+    background: var(--secondaryColor);
+   }
+  --accentColor: var(--accent500);
+  .accent-color{
+    background: var(--accentColor);
+  }
+
+  // --fontFamily: Times;
+}

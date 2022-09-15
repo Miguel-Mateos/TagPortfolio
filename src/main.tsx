@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+
 import { AppProvider } from './Context/ContextApi'
 import { AppProviderV2 } from './Context/ContextV2'
-import './index.css'
-import { Layout } from './Layout/v2/Layout'
-const env = import.meta.env.VITE_ENV
-import { Home } from './Pages/v2/Home'
 import { Router } from './Pages/v2/Router/Router'
+import App from './App'
+
+const env = import.meta.env.VITE_ENV
+
+import './index.css'
 
 const RootSelector = () => {
   if (env === 'v2')

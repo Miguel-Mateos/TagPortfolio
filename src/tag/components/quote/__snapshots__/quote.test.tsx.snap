@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render quote component and match snapshot 1`] = `
+<div
+  className="tag-ds quote-wrapper "
+  data-testid="quote"
+  quote="Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa commodi officiis optio magni! Perferendis doloremque similique quas magnam repellendus facere voluptatem tenetur possimus cupiditate rerum suscipit, accusamus ullam magni odio."
+>
+  <span
+    className="material-icons quote-icon"
+  >
+    format_quote
+  </span>
+  <div
+    className="quote"
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa commodi officiis optio magni! Perferendis doloremque similique quas magnam repellendus facere voluptatem tenetur possimus cupiditate rerum suscipit, accusamus ullam magni odio.
+  </div>
+</div>
+`;

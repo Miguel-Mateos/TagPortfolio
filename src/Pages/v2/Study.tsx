@@ -1,6 +1,7 @@
-import BreadcrumbItem from '../../Components/v2/breadcrumb/breadcrumbItem'
-import Breadcrumb from '../../Components/v2/breadcrumb/breadcrumb'
-import { HeadLine } from '../../Components/v2/HeadLine/HeadLine'
+import Breadcrumb, {
+  BreadcrumbItem
+} from '@TagDs/components/breadcrumb/breadcrumb'
+import { HeadLine } from '@/Components/v2/HeadLine/HeadLine'
 import './study.css'
 
 export const Study = () => {

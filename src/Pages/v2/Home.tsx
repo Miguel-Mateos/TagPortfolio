@@ -1,4 +1,3 @@
-import '../../tag-ds/assets/main.scss'
 import { Stack } from '../../Components/Stack/Stack'
 import { CaseStudies } from '../../Components/v2/CaseStudies/CaseStudies'
 import { Section } from '../../Components/v2/Section'
