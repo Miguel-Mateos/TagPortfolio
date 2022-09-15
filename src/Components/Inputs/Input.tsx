@@ -1,3 +1,5 @@
+import './styles.css'
+
 interface CommonInputProps {
   label?: string
   name: string
@@ -36,7 +38,7 @@ export const Input: React.FC<
         type={type || 'text'}
         {...rest}
       />
-      {error && <p className="input-helper-text">Error</p>}
+      {error && <p className="input-helper-text input-error-text">Error</p>}
     </div>
   )
 }
