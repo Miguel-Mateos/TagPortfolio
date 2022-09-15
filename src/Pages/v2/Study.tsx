@@ -24,8 +24,8 @@ export const Study = () => {
       <div style={{ margin: '39px auto 0px 102px', display: 'flex' }}>
         <div style={{ paddingTop: '44px', paddingBottom: '100px' }}>
           <h2>Title</h2>
-          <main style={{ display: 'flex' }}>
-            <div style={{ marginTop: '40px' }}>
+          <main className="study-inner-container-layer">
+            <div className="study-inner-container-content">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 et venenatis metus. Vestibulum faucibus metus a tortor
@@ -50,17 +50,11 @@ export const Study = () => {
                 adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
                 metus a tortor tincidunt, id
               </p>
-              <div
-                className="img-container"
-                data-title="This is a title"
-                style={{ margin: '72px 0' }}
-              >
+              <div className="study-img-container" data-title="This is a title">
                 <img
-                  className="img-title"
+                  className="study-img-title"
                   src="https://picsum.photos/650"
                   alt=""
-                  width="100%"
-                  height="208px"
                 />
               </div>
               <p>
@@ -87,17 +81,11 @@ export const Study = () => {
                 adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
                 metus a tortor tincidunt, id
               </p>
-              <div
-                className="img-container"
-                data-title="This is a title"
-                style={{ margin: '72px 0' }}
-              >
+              <div className="study-img-container" data-title="This is a title">
                 <img
-                  className="img-title"
+                  className="study-img-title"
                   src="https://picsum.photos/650"
                   alt=""
-                  width="100%"
-                  height="208px"
                 />
               </div>
               <p>
@@ -127,40 +115,31 @@ export const Study = () => {
             </div>
           </main>
         </div>
-        <div
-          style={{
-            flex: '1 0 528px',
-            padding: '48px 92px',
-            boxShadow: '4px 8px 16px rgba(28, 48, 75, 0.08)',
-            marginLeft: '32px'
-          }}
-        >
-          <div style={{ position: 'sticky', top: '128px' }}>
-            <div style={{ marginBottom: '24px' }}>
-              <small style={{ textTransform: 'uppercase' }}>Client</small>
-              <p style={{ marginTop: '8px' }}>Ye</p>
+        <div className="study-right-side">
+          <div className="study-right-side-container">
+            <div className="study-right-side-element">
+              <small>Client</small>
+              <p>Ye</p>
             </div>
 
-            <div style={{ marginBottom: '24px' }}>
-              <small style={{ textTransform: 'uppercase' }}>Date</small>
-              <p style={{ marginTop: '8px' }}>Ye</p>
+            <div className="study-right-side-element">
+              <small>Date</small>
+              <p>Ye</p>
             </div>
 
-            <div style={{ marginBottom: '24px' }}>
-              <small style={{ textTransform: 'uppercase' }}>
-                Type of Project
-              </small>
-              <p style={{ marginTop: '8px' }}>Ye</p>
+            <div className="study-right-side-element">
+              <small>Type of Project</small>
+              <p>Ye</p>
             </div>
 
             <div>
-              <small style={{ textTransform: 'uppercase' }}>Tech Stack</small>
-              <p style={{ marginTop: '8px' }}>Ye</p>
+              <small>Tech Stack</small>
+              <p>Ye</p>
             </div>
 
             <div>
-              <small style={{ textTransform: 'uppercase' }}>Methodology</small>
-              <p style={{ marginTop: '8px' }}>Ye</p>
+              <small>Methodology</small>
+              <p>Ye</p>
             </div>
           </div>
         </div>
