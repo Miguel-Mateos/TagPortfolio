@@ -2,25 +2,17 @@ import { Stack } from '../../Components/Stack/Stack'
 import { CaseStudies } from '../../Components/v2/CaseStudies/CaseStudies'
 import { Section } from '../../Components/v2/Section'
 import { Studies } from '../../Components/v2/Studies/Studies'
-import './styles.css'
 import { HeadLine } from '../../Components/v2/HeadLine/HeadLine'
+import './styles.css'
 
 export const Home = () => {
   return (
     <div>
       <HeadLine title="Hey welcome to my portfolio!" />
-      <div
-        style={{
-          margin: '39px auto 0px',
-          maxWidth: '1024px'
-        }}
-        className="content"
-      >
+      <div className="content home-container">
         <div className="home-hero-container">
-          <div className="home-hero-brief" style={{ marginRight: '16px' }}>
-            <h1 style={{ marginBottom: '16px' }}>
-              I am Iñigo Moreno, IT Consultant
-            </h1>
+          <div className="home-hero-brief">
+            <h1>I am Iñigo Moreno, IT Consultant</h1>
             <div className="small-title">
               Experience In the Following industries
             </div>
@@ -45,7 +37,6 @@ export const Home = () => {
               <source type="image/webp" srcSet="/first_image.webp" />
               <source type="image/jpeg" srcSet="/first_image.jpg" />
               <img
-                style={{ width: '440px', height: '466px' }}
                 src="/first_image.jpg"
                 loading="eager"
                 alt="head image"

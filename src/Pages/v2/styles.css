@@ -1,4 +1,22 @@
+.home-container {
+  margin: 39px auto 0;
+  max-width: 1024px;
+}
+
 .home-hero-container {
   display: flex;
   align-items: center;
+}
+
+.home-hero-brief {
+  margin-right: 16px;
+}
+
+.home-hero-brief > h1 {
+  margin-bottom: 16px;
+}
+
+.header-image {
+  width: 440px;
+  height: 466px;
 }
