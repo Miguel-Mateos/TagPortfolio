@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { AppProvider } from './Context/ContextApi'
 import { AppProviderV2 } from './Context/ContextV2'
-import { Router } from './Pages/v2/Router/Router'
-import App from './App'
+// import { Router } from './Pages/v2/Router/Router'
+// import App from './App'
 
 const env = import.meta.env.VITE_ENV
-
+const mobile = window.innerWidth < 768
 import './index.css'
 
 const RootSelector = () => {
-  if (env === 'v2')
+  if (env === 'v2' && !mobile) {
+    const Router = React.lazy(() => import('./Pages/v2/Router/Router'))
     return (
       <AppProviderV2>
-        <Router />
+        <Suspense fallback={<div>loading</div>}>
+          <Router />
+        </Suspense>
       </AppProviderV2>
     )
+  }
+  const App = React.lazy(() => import('./App'))
   return (
     <AppProvider>
-      <App />
+      <Suspense fallback={<div>loading</div>}>
+        <App />
+      </Suspense>
     </AppProvider>
   )
 }
