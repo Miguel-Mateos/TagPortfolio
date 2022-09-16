@@ -66,3 +66,45 @@ body:has(.tag-ds) {
 html {
   overflow-y: overlay;
 }
+
+.spinner-router-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.router-spinner-text { color: white; font-family: sans-serif; }
+
+.spinner-router {
+  height: 16px;
+  width: 16px;
+  position: relative;
+}
+
+.spinner-router::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.spinner-router::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top-color: green;
+  border-left-color: green;
+  animation: spin 1s infinite linear;
+
+}

@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from '../../../Layout/v2/Layout'
 import { Book } from '../Book/Book'
 import { Home } from '../Home'
-import { Study } from '../Study'
 import '@TagDs/assets/styles/main.scss'
 
 export const Router = () => {
@@ -22,14 +21,6 @@ export const Router = () => {
           element={
             <Layout>
               <Book />
-            </Layout>
-          }
-        />
-        <Route
-          path="Study/:id"
-          element={
-            <Layout>
-              <Study />
             </Layout>
           }
         />
