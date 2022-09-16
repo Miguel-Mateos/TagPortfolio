@@ -1,0 +1,33 @@
+.footer-container {
+  z-index: 3;
+  position: relative;
+  padding: 80px 144px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--neutral800);
+}
+
+.footer-nav {
+  color: var(--neutral0)
+}
+
+.footer-nav > * {
+  margin-right: 32px;
+}
+
+.footer-nav *:last-child {
+  margin-right: 0;
+}
+
+.footer-nav-anchor {
+  color: var(--neutral0) !important;
+  text-transform: capitalize !important;
+}
+
+.footer-nav-cv {
+  cursor: pointer;
+}
+
+.footer-name {
+  color: var(--neutral500)
+}
