@@ -1,5 +1,4 @@
 export const handleDownloadResumee = () => {
-  console.log('download')
   fetch('Resumee_2022.pdf').then((response) => {
     response.blob().then((blob) => {
       // Creating new object of PDF file
