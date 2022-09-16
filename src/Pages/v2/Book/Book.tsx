@@ -65,13 +65,13 @@ export const Book = () => {
       <form onChange={onChange} onSubmit={onSubmit} className="book-form">
         <div className="book-form-name-surname">
           <Input
-            error={errors.includes('name')}
+            error={errors.includes('name') ? 'This field is required' : ''}
             label="Name"
             required
             name="name"
           />
           <Input
-            error={errors.includes('surname')}
+            error={errors.includes('surname') ? 'This field is required' : ''}
             label="Surname"
             required
             name="surname"
@@ -79,14 +79,16 @@ export const Book = () => {
         </div>
 
         <Input
-          error={errors.includes('email')}
+          error={errors.includes('email') ? 'This field is required' : ''}
           label="Email"
           required
           name="email"
           type="email"
         />
         <Input
-          error={errors.includes('company_name')}
+          error={
+            errors.includes('company_name') ? 'This field is required' : ''
+          }
           label="Company Name"
           required
           name="company_name"

@@ -1,5 +1,5 @@
 import { SeeMore } from '@Components/v2/SeeMore/SeeMore'
-import { cleanup, prettyDOM, render, screen } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 
 describe('See More Variant renders', () => {

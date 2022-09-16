@@ -8,8 +8,9 @@ interface CommonInputProps {
   placeholder?: string
   type?: string
   required?: boolean
-  error?: boolean
+  error?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  [key: string]: any
 }
 
 type TCommonInputProps<T> = CommonInputProps & T
@@ -24,21 +25,26 @@ export const Input: React.FC<
   placeholder,
   type,
   error,
+  onChange,
   ...rest
 }) => {
+  if (!name) throw new Error('Input must have a name')
   return (
     <div className="input-wrapper" style={{ width: '100%' }}>
-      <label className="caption">
-        {label}
-        {required && <small>*</small>}
-      </label>
+      {label && (
+        <label className="caption">
+          {label}
+          {required && <small>*</small>}
+        </label>
+      )}
       <input
         name={name}
         placeholder={placeholder}
         type={type || 'text'}
+        onChange={onChange}
         {...rest}
       />
-      {error && <p className="input-helper-text input-error-text">Error</p>}
+      {error && <p className="input-helper-text input-error-text">{error}</p>}
     </div>
   )
 }
