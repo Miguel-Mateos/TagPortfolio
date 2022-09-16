@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { HeadLine } from '../../../Components/v2/HeadLine/HeadLine'
+import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { Input, Radio, TextArea } from '../../../Components/Inputs/Input'
 import { useAppContextV2 } from '../../../Context/ContextV2'
 import { BookSelector } from './BookCard'

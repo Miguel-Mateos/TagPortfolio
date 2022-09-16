@@ -1,7 +1,7 @@
 import Breadcrumb, {
   BreadcrumbItem
 } from '@TagDs/components/breadcrumb/breadcrumb'
-import { HeadLine } from '@/Components/v2/HeadLine/HeadLine'
+import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './study.css'
 interface LocationState {

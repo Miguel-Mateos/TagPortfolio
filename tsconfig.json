@@ -25,7 +25,7 @@
         "src/*"
       ],
       "@Components/*": [
-        "src/components/*"
+        "src/Components/*"
       ],
       "@TagDs/*": [
         "src/tag/*"

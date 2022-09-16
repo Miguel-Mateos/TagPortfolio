@@ -19,6 +19,7 @@
 .header-image {
   width: 440px;
   height: 466px;
+  object-fit: cover;
 }
 
 .study-container {

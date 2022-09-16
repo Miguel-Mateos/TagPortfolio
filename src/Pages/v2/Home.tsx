@@ -2,7 +2,7 @@ import { Stack } from '../../Components/Stack/Stack'
 import { CaseStudies } from '../../Components/v2/CaseStudies/CaseStudies'
 import { Section } from '../../Components/v2/Section'
 import { Studies } from '../../Components/v2/Studies/Studies'
-import { HeadLine } from '../../Components/v2/HeadLine/HeadLine'
+import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import './styles.css'
 
 export const Home = () => {
