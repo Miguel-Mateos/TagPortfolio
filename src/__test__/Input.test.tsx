@@ -2,15 +2,18 @@
 import { Input } from '@Components/Inputs/Input'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterAll, describe, expect, it, vi } from 'vitest'
+import { mockedError } from './helpers/errorConsole'
 
 describe('Item Rendering tests', () => {
+  beforeEach(() => (console.error = mockedError))
   afterAll(cleanup)
   it('render without label, required', () => {
     render(<Input name="name" />)
     expect(screen.queryByText(/label/i)).toBeNull()
   })
   it('render without name', () => {
-    expect(() => render(<Input />)).toThrowError()
+    render(<Input />)
+    expect(mockedError).toHaveLength(1)
   })
 
   it('render with label, required', () => {

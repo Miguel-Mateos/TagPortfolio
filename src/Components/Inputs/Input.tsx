@@ -28,7 +28,7 @@ export const Input: React.FC<
   onChange,
   ...rest
 }) => {
-  if (!name) throw new Error('Input must have a name')
+  if (!name) console.error(Error('Input must have a name'))
   return (
     <div className="input-wrapper" style={{ width: '100%' }}>
       {label && (
@@ -52,7 +52,7 @@ export const Input: React.FC<
 export const Radio: React.FC<
   TCommonInputProps<React.InputHTMLAttributes<HTMLInputElement>>
 > = ({ label, name, id, ...rest }) => {
-  if (!name) throw new Error('Radio must have a name')
+  if (!name) console.error(Error('Radio must have a name'))
   return (
     <div className="tag-ds radio-container">
       <input id={id} type="radio" name={name} {...rest} />
@@ -64,7 +64,7 @@ export const Radio: React.FC<
 export const TextArea: React.FC<
   TCommonInputProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>>
 > = ({ label, required, name, placeholder, error, onChange, ...rest }) => {
-  if (!name) throw new Error('TextArea must have a name')
+  if (!name) console.error(Error('TextArea must have a name'))
   return (
     <div className="tag-ds input-wrapper ">
       <label className="caption">

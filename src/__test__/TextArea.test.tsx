@@ -1,13 +1,16 @@
 // @ts-nocheck
 import { TextArea } from '@Components/Inputs/Input'
 import { cleanup, fireEvent, render } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { mockedError } from './helpers/errorConsole'
 import { wait } from './helpers/wait'
 
 describe('TextArea render tests', () => {
   afterEach(cleanup)
+  beforeEach(() => (console.error = mockedError))
   it('should throw error if it does not have name', () => {
-    expect(() => render(<TextArea />)).toThrowError()
+    render(<TextArea />)
+    expect(mockedError).toHaveLength(1)
   })
 
   it('should render without error if it has name', () => {

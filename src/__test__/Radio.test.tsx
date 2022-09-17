@@ -1,11 +1,23 @@
 // @ts-nocheck
 import { Radio } from '@Components/Inputs/Input'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterAll, describe, expect, it, vi } from 'vitest'
+import {
+  afterAll,
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi
+} from 'vitest'
+import { mockedError } from './helpers/errorConsole'
 
 describe('Radio Test rendering', () => {
-  it('should throw error if it does not have name', () => {
-    expect(() => render(<Radio />)).toThrowError()
+  beforeEach(() => (console.error = mockedError))
+  afterEach(cleanup)
+  it('should console error if it does not have name', () => {
+    render(<Radio />)
+    expect(mockedError).toHaveLength(1)
   })
 
   it('should render without error if it has name', () => {
