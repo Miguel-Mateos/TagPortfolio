@@ -20,11 +20,11 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    // coverage: {
-    //   branches: 80,
-    //   functions: 80,
-    //   lines: 80,
-    //   statements: 80,
-    // }
+    coverage: {
+      branches: 75,
+      functions: 60,
+      lines: 75,
+      statements: 75,
+    }
   }
 })

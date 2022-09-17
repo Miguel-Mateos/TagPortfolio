@@ -51,21 +51,28 @@ export const Input: React.FC<
 
 export const Radio: React.FC<
   TCommonInputProps<React.InputHTMLAttributes<HTMLInputElement>>
-> = ({ label, name, id, ...rest }) => (
-  <div className="tag-ds radio-container">
-    <input id={id} type="radio" name={name} {...rest} />
-    <label htmlFor="radio">{label}</label>
-  </div>
-)
+> = ({ label, name, id, ...rest }) => {
+  if (!name) throw new Error('Radio must have a name')
+  return (
+    <div className="tag-ds radio-container">
+      <input id={id} type="radio" name={name} {...rest} />
+      <label htmlFor="radio">{label}</label>
+    </div>
+  )
+}
 
 export const TextArea: React.FC<
   TCommonInputProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>>
-> = ({ label, required, name, placeholder, ...rest }) => (
-  <div className="tag-ds input-wrapper ">
-    <label className="caption">
-      {label}
-      {required && <span className="required">*</span>}
-    </label>
-    <textarea placeholder={placeholder} {...rest} />
-  </div>
-)
+> = ({ label, required, name, placeholder, error, onChange, ...rest }) => {
+  if (!name) throw new Error('TextArea must have a name')
+  return (
+    <div className="tag-ds input-wrapper ">
+      <label className="caption">
+        {label}
+        {required && <span className="required">*</span>}
+      </label>
+      <textarea placeholder={placeholder} onChange={onChange} {...rest} />
+      {error && <p className="input-helper-text input-error-text">{error}</p>}
+    </div>
+  )
+}
