@@ -3,6 +3,7 @@ import { Layout } from '../../../Layout/v2/Layout'
 import { Book } from '../Book/Book'
 import { Home } from '../Home'
 import '@TagDs/assets/styles/main.scss'
+import { Study } from '../Study'
 
 export const Router = () => {
   return (
@@ -21,6 +22,14 @@ export const Router = () => {
           element={
             <Layout>
               <Book />
+            </Layout>
+          }
+        />
+        <Route
+          path="Study/:title"
+          element={
+            <Layout>
+              <Study />
             </Layout>
           }
         />
