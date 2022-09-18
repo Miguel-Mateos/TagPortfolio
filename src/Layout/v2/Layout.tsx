@@ -83,6 +83,13 @@ export const Layout: React.FC<any> = ({ children }) => {
             label="Resume"
             onPressed={handleDownloadResumee}
           />
+          <SidebarButton
+            key={10}
+            icon={<span className="material-icons">file_download</span>}
+            id="button10"
+            label="Dashboard"
+            onPressed={() => navigate('/Dashboard')}
+          />
         </Sidebar>
         <div style={{ width: '100%', marginLeft: '80px' }}>{children}</div>
       </div>

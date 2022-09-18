@@ -22,4 +22,5 @@ export interface IUseAppContextV2 {
   getWorks: () => { data: any }
   getGreetings: () => { data: any }
   getCerts: () => { data: any }
+  login: any
 }
