@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
-import { createContext, useContext, useEffect } from 'react'
-import { IProjects, IUseAppContextV2 } from './types'
+import { createContext, useContext, useEffect, useState } from 'react'
+import { IProjects, IUseAppContextV2, IBaseData } from './types'
 
 export const AppContextV2 = createContext<any | null>(null)
 
@@ -8,6 +8,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
   const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
   const supabase = createClient(supabaseUrl, supabaseKey)
+  const [baseData, setBaseData] = useState<any | null>(null)
 
   const createEvent = async (event: any) => {
     const { status } = await supabase
@@ -21,23 +22,12 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
     return data
   }
 
-  const getHomeData = async () => {
-    Promise.all([
-      getBookings(),
-      getProjects(),
-      getGreeting(),
-      getCerts(),
-      getWorks()
-    ]).then((values) => {
-      const [booking, projects, greeting, cert, works] = values
-      return { booking, projects, greeting, cert, works }
-    })
-  }
-
   const getData = async () => {
-    const { data } = await supabase.from('greeting').select(`
-      id,
-      name,
+    const { data } = await supabase
+      .from<IBaseData>('greeting')
+      .select(
+        `
+      *,
       work_v2 (
         id
       ),
@@ -50,8 +40,10 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
       booking (
         id
       )
-    `)
-    console.log(data)
+    `
+      )
+      .single()
+    setBaseData(data)
   }
 
   const getBookings = async () => {
@@ -99,12 +91,12 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         createEvent,
         auth: supabase.auth,
         getProjects,
-        getHomeData,
         getBookings,
         getWorks,
         getGreeting,
         getCerts,
-        login
+        login,
+        baseData
       }}
     >
       {children}

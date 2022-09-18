@@ -14,7 +14,6 @@ export const Dashboard = () => {
   return (
     <div style={{ margin: '32px' }}>
       <h1>Dashboard</h1>
-      <div>Hola que tal</div>
       <button onClick={() => setOpen(!open)}>Open Dialog</button>
       <h2>Select CRUD mode</h2>
       <div className="dashboard-selector">
@@ -59,12 +58,15 @@ const Auth: React.FC<AuthProps> = ({ open, setOpen }) => {
   }
 
   return (
-    <dialog open={open}>
+    <dialog className="dashboard-dialog" open={open}>
       <div>Auth</div>
       <div>
         <form onSubmit={handleSubmit}>
           <input type="email" name="email" placeholder="Email" />
           <button type="submit">Login</button>
+          <button type="button" onClick={() => setOpen(false)}>
+            Cancel
+          </button>
         </form>
       </div>
     </dialog>

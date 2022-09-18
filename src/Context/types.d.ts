@@ -12,6 +12,20 @@ export interface IProjects {
   contender: string
 }
 
+export interface IBaseData {
+  name: string
+  image: string
+  position: string
+  experience: string
+  skills: string
+  strengths: string
+  id: number
+  work_v2: Object[]
+  projects_v2: IProjects[]
+  cert_ref: Object[]
+  booking: Object[]
+}
+
 export interface IUseAppContextV2 {
   projects: IProjects[]
   auth: any
@@ -23,4 +37,5 @@ export interface IUseAppContextV2 {
   getGreetings: () => { data: any }
   getCerts: () => { data: any }
   login: any
+  baseData: IBaseData
 }
