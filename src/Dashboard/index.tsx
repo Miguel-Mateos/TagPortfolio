@@ -2,7 +2,7 @@ import { Input, TextArea } from '@Components/Inputs/Input'
 import { useAppContextV2 } from '@Context/ContextV2'
 import { useState } from 'react'
 import './styles.css'
-const tables = ['projects_v2', 'greeting', 'cert_ref', 'work_v2']
+const tables: TTables[] = ['projects_v2', 'greeting', 'cert_ref', 'work_v2']
 const modes = ['read', 'add', 'delete', 'update']
 
 type TTables = 'projects_v2' | 'greeting' | 'cert_ref' | 'work_v2'
@@ -12,14 +12,15 @@ export const Dashboard = () => {
   const [table, setTable] = useState(tables[0])
   const [mode, setMode] = useState('add')
   return (
-    <div style={{ marginLeft: '32px' }}>
+    <div style={{ margin: '32px' }}>
       <h1>Dashboard</h1>
       <div>Hola que tal</div>
       <button onClick={() => setOpen(!open)}>Open Dialog</button>
       <h2>Select CRUD mode</h2>
       <div className="dashboard-selector">
-        {modes.map((mode) => (
+        {modes.map((mode, idx) => (
           <button
+            key={idx + 'mode'}
             className="dashboard-select-button"
             onClick={() => setMode(mode)}
           >
@@ -29,10 +30,10 @@ export const Dashboard = () => {
       </div>
       <h2 style={{ marginTop: '32px' }}>Select Table To Crud</h2>
       <div className="dashboard-selector">
-        {tables.map((table) => (
-          <div>
-            <button onClick={() => setTable(table)}>{table}</button>
-          </div>
+        {tables.map((table, idx) => (
+          <button key={idx + 'table'} onClick={() => setTable(table)}>
+            {table}
+          </button>
         ))}
       </div>
       <TableCrud table={table} mode={mode} />
@@ -95,16 +96,33 @@ const TableCrud: React.FC<TableCrudProps> = ({ mode, table }) => {
   return null
 }
 
-const TableRead = ({ table }: { table: string }) => {
+const TableRead = ({ table }: { table: TTables }) => {
   return <div>Read</div>
 }
 
-const TableDelete = ({ table }: { table: string }) => {
+const TableDelete = ({ table }: { table: TTables }) => {
   return <div>Delete</div>
 }
 
-const TableUpdate = ({ table }: { table: string }) => {
-  return <div>Update</div>
+const TableUpdate = ({ table }: { table: TTables }) => {
+  if (table === 'greeting')
+    return (
+      <div>
+        <h3 className="dashboard-tablecrud-title">Add Projects</h3>
+        <form>
+          <div className="dashboard-form">
+            <TextArea name="experience" placeholder="experience" />
+            <TextArea name="skills" placeholder="skills" />
+            <TextArea name="strengths" placeholder="strengths" />
+            <Input name="position" placeholder="Position" />
+          </div>
+          <button className="dashboard-submit" type="submit">
+            Update Greeting
+          </button>
+        </form>
+      </div>
+    )
+  return null
 }
 
 const TableAdd = ({ table }: { table: TTables }) => {
@@ -128,11 +146,6 @@ const TableAdd = ({ table }: { table: TTables }) => {
             <Input name="methodology" placeholder="methodology" />
             <Input name="agreement" placeholder="agreement" />
             <Input name="contender" placeholder="contender" />
-            <Input
-              name="greeting_id"
-              hidden
-              value="id from supabase greeting"
-            />
           </div>
           <button className="dashboard-submit" type="submit">
             Add Project
@@ -152,7 +165,6 @@ const TableAdd = ({ table }: { table: TTables }) => {
             <Input name="date" placeholder="date" />
             <Input name="project_type" placeholder="project_type" />
             <Input name="description" placeholder="description" />
-            <Input name="greeting_id" hidden value="id from context supabase" />
           </div>
           <button className="dashboard-submit" type="submit">
             Add Work
@@ -162,5 +174,27 @@ const TableAdd = ({ table }: { table: TTables }) => {
     )
   }
 
-  return null
+  if (table === 'cert_ref') {
+    return (
+      <div>
+        <h3 className="dashboard-tablecrud-title">
+          Add Certification or reference
+        </h3>
+        <form>
+          <div className="dashboard-form">
+            <Input name="name" placeholder="Name" />
+            <Input name="type" placeholder="Type" />
+            <Input name="date" placeholder="date" />
+            <Input name="subtitle" placeholder="subtitle" />
+            <TextArea name="description" placeholder="description" />
+          </div>
+          <button className="dashboard-submit" type="submit">
+            Add Cert
+          </button>
+        </form>
+      </div>
+    )
+  }
+
+  return <h3 className="dashboard-tablecrud-title">Non Addable</h3>
 }
