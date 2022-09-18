@@ -85,7 +85,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           />
           <SidebarButton
             key={10}
-            icon={<span className="material-icons">file_download</span>}
+            icon={<span className="material-icons">dashboard</span>}
             id="button10"
             label="Dashboard"
             onPressed={() => navigate('/Dashboard')}
@@ -93,8 +93,10 @@ export const Layout: React.FC<any> = ({ children }) => {
         </Sidebar>
         <div style={{ width: '100%', marginLeft: '80px' }}>{children}</div>
       </div>
-      {location.pathname !== '/Book' && <PreFooter />}
-      <Footer />
+      {location.pathname !== '/Book' && location.pathname !== '/Dashboard' && (
+        <PreFooter />
+      )}
+      {location.pathname !== '/Dashboard' && <Footer />}
     </div>
   )
 }

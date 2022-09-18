@@ -1,0 +1,24 @@
+.dashboard-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-right: 2rem;
+}
+
+.dashboard-submit {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dashboard-tablecrud-title {
+  margin-bottom: 2rem !important;
+  margin-top: 2rem !important;
+}
+
+.dashboard-selector {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+}
