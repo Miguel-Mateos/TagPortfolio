@@ -36,6 +36,7 @@ export interface IUseAppContextV2 {
   getWorks: () => { data: any }
   getGreetings: () => { data: any }
   getCerts: () => { data: any }
+  addWork: (work: any) => { status: number }
   login: any
   baseData: IBaseData
 }

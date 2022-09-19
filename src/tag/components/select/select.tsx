@@ -1,70 +1,70 @@
-import React, {useState, useEffect, useRef} from 'react';
-import Option from './selectOption';
-import Dropdown, {DropdownButton, DropdownMenu} from '../dropdown/dropdown';
-export {default as Option} from './selectOption';
+import React, { useState, useEffect, useRef } from 'react'
+import Option from './selectOption'
+import Dropdown, { DropdownButton, DropdownMenu } from '../dropdown/dropdown'
+export { default as Option } from './selectOption'
 
 export interface ISelectProps {
   /**
    * Define if select is large
    */
-  large?: boolean;
+  large?: boolean
   /**
    * Define if is select filter
    */
-  filter?: boolean;
+  filter?: boolean
   /**
    * Define if is select multiple
    */
-  multiple?: boolean;
+  multiple?: boolean
 
   /**
    * Define if select is disabled
    */
-  disabled?: boolean;
+  disabled?: boolean
   /**
    * Define if select is required
    */
-  required?: boolean;
+  required?: boolean
   /**
    * Define if select have an error
    */
-  error?: boolean;
+  error?: boolean
 
   /**
    * Set label for select
    */
-  label?: string;
+  label?: string
   /**
    * Set helper text for select
    */
-  helperText?: string;
+  helperText?: string
   /**
    * Set the icon in helper text. It's a name of material icon, example: "info"
    */
-  helperIcon?: string;
+  helperIcon?: string
   /**
    * Set placeholder for select
    */
-  placeholder: string;
+  placeholder: string
   /**
    * Set different classes for select component
    */
-  className?: string;
+  className?: string
 
   /**
    * Set the name of value in a form
    */
-  name: string;
+  name: string
   /**
    * Set the value of select
    */
-  value?: any;
+  value?: any
   /**
    * Return the value of select
    */
-  onChange?: (value: any) => void;
+  onChange?: (value: any) => void
 
-  [others: string]: any;
+  [others: string]: any
 }
 
 export const Select: React.FC<ISelectProps> = (props) => {
@@ -87,128 +87,143 @@ export const Select: React.FC<ISelectProps> = (props) => {
 
     onChange,
     ...rest
-  } = props;
+  } = props
 
-  const inputRef: any = useRef<HTMLInputElement>();
+  const inputRef: any = useRef<HTMLInputElement>()
   const getValueFromProps = () => {
     if (Array.isArray(value) && multiple) {
-      return value as any;
+      return value as any
     } else if (typeof value === 'string' || typeof value === 'number') {
-      if (multiple) return [value];
-      return value;
+      if (multiple) return [value]
+      return value
     }
-    return multiple ? [] : '';
-  };
-  const [items, setItems] = useState<any[]>([]);
-  const [valueState, setValueState] = React.useState(getValueFromProps());
-  const [filterValue, setFilterValue] = useState<string | undefined>(undefined);
-  const [showMenu, setShowMenu] = useState(false);
+    return multiple ? [] : ''
+  }
+  const [items, setItems] = useState<any[]>([])
+  const [valueState, setValueState] = React.useState(getValueFromProps())
+  const [filterValue, setFilterValue] = useState<string | undefined>(undefined)
+  const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
-    if (getValueFromProps() !== valueState) setValueState(getValueFromProps());
-  }, [value]);
+    if (getValueFromProps() !== valueState) setValueState(getValueFromProps())
+  }, [value])
 
   const onSelectItem = (selectValue: string) => {
     if (!multiple) {
-      setValueState(selectValue);
-      if (onChange) onChange(selectValue);
+      setValueState(selectValue)
+      if (onChange) onChange(selectValue)
     } else {
-      let values = valueState;
-      if (!values.some((existingValue: string) => existingValue === selectValue)) {
-        values = [...values, selectValue];
+      let values = valueState
+      if (
+        !values.some((existingValue: string) => existingValue === selectValue)
+      ) {
+        values = [...values, selectValue]
       }
-      setValueState(values);
+      setValueState(values)
 
-      if (onChange) onChange(values);
+      if (onChange) onChange(values)
     }
-  };
+  }
 
   const onRemoveItem = (deleteValue: string) => {
-    let newValues: any;
+    let newValues: any
     if (!multiple) {
-      newValues = '';
-      if (onChange) onChange('');
+      newValues = ''
+      if (onChange) onChange('')
     } else {
-      const currentStateValue = valueState;
+      const currentStateValue = valueState
       if (typeof currentStateValue === 'object') {
         newValues =
           currentStateValue &&
           currentStateValue.length &&
-          currentStateValue.filter((existingValue: string) => existingValue !== deleteValue);
+          currentStateValue.filter(
+            (existingValue: string) => existingValue !== deleteValue
+          )
       }
     }
-    setValueState(newValues);
-    if (onChange) onChange(newValues);
-  };
+    setValueState(newValues)
+    if (onChange) onChange(newValues)
+  }
 
   const onRemoveOptions = () => {
     if (multiple) {
-      setValueState([]);
-      if (onChange) onChange([]);
+      setValueState([])
+      if (onChange) onChange([])
     }
-  };
+  }
 
   const renderItems = (_filterValue?: string) => {
-    const newItems: any[] = [];
-    let index = 0;
+    const newItems: any[] = []
+    let index = 0
     if (props.children) {
-      (props.children as any).forEach((item: any) => {
+      ;(props.children as any).forEach((item: any) => {
         if (item.type === Option) {
-          let isSelected = false;
+          let isSelected = false
           if (valueState && valueState.length) {
             if (!multiple) {
-              isSelected = valueState === item.props.value ? true : false;
+              isSelected = valueState === item.props.value ? true : false
             } else {
               isSelected =
                 typeof valueState === 'object' &&
-                typeof valueState.find((a: any) => a.value === item.props.value) !== 'undefined'
+                typeof valueState.find(
+                  (a: any) => a.value === item.props.value
+                ) !== 'undefined'
                   ? true
-                  : false;
+                  : false
             }
           }
           const itemCustom: any = React.cloneElement(item, {
             key: index,
             onSelectItem: onSelectItem,
             selected: isSelected,
-            index: index,
-          });
+            index: index
+          })
           if (_filterValue) {
             const matchesValue = itemCustom.props.value
               ? itemCustom.props.value.toUpperCase().includes(_filterValue)
-              : false;
+              : false
             const matchesLabel = itemCustom.props.label
               ? itemCustom.props.label.toUpperCase().includes(_filterValue)
-              : false;
+              : false
             if (matchesValue || matchesLabel) {
-              newItems.push(itemCustom);
+              newItems.push(itemCustom)
             }
           } else {
-            newItems.push(itemCustom);
+            newItems.push(itemCustom)
           }
-          index++;
+          index++
         }
-      });
+      })
     }
-    setItems(newItems);
-  };
+    setItems(newItems)
+  }
 
   const filterItems = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilterValue(event.target.value);
-    renderItems(event.target.value.toUpperCase());
-  };
+    setFilterValue(event.target.value)
+    renderItems(event.target.value.toUpperCase())
+  }
 
   const renderMenu = () => {
-    const newItems: any[] = [];
-    let index = 0;
+    const newItems: any[] = []
+    let index = 0
     if (items) {
       items.forEach((item: any) => {
         if (item && item.type === Option) {
-          let isSelected = false;
+          let isSelected = false
           if (!multiple) {
-            isSelected = valueState && valueState === item.props.value;
+            isSelected = valueState && valueState === item.props.value
           } else {
-            const valueCompare = valueState ? (typeof valueState === 'object' ? valueState : [valueState]) : [];
-            isSelected = valueCompare && valueCompare.length && valueCompare.indexOf(item.props.value) !== -1 ? true : false;
+            const valueCompare = valueState
+              ? typeof valueState === 'object'
+                ? valueState
+                : [valueState]
+              : []
+            isSelected =
+              valueCompare &&
+              valueCompare.length &&
+              valueCompare.indexOf(item.props.value) !== -1
+                ? true
+                : false
           }
 
           const itemCustom = React.cloneElement(item, {
@@ -218,61 +233,67 @@ export const Select: React.FC<ISelectProps> = (props) => {
             onRemoveItem: onRemoveItem,
             selected: isSelected,
             multiple: multiple,
-            index: index,
-          });
-          newItems.push(itemCustom);
-          index++;
+            index: index
+          })
+          newItems.push(itemCustom)
+          index++
         }
-      });
+      })
     }
     if (newItems && newItems.length) {
-      return <ul>{newItems}</ul>;
+      return <ul>{newItems}</ul>
     }
     return (
       <div className="dropdown-item-icon">
         <span className="material-icons">error</span>
         Info: No results found
       </div>
-    );
-  };
+    )
+  }
 
   const renderHiddenInput = () => {
-    let inputValue: any = value ? value : '';
+    let inputValue: any = value ? value : ''
 
     if (multiple) {
-      inputValue = value ? value : [];
+      inputValue = value ? value : []
       if (typeof value === 'string') {
-        inputValue = [value];
+        inputValue = [value]
       }
     }
     return (
       <div className="hidden">
-        <select disabled={disabled} name={name} multiple={multiple} ref={inputRef} value={inputValue}>
+        <select
+          disabled={disabled}
+          name={name}
+          multiple={multiple}
+          ref={inputRef}
+          value={inputValue}
+        >
           {(props.children as any).map((option: any, index: number) => {
             return (
               <option key={index} value={option.value}>
                 {option.label}
               </option>
-            );
+            )
           })}
         </select>
       </div>
-    );
-  };
+    )
+  }
 
   const onRemoveFilterValue = (e: React.MouseEvent<HTMLSpanElement>) => {
-    e.stopPropagation();
-    setFilterValue('');
-    renderItems();
-  };
+    e.stopPropagation()
+    setFilterValue('')
+    renderItems()
+  }
 
   const onClickFilter = (e: React.MouseEvent<HTMLInputElement>) => {
-    if (showMenu) e.stopPropagation();
-  };
+    if (showMenu) e.stopPropagation()
+  }
 
   useEffect(() => {
-    if (props.children) renderItems();
-  }, [props.children]);
+    if (props.children) renderItems()
+  }, [props.children])
 
   const renderSelectContainer = () => {
     if (filter) {
@@ -281,17 +302,24 @@ export const Select: React.FC<ISelectProps> = (props) => {
           <input
             data-testid={rest ? `${rest['data-testid']}-input` : undefined}
             className={`input ${large ? 'large' : ''}`}
-            placeholder={valueState && valueState.length && multiple ? `${valueState.length} Options selected` : placeholder}
+            placeholder={
+              valueState && valueState.length && multiple
+                ? `${valueState.length} Options selected`
+                : placeholder
+            }
             ref={inputRef}
             type="text"
             value={filterValue}
             onChange={filterItems}
             disabled={disabled}
             onClick={onClickFilter}
+            name={name}
           />
           {filterValue ? (
             <span
-              data-testid={rest ? `${rest['data-testid']}-remove-filter-btn` : undefined}
+              data-testid={
+                rest ? `${rest['data-testid']}-remove-filter-btn` : undefined
+              }
               className="material-icons input-icon-box"
               onClick={onRemoveFilterValue}
             >
@@ -301,30 +329,36 @@ export const Select: React.FC<ISelectProps> = (props) => {
             <span className="material-icons input-icon-box">search</span>
           )}
         </div>
-      );
+      )
     }
 
     return (
       <div className="input-container">
-        <div className={large ? 'input_large' : 'input'}>{getTextContent()}</div>
+        <div className={large ? 'input_large' : 'input'}>
+          {getTextContent()}
+        </div>
         {showMenu ? (
           <span className="material-icons input-icon-box">expand_less</span>
         ) : (
           <span className="material-icons input-icon-box">expand_more</span>
         )}
       </div>
-    );
-  };
+    )
+  }
 
   const getTextContent = () => {
     if (multiple && typeof valueState === 'object' && valueState.length) {
-      return <span className="placeholder">{`${valueState.length} Options selected`}</span>;
+      return (
+        <span className="placeholder">{`${valueState.length} Options selected`}</span>
+      )
     } else if (valueState) {
-      const itemSelected = items.find((item: any) => item.props.value === valueState);
-      if (itemSelected) return itemSelected.props.label;
+      const itemSelected = items.find(
+        (item: any) => item.props.value === valueState
+      )
+      if (itemSelected) return itemSelected.props.label
     }
-    return <span className="placeholder">{props.placeholder}</span>;
-  };
+    return <span className="placeholder">{props.placeholder}</span>
+  }
 
   const renderBottomContainer = () => {
     if (multiple && valueState && valueState.length) {
@@ -340,12 +374,14 @@ export const Select: React.FC<ISelectProps> = (props) => {
           </button>
           {helperText && (
             <p className="input-helper-text">
-              {helperIcon && <span className="material-icons">{helperIcon}</span>}
+              {helperIcon && (
+                <span className="material-icons">{helperIcon}</span>
+              )}
               {helperText}
             </p>
           )}
         </div>
-      );
+      )
     }
     return (
       helperText && (
@@ -354,11 +390,15 @@ export const Select: React.FC<ISelectProps> = (props) => {
           {helperText}
         </p>
       )
-    );
-  };
+    )
+  }
 
   return (
-    <div className={`input-wrapper${disabled ? '_disabled' : ''} ${error ? 'error' : ''}  ${className || ''}`}>
+    <div
+      className={`input-wrapper${disabled ? '_disabled' : ''} ${
+        error ? 'error' : ''
+      }  ${className || ''}`}
+    >
       {label && (
         <label className="caption">
           {label}
@@ -367,7 +407,10 @@ export const Select: React.FC<ISelectProps> = (props) => {
       )}
 
       <Dropdown onChangeToggleMenu={() => setShowMenu(!showMenu)}>
-        <DropdownButton data-testid={rest ? rest['data-testid'] : undefined} disabled={disabled}>
+        <DropdownButton
+          data-testid={rest ? rest['data-testid'] : undefined}
+          disabled={disabled}
+        >
           {renderSelectContainer()}
         </DropdownButton>
         <DropdownMenu>{renderMenu()}</DropdownMenu>
@@ -375,7 +418,7 @@ export const Select: React.FC<ISelectProps> = (props) => {
       </Dropdown>
       {renderBottomContainer()}
     </div>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select
