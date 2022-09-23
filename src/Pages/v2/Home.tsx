@@ -3,19 +3,21 @@ import { CaseStudies } from '../../Components/v2/CaseStudies/CaseStudies'
 import { Section } from '../../Components/v2/Section'
 import { Studies } from '../../Components/v2/Studies/Studies'
 import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
-import './styles.css'
 import { useAppContextV2 } from '@Context/ContextV2'
+import { useStore } from './../../store'
+import './styles.css'
 
 export const Home = () => {
   const { baseData } = useAppContextV2()
+  const state = useStore()
   if (baseData)
     return (
-      <div>
+      <div role="mainContent">
         <HeadLine title="Hey welcome to my portfolio!" />
         <div className="content home-container">
           <div className="home-hero-container">
             <div className="home-hero-brief">
-              <h1>
+              <h1 className="home-hero-title">
                 I am {baseData.name}, {baseData.position}
               </h1>
               <div className="small-title">

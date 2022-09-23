@@ -58,7 +58,7 @@ export const Book = () => {
   }
 
   return (
-    <div>
+    <div role="mainContent">
       <HeadLine title="Nice to e-meet you!" />
       <HeadBook />
 

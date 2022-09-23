@@ -8,6 +8,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
   const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
   const supabase = createClient(supabaseUrl, supabaseKey)
+  const [id, setId] = useState<number>(0)
   const [baseData, setBaseData] = useState<any | null>(null)
 
   const createEvent = async (event: any) => {
@@ -43,7 +44,10 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
     `
       )
       .single()
-    setBaseData(data)
+    if (data) {
+      setId(data?.id)
+      setBaseData(data)
+    }
   }
 
   const getBookings = async () => {
@@ -52,7 +56,8 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
   }
 
   const getWorks = async () => {
-    const { data } = await supabase.from('work_v2').select('*')
+    const { data } = await supabase.from('work_v2').select(`
+    client, date, project_type, description`)
     return data
   }
 
@@ -64,6 +69,13 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
   const getCerts = async () => {
     const { data } = await supabase.from('cert_ref').select('*')
     return data
+  }
+
+  const addWork = async (data: any) => {
+    const tempData = { ...data }
+    tempData.greeting_id = id
+    const { status } = await supabase.from('work_v2').insert(tempData)
+    return { status }
   }
 
   const login = async ({
@@ -96,7 +108,8 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         getGreeting,
         getCerts,
         login,
-        baseData
+        baseData,
+        addWork
       }}
     >
       {children}
