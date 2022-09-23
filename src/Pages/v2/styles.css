@@ -12,8 +12,8 @@
   margin-right: 16px;
 }
 
-.home-hero-brief > h1 {
-  margin-bottom: 16px;
+.home-hero-brief > .home-hero-title {
+  margin-bottom: 16px ;
 }
 
 .header-image {
@@ -23,9 +23,9 @@
 }
 
 .study-container {
-  margin: 39px auto 0 102px;
   display: flex;
   flex-direction: column;
+  margin-top: 72px;
 }
 
 .study-inner-container {

@@ -12,12 +12,12 @@ export const Home = () => {
   const state = useStore()
   if (baseData)
     return (
-      <div>
+      <div role="mainContent">
         <HeadLine title="Hey welcome to my portfolio!" />
         <div className="content home-container">
           <div className="home-hero-container">
             <div className="home-hero-brief">
-              <h1>
+              <h1 className="home-hero-title">
                 I am {baseData.name}, {baseData.position}
               </h1>
               <div className="small-title">

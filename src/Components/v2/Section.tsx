@@ -3,7 +3,7 @@ import { SeeMore } from './SeeMore/SeeMore'
 export const Section = () => {
   return (
     <div style={{ marginTop: '72px' }} id="work">
-      <h2>Work Experience</h2>
+      <h2 style={{ marginBottom: '40px' }}>Work Experience</h2>
       <div style={{ display: 'flex', gap: '72px' }}>
         <div className="section-info" style={{ minWidth: '228px' }}>
           <div style={{ margin: '16px' }}>

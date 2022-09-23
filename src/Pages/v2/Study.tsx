@@ -14,7 +14,7 @@ export const Study = () => {
   const state = history.state as LocationState
   console.log(history)
   return (
-    <div>
+    <div role="mainContent">
       <HeadLine title="Hello Welcome to my portfolio!" />
       <div className="study-header">
         <Breadcrumb>
