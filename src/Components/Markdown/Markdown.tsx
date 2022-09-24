@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { classNames } from '../../utils'
+import { classNames } from '../../utils/classNames'
 import ReactMarkdown from 'react-markdown'
 // @ts-ignore
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
