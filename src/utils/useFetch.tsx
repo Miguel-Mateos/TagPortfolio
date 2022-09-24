@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { TResponse } from '../types'
-import { responseHandler } from '../utils/index'
+import { responseHandler } from './responseHandler'
 
 // what options to set in useFetch
 interface UseFetchOptions {

@@ -1,4 +1,3 @@
-import { classNames } from 'src/utils'
 import './styles.css'
 
 interface CardProps {
