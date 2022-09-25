@@ -8,13 +8,11 @@ const mockFetch = async () => {
 describe('response handler behaviour', () => {
   it('returns json', async () => {
     const result = responseHandler(await mockFetch())
-    console.log(result)
     expect(result).resolves.toBeTypeOf('object')
   })
 
   it('returns json', async () => {
     const result = responseHandler(await mockFetch(), 'text')
-    console.log(result)
     expect(result).resolves.toBeTypeOf('string')
   })
 })

@@ -12,6 +12,14 @@ export interface IProjects {
   contender: string
 }
 
+export interface IWorks {
+  id: string
+  client: string
+  date: string
+  project_type: string
+  description: string[]
+}
+
 export interface IBaseData {
   name: string
   image: string
@@ -20,7 +28,7 @@ export interface IBaseData {
   skills: string
   strengths: string
   id: number
-  work_v2: Object[]
+  work_v2: IWorks[]
   projects_v2: IProjects[]
   cert_ref: Object[]
   booking: Object[]

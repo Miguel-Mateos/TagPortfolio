@@ -50,7 +50,6 @@ const AppProvider: FC<any> = ({ children }) => {
   }
 
   const getAbouts = async () => {
-    console.log(language.slice(0, 2))
     const { data } = await supabase
       .from('About')
       .select('*')

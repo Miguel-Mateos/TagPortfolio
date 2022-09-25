@@ -1,0 +1,14 @@
+.section-v2-work-container > .workv2-container {
+  margin-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #EBEBEE;
+}
+
+.section-v2-work-container > .workv2-container:first-child {
+  margin-top: 0;
+}
+
+.section-v2-work-container > .workv2-container:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
