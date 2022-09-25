@@ -15,8 +15,6 @@ export const Layout: React.FC<any> = ({ children }) => {
   const handleScroll = (id: string) => {
     if (location.pathname !== '/') navigate('/')
     const element = document.getElementById(id)
-    console.log('hola')
-    console.log(element)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }

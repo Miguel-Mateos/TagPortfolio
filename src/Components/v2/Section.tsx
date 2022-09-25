@@ -1,42 +1,28 @@
+import { useAppContextV2 } from '@Context/ContextV2'
 import { SeeMore } from './SeeMore/SeeMore'
+import { WorkV2 } from './Work_v2/Work_V2'
+import './section.css'
 
 export const Section = () => {
-  return (
-    <div style={{ marginTop: '72px' }} id="work">
-      <h2 style={{ marginBottom: '40px' }}>Work Experience</h2>
-      <div style={{ display: 'flex', gap: '72px' }}>
-        <div className="section-info" style={{ minWidth: '228px' }}>
-          <div style={{ margin: '16px' }}>
-            <small style={{ textTransform: 'uppercase' }}>Client</small>
-            <div className="base">The Adecco Group</div>
-          </div>
-          <div style={{ margin: '16px' }}>
-            <small style={{ textTransform: 'uppercase' }}>Date</small>
-            <div className="base">15 May 2022</div>
-          </div>
-          <div style={{ margin: '16px' }}>
-            <small style={{ textTransform: 'uppercase' }}>
-              Type of Project
-            </small>
-            <div className="base">IT Consultant</div>
-          </div>
+  const { baseData } = useAppContextV2()
+
+  if (baseData) {
+    const { work_v2 } = baseData
+    return (
+      <div style={{ marginTop: '72px' }} id="work">
+        <h2 style={{ marginBottom: '40px' }}>Work Experience</h2>
+        <div className="section-v2-work-container">
+          {work_v2.map(({ project_type: projectType, ...rest }, index) => (
+            <WorkV2
+              key={index + 'work-section'}
+              projectType={projectType}
+              {...rest}
+            />
+          ))}
         </div>
-        <div className="section-description">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            nemo, non a molestiae perferendis temporibus laborum aperiam nulla
-            sunt, architecto facilis hic eveniet soluta fugit obcaecati
-            asperiores cumque quo quod.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            nemo, non a molestiae perferendis temporibus laborum aperiam nulla
-            sunt, architecto facilis hic eveniet soluta fugit obcaecati
-            asperiores cumque quo quod.
-          </p>
-        </div>
+        <SeeMore styles={{ marginTop: '72px' }} />
       </div>
-      <SeeMore styles={{ marginTop: '72px' }} />
-    </div>
-  )
+    )
+  }
+  return null
 }

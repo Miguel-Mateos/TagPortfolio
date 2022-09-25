@@ -30,7 +30,12 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         `
       *,
       work_v2 (
-        id
+        id,
+        client,
+        date,
+        project_type,
+        description
+        
       ),
       projects_v2 (
         id

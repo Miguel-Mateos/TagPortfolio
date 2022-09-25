@@ -11,7 +11,6 @@ interface IUseCrudExtra {
 export const useCrud = () => {
   const { addWork } = useAppContextV2()
   const onSubmit = (e: React.FormEvent, others?: IUseCrudExtra) => {
-    console.log(e)
     e.preventDefault()
     const { target } = e
     const form = new FormData(target as HTMLFormElement)
@@ -20,7 +19,6 @@ export const useCrud = () => {
       const { extra } = others
       data[extra.name] = extra.value
     }
-    console.log(data)
     addWork(data)
   }
   return {
