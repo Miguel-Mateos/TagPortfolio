@@ -34,9 +34,9 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         client,
         date,
         project_type,
-        description
-        
-      ),
+        description,
+        tech_stack
+      ).order(id),
       projects_v2 (
         id
       ),

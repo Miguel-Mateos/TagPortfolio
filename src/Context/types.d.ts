@@ -18,6 +18,7 @@ export interface IWorks {
   date: string
   project_type: string
   description: string[]
+  tech_stack: string[]
 }
 
 export interface IBaseData {
