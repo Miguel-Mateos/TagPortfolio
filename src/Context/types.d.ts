@@ -21,6 +21,14 @@ export interface IWorks {
   tech_stack: string[]
 }
 
+export interface ICertRef {
+  id: string
+  name: string
+  date: string
+  subtitle: string
+  description: string[]
+}
+
 export interface IBaseData {
   name: string
   image: string
@@ -31,7 +39,7 @@ export interface IBaseData {
   id: number
   work_v2: IWorks[]
   projects_v2: IProjects[]
-  cert_ref: Object[]
+  cert_ref: ICertRef[]
   booking: Object[]
 }
 

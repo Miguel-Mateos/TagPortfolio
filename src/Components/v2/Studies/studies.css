@@ -13,6 +13,7 @@
 
 .case-study-description {
   color: var(--neutral700);
+  animation: scaleit .5s;
   margin-top: 8px;
 }
 
