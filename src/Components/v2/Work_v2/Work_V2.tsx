@@ -17,9 +17,8 @@ export const WorkV2: React.FC<Work_V2Props> = ({
   description,
   tech_stack
 }) => {
-  console.log(tech_stack)
   return (
-    <div className={'workv2-container'}>
+    <div className="workv2-container">
       <div className="section-info" style={{ minWidth: '228px' }}>
         <div style={{ margin: '16px' }}>
           <small style={{ textTransform: 'uppercase' }}>Client</small>
