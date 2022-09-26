@@ -3,7 +3,7 @@ import { Card } from '../Card/Card'
 import { contentMock } from './contentMock'
 import './styles.css'
 
-const CustomChip: React.FC<any> = ({ children }) => (
+export const CustomChip: React.FC<any> = ({ children }) => (
   <small className="custom-chip">{children}</small>
 )
 

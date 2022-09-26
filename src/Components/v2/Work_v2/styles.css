@@ -1,0 +1,22 @@
+.workv2-container {
+  display: flex;
+  gap: 72px;
+  animation: scaleit .5s;
+}
+
+.section-tech_stack {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@keyframes scaleit {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 300px;
+    opacity: 1;
+  }
+}
