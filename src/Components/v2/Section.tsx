@@ -8,7 +8,6 @@ export const Section = () => {
   const { baseData } = useAppContextV2()
   const [more, setMore] = useState(false)
   const toggleMore = () => setMore(!more)
-  console.log('render section')
 
   if (baseData) {
     const { work_v2 } = baseData

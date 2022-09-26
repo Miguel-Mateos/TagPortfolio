@@ -12,7 +12,6 @@ export const Study = () => {
   const navigate = useNavigate()
   const history = useLocation()
   const state = history.state as LocationState
-  console.log(history)
   return (
     <div role="mainContent">
       <HeadLine title="Hello Welcome to my portfolio!" />

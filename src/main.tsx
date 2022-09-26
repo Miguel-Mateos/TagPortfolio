@@ -11,7 +11,6 @@ import './index.css'
 const RootSelector = () => {
   if (env === 'v2' && !mobile) {
     const Router = React.lazy(() => import('./Pages/v2/Router/Router'))
-    console.log('rerender')
     return (
       <AppProviderV2>
         <Suspense fallback={<Spinner />}>
