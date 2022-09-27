@@ -6,6 +6,7 @@ import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { useAppContextV2 } from '@Context/ContextV2'
 import { useStore } from './../../store'
 import './styles.css'
+import { DevWarning } from './DevWarning'
 
 export const Home = () => {
   const { baseData } = useAppContextV2()
@@ -20,6 +21,9 @@ export const Home = () => {
               <h1 className="home-hero-title">
                 I am {baseData.name}, {baseData.position}
               </h1>
+              <div className="small-title">Based in</div>
+              <div className="base">Dublin, Ireland</div>
+              <br />
               <div className="small-title">
                 Experience In the Following industries
               </div>
@@ -50,6 +54,7 @@ export const Home = () => {
           <Studies />
           <Stack />
           <CaseStudies />
+          <DevWarning />
         </div>
       </div>
     )
