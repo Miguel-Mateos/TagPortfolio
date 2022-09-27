@@ -37,11 +37,10 @@ export const Home = () => {
             </div>
             <div className="home-hero-image">
               <picture>
-                <source type="image/webp" srcSet="/first_image.webp" />
-                <source type="image/jpeg" srcSet="/first_image.jpg" />
+                <source type="image/webp" srcSet="/irish.webp" />
+                <source type="image/jpeg" srcSet="/irish.jpg" />
                 <source type="image/webp" srcSet={baseData.image} />
                 <img
-                  src="/first_image.jpg"
                   loading="eager"
                   alt="head image"
                   className="header-image"
