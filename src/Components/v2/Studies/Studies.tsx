@@ -73,13 +73,16 @@ export const Studies = () => {
           {cert_ref &&
             cert_ref.length &&
             cert_ref.map((cert, index) => (
-              <CardModulated
-                key={index + 'cert-ref'}
-                date={new Date(cert.date)}
-                description={cert.description}
-                subtitle={cert.subtitle}
-                title={cert.name}
-              />
+              <>
+                <CardModulated
+                  key={index + 'cert-ref'}
+                  date={new Date(cert.date)}
+                  description={cert.description}
+                  subtitle={cert.subtitle}
+                  title={cert.name}
+                />
+                {index < cert_ref.length - 1 && <Space height="16px" />}
+              </>
             ))}
         </>
       )
@@ -90,26 +93,7 @@ export const Studies = () => {
     <div className="study-container" id="studies">
       <h2 className="study-title">Certifications & References</h2>
       <ShowCards />
-      <CardModulated
-        date={new Date('2022/01/01')}
-        title="Name Study"
-        subtitle="Position on Study"
-        description={MOCK_DESC}
-      />
-      <Space height="16px" />
-      <CardModulated
-        date={new Date('2022/01/01')}
-        title="Name Study"
-        subtitle="Position on Study"
-        description={MOCK_DESC}
-      />
-      <Space height="16px" />
-      <CardModulated
-        date={new Date('2022/01/01')}
-        title="Name Study"
-        subtitle="Position on Study"
-        description={MOCK_DESC}
-      />
+      {/* <Space height="16px" /> */}
       <SeeMore className="study-see-more" />
     </div>
   )
