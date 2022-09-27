@@ -29,6 +29,48 @@ export interface ICertRef {
   description: string[]
 }
 
+export interface ITech_Stack {
+  css: boolean
+  html: boolean
+  js: boolean
+  react: boolean
+  redux: boolean
+  typescript: boolean
+  node: boolean
+  express: boolean
+  mongodb: boolean
+  postgresql: boolean
+  git: boolean
+  github: boolean
+  gitlab: boolean
+  docker: boolean
+  aws: boolean
+  heroku: boolean
+  netlify: boolean
+  vercel: boolean
+  firebase: boolean
+  jest: boolean
+  cypress: boolean
+  react_testing_library: boolean
+  enzyme: boolean
+  styled_components: boolean
+  material_ui: boolean
+  bootstrap: boolean
+  tailwind: boolean
+  sass: boolean
+  less: boolean
+  css_modules: boolean
+  css_in_js: boolean
+  next: boolean
+  gatsby: boolean
+  graphql: boolean
+  apollo: boolean
+  prisma: boolean
+  sequelize: boolean
+  sass: boolean
+  svelte: boolean
+}
+
 export interface IBaseData {
   name: string
   image: string
@@ -41,6 +83,7 @@ export interface IBaseData {
   projects_v2: IProjects[]
   cert_ref: ICertRef[]
   booking: Object[]
+  tech_stack: ITech_Stack[]
 }
 
 export interface IUseAppContextV2 {

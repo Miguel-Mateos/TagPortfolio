@@ -1,6 +1,13 @@
+import { useAppContextV2 } from '@Context/ContextV2'
 import { images } from '../../contants'
 
 export const Stack = () => {
+  const { baseData } = useAppContextV2()
+  console.log(baseData)
+
+  const stackList = baseData ? baseData.tech_stack : []
+  console.log(stackList)
+
   return (
     <div style={{ marginTop: '72px' }} id="teckstack">
       <h2>Tech Stack</h2>
@@ -12,9 +19,8 @@ export const Stack = () => {
           marginTop: '40px'
         }}
       >
-        {Array(13)
-          .fill(1)
-          .map((_, idx) => {
+        {Object.entries(stackList[0]).map((entry, idx) => {
+          if (entry[1])
             return (
               <div
                 style={{
@@ -23,12 +29,12 @@ export const Stack = () => {
                   display: 'flex',
                   justifyContent: 'center'
                 }}
-                key={Math.random()}
+                key={idx + 'stack-img'}
               >
-                <img src={images[idx]} height="50" width="50" />
+                <img src={`/${entry[0]}.png`} height="50" width="50" />
               </div>
             )
-          })}
+        })}
       </div>
       <div className="separator" style={{ margin: '72px 0' }} />
     </div>
