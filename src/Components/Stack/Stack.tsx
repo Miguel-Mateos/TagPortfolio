@@ -1,5 +1,4 @@
 import { useAppContextV2 } from '@Context/ContextV2'
-import { images } from '../../contants'
 
 export const Stack = () => {
   const { baseData } = useAppContextV2()
@@ -8,7 +7,6 @@ export const Stack = () => {
     if (baseData) {
       const { tech_stack } = baseData
       const { id, greeting_id, created_at, ...rest } = tech_stack[0]
-      console.log(rest)
       return rest
     }
     return []

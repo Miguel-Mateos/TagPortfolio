@@ -5,6 +5,16 @@
   padding: 4px 16px;
 }
 
+.case-studies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px
+}
+
+.case-studies-card {
+  animation: scaleit .5s;
+}
+
 .case-studies-container { 
   margin-bottom: 72px; 
 }
