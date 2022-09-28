@@ -52,18 +52,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         id
       ),
       tech_stack (
-        css,
-        html,
-        js,
-        react,
-        typescript,
-        heroku,
-        docker,
-        github,
-        mongo,
-        node,
-        sass,
-        svelte
+        *
       )
     `
       )

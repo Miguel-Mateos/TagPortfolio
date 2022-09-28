@@ -3,10 +3,16 @@ import { images } from '../../contants'
 
 export const Stack = () => {
   const { baseData } = useAppContextV2()
-  console.log(baseData)
 
-  const stackList = baseData ? baseData.tech_stack : []
-  console.log(stackList)
+  const stackList = () => {
+    if (baseData) {
+      const { tech_stack } = baseData
+      const { id, greeting_id, created_at, ...rest } = tech_stack[0]
+      console.log(rest)
+      return rest
+    }
+    return []
+  }
 
   return (
     <div style={{ marginTop: '72px' }} id="teckstack">
@@ -19,7 +25,7 @@ export const Stack = () => {
           marginTop: '40px'
         }}
       >
-        {Object.entries(stackList[0]).map((entry, idx) => {
+        {Object.entries(stackList()).map((entry, idx) => {
           if (entry[1])
             return (
               <div

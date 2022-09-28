@@ -30,6 +30,9 @@ export interface ICertRef {
 }
 
 export interface ITech_Stack {
+  id: string
+  greeting_id: string
+  created_at: string
   css: boolean
   html: boolean
   js: boolean
