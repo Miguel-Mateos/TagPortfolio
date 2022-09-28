@@ -3,9 +3,6 @@ import { useMemo, useState } from 'react'
 import { Card } from '../Card/Card'
 import { SeeMore } from '../SeeMore/SeeMore'
 import './studies.css'
-const MOCK_DESC = [
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nemo,'
-]
 
 interface ICardModulatedProps {
   date: Date
@@ -69,31 +66,32 @@ export const Studies = () => {
     if (baseData) {
       const { cert_ref } = baseData
       return (
-        <>
+        <div className="cert-ref-container">
           {cert_ref &&
             cert_ref.length &&
             cert_ref.map((cert, index) => (
-              <>
+              <div key={index + 'cert-ref'}>
                 <CardModulated
-                  key={index + 'cert-ref'}
                   date={new Date(cert.date)}
                   description={cert.description}
                   subtitle={cert.subtitle}
                   title={cert.name}
                 />
-                {index < cert_ref.length - 1 && <Space height="16px" />}
-              </>
+                {index < cert_ref.length - 1 && (
+                  <Space key={index + 'separator-cert-ref'} height="16px" />
+                )}
+              </div>
             ))}
-        </>
+        </div>
       )
     }
     return null
   }
+
   return (
     <div className="study-container" id="studies">
       <h2 className="study-title">Certifications & References</h2>
       <ShowCards />
-      {/* <Space height="16px" /> */}
       <SeeMore className="study-see-more" />
     </div>
   )

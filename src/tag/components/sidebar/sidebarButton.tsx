@@ -86,6 +86,7 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
   ) : (
     <a
       id={id}
+      title={label}
       key={id}
       data-testid={
         rest && rest['data-testid'] ? rest['data-testid'] : undefined

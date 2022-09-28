@@ -30,6 +30,9 @@
       "@Context/*": [
         "src/Context/*"
       ],
+      "@Utils/*": [
+        "src/utils/*"
+      ],
     }
   },
   "include": [

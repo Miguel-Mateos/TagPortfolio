@@ -7,6 +7,9 @@ const path = require('path')
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    minify: true,
+  },
   resolve: {
     alias: {
       '@Components': path.resolve(__dirname, './src/Components'),

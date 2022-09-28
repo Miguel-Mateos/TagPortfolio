@@ -1,5 +1,5 @@
 import {v4 as uuid} from 'uuid'
-const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec commodo mauris. Aliquam erat volutpat. Aliquam suscipit in augue et iaculis. Sed non amet."
+export const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec commodo mauris. Aliquam erat volutpat. Aliquam suscipit in augue et iaculis. Sed non amet."
 
 export const contentMock = [
   {

@@ -50,6 +50,9 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
       ),
       booking (
         id
+      ),
+      tech_stack (
+        *
       )
     `
       )
