@@ -21,6 +21,7 @@ export interface IRepos {
   homepage: string
   private_repo: boolean
   short_description: string
+  created_at: string
 }
 
 export const CaseStudies = () => {
@@ -57,7 +58,8 @@ export const CaseStudies = () => {
               homepage,
               name,
               private_repo,
-              short_description
+              short_description,
+              created_at
             }) => (
               <Card key={id} className="case-studies-card">
                 <div className="card-img-container">
@@ -81,7 +83,8 @@ export const CaseStudies = () => {
                         title: name,
                         owner: OWNER,
                         repo: name,
-                        branch: BRANCH
+                        branch: BRANCH,
+                        created_at
                       }
                     })
                   }
