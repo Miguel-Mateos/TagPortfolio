@@ -64,7 +64,7 @@
 }
 
 .study-right-side {
-  flex: 1 0 528px;
+  flex: .1 0 528px;
   padding: 48px 92px;
   box-shadow: 4px 8px 16px rgba(28, 48, 75, 0.08);
   margin-left: 32px;

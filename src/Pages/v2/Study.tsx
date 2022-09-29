@@ -6,11 +6,13 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import './study.css'
 import { Fragment, useEffect, useState } from 'react'
 import { mdToHTML } from '@Utils/markdownToHtml'
+import Loader from '@TagDs/components/loader/loader'
 interface LocationState {
   title: string
   repo: string
   branch: string
   owner: string
+  created_at: string
 }
 
 export const Study = () => {
@@ -47,13 +49,21 @@ export const Study = () => {
         <h1 className="study-header-content">{state.title}</h1>
       </div>
       <div style={{ margin: '39px auto 0px 102px', display: 'flex' }}>
-        <div style={{ paddingTop: '44px', paddingBottom: '100px' }}>
+        <div
+          style={{
+            paddingTop: '44px',
+            paddingBottom: '100px',
+            flex: '1 1 auto'
+          }}
+        >
           <h2>
-            {readme.length && readme[0].element === 'h2' && readme[0].content}
+            {readme.length > 0 &&
+              readme[0].element === 'h2' &&
+              readme[0].content}
           </h2>
           <main className="study-inner-container-layer">
             <div className="study-inner-container-content">
-              {readme.length > 0 &&
+              {readme.length > 0 ? (
                 readme.slice(1).map((elem, idx) => {
                   return (
                     <Fragment key={idx}>
@@ -100,93 +110,12 @@ export const Study = () => {
                       })()}
                     </Fragment>
                   )
-                })}
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <div className="study-img-container" data-title="This is a title">
-                <img
-                  className="study-img-title"
-                  src="https://picsum.photos/650"
-                  alt=""
-                />
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <div className="study-img-container" data-title="This is a title">
-                <img
-                  className="study-img-title"
-                  src="https://picsum.photos/650"
-                  alt=""
-                />
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                et venenatis metus. Vestibulum faucibus metus a tortor
-                tincidunt, id rhoncus dui maximus. Duis id bibendum mauris, in
-                hendrerit est. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nullam et venenatis metus. Vestibulum faucibus
-                metus a tortor tincidunt, id
-              </p>
+                })
+              ) : (
+                <div className="study-inner-loader">
+                  <Loader automatic />
+                </div>
+              )}
             </div>
           </main>
         </div>
@@ -199,7 +128,12 @@ export const Study = () => {
 
             <div className="study-right-side-element">
               <small>Date</small>
-              <p>Ye</p>
+              <p>
+                {Intl.DateTimeFormat('default', {
+                  month: 'short',
+                  year: 'numeric'
+                }).format(new Date(state.created_at))}
+              </p>
             </div>
 
             <div className="study-right-side-element">

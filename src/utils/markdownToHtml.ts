@@ -1,5 +1,6 @@
 
 export const mdToHTML = (md: string) => {
+  if (md.includes('404')) return [{ element: 'h2', content: 'No Description Provided'}]
   let finalContent: any = []
   // transform md to html
   const title = /(?<=# ).*/g

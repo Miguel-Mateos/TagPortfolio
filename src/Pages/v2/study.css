@@ -34,3 +34,14 @@
   margin-top: 40px !important;
   max-width: 672px;
 }
+
+.study-inner-container-content {
+  width: 100%;
+}
+
+.study-inner-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
