@@ -22,6 +22,7 @@ export const Footer = () => {
         >
           <small>Github</small>
         </a>
+      <a className='footer-nav-anchor' href="tel:0852049402"><small>085 204 9402</small></a>
       </nav>
       <small className="footer-name">Iñigo Moreno 2022</small>
     </footer>

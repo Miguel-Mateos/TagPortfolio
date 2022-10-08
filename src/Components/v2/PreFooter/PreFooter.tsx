@@ -8,7 +8,7 @@ export const PreFooter = () => {
       <div className="prefooter">
         <h2>{"Let's Book a Call"}</h2>
         <p className="base">
-          Would you like to chat and get to know a bit better about me? Don't hesitate. Come in and book a call with me!
+          Would you like to chat and get to know me a bit better? Don't hesitate. Come in and book a call with me!
         </p>
         <button
           className="button-primary_large"
