@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card } from '../Card/Card'
 import { SeeMore } from '../SeeMore/SeeMore'
-import { lorem } from './contentMock'
 import './styles.css'
 
 const OWNER = 'Eneko96'
@@ -23,6 +22,7 @@ export interface IRepos {
   description: string
   created_at: string
   languages_url: string
+  topics: string[]
 }
 
 export const CaseStudies = () => {
@@ -62,6 +62,7 @@ export const CaseStudies = () => {
               description,
               created_at,
               languages_url,
+              topics,
             }) => (
               <Card key={id} className="case-studies-card">
                 <div className="card-img-container">
@@ -87,7 +88,8 @@ export const CaseStudies = () => {
                         repo: name,
                         branch: BRANCH,
                         created_at,
-                        languages_url
+                        languages_url,
+                        topics
                       }
                     })
                   }

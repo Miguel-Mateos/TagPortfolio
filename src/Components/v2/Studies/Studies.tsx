@@ -92,7 +92,7 @@ export const Studies = () => {
     <div className="study-container" id="studies">
       <h2 className="study-title">Certifications & References</h2>
       <ShowCards />
-      <SeeMore className="study-see-more" />
+      {/* <SeeMore className="study-see-more" />  By the moment not show*/}
     </div>
   )
 }

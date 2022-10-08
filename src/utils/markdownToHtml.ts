@@ -13,8 +13,6 @@ export const mdToHTML = (md: string) => {
     return /\S/.test(str);
   });
 
-  console.log(md)
-
   array.forEach((el) => {
     if (el.match(title)) finalContent.push({ element: 'h2', content: el.match(title)?.toString()})
     // if its not title or bold or italic or code
@@ -24,8 +22,6 @@ export const mdToHTML = (md: string) => {
     else if (el.match(code)) finalContent.push({ element: 'code', content: el.match(code)})
     else finalContent.push(el)
   })
-  
-  console.log(finalContent)
 
   return finalContent
 

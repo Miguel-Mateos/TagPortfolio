@@ -8,6 +8,9 @@ import { Fragment, useEffect, useState } from 'react'
 import { mdToHTML } from '@Utils/markdownToHtml'
 import Loader from '@TagDs/components/loader/loader'
 import { CustomChip } from '@Components/v2/CaseStudies/CaseStudies'
+import { serializeClient } from '@Components/v2/CaseStudies/utils/client'
+import { projectTypeParser } from '@Components/v2/CaseStudies/utils/projectType'
+import { methodologyParser } from '@Components/v2/CaseStudies/utils/methodologies'
 interface LocationState {
   title: string
   repo: string
@@ -15,6 +18,7 @@ interface LocationState {
   owner: string
   created_at: string
   languages_url: string
+  topics: string[]
 }
 
 export const Study = () => {
@@ -40,7 +44,8 @@ export const Study = () => {
       const res = await languages.json()
       setLanguages(res)
     }
-    Promise.all([getReadme(), getLanguages()])
+    if (state) Promise.all([getReadme(), getLanguages()])
+    else navigate('/')
   }, [])
 
   return (
@@ -132,7 +137,7 @@ export const Study = () => {
           <div className="study-right-side-container">
             <div className="study-right-side-element">
               <small>Client</small>
-              <p>Ye</p>
+              <p className='study-topic-element'>{serializeClient(state.topics)}</p>
             </div>
 
             <div className="study-right-side-element">
@@ -147,7 +152,7 @@ export const Study = () => {
 
             <div className="study-right-side-element">
               <small>Type of Project</small>
-              <p>Ye</p>
+              <p className='study-topic-element'>{projectTypeParser(state.topics)}</p>
             </div>
 
             <div>
@@ -162,7 +167,7 @@ export const Study = () => {
 
             <div>
               <small>Methodology</small>
-              <p>Ye</p>
+              <p className='study-topic-element'>{methodologyParser(state.topics)}</p>
             </div>
           </div>
         </div>

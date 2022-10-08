@@ -55,7 +55,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         *
       )
     `
-      )
+      ).order('id', { foreignTable: 'work_v2', ascending: true })
       .single()
     if (data) {
       setId(data?.id)
