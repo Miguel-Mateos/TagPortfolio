@@ -7,18 +7,21 @@ import './study.css'
 import { Fragment, useEffect, useState } from 'react'
 import { mdToHTML } from '@Utils/markdownToHtml'
 import Loader from '@TagDs/components/loader/loader'
+import { CustomChip } from '@Components/v2/CaseStudies/CaseStudies'
 interface LocationState {
   title: string
   repo: string
   branch: string
   owner: string
   created_at: string
+  languages_url: string
 }
 
 export const Study = () => {
   const [readme, setReadme] = useState<{ content: string; element: string }[]>(
     []
   )
+  const [languages, setLanguages] = useState<{ [key: string]: string}>({})
   const navigate = useNavigate()
   const history = useLocation()
   const state = history.state as LocationState
@@ -31,7 +34,13 @@ export const Study = () => {
       const res = await readme.text()
       setReadme(mdToHTML(res))
     }
-    getReadme()
+
+    const getLanguages = async () => {
+      const languages = await fetch(state.languages_url)
+      const res = await languages.json()
+      setLanguages(res)
+    }
+    Promise.all([getReadme(), getLanguages()])
   }, [])
 
   return (
@@ -143,7 +152,12 @@ export const Study = () => {
 
             <div>
               <small>Tech Stack</small>
-              <p>Ye</p>
+              {languages ? <div className='study-tech-stack'>
+                {Object.keys(languages).map((lang, idx) => (
+                <CustomChip key={idx+lang}>{lang} </CustomChip>
+              ))}
+              </div>
+              : <p>No languages provided</p>}
             </div>
 
             <div>

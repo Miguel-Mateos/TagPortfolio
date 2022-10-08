@@ -10,8 +10,8 @@ const OWNER = 'Eneko96'
 const REPO = 'portfolio'
 const BRANCH = 'main'
 
-export const CustomChip: React.FC<any> = ({ children }) => (
-  <small className="custom-chip">{children}</small>
+export const CustomChip: React.FC<any> = ({ children, className }) => (
+  <small className={`custom-chip ${className ?? ''}`}>{children}</small>
 )
 
 export interface IRepos {
@@ -20,8 +20,9 @@ export interface IRepos {
   name: string
   homepage: string
   private_repo: boolean
-  short_description: string
+  description: string
   created_at: string
+  languages_url: string
 }
 
 export const CaseStudies = () => {
@@ -58,21 +59,22 @@ export const CaseStudies = () => {
               homepage,
               name,
               private_repo,
-              short_description,
-              created_at
+              description,
+              created_at,
+              languages_url,
             }) => (
               <Card key={id} className="case-studies-card">
                 <div className="card-img-container">
                   <img className="card-img" src={'https://picsum.photos/500'} />
                 </div>
-                <CustomChip>
+                <CustomChip clas>
                   {private_repo ? 'private' : 'public' + ' Repository'}
                 </CustomChip>
                 <h4 className="card-title">{name}</h4>
                 <div className="card-description-container">
                   <div className="subtitle">{homepage}</div>
                   <div className="medium card-description-inner">
-                    {short_description ?? lorem}
+                    {description ?? 'There is no short description at the moment'}
                   </div>
                 </div>
                 <button
@@ -84,7 +86,8 @@ export const CaseStudies = () => {
                         owner: OWNER,
                         repo: name,
                         branch: BRANCH,
-                        created_at
+                        created_at,
+                        languages_url
                       }
                     })
                   }

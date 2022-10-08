@@ -45,3 +45,11 @@
   align-items: center;
   height: 100%;
 }
+
+.study-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  gap: 8px;
+}
