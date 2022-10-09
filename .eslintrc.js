@@ -1,14 +1,12 @@
 module.exports = {
+  globals: {
+    React: true
+  },
   env: {
     browser: true,
     es2021: true
   },
-  extends: [
-    'plugin:react/recommended',
-    'standard',
-    'prettier',
-    'prettier/react'
-  ],
+  extends: ['plugin:react/recommended', 'standard', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -22,6 +20,8 @@ module.exports = {
     'no-console': 1,
     'react/react-in-jsx-scope': 'off',
     'react/no-children-prop': 'off',
-    'prettier/prettier': 'warn'
+    'prettier/prettier': 'warn',
+    camelcase: 'off',
+    'react/prop-types': 'off'
   }
 }

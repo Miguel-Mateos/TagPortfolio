@@ -6,7 +6,6 @@ import { SeeMore } from '../SeeMore/SeeMore'
 import './styles.css'
 
 const OWNER = 'Eneko96'
-const REPO = 'portfolio'
 const BRANCH = 'main'
 
 export const CustomChip: React.FC<any> = ({ children, className }) => (
@@ -62,11 +61,16 @@ export const CaseStudies = () => {
               description,
               created_at,
               languages_url,
-              topics,
+              topics
             }) => (
               <Card key={id} className="case-studies-card">
                 <div className="card-img-container">
-                  <img className="card-img" src={'https://picsum.photos/500'} />
+                  <img
+                    className="card-img"
+                    src={'https://picsum.photos/500?random=2.webp'}
+                    alt="project-image"
+                    loading="lazy"
+                  />
                 </div>
                 <CustomChip clas>
                   {private_repo ? 'private' : 'public' + ' Repository'}
@@ -75,7 +79,8 @@ export const CaseStudies = () => {
                 <div className="card-description-container">
                   <div className="subtitle">{homepage}</div>
                   <div className="medium card-description-inner">
-                    {description ?? 'There is no short description at the moment'}
+                    {description ??
+                      'There is no short description at the moment'}
                   </div>
                 </div>
                 <button
