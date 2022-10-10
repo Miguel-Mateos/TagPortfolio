@@ -27,6 +27,7 @@ export const Stack = () => {
           if (entry[1])
             return (
               <div
+                title={entry[0]}
                 style={{
                   height: '75px',
                   width: '75px',
@@ -38,6 +39,7 @@ export const Stack = () => {
                 <img src={`/${entry[0]}.png`} height="50" width="50" />
               </div>
             )
+          return null
         })}
       </div>
       <div className="separator" style={{ margin: '72px 0' }} />
