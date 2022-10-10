@@ -9,12 +9,13 @@ export const Social = () => {
         <a
           href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"
           target="_blank"
+          rel="noreferrer"
         >
           <Linkedin />
         </a>
       </button>
       <button className="button minimal github">
-        <a href="https://github.com/Eneko96" target="_blank">
+        <a href="https://github.com/Eneko96" target="_blank" rel="noreferrer">
           <Github />
         </a>
       </button>

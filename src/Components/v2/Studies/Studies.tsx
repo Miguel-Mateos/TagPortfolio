@@ -49,7 +49,7 @@ const CardModulated: React.FC<ICardModulatedProps> = ({
         ))}
       </div>
       {description?.length > 3 && (
-        <a style={{ whiteSpace: 'nowrap' }} onClick={toggleMore}>
+        <a style={{ whiteSpace: 'nowrap' }} onClick={toggleMore} href="#">
           {more ? 'See less' : 'See more'}
         </a>
       )}

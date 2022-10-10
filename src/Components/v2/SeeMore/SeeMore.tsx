@@ -19,7 +19,7 @@ export const SeeMore: React.FC<SeeMoreProps> = ({
     {...rest}
   >
     <div className="separator" />
-    <a style={{ whiteSpace: 'nowrap' }} onClick={setMore}>
+    <a style={{ whiteSpace: 'nowrap' }} onClick={setMore} href="#">
       {more ? 'See less related works' : 'See more related works'}
     </a>
     <div className="separator" />
