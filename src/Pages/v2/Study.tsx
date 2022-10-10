@@ -25,7 +25,7 @@ export const Study = () => {
   const [readme, setReadme] = useState<{ content: string; element: string }[]>(
     []
   )
-  const [languages, setLanguages] = useState<{ [key: string]: string}>({})
+  const [languages, setLanguages] = useState<{ [key: string]: string }>({})
   const navigate = useNavigate()
   const history = useLocation()
   const state = history.state as LocationState
@@ -49,7 +49,7 @@ export const Study = () => {
   }, [])
 
   return (
-    <div role="mainContent">
+    <div role="main">
       <HeadLine title="Hello Welcome to my portfolio!" />
       <div className="study-header">
         <Breadcrumb>
@@ -137,7 +137,9 @@ export const Study = () => {
           <div className="study-right-side-container">
             <div className="study-right-side-element">
               <small>Client</small>
-              <p className='study-topic-element'>{serializeClient(state.topics)}</p>
+              <p className="study-topic-element">
+                {serializeClient(state.topics)}
+              </p>
             </div>
 
             <div className="study-right-side-element">
@@ -152,22 +154,29 @@ export const Study = () => {
 
             <div className="study-right-side-element">
               <small>Type of Project</small>
-              <p className='study-topic-element'>{projectTypeParser(state.topics)}</p>
+              <p className="study-topic-element">
+                {projectTypeParser(state.topics)}
+              </p>
             </div>
 
             <div>
               <small>Tech Stack</small>
-              {languages ? <div className='study-tech-stack'>
-                {Object.keys(languages).map((lang, idx) => (
-                <CustomChip key={idx+lang}>{lang} </CustomChip>
-              ))}
-              </div>
-              : <p>No languages provided</p>}
+              {languages ? (
+                <div className="study-tech-stack">
+                  {Object.keys(languages).map((lang, idx) => (
+                    <CustomChip key={idx + lang}>{lang} </CustomChip>
+                  ))}
+                </div>
+              ) : (
+                <p>No languages provided</p>
+              )}
             </div>
 
             <div>
               <small>Methodology</small>
-              <p className='study-topic-element'>{methodologyParser(state.topics)}</p>
+              <p className="study-topic-element">
+                {methodologyParser(state.topics)}
+              </p>
             </div>
           </div>
         </div>

@@ -29,6 +29,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             key={1}
             icon={<span className="material-icons">person</span>}
             id="button2"
+            href="#"
             label="About"
             onPressed={() => handleScroll('about')}
           />
@@ -36,6 +37,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             key={2}
             icon={<span className="material-icons">work</span>}
             id="button3"
+            href="#"
             label="Work"
             onPressed={() => handleScroll('work')}
           />
@@ -43,6 +45,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             key={3}
             icon={<span className="material-icons">description</span>}
             id="button4"
+            href="#"
             label="Studies"
             onPressed={() => handleScroll('studies')}
           />
@@ -57,6 +60,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             key={5}
             icon={<span className="material-icons">feed</span>}
             id="button6"
+            href="#"
             label="Case Studies"
             onPressed={() => handleScroll('casestudies')}
           />
@@ -65,6 +69,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             key={6}
             icon={<span className="material-icons">home</span>}
             id="button7"
+            href="#"
             label="Linkedin"
           />
           <SidebarButton
@@ -72,10 +77,12 @@ export const Layout: React.FC<any> = ({ children }) => {
             icon={<span className="material-icons">videocam</span>}
             id="button8"
             label="Book a Call"
+            href="#"
             onPressed={() => navigate('/Book')}
           />
           <SidebarButton
             key={8}
+            href="#"
             icon={<span className="material-icons">file_download</span>}
             id="button9"
             label="Resume"
