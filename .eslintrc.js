@@ -22,7 +22,8 @@ module.exports = {
     'react/no-children-prop': 'off',
     'prettier/prettier': 'warn',
     camelcase: 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'no-unused-vars': 'warn'
   },
   settings: {
     react: {

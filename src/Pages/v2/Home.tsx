@@ -4,13 +4,13 @@ import { Section } from '../../Components/v2/Section'
 import { Studies } from '../../Components/v2/Studies/Studies'
 import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { useAppContextV2 } from '@Context/ContextV2'
-import { useStore } from './../../store'
+// import { useStore } from './../../store'
 import './styles.css'
-import { DevWarning } from './DevWarning'
+import { DevWarning } from '../../Components/v2/DevWarning'
 
 export const Home = () => {
   const { baseData } = useAppContextV2()
-  const state = useStore()
+  // const state = useStore()
   if (baseData)
     return (
       <div role="mainContent">
