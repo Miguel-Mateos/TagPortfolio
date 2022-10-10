@@ -5,7 +5,7 @@ export default function ScrollToTop({ children }: { children: any }) {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    document.querySelector('[role=mainContent]')?.scrollIntoView()
+    document.querySelector('[role=main]')?.scrollIntoView()
   }, [pathname])
 
   return <>{children}</>

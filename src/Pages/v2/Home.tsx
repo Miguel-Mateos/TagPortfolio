@@ -13,7 +13,7 @@ export const Home = () => {
   // const state = useStore()
   if (baseData)
     return (
-      <div role="mainContent">
+      <div role="main">
         <HeadLine title="Hey welcome to my portfolio!" />
         <div className="content home-container">
           <div className="home-hero-container">
