@@ -81,7 +81,7 @@ export const CaseStudies = () => {
                 <CustomChip clas>
                   {private_repo ? 'private' : 'public' + ' Repository'}
                 </CustomChip>
-                <h4 className="card-title">{name}</h4>
+                <div className="card-title">{name}</div>
                 <div className="card-description-container">
                   <div className="subtitle">{homepage}</div>
                   <div className="medium card-description-inner">

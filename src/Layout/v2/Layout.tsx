@@ -53,6 +53,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             key={4}
             icon={<span className="material-icons">devices</span>}
             id="button5"
+            href="#"
             label="Tech Stack"
             onPressed={() => handleScroll('teckstack')}
           />

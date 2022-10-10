@@ -36,7 +36,7 @@ const CardModulated: React.FC<ICardModulatedProps> = ({
             year: 'numeric'
           }).format(date)}
       </small>
-      <h4>{title}</h4>
+      <div className="case-study-title">{title}</div>
       <div className="base case-study-position">{subtitle}</div>
       <div className="case-study-description-container">
         {variableDescription.map((desc, idx) => (
@@ -92,7 +92,7 @@ export const Studies = () => {
     <div className="study-container" id="studies">
       <h2 className="study-title">Certifications & References</h2>
       <ShowCards />
-      {/* <SeeMore className="study-see-more" />  By the moment not show*/}
+      {/* <SeeMore className="study-see-more" />  By the moment not show */}
     </div>
   )
 }
