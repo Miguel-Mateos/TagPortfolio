@@ -36,7 +36,12 @@ export const Stack = () => {
                 }}
                 key={idx + 'stack-img'}
               >
-                <img src={`/${entry[0]}.png`} height="50" width="50" />
+                <img
+                  src={`/${entry[0]}.png`}
+                  height="50"
+                  width="50"
+                  alt={entry[0]}
+                />
               </div>
             )
           return null
