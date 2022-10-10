@@ -47,7 +47,7 @@ export const CaseStudies = () => {
 
   const navigate = useNavigate()
 
-  if (repos)
+  if (repos) {
     return (
       <div className="case-studies-container" id="casestudies">
         <h2 className="case-studies-title">Projects</h2>
@@ -114,5 +114,6 @@ export const CaseStudies = () => {
         <SeeMore more={more} setMore={toggleMore} className="study-see-more" />
       </div>
     )
+  }
   return <Loader automatic />
 }

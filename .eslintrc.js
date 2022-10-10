@@ -23,5 +23,10 @@ module.exports = {
     'prettier/prettier': 'warn',
     camelcase: 'off',
     'react/prop-types': 'off'
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   }
 }
