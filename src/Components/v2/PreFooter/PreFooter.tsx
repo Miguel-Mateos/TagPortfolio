@@ -13,7 +13,7 @@ export const PreFooter = () => {
         </p>
         <button
           className="button-primary_large"
-          onClick={() => navigate('Book')}
+          onClick={() => navigate('/Book')}
         >
           Start <span className="material-icons">trending_flat </span>
         </button>

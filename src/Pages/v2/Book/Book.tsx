@@ -1,14 +1,40 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { isEqual } from 'lodash'
 import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { Input, Radio, TextArea } from '../../../Components/Inputs/Input'
 import { useAppContextV2 } from '../../../Context/ContextV2'
 import { BookSelector } from './BookCard'
 import { requiredFields } from './utils'
 import './book.css'
+import { ILog } from '@Context/types'
 
 export const Book = () => {
-  const { createEvent } = useAppContextV2()
+  const { createEvent, addLog } = useAppContextV2()
   const [errors, setErrors] = useState<string[]>([])
+  const logger = useRef({} as ILog)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (formRef.current) {
+        const formData = new FormData(formRef.current)
+        const data = Object.fromEntries(formData)
+        const { calendar, ...rest } = data as any
+        const log: ILog = {
+          available: calendar || null,
+          ...rest
+        }
+        if (!isEqual(log, logger.current)) {
+          logger.current = log
+          if (log.name && log.email && log.company_name) {
+            addLog(log)
+          }
+        }
+      }
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const form = e.target as HTMLFormElement
@@ -41,12 +67,17 @@ export const Book = () => {
   }
 
   const onChange = (e: React.ChangeEvent<HTMLFormElement>) => {
+    // const form = e.currentTarget as HTMLFormElement
     const { name, value } = e.target
     if (requiredFields.includes(name)) {
       if (value && errors.includes(name) && value) {
         setErrors(errors.filter((item) => item !== name))
       }
     }
+    // const formData = new FormData(form)
+    // const entries = [...formData.entries()]
+    // const data = Object.fromEntries(entries)
+    // console.log(data)
   }
 
   const handleExternalChange = (val: number, name: string) => {
@@ -62,7 +93,12 @@ export const Book = () => {
       <HeadLine title="Nice to e-meet you!" />
       <HeadBook />
 
-      <form onChange={onChange} onSubmit={onSubmit} className="book-form">
+      <form
+        onChange={onChange}
+        onSubmit={onSubmit}
+        className="book-form"
+        ref={formRef}
+      >
         <div className="book-form-name-surname">
           <Input
             error={errors.includes('name') ? 'This field is required' : ''}

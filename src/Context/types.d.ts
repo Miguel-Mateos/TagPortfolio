@@ -74,6 +74,18 @@ export interface ITech_Stack {
   svelte: boolean
 }
 
+export interface ILog {
+  greeting_id?: number
+  name: string
+  surname: string
+  email: string
+  company_name: string
+  position: string
+  additional_information: string
+  salary_range: string
+  available: Date
+}
+
 export interface IBaseData {
   name: string
   image: string
@@ -93,13 +105,14 @@ export interface IUseAppContextV2 {
   projects: IProjects[]
   auth: any
   createEvent: (event: any) => { status: number }
-  getProjects: () => { data: IProjects[] },
+  getProjects: () => { data: IProjects[] }
   getHomeData: () => { data: any }
   getBookings: () => { data: any }
   getWorks: () => { data: any }
   getGreetings: () => { data: any }
   getCerts: () => { data: any }
   addWork: (work: any) => { status: number }
+  addLog: (log: ILog) => { status: number }
   login: any
   baseData: IBaseData
 }

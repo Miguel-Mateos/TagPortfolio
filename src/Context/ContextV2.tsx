@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { createContext, useContext, useEffect, useState } from 'react'
-import { IProjects, IUseAppContextV2, IBaseData } from './types'
+import { IProjects, IUseAppContextV2, IBaseData, ILog } from './types'
 
 export const AppContextV2 = createContext<any | null>(null)
 
@@ -55,7 +55,8 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         *
       )
     `
-      ).order('id', { foreignTable: 'work_v2', ascending: true })
+      )
+      .order('id', { foreignTable: 'work_v2', ascending: true })
       .single()
     if (data) {
       setId(data?.id)
@@ -91,6 +92,13 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
     return { status }
   }
 
+  const addLog = async (log: ILog) => {
+    const tempData = { ...log }
+    tempData.greeting_id = id
+    const { status } = await supabase.from('logger').insert(tempData)
+    return { status }
+  }
+
   const login = async ({
     email,
     password
@@ -122,7 +130,8 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
         getCerts,
         login,
         baseData,
-        addWork
+        addWork,
+        addLog
       }}
     >
       {children}
