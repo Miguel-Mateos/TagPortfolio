@@ -5,6 +5,7 @@ import { Card } from '../Card/Card'
 import { SeeMore } from '../SeeMore/SeeMore'
 import './styles.css'
 
+const TEMP_NAMES = ['100_projects', 'BidsSocket', 'chat-app']
 const OWNER = 'Eneko96'
 const BRANCH = 'main'
 
@@ -67,7 +68,12 @@ export const CaseStudies = () => {
                 <div className="card-img-container">
                   <img
                     className="card-img"
-                    src={'https://picsum.photos/500?random=2.webp'}
+                    // src={`https://raw.githubusercontent.com/${OWNER}/${name}/${BRANCH}/.github/assets/preview.png`}
+                    src={
+                      TEMP_NAMES.includes(name)
+                        ? `/${name}.png`
+                        : 'https://picsum.photos/500?random=2.webp'
+                    }
                     alt="project-image"
                     loading="lazy"
                   />
