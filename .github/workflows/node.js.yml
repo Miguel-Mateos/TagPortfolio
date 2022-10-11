@@ -11,10 +11,6 @@ on:
 
 jobs:
   build:
-    env:
-      VITE_SUPABASE_URL: https://ybyxjuwgzujcpujzibme.supabase.co
-      VITE_SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlieXhqdXdnenVqY3B1anppYm1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTYyNzI0ODYsImV4cCI6MTk3MTg0ODQ4Nn0.EjdPJCoPcStstAACerZrAXO-LVpvYxO8AEZKbHPs9Sg
-
     runs-on: ubuntu-latest
 
     strategy:
