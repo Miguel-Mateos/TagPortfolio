@@ -33,6 +33,9 @@
       "@Utils/*": [
         "src/utils/*"
       ],
+      "@Pages/*": [
+        "src/Pages/*"
+      ],
     }
   },
   "include": [

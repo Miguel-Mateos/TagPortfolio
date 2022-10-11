@@ -8,7 +8,7 @@ const path = require('path')
 export default defineConfig({
   plugins: [react()],
   build: {
-    minify: true,
+    minify: true
   },
   resolve: {
     alias: {
@@ -18,8 +18,8 @@ export default defineConfig({
       '@Hooks': path.resolve(__dirname, './src/hooks'),
       '@Store': path.resolve(__dirname, './src/store'),
       '@TagDs': path.resolve(__dirname, './src/tag'),
-      '@Context': path.resolve(__dirname, './src/Context'),
-    },
+      '@Context': path.resolve(__dirname, './src/Context')
+    }
   },
   test: {
     globals: true,
@@ -28,7 +28,7 @@ export default defineConfig({
       branches: 75,
       functions: 60,
       lines: 75,
-      statements: 75,
+      statements: 75
     }
   }
 })

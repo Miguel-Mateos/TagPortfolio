@@ -9,6 +9,7 @@ export const Footer = () => {
           href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"
           target="_blank"
           className="footer-nav-anchor"
+          role="link"
           rel="noreferrer"
         >
           <small>Linkedin</small>
@@ -24,6 +25,7 @@ export const Footer = () => {
           href="https://github.com/Eneko96"
           target="_blank"
           className="footer-nav-anchor"
+          role="link"
           rel="noreferrer"
         >
           <small>Github</small>

@@ -39,14 +39,15 @@ const CardModulated: React.FC<ICardModulatedProps> = ({
       <div className="case-study-title">{title}</div>
       <div className="base case-study-position">{subtitle}</div>
       <div className="case-study-description-container">
-        {variableDescription.map((desc, idx) => (
-          <p
-            className="case-study-description"
-            key={idx + 'case-study-description'}
-          >
-            {desc}
-          </p>
-        ))}
+        {variableDescription.length &&
+          variableDescription.map((desc, idx) => (
+            <p
+              className="case-study-description"
+              key={idx + 'case-study-description'}
+            >
+              {desc}
+            </p>
+          ))}
       </div>
       {description?.length > 3 && (
         <a style={{ whiteSpace: 'nowrap' }} onClick={toggleMore} href="#">
