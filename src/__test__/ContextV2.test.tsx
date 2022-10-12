@@ -16,7 +16,7 @@ describe('ContextV2', () => {
 
   it('should render and call function', () => {
     render(
-      <AppContextV2.Provider value={{ hello: () => 'Hello' }}>
+      <AppContextV2.Provider value={{ hello: 'hello' }}>
         <AppContextV2.Consumer>
           {({ hello }) => <div>{hello}</div>}
         </AppContextV2.Consumer>
