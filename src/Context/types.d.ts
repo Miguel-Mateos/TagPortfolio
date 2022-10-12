@@ -102,17 +102,16 @@ export interface IBaseData {
 }
 
 export interface IUseAppContextV2 {
-  projects: IProjects[]
   auth: any
-  createEvent: (event: any) => { status: number }
-  getProjects: () => { data: IProjects[] }
-  getHomeData: () => { data: any }
-  getBookings: () => { data: any }
-  getWorks: () => { data: any }
-  getGreetings: () => { data: any }
-  getCerts: () => { data: any }
-  addWork: (work: any) => { status: number }
-  addLog: (log: ILog) => { status: number }
+  createEvent: (event: any) => Promise<{ status: number }>
+  getProjects: () => Promise<IProjects[] | null>
+  getHomeData?: () => { data: any }
+  getBookings: () => Promise<any[] | null>
+  getWorks: () => Promise<any[] | null>
+  getGreeting: () => Promise<any[] | null>
+  getCerts: () => Promise<any[] | null>
+  addWork: (data: any) => Promise<{ status: number }>
+  addLog: (log: ILog) => Promise<{ status: number }>
   login: any
   baseData: IBaseData
 }

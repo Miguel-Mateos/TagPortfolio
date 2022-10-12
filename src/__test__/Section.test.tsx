@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { describe, it, expect, afterEach } from 'vitest'
 import { render, screen, cleanup } from '@testing-library/react'
 import { Section } from '@Components/v2/Section'

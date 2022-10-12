@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { describe, it, expect, afterEach } from 'vitest'
 import { render, cleanup, screen } from '@testing-library/react'
 import { AppContextV2, AppProviderV2 } from '../Context/ContextV2'
@@ -15,7 +16,7 @@ describe('ContextV2', () => {
 
   it('should render and call function', () => {
     render(
-      <AppContextV2.Provider value={{ hello: 'hello' }}>
+      <AppContextV2.Provider value={{ hello: () => 'Hello' }}>
         <AppContextV2.Consumer>
           {({ hello }) => <div>{hello}</div>}
         </AppContextV2.Consumer>

@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { IProjects, IUseAppContextV2, IBaseData, ILog } from './types'
 
-export const AppContextV2 = createContext<any | null>(null)
+export const AppContextV2 = createContext<IUseAppContextV2 | null>(null)
 
 const AppProviderV2: React.FC<any> = ({ children }) => {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
@@ -19,7 +19,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
   }
 
   const getProjects = async () => {
-    const { data } = await supabase.from('projects_v2').select('*')
+    const { data } = await supabase.from<IProjects>('projects_v2').select('*')
     return data
   }
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { describe, it, expect } from 'vitest'
 import { screen, render } from '@testing-library/react'
 import { Studies } from '@Components/v2/Studies/Studies'
