@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client'
 
 import { AppProvider } from './Context/ContextApi'
 import { AppProviderV2 } from './Context/ContextV2'
+import './index.css'
 
 const env = import.meta.env.VITE_ENV
 const mobile = window.innerWidth < 768
-import './index.css'
 
 const RootSelector = () => {
   if (env === 'v2' && !mobile) {
