@@ -22,6 +22,13 @@ export default defineConfig({
     }
   },
   test: {
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/cypress/**',
+      '**/.{idea,git,cache,output,temp}/**',
+      '**/*.spec.ts'
+    ],
     globals: true,
     environment: 'happy-dom',
     coverage: {
