@@ -6,6 +6,7 @@
     "dev": "VITE_ENV=v2 vite --open",
     "dev:v2": "VITE_ENV=v2 vite",
     "test": "vitest test",
+    "test:playwright": "playwright test",
     "test:husky": "vitest run",
     "coverage": "vitest run --coverage",
     "build": "tsc && vite build",
@@ -27,6 +28,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.27.1",
     "@types/lodash": "^4.14.186",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",

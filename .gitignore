@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 coverage
 .env
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/
