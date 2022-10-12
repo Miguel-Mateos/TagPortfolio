@@ -19,7 +19,7 @@ const config: PlaywrightTestConfig = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 120000
+    timeout: 5000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -34,7 +34,7 @@ const config: PlaywrightTestConfig = {
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:3000',
-    timeout: 60 * 1000
+    timeout: 120000
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
