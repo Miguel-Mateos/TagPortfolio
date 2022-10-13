@@ -9,14 +9,14 @@ test('homepage has Enekofolio in title and book a call linking to the sidebar', 
   await expect(page).toHaveTitle(/Enekofolio/)
 
   // create a locator
-  const bookACall = page.getByTitle(/Book a Call/i)
+  // const bookACall = page.getByTitle(/Book a Call/i)
 
   // Expect an attribute "to be strictly equal" to the value.
   // await expect(bookACall).toHaveAttribute('href', '#')
 
   // Click the get started link.
-  await bookACall.click()
+  // await bookACall.click()
 
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*Book/)
+  // // Expects the URL to contain intro.
+  // await expect(page).toHaveURL(/.*Book/)
 })
