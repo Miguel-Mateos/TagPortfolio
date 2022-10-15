@@ -17,8 +17,8 @@ export default function useEmail() {
   const sendEmail = (data: IData) => {
     emailjs
       .send(
-        'service_1r92qeg',
-        'template_giyhaor',
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE,
         {
           from_name: data.name,
           email: data.email,
@@ -30,7 +30,7 @@ export default function useEmail() {
           calendar: data.calendar.toString(),
           'g-recaptcha-response': data['g-recaptcha-response']
         },
-        'oDM6iL43_o7XdeUkz'
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
       )
       .then(
         (result) => {

@@ -169,8 +169,7 @@ export const Book = () => {
         </button>
         <ReCaptcha
           ref={recaptchaRef}
-          sitekey="6LebQIIiAAAAAHfBJ2xBSFvB-GEVD3DXRcRItH8y
-          "
+          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
           onChange={(e) => e && setValidRecaptcha(true)}
         />
 
