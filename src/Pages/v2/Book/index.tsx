@@ -9,15 +9,19 @@ import { ILog } from '@Context/types'
 import useEmail from './useEmail'
 import ReCaptcha from 'react-google-recaptcha'
 import './book.css'
+import Notification from '@TagDs/components/notification/notification'
 
 export const Book = () => {
-  const { sendEmail } = useEmail()
-  const recaptchaRef = useRef<ReCaptcha>(null)
   const { addLog } = useAppContextV2()
-  const [validRecaptcha, setValidRecaptcha] = useState(false)
-  const [errors, setErrors] = useState<string[]>([])
+  const { sendEmail } = useEmail()
+
+  const recaptchaRef = useRef<ReCaptcha>(null)
   const logger = useRef({} as ILog)
   const formRef = useRef<HTMLFormElement>(null)
+
+  const [show, setShow] = useState(false)
+  const [validRecaptcha, setValidRecaptcha] = useState(false)
+  const [errors, setErrors] = useState<string[]>([])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,6 +72,7 @@ export const Book = () => {
     if (auxErrors.length > 0) setErrors(auxErrors)
     if (!error) {
       sendEmail(Object.fromEntries(formData) as any)
+      setShow(true)
     }
   }
 
@@ -156,7 +161,7 @@ export const Book = () => {
         <BookSelector onChange={handleExternalChange} />
 
         <button
-          disabled={errors.length !== 0 || !validRecaptcha}
+          disabled={errors.length !== 0 || !validRecaptcha || show}
           className="large"
           style={{ width: 'fit-content' }}
         >
@@ -175,6 +180,10 @@ export const Book = () => {
           booking a call (:
         </p>
       </form>
+      <Notification show={show} setShow={setShow} success renderAsPortal>
+        The reservation has been successfully requested! Soon will you will
+        recieve a google meet invitation! I am looking forward to talk with you!
+      </Notification>
     </div>
   )
 }

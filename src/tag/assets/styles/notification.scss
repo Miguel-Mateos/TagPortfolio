@@ -21,6 +21,7 @@
 .tag-ds {
   .notification,
   &.notification {
+    animation: notificationFade 0.3s ease-in-out;
     @extend .shadow-elevation_2x;
     position: fixed;
     top: calc(3 * var(--unit));
@@ -198,5 +199,10 @@
         position: relative;
       }
     }
+  }
+
+  @keyframes notificationFade {
+    from { opacity: 0;}
+    to { opacity: 1;}
   }
 }
