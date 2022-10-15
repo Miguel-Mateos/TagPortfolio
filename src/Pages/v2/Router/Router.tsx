@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from '../../../Layout/v2/Layout'
-import { Book } from '../Book/Book'
+import { Book } from '../Book'
 import { Home } from '../Home'
 import '@TagDs/assets/styles/main.scss'
-import { Study } from '../Study'
-import { Dashboard } from '../../../Dashboard'
+import { Study } from '../Study/Study'
 import ScrollToTop from '@Components/ScrollTop'
 
 export const Router = () => {

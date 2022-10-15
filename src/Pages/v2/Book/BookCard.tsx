@@ -85,7 +85,11 @@ export const BookSelector: React.FC<any> = ({ onChange }) => {
             />
           ))}
       </div>
-      <input type="hidden" name="calendar" value={selected ?? ''} />
+      <input
+        type="hidden"
+        name="calendar"
+        value={selected ? days[selected] : ''}
+      />
     </div>
   )
 }

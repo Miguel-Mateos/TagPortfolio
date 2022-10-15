@@ -16,7 +16,7 @@ export const Layout: React.FC<any> = ({ children }) => {
     if (location.pathname !== '/') navigate('/')
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      document.body.scrollTop = element.offsetTop
     }
   }
 

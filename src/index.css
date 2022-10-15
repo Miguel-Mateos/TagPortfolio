@@ -17,6 +17,7 @@ h1,h2,h3,h4,.title {
 }
 
 body {
+  scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: var(--bg01);
   color: white;

@@ -106,12 +106,11 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
     email: string
     password: string
   }) => {
-    console.log('login')
     const { user, error, session } = await supabase.auth.signIn({
       email,
       password
     })
-    console.log(user, error, session)
+    return { user, error, session }
   }
 
   useEffect(() => {

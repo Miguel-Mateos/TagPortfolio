@@ -71,7 +71,12 @@ export const TextArea: React.FC<
         {label}
         {required && <span className="required">*</span>}
       </label>
-      <textarea placeholder={placeholder} onChange={onChange} {...rest} />
+      <textarea
+        placeholder={placeholder}
+        name={name}
+        onChange={onChange}
+        {...rest}
+      />
       {error && <p className="input-helper-text input-error-text">{error}</p>}
     </div>
   )

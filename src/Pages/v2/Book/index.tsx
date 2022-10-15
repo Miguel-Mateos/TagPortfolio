@@ -24,16 +24,16 @@ export const Book = () => {
       if (formRef.current) {
         const formData = new FormData(formRef.current)
         const data = Object.fromEntries(formData)
-        // remove g-recaptcha from data destructuring the object
         const {
           calendar,
           anual_revenue,
           'g-recaptcha-response': captcha,
           ...rest
         } = data as any
+        console.log(data)
         const log: ILog = {
           salary_range: anual_revenue,
-          available: calendar || null,
+          available: calendar ? new Date(calendar) : null,
           ...rest
         }
         if (!isEqual(log, logger.current)) {
@@ -73,7 +73,6 @@ export const Book = () => {
   }
 
   const onChange = (e: React.ChangeEvent<HTMLFormElement>) => {
-    // const form = e.currentTarget as HTMLFormElement
     const { name, value } = e.target
     if (requiredFields.includes(name)) {
       if (value && errors.includes(name) && value) {
@@ -138,7 +137,7 @@ export const Book = () => {
           <option value="Full Stack Developer">Full Stack Developer</option>
         </select>
 
-        <TextArea label="Something else about" name="message" />
+        <TextArea label="Something else about" name="additional_information" />
 
         <div>
           <label className="caption">Anual Salary Range</label>
