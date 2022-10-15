@@ -18,7 +18,6 @@
     color: var(--neutral500);
   }
   &:active,
-  &:focus,
   &:focus-visible {
     border: calc(var(--unit) / 8) solid var(--secondary400);
   }
@@ -540,12 +539,8 @@
     pointer-events: none;
   }
 
-  .checkbox:focus,
-  &.checkbox:focus,
   .checkbox:focus-visible,
   &.checkbox:focus-visible,
-  .radio:focus,
-  &.radio:focus,
   .radio:focus-visible,
   &.radio:focus-visible {
     outline: calc(var(--unit) / 2) solid var(--secondary300);
@@ -738,7 +733,7 @@
     &::placeholder {
       color: var(--neutral500);
     }
-    &:focus {
+    &:focus-visible {
       outline: calc(var(--unit) / 2) solid var(--secondary300);
     }
   }
@@ -790,7 +785,6 @@
         background: inherit;
         border: 0 !important;
       }
-      &:focus,
       &:focus-visible {
         border: 0;
       }

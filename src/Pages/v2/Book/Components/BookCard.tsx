@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
-import { Card } from '../../../Components/v2/Card/Card'
-import { dateBookings } from '../../../utils/dateBookings'
+import { Card } from '../../../../Components/v2/Card/Card'
+import { dateBookings } from '../../../../utils/dateBookings'
 
 interface IBookCard {
   onClick: ({ id, day }: { id: number; day: string }) => any

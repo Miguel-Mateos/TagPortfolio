@@ -46,7 +46,7 @@
     &:hover {
       border: calc(var(--unit) / 8) solid var(--secondary400) !important;
     }
-    &:focus {
+    &:focus-visible {
       border: calc(var(--unit) / 8) solid var(--neutral100);
     }
     &:active {
@@ -100,8 +100,7 @@
     &:active {
       background: var(--neutral200);
     }
-    &:focus-visible,
-    &:focus {
+    &:focus-visible {
       border: calc(var(--unit) / 8) solid var(--secondary100);
       outline: calc(var(--unit) / 2) solid var(--secondary300);
     }
@@ -114,8 +113,7 @@
   .sidebar-button_selected {
     color: var(--neutral800);
     background: var(--neutral200);
-    &:focus-visible,
-    &:focus {
+    &:focus-visible {
       border: calc(var(--unit) / 8) solid var(--secondary400);
     }
     &::before {

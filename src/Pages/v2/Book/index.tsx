@@ -3,12 +3,12 @@ import { isEqual } from 'lodash'
 import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { Input, Radio, TextArea } from '../../../Components/Inputs/Input'
 import { useAppContextV2 } from '../../../Context/ContextV2'
-import { BookSelector } from './BookCard'
-import { requiredFields } from './utils'
-import './book.css'
+import { BookSelector } from './Components/BookCard'
+import { requiredFields, salaryRanges } from './utils'
 import { ILog } from '@Context/types'
 import useEmail from './useEmail'
 import ReCaptcha from 'react-google-recaptcha'
+import './book.css'
 
 export const Book = () => {
   const { sendEmail } = useEmail()
@@ -30,7 +30,6 @@ export const Book = () => {
           'g-recaptcha-response': captcha,
           ...rest
         } = data as any
-        console.log(data)
         const log: ILog = {
           salary_range: anual_revenue,
           available: calendar ? new Date(calendar) : null,
@@ -142,9 +141,14 @@ export const Book = () => {
         <div>
           <label className="caption">Anual Salary Range</label>
           <div className="book-radio-grouper">
-            <Radio name="anual_revenue" label="40.000 € - 50.000 €" />
-            <Radio name="anual_revenue" label="40.000 € - 50.000 €" />
-            <Radio name="anual_revenue" label="40.000 € - 50.000 €" />
+            {salaryRanges.map((salary, idx) => (
+              <Radio
+                name="anual_revenue"
+                label={salary.label}
+                value={salary.value}
+                key={idx + salary.value}
+              />
+            ))}
             <Radio name="anual_revenue" label="More" />
           </div>
         </div>
@@ -179,9 +183,8 @@ const HeadBook = () => (
   <div className="book-title">
     <h2>Book a Call</h2>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias nihil
-      commodi quam. Ad corporis facilis optio, unde rerum amet provident.
-      Voluptates impedit iusto fugiat assumenda ducimus magnam vel commodi.
+      Would you like to chat and get to know me a bit better? Don&apos;t
+      hesitate. Come in and book a call with me!
     </p>
   </div>
 )

@@ -21,7 +21,6 @@
   &:hover {
     color: var(--secondary600);
   }
-  &:focus,
   &:focus-visible {
     outline: calc(var(--unit) / 2) solid var(--secondary300);
   }
@@ -112,5 +111,13 @@ a.tag-ds {
   &.disabled {
     color: var(--neutral500);
     pointer-events: none;
+  }
+}
+
+@supports not selector(:focus-visible) {
+  a, .link, .tag-ds.link {
+    &:focus {
+      outline: calc(var(--unit) / 2) solid var(--secondary300);
+    }
   }
 }
