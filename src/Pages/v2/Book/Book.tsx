@@ -7,8 +7,12 @@ import { BookSelector } from './BookCard'
 import { requiredFields } from './utils'
 import './book.css'
 import { ILog } from '@Context/types'
+import useEmail from './useEmail'
+import ReCaptcha from 'react-google-recaptcha'
 
 export const Book = () => {
+  const { sendEmail } = useEmail()
+  const recaptchaRef = useRef<ReCaptcha>(null)
   const { createEvent, addLog } = useAppContextV2()
   const [errors, setErrors] = useState<string[]>([])
   const logger = useRef({} as ILog)
@@ -19,8 +23,9 @@ export const Book = () => {
       if (formRef.current) {
         const formData = new FormData(formRef.current)
         const data = Object.fromEntries(formData)
-        const { calendar, ...rest } = data as any
+        const { calendar, anual_revenue, ...rest } = data as any
         const log: ILog = {
+          salary_range: anual_revenue,
           available: calendar || null,
           ...rest
         }
@@ -40,6 +45,9 @@ export const Book = () => {
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)
     const entries = [...formData.entries()]
+
+    console.log(recaptchaRef.current?.getValue())
+
     let error = false
     let auxErrors = errors
     entries.forEach((entry) => {
@@ -57,12 +65,10 @@ export const Book = () => {
     if (!error) {
       const data = Object.fromEntries(formData)
       const { anual_revenue, calendar, position, ...rest } = data
-      createEvent({
-        salary: anual_revenue,
-        day: new Date(),
-        vacancy: position,
-        ...rest
-      })
+      sendEmail(
+        Object.fromEntries(formData) as any,
+        recaptchaRef.current?.getValue() ?? ''
+      )
     }
   }
 
@@ -153,6 +159,12 @@ export const Book = () => {
         <button className="large" style={{ width: 'fit-content' }}>
           Book
         </button>
+        <ReCaptcha
+          ref={recaptchaRef}
+          sitekey="6LebQIIiAAAAAHfBJ2xBSFvB-GEVD3DXRcRItH8y
+          "
+          onChange={(e) => console.log(e)}
+        />
 
         {errors.length > 0 && <small>Required Values Must be Fulfilled</small>}
         <p className="book-recopilation-message">

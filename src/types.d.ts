@@ -7,13 +7,14 @@ export interface IRepo {
   homepage: string
 }
 
-export type TResponse = 'json'
-| 'text'
-| 'arraybuffer'
-| 'blob'
-| 'formdata'
-| 'stream'
-| 'xml'
+export type TResponse =
+  | 'json'
+  | 'text'
+  | 'arraybuffer'
+  | 'blob'
+  | 'formdata'
+  | 'stream'
+  | 'xml'
 
 export interface IProject {
   id: number
