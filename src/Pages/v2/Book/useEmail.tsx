@@ -26,7 +26,7 @@ export default function useEmail() {
           company_name: data.company_name,
           position: data.position,
           additional_information: data.additional_information,
-          salary_range: data.salary_range,
+          salary_range: data.anual_revenue,
           calendar: data.calendar.toString(),
           'g-recaptcha-response': data['g-recaptcha-response']
         },
