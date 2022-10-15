@@ -16,10 +16,26 @@ const BookCard: React.FC<IBookCard> = ({ onClick, id, active, day }) => {
         width: '275px',
         padding: '24px',
         outline: active ? '2px solid var(--primary400)' : 'none',
-        transition: 'outline 0.1s ease-in-out'
+        transition: 'outline 0.1s ease-in-out',
+        position: 'relative'
       }}
       onClick={() => onClick({ id, day })}
     >
+      <input
+        type="checkbox"
+        style={{
+          appearance: 'none',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'transparent',
+          border: 'none',
+          position: 'absolute',
+          top: 0,
+          left: 0
+        }}
+        value={day}
+        name="calendar"
+      />
       <div
         style={{
           padding: '8px',
@@ -46,7 +62,7 @@ const BookCard: React.FC<IBookCard> = ({ onClick, id, active, day }) => {
   )
 }
 
-export const BookSelector: React.FC<any> = ({ onChange }) => {
+export const BookSelector: React.FC<any> = () => {
   const [selected, setSelected] = useState<number | null>(null)
   const days: string[] = useMemo(
     () =>
@@ -58,7 +74,6 @@ export const BookSelector: React.FC<any> = ({ onChange }) => {
 
   const changeHandler = ({ id, day }: { id: number; day: string }) => {
     setSelected(id)
-    onChange({ id, day })
   }
 
   return (
@@ -85,11 +100,6 @@ export const BookSelector: React.FC<any> = ({ onChange }) => {
             />
           ))}
       </div>
-      <input
-        type="hidden"
-        name="calendar"
-        value={selected ? days[selected] : ''}
-      />
     </div>
   )
 }

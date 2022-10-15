@@ -8,8 +8,8 @@ import { requiredFields, salaryRanges } from './utils'
 import { ILog } from '@Context/types'
 import useEmail from './useEmail'
 import ReCaptcha from 'react-google-recaptcha'
-import './book.css'
 import Notification from '@TagDs/components/notification/notification'
+import './book.css'
 
 export const Book = () => {
   const { addLog } = useAppContextV2()
@@ -50,7 +50,7 @@ export const Book = () => {
     return () => clearInterval(interval)
   }, [])
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)
@@ -71,8 +71,8 @@ export const Book = () => {
     })
     if (auxErrors.length > 0) setErrors(auxErrors)
     if (!error) {
-      sendEmail(Object.fromEntries(formData) as any)
-      setShow(true)
+      const { status } = await sendEmail(Object.fromEntries(formData) as any)
+      if (status === 200) setShow(true)
     }
   }
 
@@ -80,14 +80,6 @@ export const Book = () => {
     const { name, value } = e.target
     if (requiredFields.includes(name)) {
       if (value && errors.includes(name) && value) {
-        setErrors(errors.filter((item) => item !== name))
-      }
-    }
-  }
-
-  const handleExternalChange = (val: number, name: string) => {
-    if (requiredFields.includes(name)) {
-      if (val && errors.includes(name)) {
         setErrors(errors.filter((item) => item !== name))
       }
     }
@@ -158,7 +150,7 @@ export const Book = () => {
           </div>
         </div>
 
-        <BookSelector onChange={handleExternalChange} />
+        <BookSelector />
 
         <button
           disabled={errors.length !== 0 || !validRecaptcha || show}

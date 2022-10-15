@@ -14,8 +14,8 @@ interface IData {
 }
 
 export default function useEmail() {
-  const sendEmail = (data: IData) => {
-    emailjs
+  const sendEmail = async (data: IData) => {
+    const { status } = await emailjs
       .send(
         import.meta.env.VITE_EMAIL_SERVICE_ID,
         import.meta.env.VITE_EMAIL_TEMPLATE,
@@ -34,12 +34,13 @@ export default function useEmail() {
       )
       .then(
         (result) => {
-          console.log(result.text)
+          return { status: result.status }
         },
         (error) => {
-          console.log(error.text)
+          return { status: error.status }
         }
       )
+    return { status }
   }
   return { sendEmail }
 }
