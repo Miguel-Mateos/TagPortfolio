@@ -10,12 +10,11 @@ interface IData {
   calendar: Date
   additional_information: string
   salary_range: string
+  'g-recaptcha-response': string
 }
 
 export default function useEmail() {
-  const sendEmail = (data: IData, captcha: string) => {
-    console.log(data)
-
+  const sendEmail = (data: IData) => {
     emailjs
       .send(
         'service_1r92qeg',
@@ -29,7 +28,7 @@ export default function useEmail() {
           additional_information: data.additional_information,
           salary_range: data.salary_range,
           calendar: data.calendar.toString(),
-          'g-recaptcha-response': captcha
+          'g-recaptcha-response': data['g-recaptcha-response']
         },
         'oDM6iL43_o7XdeUkz'
       )

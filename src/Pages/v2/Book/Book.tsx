@@ -13,7 +13,8 @@ import ReCaptcha from 'react-google-recaptcha'
 export const Book = () => {
   const { sendEmail } = useEmail()
   const recaptchaRef = useRef<ReCaptcha>(null)
-  const { createEvent, addLog } = useAppContextV2()
+  const { addLog } = useAppContextV2()
+  const [validRecaptcha, setValidRecaptcha] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
   const logger = useRef({} as ILog)
   const formRef = useRef<HTMLFormElement>(null)
@@ -23,7 +24,13 @@ export const Book = () => {
       if (formRef.current) {
         const formData = new FormData(formRef.current)
         const data = Object.fromEntries(formData)
-        const { calendar, anual_revenue, ...rest } = data as any
+        // remove g-recaptcha from data destructuring the object
+        const {
+          calendar,
+          anual_revenue,
+          'g-recaptcha-response': captcha,
+          ...rest
+        } = data as any
         const log: ILog = {
           salary_range: anual_revenue,
           available: calendar || null,
@@ -46,8 +53,6 @@ export const Book = () => {
     const formData = new FormData(form)
     const entries = [...formData.entries()]
 
-    console.log(recaptchaRef.current?.getValue())
-
     let error = false
     let auxErrors = errors
     entries.forEach((entry) => {
@@ -63,12 +68,7 @@ export const Book = () => {
     })
     if (auxErrors.length > 0) setErrors(auxErrors)
     if (!error) {
-      const data = Object.fromEntries(formData)
-      const { anual_revenue, calendar, position, ...rest } = data
-      sendEmail(
-        Object.fromEntries(formData) as any,
-        recaptchaRef.current?.getValue() ?? ''
-      )
+      sendEmail(Object.fromEntries(formData) as any)
     }
   }
 
@@ -80,10 +80,6 @@ export const Book = () => {
         setErrors(errors.filter((item) => item !== name))
       }
     }
-    // const formData = new FormData(form)
-    // const entries = [...formData.entries()]
-    // const data = Object.fromEntries(entries)
-    // console.log(data)
   }
 
   const handleExternalChange = (val: number, name: string) => {
@@ -156,14 +152,18 @@ export const Book = () => {
 
         <BookSelector onChange={handleExternalChange} />
 
-        <button className="large" style={{ width: 'fit-content' }}>
+        <button
+          disabled={errors.length !== 0 || !validRecaptcha}
+          className="large"
+          style={{ width: 'fit-content' }}
+        >
           Book
         </button>
         <ReCaptcha
           ref={recaptchaRef}
           sitekey="6LebQIIiAAAAAHfBJ2xBSFvB-GEVD3DXRcRItH8y
           "
-          onChange={(e) => console.log(e)}
+          onChange={(e) => e && setValidRecaptcha(true)}
         />
 
         {errors.length > 0 && <small>Required Values Must be Fulfilled</small>}
