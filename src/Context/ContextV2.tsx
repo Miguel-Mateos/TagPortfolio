@@ -94,7 +94,6 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
 
   const addLog = async (log: ILog) => {
     const tempData = { ...log }
-    tempData.greeting_id = id
     const { status } = await supabase.from('logger').insert(tempData)
     return { status }
   }

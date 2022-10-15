@@ -4,8 +4,7 @@ export const requiredFields = [
   'surname',
   'email',
   'company_name',
-  'anual_revenue',
-  'calendar'
+  'anual_revenue'
 ]
 
 export const eventConstant = {
