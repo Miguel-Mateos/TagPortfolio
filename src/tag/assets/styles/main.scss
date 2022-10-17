@@ -98,6 +98,7 @@ body {
 
 .tag-ds {
   color: var(--neutral800);
+  background-color: var(--neutral0);
   .bg04,
   &.bg04 {
     color: var(--neutral0);
@@ -106,4 +107,45 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tag-ds {
+      --neutral800: #ffffff;
+      --neutral700: #f8f8f9;
+      --neutral600: #ebebee;
+      --neutral500: #e0e0e4;
+      --neutral400: #ccccd3;
+      --neutral300: #adadb5;
+      --neutral200: #7c828a;
+      --neutral100: #5c6573;
+      --neutral0: #1c304b;
+    
+      /** Brand colour, for impact and emphasis **/
+      --accent700: #eff8f7;
+      --accent600: #ceeae8;
+      --accent500: #aedcd9;
+      --accent400: #8dcdc9;
+      --accent300: #5cb8b2;
+      --accent200: #367c78;
+      --accent100: #275956;
+    
+      /** Main interactive colour for CTA, Buttons, Interactive elements, etc. **/
+      --primary700: #ced7e4;
+      --primary600: #8894a5;
+      --primary500: #727f8f;
+      --primary400: #495667;
+      --primary300: #1c304b;
+      --primary200: #030c18;
+      --primary100: #000306;
+    
+      /** Secondary interactive colour for links, icons, interactive elements. **/
+      --secondary700: #ccf2ff;
+      --secondary600: #99e6ff;
+      --secondary500: #33cdff;
+      --secondary400: #009acc;
+      --secondary300: #107b9e;
+      --secondary200: #0e6987;
+      --secondary100: #004d66;
+  }
 }

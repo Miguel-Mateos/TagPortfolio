@@ -60,10 +60,6 @@ code {
   }
 }
 
-body:has(.tag-ds) {
-  background-color: white;
-}
-
 html {
   overflow-y: overlay;
 }

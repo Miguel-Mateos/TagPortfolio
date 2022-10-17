@@ -31,3 +31,15 @@
 .footer-name {
   color: var(--neutral500)
 }
+
+@media (prefers-color-scheme: dark) {
+  .footer-container {
+    background-color: var(--neutral200);
+  }
+  .footer-nav {
+    color: var(--neutral800)
+  }
+  .footer-nav-anchor {
+    color: var(--neutral800) !important;
+  }
+}
