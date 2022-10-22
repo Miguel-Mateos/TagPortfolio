@@ -4,7 +4,7 @@ export const handleDownloadResumee = () => {
       // Creating new object of PDF file
       const fileURL = window.URL.createObjectURL(blob)
       // Setting various property values
-      let alink = document.createElement('a')
+      const alink = document.createElement('a')
       alink.href = fileURL
       alink.download = 'Inigo_Moreno_Resume.pdf'
       alink.click()

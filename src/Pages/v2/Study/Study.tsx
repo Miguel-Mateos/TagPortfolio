@@ -4,13 +4,13 @@ import Breadcrumb, {
 import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './study.css'
-import { Fragment, useEffect, useState } from 'react'
-import { mdToHTML } from '@Utils/markdownToHtml'
+import { useEffect, useState } from 'react'
 import Loader from '@TagDs/components/loader/loader'
 import { CustomChip } from '@Components/v2/CaseStudies/CaseStudies'
 import { serializeClient } from '@Components/v2/CaseStudies/utils/client'
 import { projectTypeParser } from '@Components/v2/CaseStudies/utils/projectType'
 import { methodologyParser } from '@Components/v2/CaseStudies/utils/methodologies'
+import { marked } from 'marked'
 interface LocationState {
   title: string
   repo: string
@@ -22,9 +22,7 @@ interface LocationState {
 }
 
 export const Study = () => {
-  const [readme, setReadme] = useState<{ content: string; element: string }[]>(
-    []
-  )
+  const [readme, setReadme] = useState<string>('')
   const [languages, setLanguages] = useState<{ [key: string]: string }>({})
   const navigate = useNavigate()
   const history = useLocation()
@@ -36,7 +34,7 @@ export const Study = () => {
         `https://raw.githubusercontent.com/${state.owner}/${state.repo}/${state.branch}/README.md`
       )
       const res = await readme.text()
-      setReadme(mdToHTML(res))
+      setReadme(res)
     }
 
     const getLanguages = async () => {
@@ -70,61 +68,14 @@ export const Study = () => {
             flex: '1 1 auto'
           }}
         >
-          <h2>
-            {readme.length > 0 &&
-              readme[0].element === 'h2' &&
-              readme[0].content}
-          </h2>
           <main className="study-inner-container-layer">
             <div className="study-inner-container-content">
-              {readme.length > 0 ? (
-                readme.slice(1).map((elem, idx) => {
-                  return (
-                    <Fragment key={idx}>
-                      {(() => {
-                        switch (elem.element) {
-                          case 'h1':
-                            return <h1>{elem.content}</h1>
-                          case 'h2':
-                            return (
-                              <div
-                                className="study-img-container"
-                                data-title={elem.content}
-                              >
-                                <img
-                                  className="study-img-title"
-                                  src="https://picsum.photos/650"
-                                  alt=""
-                                />
-                              </div>
-                            )
-                          case 'h3':
-                            return <h3>{elem.content}</h3>
-                          case 'h4':
-                            return <h4>{elem.content}</h4>
-                          case 'h5':
-                            return <h5>{elem.content}</h5>
-                          case 'h6':
-                            return <h6>{elem.content}</h6>
-                          case 'p':
-                            return <p>{elem.content}</p>
-                          case 'ul':
-                            return <ul>{elem.content}</ul>
-                          case 'ol':
-                            return <ol>{elem.content}</ol>
-                          case 'li':
-                            return <li>{elem.content}</li>
-                          case 'a':
-                            return <a href={elem.content}>{elem.content}</a>
-                          case 'img':
-                            return <img src={elem.content} alt={elem.content} />
-                          default:
-                            return <p>{elem.content}</p>
-                        }
-                      })()}
-                    </Fragment>
-                  )
-                })
+              {readme ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: marked(readme, { breaks: true, gfm: true })
+                  }}
+                ></div>
               ) : (
                 <div className="study-inner-loader">
                   <Loader automatic />

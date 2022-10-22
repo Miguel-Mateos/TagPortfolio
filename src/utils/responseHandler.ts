@@ -1,4 +1,4 @@
-import { TResponse } from "../types";
+import { TResponse } from '../types'
 
 export const responseHandler = (response: Response, type?: TResponse) => {
   if (type === 'text') return response.text()
