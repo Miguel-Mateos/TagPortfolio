@@ -46,6 +46,21 @@ export const Study = () => {
     else navigate('/')
   }, [])
 
+  const headerRenderer = (text: string, level: 2 | 1 | 3 | 4 | 5 | 6) => {
+    const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-')
+    if (level === 2) {
+      return `<div class="study-img-container" data-title=${text}>
+          <img
+            class="study-img-title"
+            src="https://picsum.photos/650"
+            alt=${text}
+          />
+        </div>`
+    } else return `<h${level} id="${escapedText}">${text}</h${level}>`
+  }
+
+  marked.use({ renderer: { heading: headerRenderer } })
+
   return (
     <div role="main">
       <HeadLine title="Hello Welcome to my portfolio!" />
@@ -73,7 +88,11 @@ export const Study = () => {
               {readme ? (
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: marked(readme, { breaks: true, gfm: true })
+                    __html: marked(readme, {
+                      breaks: true,
+                      gfm: true,
+                      headerIds: true
+                    })
                   }}
                 ></div>
               ) : (
