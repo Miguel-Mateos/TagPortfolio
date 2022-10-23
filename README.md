@@ -7,9 +7,9 @@
 
 ## Why did I created it?
 
-I've started this project at 6 of October of 2021 looking for make myself visible on the web and show through the portfolio part of my skills and projects throughout my career on Web development.
+I've started this project on 6 of October of 2021 looking for make myself visible and show through the portfolio a portion of my web skills and projects throughout my career in Web development.
 
-The skills I wanted to show at first was everything I've learned on the last 2 years of my career, creating a demonstration of every language, project and algorithm I made and, a playground for each algorithm or feature I was proud of. I found this approach super interesting initially, but it was remarkable hard to carry out without a large amount of time so I discarded the option.
+The skills I wanted to show at first was everything I've learned on the last 2 years of my career, creating a demonstration of every language, project and algorithm I made and a playground for each algorithm or feature I was proud of. But I found this approach super interesting initially, but it was remarkable hard to carry out without a large amount of time, so I discarded the option.
 
 In the course of time I opted to create a humble CV like portfolio, like almost anyone does but, with some personal details.
 
