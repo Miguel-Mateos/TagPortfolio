@@ -1,10 +1,9 @@
 # Portfolio
 
-1. [Why did I created it?](##hello)
-2. [What kind of problems I faced and how I solved them?](##problems)
-3. Performance
-4. What I learned?
-5. Issues and improvements
+- [Portfolio](#portfolio)
+  - [Why did I created it?](#why-did-i-created-it)
+  - [Problems and Solutions](#problems-and-solutions)
+  - [Issues and Improvements](#issues-and-improvements)
 
 ## Why did I created it?
 
@@ -52,7 +51,7 @@ My schema was pretty simple, I just needed a couple of tables with the following
   - The first problem I found with it was that, the structure of the website is first a display of basic data and, if who's seeing wants to see more, ha can click a button an see the extended description from the readme file. So i had to choose weather I wanted to fetch every readme even though the user might not click the button, or just fetch the readme when the user clicks the button.
   - The second problem was, how do I show the readme if it is retrieved as a markdown file?
 
-- **Solution**: 
+- **Solution**:
   - As is not very wise to fetch every project without the user clicking the button, I decided to fetch the readme file only when the user clicks the button, so I created a function that fetches the readme file and returns it as a string. Also I commited to create a decent readme file for every project I have in github.
   - For displaying the readme file, first I used [react-markdown](http//react-markdown.com), but it was quite slow and bulky for just parse a markdown file. My second option was to parse it by myself and evaluate each line of the string by matching the standard md configuration, although it is not so challenging, is a bit pounderous and takes a lot of time. After some weeks I decided to use [marked](https://marked.js.org/), which is a markdown parser and compiler, so I could parse the markdown file and then use it as a string to display it on the website.
 
