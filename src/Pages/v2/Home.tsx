@@ -18,18 +18,18 @@ export const Home = () => {
               <h1 className="home-hero-title">
                 I am {baseData.name}, {baseData.position}
               </h1>
-              <div className="small-title">Based in</div>
+              <div className="subtitle">Based in</div>
               <div className="base">Dublin, Ireland</div>
               <br />
-              <div className="small-title">
+              <div className="subtitle">
                 Experience In the Following industries
               </div>
               <div className="base">{baseData.experience}</div>
               <br />
-              <div className="small-title">Core skills</div>
+              <div className="subtitle">Core skills</div>
               <div className="base">{baseData.skills}</div>
               <br />
-              <div className="small-title">Cliffton Strengths</div>
+              <div className="subtitle">Cliffton Strengths</div>
               <div className="base">{baseData.strengths}</div>
             </div>
             <div className="home-hero-image">

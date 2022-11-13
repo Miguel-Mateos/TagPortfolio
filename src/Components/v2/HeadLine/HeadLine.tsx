@@ -1,4 +1,5 @@
 import Avatar, { AvatarImg } from '@TagDs/components/avatar/avatar'
+import { useLocation } from 'react-router-dom'
 import './styles.css'
 
 interface HeadLineProps {
@@ -6,6 +7,7 @@ interface HeadLineProps {
 }
 
 export const HeadLine: React.FC<HeadLineProps> = ({ title }) => {
+  const location = useLocation()
   return (
     <header className="headline-header">
       {title && (
@@ -13,11 +15,16 @@ export const HeadLine: React.FC<HeadLineProps> = ({ title }) => {
           {title}
         </p>
       )}
-      <Avatar title="Iñigo Moreno" small className="headline-avatar">
-        <AvatarImg>
-          <img alt="img" src="https://avatars.githubusercontent.com/eneko96" />
-        </AvatarImg>
-      </Avatar>
+      {location.pathname !== '/' && (
+        <Avatar title="Iñigo Moreno" small className="headline-avatar">
+          <AvatarImg>
+            <img
+              alt="img"
+              src="https://avatars.githubusercontent.com/eneko96"
+            />
+          </AvatarImg>
+        </Avatar>
+      )}
     </header>
   )
 }

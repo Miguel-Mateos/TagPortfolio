@@ -84,7 +84,7 @@ body {
 }
 
 .tag-ds,
-.tag-ds *:not(.material-icons) {
+.tag-ds *:not(.material-icons, .material-icons-outlined, .material-icons-round) {
   font-family: var(--fontFamily);
   letter-spacing: normal;
   font-smooth: always;

@@ -34,6 +34,12 @@ export const WorkV2: React.FC<Work_V2Props> = ({
         </div>
       </div>
       <div className="section-description">
+        <div className="section-desc-subtitle subtitle">Description</div>
+        {description.map((desc, index) => (
+          <p key={index + 'work-description'}>{desc}</p>
+        ))}
+
+        <div className="section-tech-subtitle subtitle">Tools used</div>
         <div className="section-tech_stack">
           {tech_stack &&
             tech_stack.length > 0 &&
@@ -41,9 +47,6 @@ export const WorkV2: React.FC<Work_V2Props> = ({
               <CustomChip key={index + 'tech-stack'}>{tech}</CustomChip>
             ))}
         </div>
-        {description.map((desc, index) => (
-          <p key={index + 'work-description'}>{desc}</p>
-        ))}
       </div>
     </div>
   )

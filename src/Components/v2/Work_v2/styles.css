@@ -16,6 +16,20 @@
   flex-wrap: wrap;
 }
 
+.section-desc-subtitle {
+  margin-bottom: -8px;
+}
+
+.section-tech-subtitle {
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.work-description {
+  font-size: 16px;
+  line-height: 24px;
+}
+
 @keyframes scaleit {
   from {
     max-height: 0;

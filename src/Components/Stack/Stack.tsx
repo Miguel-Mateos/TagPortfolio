@@ -26,22 +26,33 @@ export const Stack = () => {
         {Object.entries(stackList()).map((entry, idx) => {
           if (entry[1])
             return (
-              <div
-                title={entry[0]}
-                style={{
-                  height: '75px',
-                  width: '75px',
-                  display: 'flex',
-                  justifyContent: 'center'
-                }}
-                key={idx + 'stack-img'}
-              >
-                <img
-                  src={`/${entry[0]}.png`}
-                  height="50"
-                  width="50"
-                  alt={entry[0]}
-                />
+              <div>
+                <div
+                  title={entry[0]}
+                  style={{
+                    height: '75px',
+                    width: '75px',
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}
+                  key={idx + 'stack-img'}
+                >
+                  <img
+                    src={`/${entry[0]}.png`}
+                    height="50"
+                    width="50"
+                    alt={entry[0]}
+                  />
+                </div>
+                <div
+                  style={{
+                    textAlign: 'center',
+                    textTransform: 'capitalize'
+                  }}
+                  className="small"
+                >
+                  {entry[0]}
+                </div>
               </div>
             )
           return null
