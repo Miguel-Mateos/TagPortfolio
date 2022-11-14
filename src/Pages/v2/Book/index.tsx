@@ -127,11 +127,18 @@ export const Book = () => {
           name="company_name"
         />
 
-        <select placeholder="Select Option" name="position">
-          <option value="Front End Developer">Front End Developer</option>
-          <option value="UX/UI Developer">UX/UI Developer</option>
-          <option value="Full Stack Developer">Full Stack Developer</option>
-        </select>
+        <div className="tag-ds input-wrapper">
+          <label className="caption">
+            Position you want to hire me for
+            <small>*</small>
+          </label>
+          <select placeholder="Select Option" name="position">
+            <option value="Front End Developer">Front End Developer</option>
+            <option value="UX/UI Developer">UX/UI Developer</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
+          </select>
+          <div className="material-icons select-icon">expand_more</div>
+        </div>
 
         <TextArea label="Something else about" name="additional_information" />
 

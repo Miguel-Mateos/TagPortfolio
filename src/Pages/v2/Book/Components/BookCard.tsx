@@ -44,7 +44,9 @@ const BookCard: React.FC<IBookCard> = ({ onClick, id, active, day }) => {
           gap: '8px'
         }}
       >
-        <span className="material-icons">calendar_month</span>
+        <span className={`material-icons${!active ? '-outlined' : ''}`}>
+          calendar_month
+        </span>
         <span className="small">{day}</span>
       </div>
       <div
@@ -55,7 +57,9 @@ const BookCard: React.FC<IBookCard> = ({ onClick, id, active, day }) => {
           gap: '8px'
         }}
       >
-        <span className="material-icons">timer</span>
+        <span className={`material-icons${!active ? '-outlined' : ''}`}>
+          timer
+        </span>
         <span className="small">17:30 PM</span>
       </div>
     </Card>

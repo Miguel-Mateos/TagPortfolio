@@ -862,6 +862,17 @@
 
   select {
     @extend .select;
+    appearance: none;
+  }
+
+  .select-icon {
+    position: relative;
+    font-family: 'Material Icons';
+    position: absolute;
+    right: calc(2 * var(--unit));
+    top: 50%;
+    width: 24px;
+    height: 24px;   
   }
 
   .input-wrapper .input-container select,
