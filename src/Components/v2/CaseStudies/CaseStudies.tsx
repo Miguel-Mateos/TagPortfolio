@@ -35,6 +35,15 @@ export const CaseStudies = () => {
     const getRepos = async () => {
       const repos = await fetch(import.meta.env.VITE_GITHUB_URI)
       const res = await repos.json()
+      res.sort((a: IRepos, b: IRepos) => {
+        if (a.name === 'weather-hackaton') return -1
+        if (b.name === 'weather-hackaton') return 1
+        if (a.name === 'portfolio') return -1
+        if (b.name === 'portfolio') return 1
+        if (a.name === 'BidsSocket') return -1
+        if (b.name === 'BidsSocket') return 1
+        return 0
+      })
       setRepos(res)
     }
     getRepos()
