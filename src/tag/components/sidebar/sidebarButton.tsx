@@ -1,5 +1,6 @@
 import React from 'react'
 import Dropdown, { DropdownButton, DropdownMenu } from '../dropdown/dropdown'
+const TRANSITION_CONSTRUCTOR = 'top 0.3s ease-in-out'
 
 export interface ISidebarButtonProps {
   /**
@@ -63,6 +64,18 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
     ...rest
   } = props
 
+  const moveSelector = (id: string) => {
+    const selector = document.getElementById(id)
+    if (selector) {
+      const focuser = document.getElementsByClassName('focuser')
+      if (focuser && focuser.length > 0) {
+        const focus = focuser[0] as HTMLElement
+        focus.style.transition = TRANSITION_CONSTRUCTOR
+        focus.style.top = `${selector.offsetTop}px`
+      }
+    }
+  }
+
   return dropdown ? (
     <Dropdown className="sidebar-button_dropdown">
       <DropdownButton>
@@ -75,7 +88,6 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
           className={`sidebar-button${selected ? '_selected' : ''}${
             disabled ? '_disabled' : ''
           } ${className || ''}`}
-          onClick={onClick}
         >
           {icon}
           {!collapsed && label}
@@ -95,7 +107,10 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
         disabled ? '_disabled' : ''
       } ${className || ''}`}
       href={href}
-      onClick={props.onPressed || onClick}
+      onClick={() => {
+        props.onPressed()
+        moveSelector(id)
+      }}
     >
       {icon}
       {!collapsed && <span>{label}</span>}

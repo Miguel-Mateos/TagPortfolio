@@ -576,8 +576,7 @@
   }
 
   input[type='button'],
-  input[type='submit'],
-  button {
+  input[type='submit'] {
     @extend %button-primary;
     &.success {
       @extend %button-primary_success;
@@ -715,8 +714,7 @@
   }
 
   input[type='button'],
-  input[type='submit'],
-  button {
+  input[type='submit'] {
     @extend %button_medium;
     &.large {
       @extend %button_large;
@@ -870,8 +868,7 @@
 }
 
 input[type='button'].tag-ds,
-input[type='submit'].tag-ds,
-button.tag-ds {
+input[type='submit'].tag-ds {
   @extend %button-primary;
   &.success {
     @extend %button-primary_success;
@@ -1008,8 +1005,7 @@ button.tag-ds {
 }
 
 input[type='button'].tag-ds,
-input[type='submit'].tag-ds,
-button.tag-ds {
+input[type='submit'].tag-ds {
   @extend %button_medium;
   &.large {
     @extend %button_large;

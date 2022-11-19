@@ -9,6 +9,7 @@ import './styles.css'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { handleDownloadResumee } from '../../utils/downloadCV'
 import { useState } from 'react'
+const TITLE_OFFSET = 100
 
 export const Layout: React.FC<any> = ({ children }) => {
   const [selected, setSelected] = useState('button2')
@@ -18,7 +19,7 @@ export const Layout: React.FC<any> = ({ children }) => {
     if (location.pathname !== '/') navigate('/')
     const element = document.getElementById(id)
     if (element) {
-      document.body.scrollTop = element.offsetTop
+      document.body.scrollTop = element.offsetTop - TITLE_OFFSET
     }
   }
 
@@ -26,7 +27,6 @@ export const Layout: React.FC<any> = ({ children }) => {
     if (selected === id) return 'material-icons'
     return 'material-icons-outlined'
   }
-  console.log(selected)
 
   return (
     <div className="tag-ds layout">
@@ -35,6 +35,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           <SidebarDivider key={0}>sections</SidebarDivider>
           <SidebarButton
             key={1}
+            className={selected === 'button2' ? 'selected' : ''}
             icon={<span className={iconHandler('button2')}>person</span>}
             id="button2"
             href="#"
@@ -52,6 +53,7 @@ export const Layout: React.FC<any> = ({ children }) => {
                 {selected === 'button3' ? 'work' : 'work_outline'}
               </span>
             }
+            className={selected === 'button3' ? 'selected' : ''}
             id="button3"
             href="#"
             label="Work"
@@ -64,6 +66,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           <SidebarButton
             key={3}
             icon={<span className={iconHandler('button4')}>description</span>}
+            className={selected === 'button4' ? 'selected' : ''}
             id="button4"
             href="#"
             label="Studies"
@@ -76,6 +79,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           <SidebarButton
             key={4}
             icon={<span className={iconHandler('button5')}>devices</span>}
+            className={selected === 'button5' ? 'selected' : ''}
             id="button5"
             href="#"
             label="Tech Stack"
@@ -88,6 +92,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           <SidebarButton
             key={5}
             icon={<span className={iconHandler('button6')}>feed</span>}
+            className={selected === 'button6' ? 'selected' : ''}
             id="button6"
             href="#"
             label="Case Studies"
@@ -101,6 +106,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           <SidebarButton
             key={6}
             icon={<span className={iconHandler('button7')}>home</span>}
+            className={selected === 'button7' ? 'selected' : ''}
             id="button7"
             href="#"
             label="Linkedin"
@@ -115,15 +121,20 @@ export const Layout: React.FC<any> = ({ children }) => {
           <SidebarButton
             key={7}
             icon={<span className={iconHandler('button8')}>videocam</span>}
+            className={selected === 'button8' ? 'selected' : ''}
             id="button8"
             label="Book a Call"
             href="#"
-            onPressed={() => navigate('/Book')}
+            onPressed={() => {
+              setSelected('button8')
+              navigate('/Book')
+            }}
           />
           <SidebarButton
             key={8}
             href="#"
             icon={<span className={iconHandler('button9')}>file_download</span>}
+            className={selected === 'button9' ? 'selected' : ''}
             id="button9"
             label="Resume"
             onPressed={handleDownloadResumee}

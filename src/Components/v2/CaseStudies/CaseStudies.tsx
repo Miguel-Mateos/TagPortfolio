@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Card } from '../Card/Card'
 import { SeeMore } from '../SeeMore/SeeMore'
 import './styles.css'
+import { tmpSort } from './utils/tmpSort'
 
 const TEMP_NAMES = ['100_projects', 'BidsSocket', 'chat-app']
 const OWNER = 'Eneko96'
@@ -35,15 +36,7 @@ export const CaseStudies = () => {
     const getRepos = async () => {
       const repos = await fetch(import.meta.env.VITE_GITHUB_URI)
       const res = await repos.json()
-      res.sort((a: IRepos, b: IRepos) => {
-        if (a.name === 'weather-hackaton') return -1
-        if (b.name === 'weather-hackaton') return 1
-        if (a.name === 'portfolio') return -1
-        if (b.name === 'portfolio') return 1
-        if (a.name === 'BidsSocket') return -1
-        if (b.name === 'BidsSocket') return 1
-        return 0
-      })
+      tmpSort(res)
       setRepos(res)
     }
     getRepos()
@@ -99,7 +92,7 @@ export const CaseStudies = () => {
                   </div>
                 </div>
                 <button
-                  className="card-button-details"
+                  className="button card-button-details"
                   onClick={() =>
                     navigate('Study/' + name, {
                       state: {

@@ -161,7 +161,7 @@ export const Book = () => {
 
         <button
           disabled={errors.length !== 0 || !validRecaptcha || show}
-          className="large"
+          className="button large"
           style={{ width: 'fit-content' }}
         >
           Book
