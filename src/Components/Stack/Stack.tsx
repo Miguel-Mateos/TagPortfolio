@@ -1,4 +1,5 @@
 import { useAppContextV2 } from '@Context/ContextV2'
+import './index.css'
 
 export const Stack = () => {
   const { baseData } = useAppContextV2()
@@ -15,26 +16,14 @@ export const Stack = () => {
   return (
     <div style={{ marginTop: '72px' }} id="teckstack">
       <h2>Tech Stack</h2>
-      <div
-        style={{
-          display: 'flex',
-          gap: '39px',
-          flexWrap: 'wrap',
-          marginTop: '40px'
-        }}
-      >
+      <div className="tech-stack-container">
         {Object.entries(stackList()).map((entry, idx) => {
           if (entry[1])
             return (
               <div>
                 <div
                   title={entry[0]}
-                  style={{
-                    height: '75px',
-                    width: '75px',
-                    display: 'flex',
-                    justifyContent: 'center'
-                  }}
+                  className="tech-stack-element"
                   key={idx + 'stack-img'}
                 >
                   <img

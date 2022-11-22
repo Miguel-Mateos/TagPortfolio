@@ -49,11 +49,12 @@
   }
   .section-tech_stack {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 334px;
   }
   .section-tech_stack > .custom-chip {
     white-space: nowrap;
-    width: 69px;
+    text-align: center;
     overflow:hidden;
     text-overflow:ellipsis;
   }

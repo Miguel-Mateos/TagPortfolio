@@ -36,7 +36,9 @@ export const WorkV2: React.FC<Work_V2Props> = ({
       <div className="section-description">
         <div className="section-desc-subtitle subtitle">Description</div>
         {description.map((desc, index) => (
-          <p key={index + 'work-description'}>{desc}</p>
+          <p className="work-description" key={index + 'work-description'}>
+            {desc}
+          </p>
         ))}
 
         <div className="section-tech-subtitle subtitle">Tools used</div>
@@ -51,9 +53,3 @@ export const WorkV2: React.FC<Work_V2Props> = ({
     </div>
   )
 }
-
-// consist of the following components
-// client
-// date
-// type of project
-// description

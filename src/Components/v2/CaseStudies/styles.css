@@ -72,3 +72,11 @@
   margin-top: auto;
   margin-left: auto;
 }
+
+@media (max-width: 768px) {
+  .case-studies {
+    grid-template-columns: none;
+    grid-template-rows: auto;
+    width: 335px;
+  }
+} 

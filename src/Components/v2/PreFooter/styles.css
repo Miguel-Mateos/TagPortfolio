@@ -5,3 +5,16 @@
 .prefooter-container {
   background-color: var(--neutral100);
 }
+
+@media (max-width: 768px) {
+  .prefooter {
+    padding: 100px 0 43px 0;
+    margin-left: 20px;
+  }
+  .prefooter > p {
+    margin-bottom: 32px; 
+  }
+  .button-primary_large {
+    width: 202px;
+  }
+}

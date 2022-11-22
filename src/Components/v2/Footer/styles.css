@@ -43,3 +43,37 @@
     color: var(--neutral800) !important;
   }
 }
+
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 32px 16px 24px 16px;
+    display: block;
+  }
+  .footer-nav {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .footer-nav *:last-child {
+    height: fit-content;
+  }
+  .footer-nav > * {
+    margin-right: 0;
+  }
+
+  .footer-nav::after {
+    content: "";
+    height: 1px;
+    width: 343px;
+    background-color: var(--neutral400);
+    position: absolute;
+    bottom: -32px;
+  }
+
+  .footer-name {
+    margin-top: 64px;
+    text-align: end;
+  }
+}

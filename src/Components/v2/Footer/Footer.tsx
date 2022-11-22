@@ -34,7 +34,9 @@ export const Footer = () => {
           <small>085 204 9402</small>
         </a>
       </nav>
-      <small className="footer-name">Iñigo Moreno 2022</small>
+      <div className="footer-name">
+        <small>Iñigo Moreno 2022</small>
+      </div>
     </footer>
   )
 }
