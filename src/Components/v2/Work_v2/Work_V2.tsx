@@ -20,15 +20,15 @@ export const WorkV2: React.FC<Work_V2Props> = ({
   return (
     <div className="workv2-container">
       <div className="section-info" style={{ minWidth: '228px' }}>
-        <div style={{ margin: '16px' }}>
+        <div className="section-info-title">
           <small style={{ textTransform: 'uppercase' }}>Client</small>
           <div className="base">{client}</div>
         </div>
-        <div style={{ margin: '16px' }}>
+        <div className="section-info-title">
           <small style={{ textTransform: 'uppercase' }}>Date</small>
           <div className="base">{date}</div>
         </div>
-        <div style={{ margin: '16px' }}>
+        <div className="section-info-title">
           <small style={{ textTransform: 'uppercase' }}>Type of Project</small>
           <div className="base">{projectType}</div>
         </div>

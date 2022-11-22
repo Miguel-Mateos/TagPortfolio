@@ -86,3 +86,31 @@
 .study-right-side-element > p {
   margin-top: 8px;
 }
+
+@media (max-width: 768px) {
+  .home-hero-container {
+    position: relative;
+  }
+  .home-hero-image {
+    width: 167px;
+    height: 497px;
+  }
+  .home-hero-brief {
+    max-width: 185px;
+  }
+  .home-hero-title {
+    width: 202px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .header-image {
+    top: 0;
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 29px;
+  }
+  .separator {
+    margin-top: 40px;
+  }
+}

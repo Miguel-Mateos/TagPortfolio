@@ -20,3 +20,9 @@
 .headline-avatar {
   margin-right: 32px;
 }
+
+@media (max-width: 768px) {
+  .headline-header {
+    display: none;
+  }
+}

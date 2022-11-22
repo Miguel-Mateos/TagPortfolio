@@ -30,7 +30,7 @@ export const eventConstant = {
 }
 
 export const salaryRanges = [
-  { value: '50000-60000', label: '50000 € - 60000 € ' },
-  { value: '60000-80000', label: '60000 € - 80000 € ' },
-  { value: '80000-100000', label: '80000 € - 100000 € ' }
+  { value: '50000-60000', label: '50000 Eur - 60000 Eur ' },
+  { value: '60000-80000', label: '60000 Eur - 80000 Eur ' },
+  { value: '80000-100000', label: '80000 Eur - 100000 Eur ' }
 ]

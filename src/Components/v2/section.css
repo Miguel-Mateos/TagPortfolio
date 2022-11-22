@@ -12,3 +12,21 @@
   padding-bottom: 0;
   border-bottom: none;
 }
+
+.section-v2-title {
+  margin-bottom: 40px;
+}
+
+.section-v2-container {
+  margin-top: 72px;
+}
+
+@media (max-width: 768px) {
+  .section-v2-title {
+    margin-bottom: 10px;
+  }
+  .section-v2-container {
+    margin-top: 40px;
+    margin-right: 21px;
+  }
+}

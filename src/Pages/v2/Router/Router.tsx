@@ -35,16 +35,6 @@ export const Router = () => {
               </Layout>
             }
           />
-          {/* <Route
-            path="Dashboard"
-            element={
-              <Layout>
-                <Dashboard />
-              </Layout>
-            }
-          /> */}
-          {/* <Route path="Work" element={<div>404</div>} />
-        <Route path="/Stack" element={<div>404</div>} /> */}
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

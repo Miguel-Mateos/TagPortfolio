@@ -23,7 +23,8 @@ module.exports = {
     'prettier/prettier': 'warn',
     camelcase: 'off',
     'react/prop-types': 'off',
-    'no-unused-vars': 'warn'
+    'no-unused-vars': 'warn',
+    'no-absolute-path': 'off'
   },
   settings: {
     react: {

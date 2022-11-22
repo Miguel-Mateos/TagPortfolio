@@ -1,3 +1,4 @@
+/* eslint-disable import/no-absolute-path */
 import {
   Sidebar,
   SidebarButton,
@@ -9,12 +10,29 @@ import './styles.css'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { handleDownloadResumee } from '../../utils/downloadCV'
 import { useState } from 'react'
+import book from '/newIcons/book-o.svg'
+import oBook from '/newIcons/book.svg'
+import chat from '/newIcons/chat-o.svg'
+import oChat from '/newIcons/chat.svg'
+import download from '/newIcons/download-o.svg'
+import oDownload from '/newIcons/download.svg'
+import nLocation from '/newIcons/location-o.svg'
+import oLocation from '/newIcons/location.svg'
+import work from '/newIcons/work-o.svg'
+import oWork from '/newIcons/work.svg'
+import folder from '/newIcons/folder-o.svg'
+import oFolder from '/newIcons/folder.svg'
+import view from '/newIcons/view-o.svg'
+import oView from '/newIcons/view.svg'
+import logo from '/Logo.svg'
 const TITLE_OFFSET = 100
 
 export const Layout: React.FC<any> = ({ children }) => {
   const [selected, setSelected] = useState('button2')
+
   const navigate = useNavigate()
   const location = useLocation()
+
   const handleScroll = (id: string) => {
     if (location.pathname !== '/') navigate('/')
     const element = document.getElementById(id)
@@ -23,20 +41,30 @@ export const Layout: React.FC<any> = ({ children }) => {
     }
   }
 
-  const iconHandler = (id: string) => {
-    if (selected === id) return 'material-icons'
-    return 'material-icons-outlined'
-  }
-
   return (
     <div className="tag-ds layout">
-      <div style={{ display: 'flex' }}>
-        <Sidebar collapsed className="sb-fix">
+      <div className="layout-inner">
+        <Sidebar
+          logo={
+            <img
+              src={logo}
+              alt="logo"
+              style={{ width: '34px', objectFit: 'cover' }}
+            />
+          }
+          collapsed
+          className=""
+        >
           <SidebarDivider key={0}>sections</SidebarDivider>
           <SidebarButton
             key={1}
             className={selected === 'button2' ? 'selected' : ''}
-            icon={<span className={iconHandler('button2')}>person</span>}
+            icon={
+              <img
+                src={selected === 'button2' ? oLocation : nLocation}
+                alt="svg"
+              />
+            }
             id="button2"
             href="#"
             label="About"
@@ -48,11 +76,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           />
           <SidebarButton
             key={2}
-            icon={
-              <span className={iconHandler('button3')}>
-                {selected === 'button3' ? 'work' : 'work_outline'}
-              </span>
-            }
+            icon={<img src={selected === 'button3' ? oWork : work} alt="svg" />}
             className={selected === 'button3' ? 'selected' : ''}
             id="button3"
             href="#"
@@ -65,7 +89,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           />
           <SidebarButton
             key={3}
-            icon={<span className={iconHandler('button4')}>description</span>}
+            icon={<img src={selected === 'button4' ? oBook : book} alt="svg" />}
             className={selected === 'button4' ? 'selected' : ''}
             id="button4"
             href="#"
@@ -78,7 +102,7 @@ export const Layout: React.FC<any> = ({ children }) => {
           />
           <SidebarButton
             key={4}
-            icon={<span className={iconHandler('button5')}>devices</span>}
+            icon={<img src={selected === 'button5' ? oView : view} alt="svg" />}
             className={selected === 'button5' ? 'selected' : ''}
             id="button5"
             href="#"
@@ -91,7 +115,9 @@ export const Layout: React.FC<any> = ({ children }) => {
           />
           <SidebarButton
             key={5}
-            icon={<span className={iconHandler('button6')}>feed</span>}
+            icon={
+              <img src={selected === 'button6' ? oFolder : folder} alt="svg" />
+            }
             className={selected === 'button6' ? 'selected' : ''}
             id="button6"
             href="#"
@@ -104,23 +130,8 @@ export const Layout: React.FC<any> = ({ children }) => {
           />
           <SidebarDivider key={9}>contact</SidebarDivider>
           <SidebarButton
-            key={6}
-            icon={<span className={iconHandler('button7')}>home</span>}
-            className={selected === 'button7' ? 'selected' : ''}
-            id="button7"
-            href="#"
-            label="Linkedin"
-            onPressed={() => {
-              setSelected('button7')
-              window.open(
-                'https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos/'
-              )
-            }}
-            selected={selected === 'button7'}
-          />
-          <SidebarButton
             key={7}
-            icon={<span className={iconHandler('button8')}>videocam</span>}
+            icon={<img src={selected === 'button8' ? oChat : chat} alt="svg" />}
             className={selected === 'button8' ? 'selected' : ''}
             id="button8"
             label="Book a Call"
@@ -133,21 +144,19 @@ export const Layout: React.FC<any> = ({ children }) => {
           <SidebarButton
             key={8}
             href="#"
-            icon={<span className={iconHandler('button9')}>file_download</span>}
+            icon={
+              <img
+                src={selected === 'button9' ? oDownload : download}
+                alt="svg"
+              />
+            }
             className={selected === 'button9' ? 'selected' : ''}
             id="button9"
             label="Resume"
             onPressed={handleDownloadResumee}
           />
-          {/* <SidebarButton
-            key={10}
-            icon={<span className={iconHandler('button2')}>dashboard</span>}
-            id="button10"
-            label="Dashboard"
-            onPressed={() => navigate('/Dashboard')}
-          /> */}
         </Sidebar>
-        <div style={{ width: '100%', marginLeft: '80px' }}>{children}</div>
+        <div className="layout-content">{children}</div>
       </div>
       {location.pathname !== '/Book' && location.pathname !== '/Dashboard' && (
         <PreFooter />

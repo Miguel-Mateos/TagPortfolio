@@ -1,3 +1,17 @@
-.sb-fix {
-  z-index: 3 !important;
+.layout-inner {
+  display: flex;
+}
+
+.layout-content {
+  width: 100%;
+  margin-left: 80px;
+}
+
+@media (max-width: 768px) {
+  .layout-inner {
+    display: block;
+  }
+  .layout-content {
+    margin-left: 19px;
+  }
 }

@@ -11,7 +11,9 @@ const OWNER = 'Eneko96'
 const BRANCH = 'main'
 
 export const CustomChip: React.FC<any> = ({ children, className }) => (
-  <small className={`custom-chip ${className ?? ''}`}>{children}</small>
+  <small title={children} className={`custom-chip ${className ?? ''}`}>
+    {children}
+  </small>
 )
 
 export interface IRepos {

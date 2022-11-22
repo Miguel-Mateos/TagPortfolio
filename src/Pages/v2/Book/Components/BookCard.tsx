@@ -15,8 +15,7 @@ const BookCard: React.FC<IBookCard> = ({ onClick, id, active, day }) => {
       style={{
         width: '275px',
         padding: '24px',
-        outline: active ? '2px solid var(--primary400)' : 'none',
-        transition: 'outline 0.1s ease-in-out',
+        outline: active ? '2px solid var(--secondary400)' : 'none',
         position: 'relative'
       }}
       onClick={() => onClick({ id, day })}

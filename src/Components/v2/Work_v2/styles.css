@@ -4,11 +4,6 @@
   animation: scaleit .5s;
 }
 
-.workv2-container {
-  display: flex;
-  gap: 72px;
-  animation: scaleit .5s;
-}
 
 .section-tech_stack {
   display: flex;
@@ -30,6 +25,10 @@
   line-height: 24px;
 }
 
+.section-info-title {
+  margin: 16px;
+}
+
 @keyframes scaleit {
   from {
     max-height: 0;
@@ -38,5 +37,24 @@
   to {
     max-height: 400px;
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .workv2-container {
+    display: block;
+  }
+  .section-info-title {
+    margin-left: 0;
+  }
+  .section-tech_stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .section-tech_stack > .custom-chip {
+    white-space: nowrap;
+    width: 69px;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
 }

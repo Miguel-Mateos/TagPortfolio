@@ -16,8 +16,8 @@ export const Section = () => {
       [work_v2, more]
     )
     return (
-      <div style={{ marginTop: '72px' }} id="work">
-        <h2 style={{ marginBottom: '40px' }}>Work Experience</h2>
+      <div className="section-v2-container" id="work">
+        <h2 className="section-v2-title">Work Experience</h2>
         <div className="section-v2-work-container">
           {work_v2 &&
             work_v2.length &&

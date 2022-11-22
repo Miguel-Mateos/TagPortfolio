@@ -26,6 +26,7 @@ export interface ISidebarProps {
    * Add class to sidebar
    */
   className?: string
+  logo: any
   [others: string]: any
 }
 
@@ -37,10 +38,11 @@ export const Sidebar: React.FC<ISidebarProps> = (props) => {
     defaultItemSelected,
     className,
     onClickSidebarItem,
+    logo,
     ...rest
   } = props
 
-  const [isCollapsed, setCollapsed] = useState(collapsed)
+  const [isCollapsed] = useState(collapsed)
   const [itemSelected, setItemSelected] = useState(defaultItemSelected)
 
   useEffect(() => {
@@ -167,7 +169,7 @@ export const Sidebar: React.FC<ISidebarProps> = (props) => {
         }
         className="sidebar-collapsed-button"
       >
-        <span className="material-icons-outlined">logo_dev</span>
+        {logo}
       </button>
       {renderSidebarChilds()}
     </div>

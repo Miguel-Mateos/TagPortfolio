@@ -34,9 +34,13 @@ export const Home = () => {
             </div>
             <div className="home-hero-image">
               <picture>
+                <source
+                  media="(max-width: 768px)"
+                  type="image/png"
+                  srcSet="/home_img_mobile.png"
+                />
                 <source type="image/webp" srcSet="/irish.webp" />
                 <source type="image/jpeg" srcSet="/irish.jpg" />
-                <source type="image/webp" srcSet={baseData.image} />
                 <img
                   loading="eager"
                   alt="head image"
