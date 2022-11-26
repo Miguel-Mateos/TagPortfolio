@@ -8,6 +8,9 @@
 }
 
 @media (max-width: 768px) {
+  .layout {
+    animation: fadeIn .7s cubic-bezier(1,-0.05,.8,1.12);
+  }
   .layout-inner {
     display: block;
   }

@@ -3,12 +3,35 @@ import ReactDOM from 'react-dom/client'
 
 import { AppProviderV2 } from './Context/ContextV2'
 import Router from './Pages/v2/Router/Router'
+// eslint-disable-next-line import/no-absolute-path
+import logo from '/Logo.svg'
 import './index.css'
+
+const WaitForSplashScreen = () => {
+  const isFirstOpen = sessionStorage.getItem('isFirstOpen')
+  const [show, setShow] = React.useState(Boolean(isFirstOpen))
+  React.useEffect(() => {
+    if (isFirstOpen === null)
+      setTimeout(() => {
+        setShow(true)
+        sessionStorage.setItem('isFirstOpen', 'true')
+      }, 3000)
+  }, [])
+  return show ? (
+    <Router />
+  ) : (
+    <div className="splash-screen">
+      <div className="splash-screen-logo">
+        <img src={logo} alt="logo" />
+      </div>
+    </div>
+  )
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <AppProviderV2>
-      <Router />
+      <WaitForSplashScreen />
     </AppProviderV2>
   </React.StrictMode>
 )

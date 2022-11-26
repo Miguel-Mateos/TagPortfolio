@@ -19,8 +19,7 @@ h1,h2,h3,h4,.title {
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-color: var(--bg01);
-  color: white;
+  color: black;
   margin: 0;
   font-family: system-ui, cursive, Helvetica Neue, Helvetica, Arial,
     sans-serif;
@@ -114,3 +113,37 @@ html {
     transform: rotate(360deg);
   }
 }
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+      .splash-screen {
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden;
+          display: grid;
+          place-content: center;
+      }
+
+      .splash-screen-logo > p {
+          font-size: 1.5rem;
+          text-align: center;
+      }
+      .splash-screen-logo {
+          animation: fadeIn 1s ease-in-out;
+      }
+
+      .splash-screen-logo > img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+      }
+}
+
