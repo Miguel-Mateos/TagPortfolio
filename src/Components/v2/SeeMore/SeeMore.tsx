@@ -1,3 +1,4 @@
+import './index.css'
 interface SeeMoreProps extends React.HTMLProps<HTMLDivElement> {
   styles?: React.CSSProperties
   className?: string
@@ -8,16 +9,12 @@ interface SeeMoreProps extends React.HTMLProps<HTMLDivElement> {
 
 export const SeeMore: React.FC<SeeMoreProps> = ({
   styles,
-  className,
+  className = '',
   more,
   setMore,
   ...rest
 }) => (
-  <div
-    style={{ display: 'flex', gap: '72px', alignItems: 'center', ...styles }}
-    className={className}
-    {...rest}
-  >
+  <div style={{ ...styles }} className={`seemore ${className}`} {...rest}>
     <div className="separator" />
     <a style={{ whiteSpace: 'nowrap' }} onClick={setMore} href="#">
       {more ? 'See less related works' : 'See more related works'}

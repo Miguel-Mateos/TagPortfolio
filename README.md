@@ -25,21 +25,21 @@ My schema was pretty simple, I just needed a couple of tables with the following
 
 - A table with an id of the person ID, in case if any friend wants to use the same template and database, would only have to create a new row of the table (greeting) and reference the other tables to this id.
 
-![Screenshot](/public/Readme/greeting.png)
+![Screenshot](/Readme/greeting.png)
 
 - Cert_Ref, where I save all certificates and work experience:
 
-![Screenshot](/public/Readme/CertRef.png)
+![Screenshot](/Readme/CertRef.png)
 
 - Tech Stack: where I save a boolean group of columns of the technologies I use, so I can query them and show them on the website depending on if they are set as true or otherwise not show them, if they are set to false.
 
 - Works: For saving all the data for the work experience:
 
-![Screenshot](/public/Readme/works.png)
+![Screenshot](/Readme/works.png)
 
 - Bookings: Even though the books are sent to me through an email, I decided to save them in a table in order to have a record of them.
 
-![Screenshot](/public/Readme/booking.png)
+![Screenshot](/Readme/booking.png)
 
 ## Problems and Solutions
 

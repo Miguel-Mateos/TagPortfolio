@@ -75,14 +75,8 @@ export const Study = () => {
         </Breadcrumb>
         <h1 className="study-header-content">{state.title}</h1>
       </div>
-      <div style={{ margin: '39px auto 0px 102px', display: 'flex' }}>
-        <div
-          style={{
-            paddingTop: '44px',
-            paddingBottom: '100px',
-            flex: '1 1 auto'
-          }}
-        >
+      <div className="study-page-container">
+        <div className="study-inner">
           <main className="study-inner-container-layer">
             <div className="study-inner-container-content">
               {readme ? (

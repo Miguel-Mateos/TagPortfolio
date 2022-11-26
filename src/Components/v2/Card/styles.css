@@ -4,8 +4,8 @@
   border-radius: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .card-v2 {
     box-shadow: 6px 4px 24px rgba(255 255 255 / .08);
   }
-}
+} */

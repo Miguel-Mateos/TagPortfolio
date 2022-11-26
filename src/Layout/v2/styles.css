@@ -12,6 +12,7 @@
     display: block;
   }
   .layout-content {
-    margin-left: 19px;
+    margin-left: 0;
+    padding-inline: 20px;
   }
 }

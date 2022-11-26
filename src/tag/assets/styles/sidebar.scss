@@ -19,6 +19,7 @@
     @media screen and (max-width: 768px) {
         position: static;
         display: flex;
+        flex-direction: column;
         height: 65px;
         width: 100%;
         padding: 0 var(--unit) !important;
@@ -27,8 +28,16 @@
         background-color: var(--neutral0);
         border-bottom: var(--neutral200) solid 1px;
         .sidebar-collapsed-button {
-          margin: 0 !important;
           height: auto;
+          margin: 0 !important;
+          margin-right: auto !important;
+          &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            width: 100%;
+            background-color: var(--neutral200);
+          }
         }
         .sidebar-divider {
           display: none;
@@ -39,6 +48,9 @@
         & a {
           display: none;
         }
+        // & a[title="About"] {
+        //   display: block;
+        // }
       .sidebar_collapsed.open {
         position: absolute;
         top: 0;
@@ -150,9 +162,6 @@
     &:focus-visible {
       border: calc(var(--unit) / 8) solid var(--secondary100);
       outline: calc(var(--unit) / 2) solid var(--secondary300);
-    }
-    @media (prefers-color-scheme: dark) {
-      fill: red;
     }
   }
 

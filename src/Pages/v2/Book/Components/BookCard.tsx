@@ -12,12 +12,7 @@ interface IBookCard {
 const BookCard: React.FC<IBookCard> = ({ onClick, id, active, day }) => {
   return (
     <Card
-      style={{
-        width: '275px',
-        padding: '24px',
-        outline: active ? '2px solid var(--secondary400)' : 'none',
-        position: 'relative'
-      }}
+      className={`book-card ${active ? 'active' : ''}`}
       onClick={() => onClick({ id, day })}
     >
       <input

@@ -6,7 +6,6 @@ import {
 } from '@TagDs/components/sidebar/sidebar'
 import { Footer } from '../../Components/v2/Footer/Footer'
 import { PreFooter } from '../../Components/v2/PreFooter/PreFooter'
-import './styles.css'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { handleDownloadResumee } from '../../utils/downloadCV'
 import { useState } from 'react'
@@ -25,6 +24,7 @@ import oFolder from '/newIcons/folder.svg'
 import view from '/newIcons/view-o.svg'
 import oView from '/newIcons/view.svg'
 import logo from '/Logo.svg'
+import './styles.css'
 const TITLE_OFFSET = 100
 
 export const Layout: React.FC<any> = ({ children }) => {
@@ -41,6 +41,12 @@ export const Layout: React.FC<any> = ({ children }) => {
     }
   }
 
+  const handleHome = () => {
+    console.log(location.pathname)
+    if (location.pathname !== '/') navigate('/')
+    document.body.scrollTop = 0
+  }
+
   return (
     <div className="tag-ds layout">
       <div className="layout-inner">
@@ -49,11 +55,11 @@ export const Layout: React.FC<any> = ({ children }) => {
             <img
               src={logo}
               alt="logo"
-              style={{ width: '34px', objectFit: 'cover' }}
+              style={{ width: '34px', height: '49px', objectFit: 'cover' }}
+              onClick={handleHome}
             />
           }
           collapsed
-          className=""
         >
           <SidebarDivider key={0}>sections</SidebarDivider>
           <SidebarButton

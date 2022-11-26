@@ -33,6 +33,6 @@
 
 @media (max-width: 768px) {
   .cert-ref-container {
-    max-width: 335px;
+    margin: auto;
   }
 }

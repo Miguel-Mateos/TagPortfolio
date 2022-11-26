@@ -50,7 +50,7 @@
   .section-tech_stack {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 334px;
+    /* width: 334px; */
   }
   .section-tech_stack > .custom-chip {
     white-space: nowrap;

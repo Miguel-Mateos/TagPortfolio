@@ -1,0 +1,12 @@
+.seemore {
+  display: flex;
+  flex-direction: row;
+  gap: 72px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .seemore > .separator {
+    margin: auto;
+  }
+}
