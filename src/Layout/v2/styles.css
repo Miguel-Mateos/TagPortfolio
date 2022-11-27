@@ -1,5 +1,7 @@
+
 .layout-inner {
   display: flex;
+  min-height: 100vh;
 }
 
 .layout-content {
