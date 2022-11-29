@@ -167,7 +167,7 @@ export const Sidebar: React.FC<ISidebarProps> = (props) => {
             ? `${rest['data-testid']}-collapsed-btn`
             : undefined
         }
-        className="sidebar-collapsed-button"
+        className="sidebar-collapsed-button logo"
       >
         {logo}
       </button>

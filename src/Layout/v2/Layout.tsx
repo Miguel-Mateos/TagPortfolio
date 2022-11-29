@@ -8,7 +8,7 @@ import { Footer } from '../../Components/v2/Footer/Footer'
 import { PreFooter } from '../../Components/v2/PreFooter/PreFooter'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { handleDownloadResumee } from '../../utils/downloadCV'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import book from '/newIcons/book-o.svg'
 import oBook from '/newIcons/book.svg'
 import chat from '/newIcons/chat-o.svg'
@@ -42,10 +42,23 @@ export const Layout: React.FC<any> = ({ children }) => {
   }
 
   const handleHome = () => {
-    console.log(location.pathname)
     if (location.pathname !== '/') navigate('/')
     document.body.scrollTop = 0
   }
+
+  useEffect(() => {
+    const { pathname } = location
+    if (pathname.includes('/Study')) {
+      setSelected('button6')
+      const focuser = document.getElementsByClassName('focuser')
+      if (focuser.length) {
+        const focuserElement = focuser[0] as HTMLElement
+        focuserElement.style.top = `${
+          document.getElementById('button6')!.offsetTop
+        }px`
+      }
+    }
+  }, [location])
 
   return (
     <div className="tag-ds layout">

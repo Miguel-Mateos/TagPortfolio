@@ -1,10 +1,10 @@
+import { useRef, useEffect, useState } from 'react'
 import Breadcrumb, {
   BreadcrumbItem
 } from '@TagDs/components/breadcrumb/breadcrumb'
 import { HeadLine } from '@Components/v2/HeadLine/HeadLine'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './study.css'
-import { useEffect, useState } from 'react'
 import Loader from '@TagDs/components/loader/loader'
 import { CustomChip } from '@Components/v2/CaseStudies/CaseStudies'
 import { serializeClient } from '@Components/v2/CaseStudies/utils/client'
@@ -24,6 +24,8 @@ interface LocationState {
 export const Study = () => {
   const [readme, setReadme] = useState<string>('')
   const [languages, setLanguages] = useState<{ [key: string]: string }>({})
+  const studyRightRef = useRef<HTMLDivElement>(null)
+  const headRef = useRef<HTMLHeadingElement>(null)
   const navigate = useNavigate()
   const history = useLocation()
   const state = history.state as LocationState
@@ -61,9 +63,39 @@ export const Study = () => {
 
   marked.use({ renderer: { heading: headerRenderer } })
 
+  const handleShadowBox = () => {
+    if (studyRightRef.current && headRef.current) {
+      const { top } = studyRightRef.current.getBoundingClientRect()
+      if (top <= headRef.current.getBoundingClientRect().bottom) {
+        studyRightRef.current.style.boxShadow =
+          '4px 8px 16px rgba(28, 48, 75, 0.08)'
+      } else {
+        studyRightRef.current.style.boxShadow = 'none'
+      }
+    }
+  }
+
+  useEffect(() => {
+    document.body.addEventListener(
+      'scroll',
+      () => {
+        handleShadowBox()
+      },
+      {
+        passive: true
+      }
+    )
+
+    return () => {
+      document.body.removeEventListener('scroll', () => {
+        handleShadowBox()
+      })
+    }
+  }, [])
+
   return (
     <div role="main">
-      <HeadLine title="Hello Welcome to my portfolio!" />
+      <HeadLine ref={headRef} title="Hello Welcome to my portfolio!" />
       <div className="study-header">
         <Breadcrumb>
           <BreadcrumbItem
@@ -97,7 +129,7 @@ export const Study = () => {
             </div>
           </main>
         </div>
-        <div className="study-right-side">
+        <div ref={studyRightRef} className="study-right-side">
           <div className="study-right-side-container">
             <div className="study-right-side-element">
               <small>Client</small>
@@ -123,7 +155,7 @@ export const Study = () => {
               </p>
             </div>
 
-            <div>
+            <div className="study-right-side-element">
               <small>Tech Stack</small>
               {languages ? (
                 <div className="study-tech-stack">
@@ -136,7 +168,7 @@ export const Study = () => {
               )}
             </div>
 
-            <div>
+            <div className="study-right-side-element">
               <small>Methodology</small>
               <p className="study-topic-element">
                 {methodologyParser(state.topics)}

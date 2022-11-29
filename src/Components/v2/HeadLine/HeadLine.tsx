@@ -1,30 +1,24 @@
-import Avatar, { AvatarImg } from '@TagDs/components/avatar/avatar'
-import { useLocation } from 'react-router-dom'
+import { forwardRef } from 'react'
 import './styles.css'
 
 interface HeadLineProps {
   title: string
+  ref: React.RefObject<HTMLHeadingElement>
 }
 
-export const HeadLine: React.FC<HeadLineProps> = ({ title }) => {
-  const location = useLocation()
+const Head: React.ForwardRefRenderFunction<
+  HTMLHeadingElement,
+  HeadLineProps
+> = ({ title }, ref) => {
   return (
-    <header className="headline-header">
+    <header ref={ref} className="headline-header">
       {title && (
         <p id="about" className="headline-about">
           {title}
         </p>
       )}
-      {location.pathname !== '/' && (
-        <Avatar title="Iñigo Moreno" small className="headline-avatar">
-          <AvatarImg>
-            <img
-              alt="img"
-              src="https://avatars.githubusercontent.com/eneko96"
-            />
-          </AvatarImg>
-        </Avatar>
-      )}
     </header>
   )
 }
+
+export const HeadLine = forwardRef(Head)

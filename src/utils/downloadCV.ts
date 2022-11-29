@@ -6,8 +6,8 @@ export const handleDownloadResumee = () => {
       // Setting various property values
       const alink = document.createElement('a')
       alink.href = fileURL
-      alink.download = 'Inigo_Moreno_Resume.pdf'
-      alink.click()
+      window.open(fileURL)
+      // alink.download = 'Inigo_Moreno_Resume.pdf'
     })
   })
 }
