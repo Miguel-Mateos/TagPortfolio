@@ -11,6 +11,9 @@ import { serializeClient } from '@Components/v2/CaseStudies/utils/client'
 import { projectTypeParser } from '@Components/v2/CaseStudies/utils/projectType'
 import { methodologyParser } from '@Components/v2/CaseStudies/utils/methodologies'
 import { marked } from 'marked'
+
+const BOX_SHADOW_CONSTRUCTOR = '4px 8px 16px rgba(28, 48, 75, 0.08)'
+const BOX_SHADOW_TRANSITION = '4px 8px 16px rgba(28, 48, 75, 0.08)'
 interface LocationState {
   title: string
   repo: string
@@ -29,6 +32,7 @@ export const Study = () => {
   const navigate = useNavigate()
   const history = useLocation()
   const state = history.state as LocationState
+  let isScrolling: any
 
   useEffect(() => {
     const getReadme = async () => {
@@ -64,15 +68,17 @@ export const Study = () => {
   marked.use({ renderer: { heading: headerRenderer } })
 
   const handleShadowBox = () => {
-    if (studyRightRef.current && headRef.current) {
-      const { top } = studyRightRef.current.getBoundingClientRect()
-      if (top <= headRef.current.getBoundingClientRect().bottom) {
-        studyRightRef.current.style.boxShadow =
-          '4px 8px 16px rgba(28, 48, 75, 0.08)'
-      } else {
-        studyRightRef.current.style.boxShadow = 'none'
-      }
+    window.clearTimeout(isScrolling)
+    if (
+      studyRightRef.current &&
+      Boolean(studyRightRef.current.style.boxShadow) === false
+    ) {
+      studyRightRef.current.style.boxShadow = BOX_SHADOW_CONSTRUCTOR
     }
+    isScrolling = setTimeout(() => {
+      studyRightRef.current!.style.transition = BOX_SHADOW_TRANSITION
+      studyRightRef.current!.style.boxShadow = ''
+    }, 500)
   }
 
   useEffect(() => {
@@ -88,7 +94,7 @@ export const Study = () => {
 
     return () => {
       document.body.removeEventListener('scroll', () => {
-        handleShadowBox()
+        studyRightRef.current!.style.boxShadow = 'none'
       })
     }
   }, [])
