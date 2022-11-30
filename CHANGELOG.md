@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## 1.0.0
+
 - section, boxshadow when scroll
 - add splash screen
 - add splash screen and fix scroll into view when layout
