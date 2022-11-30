@@ -13,7 +13,6 @@ import { methodologyParser } from '@Components/v2/CaseStudies/utils/methodologie
 import { marked } from 'marked'
 
 const BOX_SHADOW_CONSTRUCTOR = '4px 8px 16px rgba(28, 48, 75, 0.08)'
-const BOX_SHADOW_TRANSITION = '4px 8px 16px rgba(28, 48, 75, 0.08)'
 interface LocationState {
   title: string
   repo: string
@@ -76,7 +75,6 @@ export const Study = () => {
       studyRightRef.current.style.boxShadow = BOX_SHADOW_CONSTRUCTOR
     }
     isScrolling = setTimeout(() => {
-      studyRightRef.current!.style.transition = BOX_SHADOW_TRANSITION
       studyRightRef.current!.style.boxShadow = ''
     }, 500)
   }
