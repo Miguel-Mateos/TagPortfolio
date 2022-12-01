@@ -11,6 +11,7 @@ import { serializeClient } from '@Components/v2/CaseStudies/utils/client'
 import { projectTypeParser } from '@Components/v2/CaseStudies/utils/projectType'
 import { methodologyParser } from '@Components/v2/CaseStudies/utils/methodologies'
 import { marked } from 'marked'
+import { useLayoutWidth } from '@Utils/isMobile'
 
 const BOX_SHADOW_CONSTRUCTOR = '4px 8px 16px rgba(28, 48, 75, 0.08)'
 interface LocationState {
@@ -32,6 +33,7 @@ export const Study = () => {
   const history = useLocation()
   const state = history.state as LocationState
   let isScrolling: any
+  const { layoutWidth } = useLayoutWidth({ dynamic: false })
 
   useEffect(() => {
     const getReadme = async () => {
@@ -69,6 +71,7 @@ export const Study = () => {
   const handleShadowBox = () => {
     window.clearTimeout(isScrolling)
     if (
+      layoutWidth === 'desktop' &&
       studyRightRef.current &&
       Boolean(studyRightRef.current.style.boxShadow) === false
     ) {
@@ -95,7 +98,7 @@ export const Study = () => {
         studyRightRef.current!.style.boxShadow = 'none'
       })
     }
-  }, [])
+  }, [layoutWidth])
 
   return (
     <div role="main">

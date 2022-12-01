@@ -5,6 +5,7 @@ import { Home } from '../Home'
 import '@TagDs/assets/styles/main.scss'
 import { Study } from '../Study/Study'
 import ScrollToTop from '@Components/ScrollTop'
+import { CVPage } from '../CV'
 
 export const Router = () => {
   return (
@@ -32,6 +33,14 @@ export const Router = () => {
             element={
               <Layout>
                 <Study />
+              </Layout>
+            }
+          />
+          <Route
+            path="CV"
+            element={
+              <Layout>
+                <CVPage />
               </Layout>
             }
           />

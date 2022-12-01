@@ -1,0 +1,15 @@
+iframe {
+  width: 100%;
+  height: 100vh;
+  border: none;
+}
+
+.cv-header {
+  background-color: var(--neutral100);
+  min-height: 220px;
+  padding-left: 40px;
+  padding-top: 16px;
+  padding-bottom: 28px;
+  display: flex;
+  align-items: center;
+}

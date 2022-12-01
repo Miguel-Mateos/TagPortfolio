@@ -25,6 +25,7 @@ import view from '/newIcons/view-o.svg'
 import oView from '/newIcons/view.svg'
 import logo from '/Logo.svg'
 import './styles.css'
+import { isMobile } from '@Utils/isMobile'
 const TITLE_OFFSET = 100
 
 export const Layout: React.FC<any> = ({ children }) => {
@@ -48,14 +49,21 @@ export const Layout: React.FC<any> = ({ children }) => {
 
   useEffect(() => {
     const { pathname } = location
+    const focuser = document.getElementsByClassName('focuser')
+    let focus: any
+    if (focuser.length > 0) {
+      focus = focuser[0] as HTMLElement
+    }
     if (pathname.includes('/Study')) {
       setSelected('button6')
-      const focuser = document.getElementsByClassName('focuser')
-      if (focuser.length) {
-        const focuserElement = focuser[0] as HTMLElement
-        focuserElement.style.top = `${
-          document.getElementById('button6')!.offsetTop
-        }px`
+      if (focus) {
+        focus.style.top = `${document.getElementById('button6')!.offsetTop}px`
+      }
+    }
+    if (pathname.includes('/Book')) {
+      setSelected('button8')
+      if (focus) {
+        focus.style.top = `${document.getElementById('button8')!.offsetTop}px`
       }
     }
   }, [location])
@@ -172,7 +180,9 @@ export const Layout: React.FC<any> = ({ children }) => {
             className={selected === 'button9' ? 'selected' : ''}
             id="button9"
             label="Resume"
-            onPressed={handleDownloadResumee}
+            onPressed={() =>
+              isMobile ? handleDownloadResumee() : navigate('/CV')
+            }
           />
         </Sidebar>
         <div className="layout-content">{children}</div>
