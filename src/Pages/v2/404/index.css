@@ -1,0 +1,22 @@
+p > span {
+  font-weight: 500;
+}
+
+.e-404-container {
+  margin-top: 30px;
+  margin-left: 80px;
+  width: fit-content;
+}
+
+.e-404-container > h4 {
+  margin-top: 1.5rem;
+}
+
+.e-404-img {
+  margin-left: 0px;
+}
+
+.e-404-back {
+  margin-top: 1.5rem;
+  margin-left: auto;
+}
