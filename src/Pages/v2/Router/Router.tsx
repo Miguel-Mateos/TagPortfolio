@@ -6,6 +6,7 @@ import '@TagDs/assets/styles/main.scss'
 import { Study } from '../Study/Study'
 import ScrollToTop from '@Components/ScrollTop'
 import { CVPage } from '../CV'
+import { E404 } from '../404'
 
 export const Router = () => {
   return (
@@ -41,6 +42,14 @@ export const Router = () => {
             element={
               <Layout>
                 <CVPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Layout>
+                <E404 />
               </Layout>
             }
           />
