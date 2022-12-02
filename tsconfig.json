@@ -36,6 +36,9 @@
       "@Pages/*": [
         "src/Pages/*"
       ],
+      "@Hooks/*": [
+        "src/hooks/*"
+      ],
     }
   },
   "include": [

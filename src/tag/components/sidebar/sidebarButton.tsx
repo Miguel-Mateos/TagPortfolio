@@ -65,6 +65,7 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
   } = props
 
   const moveSelector = (id: string) => {
+    console.log('move selector')
     const selector = document.getElementById(id)
     if (selector) {
       const focuser = document.getElementsByClassName('focuser')

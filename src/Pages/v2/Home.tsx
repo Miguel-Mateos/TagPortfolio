@@ -59,5 +59,3 @@ export const Home = () => {
     )
   return null
 }
-
-// image could be retrieved from supabase

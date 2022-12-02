@@ -12,8 +12,13 @@ import { projectTypeParser } from '@Components/v2/CaseStudies/utils/projectType'
 import { methodologyParser } from '@Components/v2/CaseStudies/utils/methodologies'
 import { marked } from 'marked'
 import { useLayoutWidth } from '@Utils/isMobile'
+import { useEvent } from '@Hooks/useEvent'
+import { shadowHandler } from './lib/shadowHandler'
+import { getReadme } from './lib/getReadme'
+import { getLanguages } from './lib/getLanguages'
+import { headerRenderer } from './lib/headerRenderer'
+import { usePromiseAll } from './lib/useFetch'
 
-const BOX_SHADOW_CONSTRUCTOR = '4px 8px 16px rgba(28, 48, 75, 0.08)'
 interface LocationState {
   title: string
   repo: string
@@ -35,70 +40,19 @@ export const Study = () => {
   let isScrolling: any
   const { layoutWidth } = useLayoutWidth({ dynamic: false })
 
-  useEffect(() => {
-    const getReadme = async () => {
-      const readme = await fetch(
-        `https://raw.githubusercontent.com/${state.owner}/${state.repo}/${state.branch}/README.md`
-      )
-      const res = await readme.text()
-      setReadme(res)
-    }
+  useEvent({
+    listener: () => shadowHandler({ isScrolling, studyRightRef, layoutWidth }),
+    type: 'scroll',
+    origin: 'documentBody',
+    depA: [layoutWidth]
+  })
 
-    const getLanguages = async () => {
-      const languages = await fetch(state.languages_url)
-      const res = await languages.json()
-      setLanguages(res)
-    }
-    if (state) Promise.all([getReadme(), getLanguages()])
-    else navigate('/')
-  }, [])
-
-  const headerRenderer = (text: string, level: 2 | 1 | 3 | 4 | 5 | 6) => {
-    const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-')
-    if (level === 2) {
-      return `<div class="study-img-container" data-title=${text}>
-          <img
-            class="study-img-title"
-            src="https://picsum.photos/650"
-            alt=${text}
-          />
-        </div>`
-    } else return `<h${level} id="${escapedText}">${text}</h${level}>`
-  }
+  usePromiseAll({
+    promise: [getReadme(state), getLanguages(state)],
+    setStates: [setReadme, setLanguages]
+  })
 
   marked.use({ renderer: { heading: headerRenderer } })
-
-  const handleShadowBox = () => {
-    window.clearTimeout(isScrolling)
-    if (
-      layoutWidth === 'desktop' &&
-      studyRightRef.current &&
-      Boolean(studyRightRef.current.style.boxShadow) === false
-    ) {
-      studyRightRef.current.style.boxShadow = BOX_SHADOW_CONSTRUCTOR
-    }
-    isScrolling = setTimeout(() => {
-      studyRightRef.current!.style.boxShadow = ''
-    }, 500)
-  }
-
-  useEffect(() => {
-    document.body.addEventListener(
-      'scroll',
-      () => {
-        handleShadowBox()
-      },
-      {
-        passive: true
-      }
-    )
-
-    return () => {
-      document.body.removeEventListener('scroll', () => {
-        studyRightRef.current!.style.boxShadow = 'none'
-      })
-    }
-  }, [layoutWidth])
 
   return (
     <div role="main">
