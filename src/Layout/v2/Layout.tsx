@@ -30,6 +30,7 @@ const TITLE_OFFSET = 100
 
 export const Layout: React.FC<any> = ({ children }) => {
   const [selected, setSelected] = useState('button2')
+  const [open, setOpen] = useState(false)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -72,6 +73,7 @@ export const Layout: React.FC<any> = ({ children }) => {
     <div className="tag-ds layout">
       <div className="layout-inner">
         <Sidebar
+          open={open}
           logo={
             <img
               src={logo}
@@ -98,6 +100,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             onPressed={() => {
               setSelected('button2')
               handleScroll('about')
+              if (isMobile) setOpen(false)
             }}
             selected={selected === 'button2'}
           />
@@ -165,6 +168,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             href="#"
             onPressed={() => {
               setSelected('button8')
+              if (isMobile) setOpen(false)
               navigate('/Book')
             }}
           />
@@ -180,10 +184,28 @@ export const Layout: React.FC<any> = ({ children }) => {
             className={selected === 'button9' ? 'selected' : ''}
             id="button9"
             label="Resume"
-            onPressed={() =>
-              isMobile ? handleDownloadResumee() : navigate('/CV')
-            }
+            onPressed={() => {
+              if (isMobile) {
+                handleDownloadResumee()
+                setOpen(false)
+              } else navigate('/CV')
+            }}
           />
+          {isMobile && (
+            <SidebarButton
+              label="Menu"
+              icon={
+                <span className="material-icons-outlined">
+                  {open ? 'close' : 'menu'}
+                </span>
+              }
+              className={selected === 'button10' ? 'selected' : ''}
+              id="button10"
+              onPressed={() => {
+                setOpen(!open)
+              }}
+            />
+          )}
         </Sidebar>
         <div className="layout-content">{children}</div>
       </div>

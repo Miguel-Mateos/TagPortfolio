@@ -27,6 +27,7 @@ export interface ISidebarProps {
    */
   className?: string
   logo: any
+  open?: boolean
   [others: string]: any
 }
 
@@ -39,6 +40,7 @@ export const Sidebar: React.FC<ISidebarProps> = (props) => {
     className,
     onClickSidebarItem,
     logo,
+    open,
     ...rest
   } = props
 
@@ -157,7 +159,9 @@ export const Sidebar: React.FC<ISidebarProps> = (props) => {
       data-testid={
         rest && rest['data-testid'] ? rest['data-testid'] : undefined
       }
-      className={`sidebar${isCollapsed ? '_collapsed' : ''} ${className || ''}`}
+      className={`sidebar${isCollapsed ? '_collapsed' : ''} ${
+        open ? 'open' : ''
+      } ${className || ''}`}
     >
       <div className="focuser" />
       {renderSidebarLogo()}

@@ -1,3 +1,4 @@
+import { isMobile } from '@Utils/isMobile'
 import React from 'react'
 import Dropdown, { DropdownButton, DropdownMenu } from '../dropdown/dropdown'
 const TRANSITION_CONSTRUCTOR = 'top 0.3s ease-in-out'
@@ -65,7 +66,6 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
   } = props
 
   const moveSelector = (id: string) => {
-    console.log('move selector')
     const selector = document.getElementById(id)
     if (selector) {
       const focuser = document.getElementsByClassName('focuser')
@@ -75,6 +75,13 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
         focus.style.top = `${selector.offsetTop}px`
       }
     }
+  }
+
+  const Mobile: React.FC<{ children: React.ReactElement<any, any> | null }> = ({
+    children
+  }) => {
+    if (isMobile) return <div className="sidebar-button_mobile">{children}</div>
+    return children
   }
 
   return dropdown ? (
@@ -97,25 +104,27 @@ export const SidebarButton: React.FC<ISidebarButtonProps> = (props) => {
       <DropdownMenu>{children}</DropdownMenu>
     </Dropdown>
   ) : (
-    <a
-      id={id}
-      title={label}
-      key={id}
-      data-testid={
-        rest && rest['data-testid'] ? rest['data-testid'] : undefined
-      }
-      className={`sidebar-button${selected ? '_selected' : ''}${
-        disabled ? '_disabled' : ''
-      } ${className || ''}`}
-      href={href}
-      onClick={() => {
-        props.onPressed()
-        moveSelector(id)
-      }}
-    >
-      {icon}
-      {!collapsed && <span>{label}</span>}
-    </a>
+    <Mobile>
+      <a
+        id={id}
+        title={label}
+        key={id}
+        data-testid={
+          rest && rest['data-testid'] ? rest['data-testid'] : undefined
+        }
+        className={`sidebar-button${selected ? '_selected' : ''}${
+          disabled ? '_disabled' : ''
+        } ${className || ''}`}
+        href={href}
+        onClick={() => {
+          props.onPressed()
+          moveSelector(id)
+        }}
+      >
+        {icon}
+        {!collapsed && <span>{label}</span>}
+      </a>
+    </Mobile>
   )
 }
 

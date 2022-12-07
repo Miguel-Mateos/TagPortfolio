@@ -16,6 +16,13 @@ h1,h2,h3,h4,.title {
     sans-serif;
 }
 
+@media (max-width: 600px) {
+ * {
+  -webkit-tap-highlight-color: transparent;
+ }
+}
+
+
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -25,6 +32,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  overflow: hidden;
 }
 
 a {
