@@ -21,7 +21,7 @@ export const Stack = () => {
         {Object.entries(stackList()).map((entry, idx) => {
           if (entry[1])
             return (
-              <div>
+              <div key={idx + '-teck-stack'}>
                 <div
                   title={entry[0]}
                   className="tech-stack-element"
