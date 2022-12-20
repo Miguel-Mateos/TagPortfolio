@@ -15,7 +15,7 @@ describe('Section', () => {
       <AppContextV2.Provider
         value={{
           baseData: {
-            work_v2: [
+            work: [
               {
                 id: '1',
                 project_type: 'projectType',

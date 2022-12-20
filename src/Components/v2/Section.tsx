@@ -10,17 +10,17 @@ export const Section = () => {
   const toggleMore = () => setMore(!more)
 
   if (baseData) {
-    const { work_v2 } = baseData
+    const { work } = baseData
     const workData = useMemo(
-      () => (more ? work_v2 : work_v2.slice(0, 3)),
-      [work_v2, more]
+      () => (more ? work : work.slice(0, 3)),
+      [work, more]
     )
     return (
       <div className="section-v2-container" id="work">
         <h2 className="section-v2-title">Work Experience</h2>
         <div className="section-v2-work-container">
-          {work_v2 &&
-            work_v2.length &&
+          {work &&
+            work.length &&
             workData.map(({ project_type: projectType, ...rest }, index) => (
               <WorkV2
                 key={index + 'work-section'}

@@ -8,6 +8,7 @@ export const Stack = () => {
     if (baseData) {
       const { tech_stack } = baseData
       const { id, greeting_id, created_at, ...rest } = tech_stack[0]
+      // lazy import images
       return rest
     }
     return []
@@ -27,6 +28,7 @@ export const Stack = () => {
                   key={idx + 'stack-img'}
                 >
                   <img
+                    loading="eager"
                     src={`/${entry[0]}.png`}
                     height="50"
                     width="50"

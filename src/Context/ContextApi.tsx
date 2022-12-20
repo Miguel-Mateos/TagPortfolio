@@ -13,6 +13,20 @@ import {
   IProjectDescription
 } from '../types'
 
+interface IAppContext {
+  supabase: any
+  auth: any
+  projects: IProject[]
+  description: string
+  descriptions: IDescriptions[]
+  language: string
+  changeLanguage: (lan: string) => void
+  works: string[]
+  achievements?: string[]
+  projectDescriptions: IProjectDescription[]
+  aboutDescriptions: IAboutDescriptions[]
+}
+
 export const AppContext = createContext<IAppContext | null>(null)
 
 const AppProvider: FC<any> = ({ children }) => {
@@ -30,7 +44,7 @@ const AppProvider: FC<any> = ({ children }) => {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
   const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
   const supabase = createClient(supabaseUrl, supabaseKey)
-  let timer: any
+  // let timer: any
 
   const getDescription = async () => {
     const { data } = await supabase.from('Experience').select()
@@ -118,20 +132,6 @@ const AppProvider: FC<any> = ({ children }) => {
       {children}
     </AppContext.Provider>
   )
-}
-
-interface IAppContext {
-  supabase: any
-  auth: any
-  projects: IProject[]
-  description: string
-  descriptions: IDescriptions[]
-  language: string
-  changeLanguage: (lan: string) => void
-  works: string[]
-  achievements?: string[]
-  projectDescriptions: IProjectDescription[]
-  aboutDescriptions: IAboutDescriptions[]
 }
 
 // extend the context of the app context for ts compatibility

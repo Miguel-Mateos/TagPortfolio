@@ -90,6 +90,7 @@ export const Layout: React.FC<any> = ({ children }) => {
             className={selected === 'button2' ? 'selected' : ''}
             icon={
               <img
+                loading="eager"
                 src={selected === 'button2' ? oLocation : nLocation}
                 alt="svg"
               />

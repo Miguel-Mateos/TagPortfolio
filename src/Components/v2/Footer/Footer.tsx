@@ -6,7 +6,7 @@ export const Footer = () => {
     <footer className="footer-container">
       <nav className="footer-nav">
         <a
-          href="https://www.linkedin.com/in/i%C3%B1igo-moreno-ramos-175928167/"
+          href="https://linkedin.com/in/miguel-mateos/"
           target="_blank"
           className="footer-nav-anchor"
           role="link"
@@ -22,16 +22,18 @@ export const Footer = () => {
           <small style={{ cursor: 'pointer' }}>Download CV</small>
         </a>
         <a
-          href="https://github.com/Eneko96"
+          href="https://github.com/Eneko96" // Pon el link a lo que quieras
           target="_blank"
           className="footer-nav-anchor"
           role="link"
           rel="noreferrer"
         >
-          <small>Github</small>
+          <small title="Archivo Footer linea 31 y 25">
+            Link que quieras (hover 3s)
+          </small>
         </a>
         <a className="footer-nav-anchor" href="tel:0852049402">
-          <small>085 204 9402</small>
+          <small>Your phone number here</small>
         </a>
       </nav>
       <div className="footer-name">

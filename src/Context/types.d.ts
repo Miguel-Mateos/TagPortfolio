@@ -94,7 +94,7 @@ export interface IBaseData {
   skills: string
   strengths: string
   id: number
-  work_v2: IWorks[]
+  work: IWorks[]
   projects_v2: IProjects[]
   cert_ref: ICertRef[]
   booking: Object[]

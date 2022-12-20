@@ -29,16 +29,13 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
       .select(
         `
       *,
-      work_v2 (
+      work (
         id,
         client,
         date,
         project_type,
         description,
         tech_stack
-      ),
-      projects_v2 (
-        id
       ),
       cert_ref (
         id,
@@ -56,7 +53,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
       )
     `
       )
-      .order('id', { foreignTable: 'work_v2', ascending: true })
+      .order('id', { foreignTable: 'work', ascending: true })
       .single()
     if (data) {
       setId(data?.id)
@@ -70,7 +67,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
   }
 
   const getWorks = async () => {
-    const { data } = await supabase.from('work_v2').select(`
+    const { data } = await supabase.from('work').select(`
     client, date, project_type, description`)
     return data
   }
@@ -88,7 +85,7 @@ const AppProviderV2: React.FC<any> = ({ children }) => {
   const addWork = async (data: any) => {
     const tempData = { ...data }
     tempData.greeting_id = id
-    const { status } = await supabase.from('work_v2').insert(tempData)
+    const { status } = await supabase.from('work').insert(tempData)
     return { status }
   }
 
