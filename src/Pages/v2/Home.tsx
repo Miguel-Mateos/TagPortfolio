@@ -18,9 +18,6 @@ export const Home = () => {
               <h1 className="home-hero-title">
                 I am {baseData.name}, {baseData.position}
               </h1>
-              <div className="subtitle">Based in</div>
-              <div className="base">Dublin, Ireland</div>
-              <br />
               <div className="subtitle">
                 Experience In the Following industries
               </div>

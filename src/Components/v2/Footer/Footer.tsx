@@ -37,7 +37,7 @@ export const Footer = () => {
         </a>
       </nav>
       <div className="footer-name">
-        <small>Iñigo Moreno 2022</small>
+        <small>Miguel Mateos 2022</small>
       </div>
     </footer>
   )
