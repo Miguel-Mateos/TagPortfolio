@@ -33,7 +33,7 @@ export const Footer = () => {
           </small>
         </a>
         <a className="footer-nav-anchor" href="tel:0852049402">
-          <small>Your phone number here</small>
+          <small>Este es mi movil</small>
         </a>
       </nav>
       <div className="footer-name">
